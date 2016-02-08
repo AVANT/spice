@@ -1,0 +1,23 @@
+{{ partial "head" . }}
+<body>
+	
+	{{ partial "off-canvas" . }}
+
+	<div class="site-wrapper">
+		{{ partial "header" . }}
+				
+		<section class="list-wrap">
+			<main>
+				<h1 class="list-title">{{ .Title }}</h1>
+				{{ range .Data.Pages }}
+				{{ partial "article-list-item.html" . }}
+				{{ end }}
+			</main>
+		</section>
+
+		{{ partial "footer" . }}
+	</div>
+	
+	{{ partial "js" . }}
+</body>
+</html>

@@ -1,0 +1,38 @@
+baseurl = "http://alpha.avant.org/"
+languageCode = "en-us"
+title = "AVANT.org"
+googleAnalytics = "UA-46800316-1"
+watch = true
+
+[permalinks]
+	post = "/media/:slug"
+
+[taxonomies]
+	tag = "tags"
+	thread = "threads"
+
+[params]
+	name = "Your name"
+	description = "Describe your website"
+
+	# Links to newer/older blog posts
+	newer = "Newer"
+	older = "Older"
+
+	pageNotFoundTitle = "Page not found"
+	pageNotFoundSubtitle = "Sorry, but the requested page wasn’t <br> found on the server."
+
+[params.offcanvas]
+	# Menu items
+	title = "AVANT.org"
+	bio = "A project space for the internet and elsewhere."
+	subscribe = "Subscribe"
+	followme = "Networks"
+
+	# Enable Google search
+	search_enabled = false
+	search = "Search"
+
+	[[params.offcanvas.socialnetworks]]
+		name = "Twitter"
+		url = "//twitter.com/avantdotorg"

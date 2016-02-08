@@ -1,0 +1,20 @@
+{{ partial "head" . }}
+<body>
+	
+	{{ partial "off-canvas" . }}
+
+	<div class="site-wrapper">
+		{{ partial "header" . }}
+		
+		<section class="single-wrap">
+			<main role="main" class="article">
+				{{ partial "article.html" . }}
+			</main>
+		</section>
+
+		{{ partial "footer" . }}
+	</div>
+	
+	{{ partial "js" . }}
+</body>
+</html>
