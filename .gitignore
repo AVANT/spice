@@ -1,7 +1,10 @@
 .DS_Store
+deploy.log
+
 static/*
 !static/js/
 !static/styles/
+
 public/
 node_modules/
 example/
