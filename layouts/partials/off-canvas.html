@@ -1,13 +1,9 @@
 <div class="off-canvas">
 
-	<figure class="avatar">
-		<img src="{{ .Site.BaseURL }}img/avatar.jpg" title="{{ with .Site.Params.name }}{{ . }}{{ end }}">
-	</figure>
-
 	<div class="bio">
 
 		{{ with .Site.Params.offcanvas.title }}
-			<h1>{{ . }}</h1>
+			<h1 class="title"><a href="{{ $.Site.BaseURL }}">{{ . }}</a></h1>
 		{{ end }}
 
 		{{ with .Site.Params.offcanvas.bio }}
@@ -34,25 +30,37 @@
 
 		{{end}}
 
-
-		{{ with .Site.Params.offcanvas.followme }}
-			<h6>{{ . }}</h6>
-		{{ end }}
-
+		<h6>Sitemap</h6>
 		<ul>
-			{{ range .Site.Params.offcanvas.socialnetworks }}
-				<li><a target="_blank" href="{{ .url }}">{{ .name }}</a></li>
-			{{ end }}
+			<li><a href="{{ $.Site.BaseURL  }}imprint/">Imprint</a></li>
+			<li><a href="{{ $.Site.BaseURL  }}gallery/">Gallery</a></li>
+			<li><a href="{{ $.Site.BaseURL  }}threads/">Threads</a></li>
+			<li><a href="{{ $.Site.BaseURL  }}tags/">Tags</a></li>
 		</ul>
 
-
-		{{ with .Site.Params.offcanvas.subscribe }}
-			<h6>{{ . }}</h6>
-		{{ end }}
-
+		<h6>Networks</h6>
 		<ul>
+			<li><a target="_blank" href="https://www.facebook.com/avantdotorg">facebook</a></li>
+			<li><a target="_blank" href="https://twitter.com/avantdotorg">twitter</a></li>
+			<li><a target="_blank" href="https://www.instagram.com/avantdotorg/">instagram</a></li>
+			<li><a target="_blank" href="https://github.com/AVANT">github</a></li>
 			<li><a target="_blank" href="{{ .Site.BaseURL }}index.xml">RSS feed</a></li>
 		</ul>
+
+		<form action="//avant.us3.list-manage.com/subscribe/post?u=ce9d44831a234bd3f42ef5ca4&amp;id=297278e3fc" method="post" name="mc-embedded-subscribe-form" class="newsletter-signup validate newsletter-signup" target="_blank" novalidate>
+
+			<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+
+			<!-- bot honeypot -->
+			<div style="position: absolute; left: -5000px;">
+				<input type="text" name="b_ce9d44831a234bd3f42ef5ca4_297278e3fc" tabindex="-1" value="">
+			</div>
+
+			<div class="clear">
+				<input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button js-submit">
+			</div>
+
+		</form>
 
 	</nav>
 </div>

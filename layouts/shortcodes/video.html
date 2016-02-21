@@ -1,0 +1,6 @@
+<div class="video-box">
+<div class="video-container">
+  <iframe src="//player.vimeo.com/video/{{ .Get "id" }}" allowfullscreen></iframe>
+</div>
+{{ if .Inner  }}<div class="video-text" {{ if .Get "width" }}style="width: {{ .Get "width" }}"{{ end }}>{{ .Inner }}</div>{{ end }}
+</div>

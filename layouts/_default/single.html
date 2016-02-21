@@ -1,20 +1,63 @@
 {{ partial "head" . }}
 <body>
-	
-	{{ partial "off-canvas" . }}
 
+	{{ partial "off-canvas" . }}
 	<div class="site-wrapper">
 		{{ partial "header" . }}
-		
-		<section class="single-wrap">
-			<main role="main" class="article">
-				{{ partial "article.html" . }}
-			</main>
-		</section>
+
+		{{ if isset .Params "post" }}
+			<section class="single-wrap">
+				<main role="main" class="article">
+					{{ partial "article.html" . }}
+				</main>
+			</section>
+		{{ end }}
+
+		{{ if isset .Params "gallery" }}
+			<section class="single-wrap">
+				<main role="main" class="article">
+					{{ index .Params "gallery" }}
+					{{ partial "gallery.html" . }}
+			    </main>
+			</section>
+		{{ end }}
+
+		{{ if isset .Params "imprint" }}
+			<section class="single-wrap">
+				<main role="main" class="article">
+					{{ index .Params "imprint" }}
+					{{ partial "imprint.html" . }}
+			    </main>
+			</section>
+		{{ end }}
+
+		{{ if isset .Params "author-list" }}
+			<section class="single-wrap">
+				<main role="main" class="author-list">
+					{{ partial "author-list.html" . }}
+				</main>
+			</section>
+		{{ end }}
+
+		{{ if isset .Params "thread-list" }}
+			<section class="single-wrap">
+				<main role="main" class="thread-list">
+					{{ partial "thread-list.html" . }}
+				</main>
+			</section>
+		{{ end }}
+
+		{{ if isset .Params "tag-list" }}
+			<section class="single-wrap">
+				<main role="main" class="tag-list">
+					{{ partial "tag-list.html" . }}
+				</main>
+			</section>
+		{{ end }}
 
 		{{ partial "footer" . }}
 	</div>
-	
 	{{ partial "js" . }}
+	
 </body>
 </html>

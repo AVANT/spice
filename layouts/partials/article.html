@@ -8,36 +8,56 @@
 		</h5>
 	</div>
 
+	<h1 class="page-title" itemprop="name headline">{{ .Title }}</h1>
+
 	<div class="meta">
 
-		{{ with .Params.threads }}
-			<p class="key">~</p>
-			<span class="val">
+		{{ with .Params.authors }}
+		<div class="meta-block">
+			<span class="author">
 				{{ range . }}
-					<a href="{{ $.Site.BaseURL  }}threads/{{ . | urlize }}">{{ . }}</a>
+					<a href="{{ $.Site.BaseURL  }}authors/{{ . | urlize }}">{{ . }}</a>
 				{{ end }}
 			</span>
+		</div>
+		{{ end }}
+
+		{{ with .Params.threads }}
+			<div class="meta-block">
+				<span class="threads">~</span>
+				<span class="thread">
+					{{ range . }}
+						<a href="{{ $.Site.BaseURL  }}threads/{{ . | urlize }}">{{ . }}</a>
+					{{ end }}
+				</span>
+			</div>
 		{{ end }}
 
 		{{ with .Params.tags }}
-			<p class="key">#</p>
-			<span class="val">
-				{{ range . }}
-					<a href="{{ $.Site.BaseURL  }}tags/{{ . | urlize }}">{{ . }}</a>
-				{{ end }}
-			</span>
+			<div class="meta-block">
+				<span class="tags">#</span>
+				<span class="tag">
+					{{ range . }}
+						<a href="{{ $.Site.BaseURL  }}tags/{{ . | urlize }}">{{ . }}</a>
+					{{ end }}
+				</span>
+			</div>
 		{{ end }}
-
+		
 	</div>
 
-
-	<h1 class="page-title" itemprop="name headline">{{ .Title }}</h1>
 	<div itemprop="articleBody">
 		{{ .Content }}
 	</div>
 	<div class="feat share">
 		<a href="//twitter.com/share" class="popup">
 			<span class="icon-twitter"></span>
+		</a>
+		<a href="//twitter.com/share" class="popup">
+			<span class="icon-facebook"></span>
+		</a>
+		<a href="//twitter.com/share" class="popup">
+			<span class="icon-facebook"></span>
 		</a>
 	</div>
 

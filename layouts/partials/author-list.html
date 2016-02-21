@@ -1,0 +1,9 @@
+<main>
+    <div id="home">
+        <ul id="all-authors">
+          {{ range $name, $taxonomy := .Site.Taxonomies.authors }}
+            <li><a href="/authors/{{ $name | urlize }}">{{ $name }}</a></li>
+          {{ end }}
+        </ul>
+    </div>
+</main>

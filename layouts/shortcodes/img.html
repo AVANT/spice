@@ -1,0 +1,4 @@
+<div class="img-box">
+  <img class="img" src="{{ .Get "url" }}" {{ if .Get "width" }}style="width: {{ .Get "width" }}"{{ end }}>
+  {{ if .Inner  }}<div class="img-text" {{ if .Get "width" }}style="width: {{ .Get "width" }}"{{ end }}>{{ .Inner }}</div>{{ end }}
+</div>

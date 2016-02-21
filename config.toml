@@ -3,6 +3,7 @@ languageCode = "en-us"
 title = "AVANT.org"
 googleAnalytics = "UA-46800316-1"
 watch = true
+FootnoteReturnLinkContents = "↥"
 
 [permalinks]
 	post = "/media/:slug"
@@ -10,10 +11,11 @@ watch = true
 [taxonomies]
 	tag = "tags"
 	thread = "threads"
+	author = "authors"
 
 [params]
 	name = "Your name"
-	description = "Describe your website"
+	description = "A project space for the internet and elsewhere."
 
 	# Links to newer/older blog posts
 	newer = "Newer"
@@ -22,17 +24,28 @@ watch = true
 	pageNotFoundTitle = "Page not found"
 	pageNotFoundSubtitle = "Sorry, but the requested page wasn’t <br> found on the server."
 
-[params.offcanvas]
-	# Menu items
-	title = "AVANT.org"
-	bio = "A project space for the internet and elsewhere."
-	subscribe = "Subscribe"
-	followme = "Networks"
+	[params.offcanvas]
+		# Menu items
+		title = "AVANT.org"
+		bio = "A project space for the internet and elsewhere."
 
-	# Enable Google search
-	search_enabled = false
-	search = "Search"
+		# Enable Google search
+		search_enabled = false
+		search = "Search"
 
-	[[params.offcanvas.socialnetworks]]
-		name = "Twitter"
-		url = "//twitter.com/avantdotorg"
+	[params.authors]
+		[params.authors.taeyoon.choi]
+			name          = "Taeyoon Choi"
+			thumbnail     = "http://objects.avant.org/author_photos/taeyoon_choi.jpeg"
+			bio           = "taeyoon's bio"
+			email         = "test@gmail.com"
+		[params.authors.taeyoon.choi.social]
+			twitter       = "tchoi8"
+
+		[params.authors.sam.silver]
+			name          = "Sam Silver"
+			thumbnail     = "http://objects.avant.org/author_photos/sam_silver.jpeg"
+			bio           = "ss's bio"
+			email         = "test2@gmail.com"
+		[params.authors.sam.silver.social]
+			twitter       = "_samsilver"

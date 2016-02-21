@@ -10,6 +10,13 @@
                         {{ .Date.Format "02 Jan 2006" }}
                         </time>
                         <p itemprop="name headline">{{ .Title }}</p>
+                        {{ with .Params.authors }}
+                        <span class="author">
+                            {{ range . }}
+                                <p>{{ . }}<p>
+                            {{ end }}
+                        </span>
+                        {{ end }}
                     </div>
                 </a>
             </li>
