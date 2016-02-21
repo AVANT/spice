@@ -1,1 +1,1 @@
-Welcome to the AVANT.org site repo, built with [HUGO](https://gohugo.io/) & node.js.
+Welcome to the AVANT.org site repo, built with [HUGO](https://gohugo.io/) & js.
