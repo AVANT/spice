@@ -1,5 +1,7 @@
 .DS_Store
-static/
+static/*
+!static/js/
+!static/styles/
 public/
 node_modules/
 example/
