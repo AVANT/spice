@@ -1,0 +1,74 @@
+<article class="single-content" itemscope itemtype="//schema.org/BlogPosting">
+
+	<div class="feat">
+		<h5 class="page-date">
+		<time datetime="" itemprop="datePublished">
+		{{ .Date.Format "2. January 2006" }}
+		</time>
+		</h5>
+	</div>
+
+	<h1 class="page-title" itemprop="name headline">{{ .Title }}</h1>
+
+	<div class="meta">
+
+		{{ with .Params.author }}
+		<div class="meta-block">
+			<span class="author">
+				{{ range . }}
+					<a href="{{ $.Site.BaseURL  }}author/{{ . | urlize }}">{{ . }}</a>
+				{{ end }}
+			</span>
+		</div>
+		{{ end }}
+
+		{{ with .Params.thread }}
+			<div class="meta-block">
+				<span class="thread">~</span>
+				<span class="thread">
+					{{ range . }}
+						<a href="{{ $.Site.BaseURL  }}thread/{{ . | urlize }}">{{ . }}</a>
+					{{ end }}
+				</span>
+			</div>
+		{{ end }}
+
+		{{ with .Params.tag }}
+			<div class="meta-block">
+				<span class="tag">#</span>
+				<span class="tag">
+					{{ range . }}
+						<a href="{{ $.Site.BaseURL  }}tag/{{ . | urlize }}">{{ . }}</a>
+					{{ end }}
+				</span>
+			</div>
+		{{ end }}
+		
+	</div>
+
+	<div class="text-body" itemprop="articleBody">
+		{{ .Content }}
+	</div>
+	<div class="feat share">
+		<a href="//twitter.com/share" class="popup">
+			<span class="icon-twitter"></span>
+		</a>
+		<a href="//twitter.com/share" class="popup">
+			<span class="icon-facebook"></span>
+		</a>
+		<a href="//twitter.com/share" class="popup">
+			<span class="icon-facebook"></span>
+		</a>
+	</div>
+
+	{{ if .NextInSection }}
+		<a rel="next" href="{{ .NextInSection.Permalink }}" id="next">
+			<span class="nav-title nav-title-next">{{ with .Site.Params.newer }}{{ . }}{{ end }}</span> &rarr;
+		</a>
+	{{ end }}
+	{{ if .PrevInSection }}
+		<a rel="prev" href="{{ .PrevInSection.Permalink }}" id="prev">
+			&larr; <span class="nav-title nav-title-prev">{{ with .Site.Params.older }}{{ . }}{{ end }}</span>
+		</a>
+	{{ end }}
+</article>

@@ -1,56 +1,66 @@
 {{ partial "head" . }}
 <body>
 
-	{{ partial "off-canvas" . }}
+	{{ partial "menu" . }}
 	<div class="site-wrapper">
-		{{ partial "header" . }}
+	{{ partial "nav" . }}
 
-		{{ if isset .Params "post" }}
+<!-- {{ printf "%#v" . }} -->
+
+		{{ if eq .Type "imprint" }}
 			<section class="single-wrap">
-				<main role="main" class="article">
-					{{ partial "article.html" . }}
+				<main role="main" class="item">
+						<div class="text-body" itemprop="articleBody">
+						{{ .Content }}
+						</div>
 				</main>
 			</section>
 		{{ end }}
 
-		{{ if isset .Params "gallery" }}
+		{{ if eq .Type "project" }}
 			<section class="single-wrap">
-				<main role="main" class="article">
-					{{ index .Params "gallery" }}
-					{{ partial "gallery.html" . }}
-			    </main>
-			</section>
-		{{ end }}
-
-		{{ if isset .Params "imprint" }}
-			<section class="single-wrap">
-				<main role="main" class="article">
-					{{ index .Params "imprint" }}
-					{{ partial "imprint.html" . }}
-			    </main>
-			</section>
-		{{ end }}
-
-		{{ if isset .Params "author-list" }}
-			<section class="single-wrap">
-				<main role="main" class="author-list">
-					{{ partial "author-list.html" . }}
+				<main role="main" class="item">
+					{{ partial "items/project.html" . }}
 				</main>
 			</section>
 		{{ end }}
 
-		{{ if isset .Params "thread-list" }}
+		{{ if eq .Type "artifact" }}
 			<section class="single-wrap">
-				<main role="main" class="thread-list">
-					{{ partial "thread-list.html" . }}
+				<main role="main" class="item">
+					{{ partial "items/artifact.html" . }}
 				</main>
 			</section>
 		{{ end }}
 
-		{{ if isset .Params "tag-list" }}
+		{{ if eq .Type "event" }}
 			<section class="single-wrap">
-				<main role="main" class="tag-list">
-					{{ partial "tag-list.html" . }}
+				<main role="main" class="item">
+					{{ partial "items/event.html" . }}
+				</main>
+			</section>
+		{{ end }}
+
+		{{ if eq .Type "gallery" }}
+			<section class="single-wrap">
+				<main role="main" class="item">
+					{{ partial "items/gallery.html" . }}
+				</main>
+			</section>
+		{{ end }}
+
+		{{ if eq .Type "thread-list" }}
+			<section class="single-wrap">
+				<main role="main" class="item">
+					{{ partial "items/thread-list.html" . }}
+				</main>
+			</section>
+		{{ end }}
+
+		{{ if eq .Type "author" }}
+			<section class="single-wrap">
+				<main role="main" class="item">
+					{{ partial "items/author.html" . }}
 				</main>
 			</section>
 		{{ end }}
@@ -58,6 +68,6 @@
 		{{ partial "footer" . }}
 	</div>
 	{{ partial "js" . }}
-	
+
 </body>
 </html>

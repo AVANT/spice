@@ -1,6 +1,8 @@
 <div class="video-box">
 <div class="video-container">
-  <iframe src="//player.vimeo.com/video/{{ .Get "id" }}" allowfullscreen></iframe>
+	<iframe class="b-lazy" {{ if .Get "ratio" }}style="padding-bottom: {{ .Get "ratio" }}"{{ end }} data-src="{{ if or (.Get "vimeo") (.Get "youtube") }}{{ with .Get "vimeo" }}//player.vimeo.com/video/{{ . }}?title=0&byline=0&portrait=0{{ else }}//www.youtube.com/embed/{{ .Get "youtube" }}?rel=0&hd=1{{ end }}{{ end }}" frameborder="0" width="560" height="349" webkitallowfullscreen mozallowfullscreen allowfullscreen>
+		<p>iframes not supported by your browser</p>
+	</iframe>
 </div>
 {{ if .Inner  }}<div class="video-text" {{ if .Get "width" }}style="width: {{ .Get "width" }}"{{ end }}>{{ .Inner }}</div>{{ end }}
 </div>

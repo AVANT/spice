@@ -1,19 +1,148 @@
 {{ partial "head" . }}
 <body>
 	
-	{{ partial "off-canvas" . }}
+	{{ partial "menu" . }}
 	<div class="site-wrapper">
-		{{ partial "header" . }}
-				
-		<section class="list-wrap">
-			<main>
-				<h1 class="list-title">{{ .Title }}</h1>
-				{{ range .Data.Pages }}
-				{{ partial "article-list-item.html" . }}
-				{{ end }}
-			</main>
-		</section>
+		{{ partial "nav" . }}
+		
+<!-- {{ printf "%#v" .Title }} -->
 
+		{{ if eq .Title "Projects" }}
+		<main>
+			<div id="home">
+				<ul class="items">
+				{{ $paginator := .Paginate (where .Data.Pages.ByDate.Reverse "Type" "project") }}
+				{{ range $paginator.Pages }}
+					<li itemscope>
+						<a href="{{ .Permalink }}" itemprop="url">
+							<div class="p-wrap">
+								<p class="project-list-title" itemprop="name headline">{{ .Title }}</p>
+								{{ with .Params.authors }}
+								<span class="project-list-author">
+									{{ range . }}
+										<p>{{ . }}<p>
+									{{ end }}
+								</span>
+								{{ end }}
+							</div>
+						</a>
+					</li>
+				{{ end }}
+				</ul>
+			</div>
+		</main>
+		{{ end }}
+
+		{{ if eq .Title "Artifacts" }}
+		<main>
+			<div id="home">
+				<ul class="items">
+				{{ $paginator := .Paginate (where .Data.Pages.ByDate.Reverse "Type" "artifact") }}
+				{{ range $paginator.Pages }}
+					<li itemscope>
+						<a href="{{ .Permalink }}" itemprop="url">
+							<div class="p-wrap">
+								<p class="artifact-list-title" itemprop="name headline">{{ .Title }}</p>
+								{{ with .Params.authors }}
+								<span class="artifact-list-author">
+									{{ range . }}
+										<p>{{ . }}<p>
+									{{ end }}
+								</span>
+								{{ end }}
+							</div>
+						</a>
+					</li>
+				{{ end }}
+				</ul>
+			</div>
+		</main>
+		{{ end }}
+
+		{{ if eq .Title "Galleries" }}
+		<main>
+			<div id="home">
+				<ul class="items">
+				{{ $paginator := .Paginate (where .Data.Pages.ByDate.Reverse "Type" "gallery") }}
+				{{ range $paginator.Pages }}
+					<li itemscope>
+						<a href="{{ .Permalink }}" itemprop="url">
+							<div class="p-wrap">
+								<p class="gallery-list-title" itemprop="name headline">{{ .Title }}</p>
+								{{ with .Params.authors }}
+								<span class="gallery-list-author">
+									{{ range . }}
+										<p>{{ . }}<p>
+									{{ end }}
+								</span>
+								{{ end }}
+							</div>
+						</a>
+					</li>
+				{{ end }}
+				</ul>
+			</div>
+		</main>
+		{{ end }}
+
+		{{ if eq .Title "Events" }}
+		<main>
+			<div id="home">
+				<ul class="items">
+				{{ $paginator := .Paginate (where .Data.Pages.ByDate.Reverse "Type" "event") }}
+				{{ range $paginator.Pages }}
+					<li itemscope>
+						<a href="{{ .Permalink }}" itemprop="url">
+							<div class="p-wrap">
+								<p class="item-list-title" itemprop="name headline">{{ .Title }}</p>
+							</div>
+						</a>
+					</li>
+				{{ end }}
+				</ul>
+			</div>
+		</main>
+		{{ end }}
+
+		{{ if eq .Title "Authors" }}
+		<main>
+			<div id="home">
+				<ul class="items">
+				{{ $paginator := .Paginate (where .Data.Pages.ByDate.Reverse "Type" "author") }}
+				{{ range $paginator.Pages }}
+					<li itemscope>
+						<a href="{{ .Permalink }}" itemprop="url">
+							<div class="p-wrap">
+								<p class="item-list-title" itemprop="name headline">{{ .Title }}</p>
+							</div>
+						</a>
+					</li>
+				{{ end }}
+				</ul>
+			</div>
+		</main>
+		{{ end }}
+
+		{{ if eq .Title "Threads" }}
+		<main>
+			<div id="home">
+				<ul class="items">
+				{{ $paginator := .Paginate (where .Data.Pages.ByDate.Reverse "Type" "thread") }}
+				{{ range $paginator.Pages }}
+					<li itemscope>
+						<a href="{{ .Permalink }}" itemprop="url">
+							<div class="p-wrap">
+								<p class="item-list-title" itemprop="name headline">{{ .Title }}</p>
+							</div>
+						</a>
+					</li>
+				{{ end }}
+				</ul>
+			</div>
+		</main>
+		{{ end }}
+
+		{{ partial "pagination" . }}
 		{{ partial "footer" . }}
 	</div>
 	{{ partial "js" . }}

@@ -1,5 +1,6 @@
 .DS_Store
 deploy.log
+.sublime-project
 
 static/*
 !static/js/
@@ -10,3 +11,4 @@ node_modules/
 example/
 data/
 content/
+log/

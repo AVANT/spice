@@ -1,5 +1,5 @@
 {{ $dateMissing := eq .Date.Year 1}}
-<article class="list-item" itemscope itemtype="http://schema.org/Blog">
+<article class="list-item">
   <h2 class="headline" itemprop="headline"><a href="{{ .RelPermalink }}">{{ .Title }}{{ if .Draft }} (Draft){{ end }}</a></h2>
   <div class="meta">
 {{ if eq $dateMissing false }}

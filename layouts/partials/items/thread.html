@@ -1,0 +1,25 @@
+<article class="single-content">
+	<h1 class="page-title" itemprop="name headline">{{ .Title }}</h1>
+
+	{{ range where .Data.Pages "Type" "thread-landing" }}
+	  <li><a href="{{ .Permalink }}">{{ .Title }}</a> &middot; {{ .Date.Format "Mon, Jan 2, 2006" }}</li>
+
+	<div class="text-body" itemprop="articleBody">
+		{{ .Content }}
+	</div>
+
+	{{ end }}
+
+	<div class="feat share">
+		<a href="//twitter.com/share" class="popup">
+			<span class="icon-twitter"></span>
+		</a>
+		<a href="//twitter.com/share" class="popup">
+			<span class="icon-facebook"></span>
+		</a>
+		<a href="//twitter.com/share" class="popup">
+			<span class="icon-facebook"></span>
+		</a>
+	</div>
+
+</article>

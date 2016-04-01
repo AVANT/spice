@@ -1,9 +1,23 @@
 <main>
-    <div id="home">
-        <ul id="all-threads">
-          {{ range $name, $taxonomy := .Site.Taxonomies.threads }}
-            <li><a href="/threads/{{ $name | urlize }}">{{ $name }}</a></li>
-          {{ end }}
-        </ul>
-    </div>
+	<div id="home">
+		<ul class="items">
+		{{ $paginator := .Paginate (where .Data.Pages.ByDate.Reverse "Type" "thread") }}
+		{{ range $paginator.Pages }}
+			<li itemscope>
+				<a href="{{ .Permalink }}" itemprop="url">
+					<div class="p-wrap">
+						<p class="item-list-title" itemprop="name headline">{{ .Title }}</p>
+						{{ with .Params.authors }}
+						<span class="item-list-author">
+							{{ range . }}
+								<p>{{ . }}<p>
+							{{ end }}
+						</span>
+						{{ end }}
+					</div>
+				</a>
+			</li>
+		{{ end }}
+		</ul>
+	</div>
 </main>

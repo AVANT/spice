@@ -8,9 +8,9 @@ git tag -a $VERSION -m "$(date "+%H:%M:%S   %d/%m/%y")"
 
 git push --follow-tags
 
-SOURCE=$AVANT/staging/
+SOURCE=$AVANT/alpha/
 DESTINATION=$AVANT/production/
-LOG=$AVANT/staging/deploy.log
+LOG=$AVANT/alpha/deploy.log
 TEMP=`mktemp -d`
 
 echo "Building from $SOURCE"

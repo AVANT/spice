@@ -1,0 +1,64 @@
+<div class="menu transition">
+
+	<div class="bio">
+
+		{{ with .Site.Params.offcanvas.title }}
+			<h1 class="title"><a href="{{ $.Site.BaseURL }}">{{ . }}</a></h1>
+		{{ end }}
+
+		{{ with .Site.Params.offcanvas.bio }}
+			<p>{{ . | markdownify }}</p>
+		{{ end }}
+
+	</div>
+
+	<nav>
+
+		<h6>Sitemap</h6>
+		<ul>
+			<li><a href="{{ $.Site.BaseURL  }}">avant.org</a></li>
+			<li><a href="{{ $.Site.BaseURL  }}project/">project</a></li>
+			<li><a href="{{ $.Site.BaseURL  }}artifact/">artifact</a></li>
+			<li><a href="{{ $.Site.BaseURL  }}gallery/">gallery</a></li>
+			<li><a href="{{ $.Site.BaseURL  }}event/">event</a></li>
+			<li><a href="{{ $.Site.BaseURL  }}author/">author</a></li>
+			<li><a href="{{ $.Site.BaseURL  }}thread/">thread</a></li>
+			<li><a href="{{ $.Site.BaseURL  }}tag/">tag</a></li>
+			<li><a href="{{ $.Site.BaseURL  }}imprint/">imprint</a></li>
+		</ul>
+
+		<div id="social_container"> 
+			<div id="twitter">
+				<a class="social-link" href="http://twitter.com/avantdotorg" target="_blank"><span id="menu-twitter" class="social-icon el-icon-twitter"></span></a>
+			</div>         
+			<div id="facebook">
+				<a class="social-link" href="http://facebook.com/avantdotorg" target="_blank"><span id="menu-twitter" class="social-icon el-icon-facebook"></span></a>
+			</div>
+			<div id="instagram">
+				<a class="social-link" href="http://instagram/avantdotorg" target="_blank"><span id="menu-instagram" class="social-icon el-icon-instagram"></span></a>
+			</div>
+			<div id="github">
+				<a class="social-link" href="http://github.com/avant" target="_blank"><i class="social-icon fa fa-github"></i></a>
+			</div>
+			<div id="mail">
+				<a class="social-link" href="mailto:editorial@avant.org?subject=message%20via%20AVANT.org" target="_blank"><i class="social-icon fa fa-paper-plane-o"></i></a>
+			</div>
+		</div>
+
+		<form action="//avant.us3.list-manage.com/subscribe/post?u=ce9d44831a234bd3f42ef5ca4&amp;id=297278e3fc" method="post" name="mc-embedded-subscribe-form" class="newsletter-signup validate newsletter-signup" target="_blank" novalidate>
+
+			<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+
+			<!-- bot honeypot -->
+			<div style="position: absolute; left: -5000px;">
+				<input type="text" name="b_ce9d44831a234bd3f42ef5ca4_297278e3fc" tabindex="-1" value="">
+			</div>
+
+			<div class="clear">
+				<input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button js-submit">
+			</div>
+
+		</form>
+
+	</nav>
+</div>

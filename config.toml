@@ -1,17 +1,19 @@
 baseurl = "http://alpha.avant.org/"
 languageCode = "en-us"
-title = "AVANT.org"
+title = "avant.org"
 googleAnalytics = "UA-46800316-1"
 watch = true
 FootnoteReturnLinkContents = "↥"
 
-[permalinks]
-	post = "/media/:slug"
+all = ["project", "artifact", "event", "gallery"]
+
+[blackfriday]
+	hrefTargetBlank = true
 
 [taxonomies]
-	tag = "tags"
-	thread = "threads"
-	author = "authors"
+	tag = "tag"
+	thread = "thread"
+	author = "author"
 
 [params]
 	name = "Your name"
@@ -24,9 +26,9 @@ FootnoteReturnLinkContents = "↥"
 	pageNotFoundTitle = "Page not found"
 	pageNotFoundSubtitle = "Sorry, but the requested page wasn’t <br> found on the server."
 
-	[params.offcanvas]
+	[params.menu]
 		# Menu items
-		title = "AVANT.org"
+		title = "avant.org"
 		bio = "A project space for the internet and elsewhere."
 
 		# Enable Google search

@@ -1,0 +1,23 @@
+<main>
+	<div id="home">
+		<ul class="items">
+		{{ $paginator := .Paginate (where .Data.Pages.ByDate.Reverse "Type" "artifact") }}
+		{{ range $paginator.Pages }}
+			<li>
+				<a href="{{ .Permalink }}" itemprop="url">
+					<div class="p-wrap">
+						<p class="item-list-title" itemprop="name headline">{{ .Title }}</p>
+						{{ with .Params.authors }}
+						<span class="item-list-author">
+							{{ range . }}
+								<p>{{ . }}<p>
+							{{ end }}
+						</span>
+						{{ end }}
+					</div>
+				</a>
+			</li>
+		{{ end }}
+		</ul>
+	</div>
+</main>

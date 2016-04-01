@@ -1,18 +1,18 @@
 {{ partial "head" . }}
 <body>
-    
-    {{ partial "off-canvas" . }}
+	
+	{{ partial "menu" . }}
 
-    <div class="site-wrapper">
-        {{ partial "header" . }}
-        
-        {{ partial "post-list" . }}
-        {{ partial "pagination" . }}        
-    
-        {{ partial "footer" . }}
-    </div>
-    
-    {{ partial "js" . }}
-    
+	<div class="site-wrapper">
+		{{ partial "nav" . }}
+		
+		{{ partial "project-list" . }}	{{ "<!-- need to add artifact-list, projcet-list, work-list, event-list -->" | safeHTML }}
+
+		{{ partial "pagination" . }}
+		{{ partial "footer" . }}
+	</div>
+	
+	{{ partial "js" . }}
+	
 </body>
 </html>

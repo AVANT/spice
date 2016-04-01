@@ -1,158 +1,207 @@
+/*NAV*/
 nav {
 	display: block
 }
-
-/*NAV*/
-
 [hidden],
 template {
 	display: none
 }
 
-
-
 /*MENU*/
+.logo {
+	width: 2.5em;
+	opacity: 0.9;
+	margin: 1em 0 0 0.8em;
+
+}
+.menu .bio h1 a {
+	text-decoration: none;
+}
 .menu-icon {
 	position: fixed;
-	top: 0.5em;
+	top: 0.4em;
 	left: 0.4em;
 	cursor: pointer;
 	z-index: 200;
-	width: 200px;
-	height: 50px;
+	width: 2em;
+	height: 2em;
+	display: block;
 }
-
 .menu-icon:hover {
 	opacity: 1
 }
-
-/*open*/
-.lines {
-	top: 1em;
-	height: 2px;
-	display: inline-block;
-	position: absolute;
-	background: #333;
-	border-radius: 0.1em;
-	-webkit-transition: all .2s ease-out;
-	transition: all .2s ease-out;
+.h-wrap h1.title,
+.menu .bio h1 {
+	font-size: 150%;
+	font-family: 'Tiempos Headline', Georgia, serif;
+	font-weight: 800;
+	margin: 1.5em 0 .5em
 }
-#line0 {
-	opacity: 1;
-	left: 0.75em;
-	width: 0.8em;
-	-webkit-transition: all .05s ease-out;
-	transition: all .05s ease-out;
-}
-#line1 {
-	left: 0em;
-	top: 0.97em;
-	width: 1.55em;
-	transform: rotate(60deg);
-	-webkit-transform: rotate(60deg);
-}
-#line2 {
-	left: 0.8em;
-	top: 1em;
-	width: 1.5em;
-	transform: rotate(-60deg);
-	-webkit-transform: rotate(-60deg);
-}
-
-/*close*/
-.close .lines {
-	-webkit-transition: all .2s ease-out;
-	transition: all .2s ease-out;
-}
-
-.close #line0 {
-	opacity: 0;
-	width: 0;
-	-webkit-transition: all .05s ease-out;
-	transition: all .05s ease-out;
-}
-.close #line1 {
-	left: 0.4em;
-	transform: rotate(-45deg);
-	-webkit-transform: rotate(-45deg);
-}
-.close #line2 {
-	left: 0.4em;
-	transform: rotate(45deg);
-	-webkit-transform: rotate(45deg);
-}
-
-
 
 /*MENU*/
-.off-canvas {
+.menu {
+	z-index: 100;
 	padding: 1em;
 	opacity: 0;
-	left: 0;
 	position: fixed;
 	width: 100%;
 	max-width: 365px;
-	bottom: 1.5em;
-	top: 1.5em;
-	margin: 0 1.5em;
+	left: -365px;
+	top: 0.6em;
+	bottom: 0.5em;
+	margin: 0;
 	background: #fafafa;
 	overflow: scroll;
 	box-sizing: border-box;
-	z-index: -100;
 	border: 1px solid #d9d9d9;
 }
-
 @media (max-width:399px) {
-	.off-canvas {
+	.menu {
 		max-width: 320px
 	}
 }
-
-.off-canvas.toggled {
-	z-index: 100;
-	opacity: 1;
+.menu .transition (.toggled) {
+	transition: left 2s ease-in-out;
+	transition: opacity 3s ease-in-out;
 }
-
-.off-canvas .avatar {
+.menu.toggled {
+	opacity: 1;
+	left: 0.5em;
+}
+.menu .avatar {
 	display: block;
 	margin-bottom: 1em
 }
-
-.off-canvas .avatar img {
+.menu .avatar img {
 	width: 6em;
 	height: 6em;
 	border-radius: 50%
 }
-
-.off-canvas .bio {
+.menu .bio {
 	display: block
 }
-
-.off-canvas .bio h1 {
-	margin: 0
+.menu .bio h1 {
+	margin: 0 0 0 2em;
 }
-
-.off-canvas .bio p {
+.menu .bio p {
 	font-size: 84%;
 	color: gray;
-	font-family: "HeadSemibold";
+	font-family: 'Tiempos Headline', Georgia, serif;
+	font-weight: 600;
 	margin-bottom: 0
 }
-
-.off-canvas nav h6 {
+.menu nav h6 {
 	text-align: left;
 	margin-top: 2em;
 	margin-bottom: 1em;
-	color: #b3b3b3;
+	color: #737373;
 	padding-bottom: .5em;
 	border-bottom: 1px solid #e0e1e6
 }
-
-.off-canvas nav ul li {
+.menu nav ul li {
 	list-style-type: none;
 	margin-bottom: .5em
 }
-
-.off-canvas nav ul li a {
+.menu nav ul li a {
 	text-decoration: none
+}
+
+/*NEWSLETTER*/
+.newsletter-signup {
+	background-color: white;
+	height: 100%; // to include child error messages
+	margin: 20px;
+	margin-top: 10px;
+}
+form {
+      border: solid black 1px;
+      overflow: auto;
+    }
+
+input {  //fixes iphone rounded button
+	-webkit-appearance: none;
+	border-radius: 0;
+}
+input.button {
+	text-transform: lowercase;
+	text-align: center;
+	height: 1.8em;
+	width: 30%;
+	float: right;
+	padding: 2px;
+	vertical-align: middle;
+	border: solid 1px white;
+	border-left: none;
+	color: white;
+	background-color: black;
+}
+input.button:focus {
+	background-color: black;
+	outline: none;
+}
+input[type='text'],
+input[type='email'] {
+	height: 1.8em;
+	border: solid 1px white;
+	background-color: white;
+	padding: 2px;
+	vertical-align: middle;
+	padding-left: 5px;
+	float:left;
+	width: 70%;
+}
+input[type='email']:focus {
+	background-color: white;
+	outline: none;
+}
+
+/*SOCIAL ICONS*/
+#social_container {
+	text-align: center;
+	margin: 1em 0;
+}
+#social_container div {
+	display: inline;
+}
+.social-link {
+  text-decoration: none;
+  display: inline;
+  margin: 0 1em;
+}
+.social-icon {
+  color: black;
+  display: inline;
+}
+.el-icon-twitter:hover {
+  color: #59adeb;
+}
+.el-icon-facebook:hover {
+  color: #4964a1;
+}
+.el-icon-instagram:hover {
+  color: #999999;
+}
+.fa-github {
+  font-size: 1.2em;
+  line-height: 96%;
+}
+.fa-key {
+  font-size: 1.1em;
+  line-height: 96%;
+}
+.fa-github:hover {
+  color: #2aa198;
+}
+.fa-key:hover {
+  color: #666666;
+}
+.fa-paper-plane-o {
+  font-size: 0.98em;
+}
+.fa-paper-plane-o:hover {
+  color: #cb4b17;
+}
+.el-icon-link {
+  font-size: 0.75em;
+  margin-bottom: -1px;
 }
