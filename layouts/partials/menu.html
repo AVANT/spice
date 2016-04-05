@@ -1,33 +1,42 @@
 <div class="menu transition">
 
-	<div class="bio">
-
-		{{ with .Site.Params.offcanvas.title }}
-			<h1 class="title"><a href="{{ $.Site.BaseURL }}">{{ . }}</a></h1>
-		{{ end }}
-
-		{{ with .Site.Params.offcanvas.bio }}
-			<p>{{ . | markdownify }}</p>
-		{{ end }}
-
-	</div>
-
 	<nav>
 
-		<h6>Sitemap</h6>
-		<ul>
-			<li><a href="{{ $.Site.BaseURL  }}">avant.org</a></li>
-			<li><a href="{{ $.Site.BaseURL  }}project/">project</a></li>
-			<li><a href="{{ $.Site.BaseURL  }}artifact/">artifact</a></li>
-			<li><a href="{{ $.Site.BaseURL  }}gallery/">gallery</a></li>
-			<li><a href="{{ $.Site.BaseURL  }}event/">event</a></li>
-			<li><a href="{{ $.Site.BaseURL  }}author/">author</a></li>
-			<li><a href="{{ $.Site.BaseURL  }}thread/">thread</a></li>
-			<li><a href="{{ $.Site.BaseURL  }}tag/">tag</a></li>
-			<li><a href="{{ $.Site.BaseURL  }}imprint/">imprint</a></li>
+
+		{{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
+		{{ $.Scratch.Add "path" .Site.BaseURL }}
+		<ul class="nav-breadcrumbs">
+			<li class="nav-home"><a href="/">Avant.org</a></li>
+
+			{{ range $index, $element := split $url "/" }}
+				{{ $.Scratch.Add "path" $element }}
+				{{ if ne $element "" }}
+					{{ if $index }}{{else}}
+					<span class="nav-slash"> / </span>
+					<li class="nav-parent"><a href='{{ $.Scratch.Get "path" }}'>{{ . }}</a></li>
+					{{ $.Scratch.Add "path" "/" }}
+					{{ end }}
+				{{ end }}
+			{{ end }}
+			{{ if .IsPage }}<span class="nav-slash"> / </span><li class="nav-title"><a href='{{ .Permalink }}'>{{ .Title }}</a></li>{{ end }}
 		</ul>
 
-		<div id="social_container"> 
+		<ul class="nav-items">
+			<li><a href="{{ $.Site.BaseURL  }}project/">Project</a></li>
+			<li><a href="{{ $.Site.BaseURL  }}artifact/">Artifact</a></li>
+			<li><a href="{{ $.Site.BaseURL  }}gallery/">Gallery</a></li>
+			<li><a href="{{ $.Site.BaseURL  }}event/">Event</a></li>
+		</ul>
+		<ul class="nav-meta">
+			<li><a href="{{ $.Site.BaseURL  }}author/">Author</a></li>
+			<li><a href="{{ $.Site.BaseURL  }}thread/">Thread</a></li>
+			<li><a href="{{ $.Site.BaseURL  }}tag/">Tag</a></li>
+		</ul>
+		<ul class="nav-imprint">
+			<li><a href="{{ $.Site.BaseURL  }}imprint/">Imprint</a></li>
+		</ul>
+
+		<div id="nav-social"> 
 			<div id="twitter">
 				<a class="social-link" href="http://twitter.com/avantdotorg" target="_blank"><span id="menu-twitter" class="social-icon el-icon-twitter"></span></a>
 			</div>         
@@ -45,9 +54,10 @@
 			</div>
 		</div>
 
+		<div class="nav-newsletter">
 		<form action="//avant.us3.list-manage.com/subscribe/post?u=ce9d44831a234bd3f42ef5ca4&amp;id=297278e3fc" method="post" name="mc-embedded-subscribe-form" class="newsletter-signup validate newsletter-signup" target="_blank" novalidate>
 
-			<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+			<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Email" required>
 
 			<!-- bot honeypot -->
 			<div style="position: absolute; left: -5000px;">
@@ -59,6 +69,7 @@
 			</div>
 
 		</form>
+		<div>
 
 	</nav>
 </div>

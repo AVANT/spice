@@ -2,50 +2,57 @@
 <body>
 	
 	{{ partial "menu" . }}
+	{{ partial "nav" . }}
 	<div class="site-wrapper">
-		{{ partial "nav" . }}
 
-    <main>
-      <div id="home">
-  {{ $root := . }}
+		<main>
+			<div id="home">
 
-      {{ $title := (.Title | urlize | title) }}
-      {{ $page := (index .Data.Pages 0) }}
-      {{ $plural := .Data.Plural }}
-      {{ $singular := .Data.Singular }}
-      {{ range $taxonomy, $value := .Data }}
-        {{ if eq $taxonomy $singular }}
-          {{ range (index $page.Params $plural) }}
-            {{ if eq $title (. | urlize | title) }}
-              <h1 class="item-title">{{ . }}</h1>
 
-              {{ if eq $singular "thread" }}
-                  <section class="single-wrap">
-                    <main role="main" class="item">
-                     {{ partial "items/thread.html" $root }}
-                    </main>
-                  </section>
-              {{ end }}
 
-              {{ $desc := printf "%s-desc" $taxonomy }}
-              {{ $desctax := index $root.Site.Taxonomies $desc }}
-              {{ $descpages := index $desctax (. | urlize) }}
-              {{ if len $descpages }}
-                {{ $descpage := index $descpages 0 }}
-                <span class="term-desc">{{ $descpage.Page.Content }}</span>
-              {{ end }}
-            {{ end }}
-          {{ end }}
-        {{ end }}
-      {{ end }}
+	{{ $root := . }}
 
-      <ul class="items">
-        {{ range .Data.Pages }}
-        <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
-        {{ end }}
-      </ul>
-      </div>
-    </main>
+
+			{{ $title := (.Title | urlize | title) }}
+
+
+			{{ $page := (index .Data.Pages 0) }}
+			{{ $plural := .Data.Plural }}
+			{{ $singular := .Data.Singular }}
+			{{ range $taxonomy, $value := .Data }}
+				{{ if eq $taxonomy $singular }}
+					{{ range (index $page.Params $plural) }}
+						{{ if eq $title (. | urlize | title) }}
+							<h1 class="item-title">{{ . }}</h1>
+
+							{{ if eq $singular "thread" }}
+							{{ printf "%#v" $title }}
+
+
+
+
+							{{ end }}
+							{{ $desc := printf "%s-desc" $taxonomy }}
+							{{ $desctax := index $root.Site.Taxonomies $desc }}
+							{{ $descpages := index $desctax (. | urlize) }}
+							{{ if len $descpages }}
+								{{ $descpage := index $descpages 0 }}
+								<span class="term-desc">{{ $descpage.Page.Content }}</span>
+							{{ end }}
+						{{ end }}
+					{{ end }}
+				{{ end }}
+			{{ end }}
+
+			<ul class="items">
+				{{ range .Data.Pages }}
+				{{ if ne .Draft true}}
+				<li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
+				{{ end }}
+				{{ end }}
+			</ul>
+			</div>
+		</main>
 		{{ partial "footer" . }}
 	</div>
 	{{ partial "js" . }}

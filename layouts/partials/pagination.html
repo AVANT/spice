@@ -1,5 +1,5 @@
 {{ if or (.Paginator.HasPrev) (.Paginator.HasNext) }}
-	<div class="pagination">
+	<div class="pagination" id="pagination">
 		{{ if .Paginator.HasPrev }}
 			<a href="{{ .Paginator.Prev.URL }}" class="newer">{{ with .Site.Params.newer}}{{ . }}{{ end }}</a>
 		{{ else }}
@@ -7,7 +7,7 @@
 		{{ end }}
 
 		{{ if .Paginator.HasNext }}
-			<a href="{{ .Paginator.Next.URL }}" class="older">{{ with .Site.Params.older}}{{ . }}{{ end }}</a>
+			<a href="{{ .Paginator.Next.URL }}" class="older next">{{ with .Site.Params.older}}{{ . }}{{ end }}</a>
 		{{ else }}
 			<span class="next">{{ with .Site.Params.older}}{{ . }}{{ end }}</span>
 		{{ end }}

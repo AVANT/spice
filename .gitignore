@@ -1,10 +1,8 @@
 .DS_Store
 deploy.log
-.sublime-project
 
 static/*
 !static/js/
-!static/styles/
 
 public/
 node_modules/

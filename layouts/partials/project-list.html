@@ -1,13 +1,13 @@
 <main>
 	<div id="home">
-		<ul class="items">
+		<ul id="posts" class="items">
 		{{ $paginator := .Paginate (where .Data.Pages.ByDate.Reverse "Type" "project") }}
 		{{ range $paginator.Pages }}
-			<li>
+			<li itemscope class="post">
 				<a href="{{ .Permalink }}" itemprop="url">
 					<div class="p-wrap">
 						<p class="item-list-title" itemprop="name headline">{{ .Title }}</p>
-						{{ with .Params.authors }}
+						{{ with .Params.author }}
 						<span class="item-list-project">
 							{{ range . }}
 								<p>{{ . }}<p>

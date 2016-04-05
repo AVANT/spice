@@ -15,19 +15,13 @@
 	{{ .Hugo.Generator }}
 
 	{{ "<!-- pace -->" | safeHTML }}
-	<script src="{{ .Site.BaseURL }}js/pace.js"></script>
+	<script src="{{ .Site.BaseURL }}js/vendor/pace-min.js"></script>
 
 	{{ "<!-- font-awesome -->" | safeHTML }}
 	<link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" >
 
 	{{ "<!-- site stylesheets -->" | safeHTML }}
-	<link rel="stylesheet" type="text/css" href="{{ .Site.BaseURL }}styles/fonts.css" />
-	<link rel="stylesheet" type="text/css" href="{{ .Site.BaseURL }}styles/load.css" />
-	<link rel="stylesheet" type="text/css" href="{{ .Site.BaseURL }}styles/main.css" />
-	<link rel="stylesheet" type="text/css" href="{{ .Site.BaseURL }}styles/lists.css" />
-	<link rel="stylesheet" type="text/css" href="{{ .Site.BaseURL }}styles/nav.css" />
-	<link rel="stylesheet" type="text/css" href="{{ .Site.BaseURL }}styles/code.css" />
-	<link rel="stylesheet" type="text/css" href="{{ .Site.BaseURL }}styles/media.css" />
+	<link rel="stylesheet" type="text/css" href="{{ .Site.BaseURL }}styles/world.css" />
 
 	{{ "<!-- syntax highlighting -->" | safeHTML }}
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/tomorrow.min.css" >

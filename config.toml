@@ -4,6 +4,7 @@ title = "avant.org"
 googleAnalytics = "UA-46800316-1"
 watch = true
 FootnoteReturnLinkContents = "↥"
+builddrafts = true
 
 all = ["project", "artifact", "event", "gallery"]
 

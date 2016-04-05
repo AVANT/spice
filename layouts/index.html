@@ -2,11 +2,11 @@
 <body>
 	
 	{{ partial "menu" . }}
-
+	{{ partial "nav" . }}
+	
 	<div class="site-wrapper">
-		{{ partial "nav" . }}
 		
-		{{ partial "project-list" . }}	{{ "<!-- need to add artifact-list, projcet-list, work-list, event-list -->" | safeHTML }}
+		{{ partial "project-list" . }}	{{ "<!-- need to add artifact-list, project-list, work-list, event-list -->" | safeHTML }}
 
 		{{ partial "pagination" . }}
 		{{ partial "footer" . }}

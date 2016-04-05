@@ -2,13 +2,13 @@
 <body>
 
 	{{ partial "menu" . }}
-	<div class="site-wrapper">
 	{{ partial "nav" . }}
+	<div class="site-wrapper">
 
 <!-- {{ printf "%#v" . }} -->
 
-		{{ if eq .Type "imprint" }}
-			<section class="single-wrap">
+		{{ if eq .Type "solo" }}
+			<section class="single-wrap-solo">
 				<main role="main" class="item">
 						<div class="text-body" itemprop="articleBody">
 						{{ .Content }}
@@ -61,6 +61,15 @@
 			<section class="single-wrap">
 				<main role="main" class="item">
 					{{ partial "items/author.html" . }}
+				</main>
+			</section>
+		{{ end }}
+
+
+		{{ if eq .Type "thread-landing" }}
+			<section class="single-wrap">
+				<main role="main" class="item">
+					{{ partial "items/thread-landing.html" . }}
 				</main>
 			</section>
 		{{ end }}

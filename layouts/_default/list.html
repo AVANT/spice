@@ -2,22 +2,23 @@
 <body>
 	
 	{{ partial "menu" . }}
+	{{ partial "nav" . }}
 	<div class="site-wrapper">
-		{{ partial "nav" . }}
 		
 <!-- {{ printf "%#v" .Title }} -->
 
 		{{ if eq .Title "Projects" }}
 		<main>
 			<div id="home">
-				<ul class="items">
+				<ul class="items" id="posts">
 				{{ $paginator := .Paginate (where .Data.Pages.ByDate.Reverse "Type" "project") }}
 				{{ range $paginator.Pages }}
-					<li itemscope>
+				{{ if ne .Draft true}}
+					<li itemscope class="post">
 						<a href="{{ .Permalink }}" itemprop="url">
 							<div class="p-wrap">
 								<p class="project-list-title" itemprop="name headline">{{ .Title }}</p>
-								{{ with .Params.authors }}
+								{{ with .Params.author }}
 								<span class="project-list-author">
 									{{ range . }}
 										<p>{{ . }}<p>
@@ -28,6 +29,7 @@
 						</a>
 					</li>
 				{{ end }}
+				{{ end }}
 				</ul>
 			</div>
 		</main>
@@ -36,14 +38,15 @@
 		{{ if eq .Title "Artifacts" }}
 		<main>
 			<div id="home">
-				<ul class="items">
+				<ul class="items" id="posts">
 				{{ $paginator := .Paginate (where .Data.Pages.ByDate.Reverse "Type" "artifact") }}
 				{{ range $paginator.Pages }}
-					<li itemscope>
+				{{ if ne .Draft true}}
+					<li itemscope  class="post">
 						<a href="{{ .Permalink }}" itemprop="url">
 							<div class="p-wrap">
 								<p class="artifact-list-title" itemprop="name headline">{{ .Title }}</p>
-								{{ with .Params.authors }}
+								{{ with .Params.author }}
 								<span class="artifact-list-author">
 									{{ range . }}
 										<p>{{ . }}<p>
@@ -54,6 +57,7 @@
 						</a>
 					</li>
 				{{ end }}
+				{{ end }}
 				</ul>
 			</div>
 		</main>
@@ -62,14 +66,15 @@
 		{{ if eq .Title "Galleries" }}
 		<main>
 			<div id="home">
-				<ul class="items">
+				<ul class="items" id="posts">
 				{{ $paginator := .Paginate (where .Data.Pages.ByDate.Reverse "Type" "gallery") }}
 				{{ range $paginator.Pages }}
-					<li itemscope>
+				{{ if ne .Draft true}}
+					<li itemscope class="post">
 						<a href="{{ .Permalink }}" itemprop="url">
 							<div class="p-wrap">
 								<p class="gallery-list-title" itemprop="name headline">{{ .Title }}</p>
-								{{ with .Params.authors }}
+								{{ with .Params.author }}
 								<span class="gallery-list-author">
 									{{ range . }}
 										<p>{{ . }}<p>
@@ -80,6 +85,7 @@
 						</a>
 					</li>
 				{{ end }}
+				{{ end }}
 				</ul>
 			</div>
 		</main>
@@ -88,16 +94,18 @@
 		{{ if eq .Title "Events" }}
 		<main>
 			<div id="home">
-				<ul class="items">
+				<ul class="items" id="posts">
 				{{ $paginator := .Paginate (where .Data.Pages.ByDate.Reverse "Type" "event") }}
 				{{ range $paginator.Pages }}
-					<li itemscope>
+				{{ if ne .Draft true}}
+					<li itemscope class="post">
 						<a href="{{ .Permalink }}" itemprop="url">
 							<div class="p-wrap">
 								<p class="item-list-title" itemprop="name headline">{{ .Title }}</p>
 							</div>
 						</a>
 					</li>
+				{{ end }}
 				{{ end }}
 				</ul>
 			</div>
@@ -107,16 +115,18 @@
 		{{ if eq .Title "Authors" }}
 		<main>
 			<div id="home">
-				<ul class="items">
+				<ul class="items" id="posts">
 				{{ $paginator := .Paginate (where .Data.Pages.ByDate.Reverse "Type" "author") }}
 				{{ range $paginator.Pages }}
-					<li itemscope>
+				{{ if ne .Draft true}}
+					<li itemscope class="post">
 						<a href="{{ .Permalink }}" itemprop="url">
 							<div class="p-wrap">
 								<p class="item-list-title" itemprop="name headline">{{ .Title }}</p>
 							</div>
 						</a>
 					</li>
+				{{ end }}
 				{{ end }}
 				</ul>
 			</div>
@@ -126,16 +136,18 @@
 		{{ if eq .Title "Threads" }}
 		<main>
 			<div id="home">
-				<ul class="items">
+				<ul class="items" id="posts">
 				{{ $paginator := .Paginate (where .Data.Pages.ByDate.Reverse "Type" "thread") }}
 				{{ range $paginator.Pages }}
-					<li itemscope>
+				{{ if ne .Draft true}}
+					<li itemscope class="post">
 						<a href="{{ .Permalink }}" itemprop="url">
 							<div class="p-wrap">
 								<p class="item-list-title" itemprop="name headline">{{ .Title }}</p>
 							</div>
 						</a>
 					</li>
+				{{ end }}
 				{{ end }}
 				</ul>
 			</div>

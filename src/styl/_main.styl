@@ -1,0 +1,786 @@
+//---------
+// DEFAULTS
+//---------
+
+*
+	-webkit-box-sizing: border-box
+	box-sizing: border-box
+	margin: 0
+	padding: 0
+
+main,
+article,
+aside,
+details,
+figure,
+footer,
+header,
+hgroup,
+section,
+summary,
+.caption
+	display: block
+
+html
+	font-family: 'Tiempos Text', Georgia, serif
+	font-weight: 500
+	-ms-text-size-adjust: 100%
+	-webkit-text-size-adjust: 100%
+	width: 100%
+	height: 100%
+
+iframe
+	border:none
+
+input:active,
+input:focus,
+a:active,
+a:focus
+	outline: none
+
+.clearfix:after
+	content: '.'
+	display: block
+	clear: both
+	visibility: hidden
+	line-height: 0
+	height: 0
+	
+.clearfix
+	display: inline-block
+
+html[xmlns] .clearfix
+	display: block
+
+* html .clearfix
+	height: 1%
+
+body,
+td
+	font-family: 'Tiempos Text', Georgia, serif
+	font-weight: 500
+	font-size: 1.1em
+	color: bw1
+	text-rendering: optimizeLegibility
+	-webkit-font-smoothing: antialiased
+	background-color: white
+	margin: 0
+	background-color: bw10
+	-webkit-transition: opacity 0.3s ease-in
+	-moz-transition: opacity 0.3s ease-in
+	-o-transition: opacity 0.3s ease-in
+	-ms-transition: opacity 0.3s ease-in
+	transition: opacity 0.3s ease-in
+
+@media (max-width:942px)
+	body
+		font-size: 1.125em
+
+@media (max-width:642px)
+	body
+		font-size: .875em
+
+.items
+	margin: 0
+	padding: 0
+
+
+//---------------
+// TEXT HIERARCHY
+//---------------
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+h5,
+h6
+	font-family: 'Tiempos Headline', Georgia, serif
+	font-weight: 700
+
+h1
+	font-size: 2em
+	margin: .67em 0
+
+h2
+	font-size: 180%
+	margin: 1em 0 .5em
+
+h3,
+h4,
+h5,
+h6
+	font-size: 80%
+	font-weight: 700
+	margin: 3.5em 0 .5em
+	color: bw4
+
+.text-body a
+	text-decoration: none !important
+	color: bw1
+	-o-box-shadow: inset 0 -0.128em 0 0 bw8
+	-webkit-box-shadow: inset 0 -0.128em 0 0 bw8
+	-moz-box-shadow: inset 0 -0.128em 0 0 bw8
+	box-shadow: inset 0 -0.128em 0 0 bw8
+	-moz-transition: all 0.2s ease
+	-o-transition: all 0.2s ease
+	-webkit-transition: all 0.2s ease
+	transition: all 0.2s ease
+	padding-bottom: 0.04em
+
+.text-body a:hover
+	-webkit-box-shadow: inset 0 -0.128em 0 0 bw9
+	-moz-box-shadow: inset 0 -0.128em 0 0 bw9
+	box-shadow: inset 0 -0.128em 0 0 bw9
+
+a
+	color: bw1
+	text-decoration: none
+
+a:active,
+a:hover
+	outline: 0
+	color: bw1
+
+p
+	font-size: 0.9em
+	margin: 1em 0
+	line-height: 1.7
+
+b,
+strong
+	font-weight: 700
+
+.center
+	width: 100%
+	clear: both
+	display: block
+
+.center-inner	
+	margin: 0em auto
+	width:100%
+
+.center-inner .txt
+	display: block
+	max-width: 740px
+	margin: 0.5em auto
+
+.right
+	width: 100%
+	clear: both
+	display: block
+	position: relative
+
+.right-inner
+	float: right
+	width: 90%
+	margin-right: 3em
+
+.right-inner .txt
+	display: block
+	max-width: 940px
+	margin: 0 0 0 20%
+
+.left
+	width: 100%
+	clear: both
+	display: block
+
+.left-inner
+	float:left
+	width:100%
+	margin-left: 3em
+
+.left-inner .txt
+	margin: 0 20% 0 0
+	max-width: 740px
+
+.list-wrap
+	width: 100%
+	max-width: 740px
+	margin: 1em auto
+	font-family: 'Tiempos Text', Georgia, serif
+	z-index: 1
+
+.list-wrap .single-content
+	padding: 0 2em
+
+@media (max-width:642px)
+	.list-wrap .single-content
+		padding-bottom: 3.5em
+
+.list-wrap .feat
+	text-align: center
+	border-bottom: 1px dotted bw9
+	margin: 0 auto 3.5em
+
+.list-wrap .feat a.popup
+	display: inline-block
+	position: relative
+	top: .7em
+	font-size: 100%
+	text-align: center
+	text-decoration: none
+	padding: 0 1em
+	transition: all .2s ease-in
+	-webkit-transition: all .2s ease-in
+
+.list-wrap .page-date
+	display: inline-block
+	position: relative
+	font-family: 'Tiempos Headline', Georgia, serif
+	font-style: italic
+	font-size: 85%
+	text-align: center
+	font-style: italic
+	margin: 0 auto
+	padding: 0 1em
+	text-transform: none
+
+.list-wrap h1.page-title
+	font-size: 180%
+	line-height: 135%
+	font-family: 'Tiempos Headline', Georgia, serif
+	font-style: bold
+	text-align: center
+
+.single-wrap
+	width: 100%	
+	z-index: 1
+
+.single-wrap .single-content
+	padding: 0
+
+@media (max-width:642px)
+	.single-wrap .single-content
+		padding-bottom: 3.5em
+
+.single-wrap .feat
+	text-align: center
+
+.single-wrap .feat a.popup
+	display: inline-block
+	position: relative
+	top: .7em
+	font-size: 130%
+	text-align: center
+	text-decoration: none
+	padding: 0 1em
+	transition: all .2s ease
+	-webkit-transition: all .2s ease
+
+@media (max-width:642px)
+	.single-wrap .feat a.popup
+		font-size: 150%
+
+.single-wrap .page-date
+	display: inline-block
+	position: relative
+	top: 0px
+	margin-top: 0px
+	font-size: 85%
+	text-align: center
+	font-style: italic
+	padding: 0 0em
+	text-transform: none
+
+.single-wrap .share
+	text-align: right
+
+.single-wrap h1.page-title
+	font-size: 180%
+	line-height: 135%
+	text-align: center
+	margin: 0 0 1em
+
+.single-wrap ul,
+.single-wrap ol
+	margin: 2em 0
+
+.single-wrap ul li,
+.single-wrap ol li
+	margin-bottom: .5em
+
+.single-wrap .block ul,
+.single-wrap .block ol
+	margin: 1em 0
+
+.single-wrap .block ul li,
+.single-wrap .block ol li
+	margin-left: 1em
+	padding-left: 0.3em
+	font-size: 0.9em
+	font-weight: 600
+
+.init
+	float: left
+	margin: 8px 20px 5px 0px
+	padding: 2px 18px 10px 18px
+	font-size: 5em
+	font-family: 'Tiempos Headline', Georgia, serif
+	font-weight: 800
+	color: bw1
+	line-height: 1
+	text-indent: 0
+	background: white
+
+p + .init
+	text-indent: 0
+	margin-top: 0
+
+hr
+	-moz-box-sizing: content-box
+	box-sizing: content-box
+	height: 0
+
+.spacer
+	text-align: center
+	margin-bottom:20px
+	letter-spacing: 0.5em
+
+
+//-----------
+// ANNOTATION
+//-----------
+
+sup
+	top: -.4em
+	font-size: 85%
+	line-height: 0
+	position: relative
+	vertical-align: baseline
+	padding-left: 0.1em
+
+sub
+	bottom: -.25em
+	font-size: 75%
+	line-height: 0
+	position: relative
+	vertical-align: baseline
+
+// body anchor
+.footnote-ref a
+	text-decoration: none
+	color: #2B4AB3
+	padding: 0 0.5em
+	font-weight: 600
+
+// footnote anchor
+.footnote-return
+	text-decoration: none
+	font-size: 90%
+	font-weight: 700 !important
+	top: -.1em !important
+	line-height: 0
+	position: relative
+	vertical-align: baseline
+	color: #2B4AB3 ! important
+
+.footnote-ref a,
+.footnote-ref a:hover,
+.footnote-return,
+.footnote-return:hover
+	-o-box-shadow: none !important
+	-webkit-box-shadow: none !important
+	-moz-box-shadow: none !important
+	box-shadow: none !important
+
+.footnotes h3
+	margin-top: 1.5em
+
+.footnotes,
+.footnotes a,
+.footnotes ol li,
+.footnotes ul li
+	font-family: 'Tiempos Headline', Georgia, serif
+	font-weight: 600
+	color: bw1
+
+.footnotes ol li p
+	font-size: inherit
+	margin: 0
+	line-height: normal
+
+.footnotes
+	padding: 0
+	
+.footnotes a
+	color: bw1
+
+.foot-hr
+	margin-top: 1.5em
+	border-style: solid
+	border-color: bw1
+
+.footnotes hr
+	display: none
+
+.footnotes ol,
+.footnotes ul
+	padding-left: 1em
+	margin: 1em 0
+
+.footnotes ol li,
+.footnotes ul li
+	padding-left: 0.2em
+
+.footnotes ul li + li
+	padding-top: 0.4em
+
+legend
+	border: 0
+	padding: 0
+
+.box
+	margin: 10px
+	font: 16px 'Courier New'
+	background-color: white
+	color: bw9
+	margin: 5px 0 0 15px
+	padding: 5px 10px
+	width: auto
+
+
+//------------
+// UI ELEMENTS
+//------------
+
+.toggle
+	font: 16px 'Courier New'
+	color: bw6
+	display: block
+	margin-bottom: 5px
+	padding: 5px 10px
+	text-decoration: none
+
+.toggle:hover
+	text-decoration: underline
+
+button,
+input,
+optgroup,
+select,
+textarea
+	color: inherit
+	font: inherit
+	margin: 0
+
+button
+	overflow: visible
+
+button,
+select
+	text-transform: none
+
+button,
+html input[type=button],
+input[type=reset],
+input[type=submit]
+	-webkit-appearance: button
+	cursor: pointer
+
+button[disabled],
+html input[disabled]
+	cursor: default
+
+button::-moz-focus-inner,
+input::-moz-focus-inner
+	border: 0
+	padding: 0
+
+input
+	line-height: normal
+
+input[type=checkbox],
+input[type=radio]
+	box-sizing: border-box
+	padding: 0
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button
+	height: auto
+
+input[type=search]
+	-webkit-appearance: textfield
+	-moz-box-sizing: content-box
+	-webkit-box-sizing: content-box
+	box-sizing: content-box
+
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-decoration
+	-webkit-appearance: none
+
+fieldset
+	border: 1px solid silver
+	margin: 0 2px
+	padding: .35em .625em .75em
+
+textarea
+	overflow: auto
+
+optgroup
+	font-weight: 700
+
+table
+	border-collapse: collapse
+	border-spacing: 0
+
+td,
+th
+	padding: 0
+
+footer
+	padding: 2em
+
+footer
+	width: 100%
+	bottom: 0
+	left: 0
+	text-align: center
+
+::after,
+::before
+	box-sizing: border-box
+
+small
+	font-size: 60%
+
+li
+	font-size: 0.9em
+	font-family: 'Tiempos Text', Georgia, serif
+	font-weight: 500
+	list-style-type: decimal
+
+
+//--------------
+// PAGE ELEMENTS
+//--------------
+
+.meta
+	margin: 0 auto
+	text-align: center
+
+.meta-block
+	margin: 0 auto
+	display: block
+	font-family: 'Tiempos Headline', Georgia, serif
+	font-weight: 700
+	padding: 0.2em 0
+	width: 70%
+
+.author,
+.thread,
+.tag
+	font-size: 1.2em
+	font-family: 'Tiempos Headline', Georgia, serif
+	font-weight: 800
+	color: bw1
+	bottom: -.16em
+	line-height: 0
+	position: relative
+	vertical-align: baseline
+	line-height: 2.2em
+
+.author a
+	margin: 0 6px
+
+.thread a,
+.tag a
+	border: 3px solid bw1
+	padding: 1px 5px 4px 5px
+	margin: 0 3px 0 3px
+	font-size: 0.9em
+	color: bw1
+	text-decoration: none
+	white-space: pre
+	background: white
+
+.tag a:hover
+.thread a:hover
+	color: white
+	background: bw1
+	border: 3px solid bw1
+
+.h-wrap h1.title
+	display: inline-block
+	margin: 0
+	padding: 0
+	font-weight: 400
+
+.h-wrap h1.title a
+	color: bw1
+	text-decoration: none
+
+.h-wrap h1.title a:hover
+	color: bw5
+
+// block quote
+.single-wrap .block
+	font-size: 1em
+	font-family: 'Tiempos Headline', Georgia, serif
+	font-weight: 600
+	color: bw1
+	border-left: 10px solid bw1
+	padding: 0 0 0 1.4em
+	margin: 1.1em 0 1.1em 0
+	line-height: 1.5em
+
+.single-wrap .block p
+	margin: 0.5em 0 0.5em 0
+	line-height: 155%
+
+.single-wrap .block p + p
+	margin: 0.8em 0 0.5em 0
+
+.block-inner
+	line-height: 165%
+	text-align: right
+
+.block-inner p
+	margin-top: 0.5em	
+
+@media (max-width:942px)
+	.single-wrap .block
+		margin-left: 0
+
+.single-wrap .block p
+	padding-left: 0!important
+	padding-right: 0!important
+
+// pullquote
+blockquote
+	font-size: 1.8em
+	font-family: 'Tiempos Headline', Georgia, serif
+	font-weight: 800
+	color: bw1
+	padding: 0 0 0 0
+	margin-top: 2em 0 2em -3.5em
+
+blockquote p
+	margin: 0
+	line-height: 1.5em
+
+#prev,
+#next
+	text-decoration: none
+	border: 1px solid bw1
+	padding: 10px
+	line-height: 1
+	border-radius: 25px
+	bottom: 40px
+	color: bw1
+	display: inline-block
+
+#prev
+	align: left
+	left: 40px
+
+#next
+	align: right
+	right: 40px
+
+#prev:active,
+#next:active
+	border-color: bw5
+
+.nav-title
+	display: none
+
+.nav-title-prev
+	margin-left: 10px
+	margin-right: 5px
+
+.nav-title-next
+	margin-right: 10px
+	margin-left: 5px
+
+#prev:hover .nav-title,
+#next:hover .nav-title
+	display: inline
+
+.pagination
+	overflow: hidden
+	margin-top: 40px
+	color: bw8
+	text-align: center
+	border: 1px solid bw9
+
+.pagination a,
+.pagination span
+	box-sizing: border-box
+	float: left
+	width: 50%
+	padding: 20px
+	text-decoration: none
+
+.pagination a:first-child,
+.pagination span:first-child
+	text-decoration: none
+	border-right: 1px solid bw9
+
+.pagination a:hover
+	text-decoration: none
+
+
+//--------
+// IMPRINT
+//--------
+
+// tabs
+.tabs
+	width: 90%
+	display: inline-block
+	padding: 1em
+	margin 0 auto
+	display: block
+
+.tab-links
+	margin: 0px
+
+.tab-links:after
+	display: block
+	clear: both
+	content: ''
+
+.tab-links li
+	margin: 0px 10px 0px 0px !important;
+	float: left
+	list-style: none
+
+.tab-links a
+	padding: 9px 20px
+	display: inline-block
+	background: bw8
+	font-size: 16px
+	font-weight: 600
+	color: bw1
+	transition: all ease-in-out 0.15s
+	border: none
+	text-decoration: none
+	border: none
+	box-shadow: none
+
+.tab-links a:hover
+	background: bw9
+	text-decoration: none
+	border: none
+	box-shadow: none
+
+li.active a, li.active a:hover
+	background: white
+	color: bw1
+
+// tab content
+.tab-content
+	padding: 15px
+	background: white
+	height: 500px;
+
+.tab
+	display: none
+
+.tab.active
+	display: block
+

@@ -1,0 +1,238 @@
+//----
+// NAV
+//----
+
+nav
+	display: block
+
+
+[hidden],
+template
+	display: none
+
+//-----
+// MENU
+//-----
+
+.logo
+	width: 2.5em
+	opacity: 0.9
+	margin: 1em 0 0 0.8em
+
+.menu .bio h1 a
+	text-decoration: none
+
+.menu-icon
+	position: fixed
+	top: 0.4em
+	left: 0.4em
+	cursor: pointer
+	z-index: 200
+	width: 2em
+	height: 2em
+	display: block
+
+.menu-icon:hover
+	opacity: 1
+
+
+//-----
+// MENU
+//-----
+
+.menu
+	z-index: 100
+	padding: 1em
+	opacity: 0
+	position: fixed
+	width: 100%
+	max-width: 385px
+	left: -385px
+	top: 0.6em
+	bottom: 0.5em
+	margin: 0
+	background: white
+	overflow: hidden
+	box-sizing: border-box
+
+@media (max-width:399px)
+	.menu
+		max-width: 320px
+
+.menu .transition (.toggled)
+	transition: left 2s ease-in-out
+	transition: opacity 3s ease-in-out
+
+.menu.toggled
+	opacity: 0.9
+	left: 0.5em
+
+.menu .avatar
+	display: block
+	margin-bottom: 1em
+
+.menu .avatar img
+	width: 6em
+	height: 6em
+	border-radius: 50%
+
+.menu nav h6
+	text-align: left
+	margin-top: 2em
+	margin-bottom: 1em
+	color: bw3
+	padding-bottom: .5em
+	border-bottom: 1px solid bw9
+
+.menu nav ul li
+	list-style-type: none
+	margin-bottom: .5em
+
+.menu nav ul li a
+	text-decoration: none
+
+.nav-breadcrumbs
+	list-style-type: none
+	margin: auto
+	overflow: hidden
+	white-space: nowrap
+	margin: 0.4em 0 0 5em
+	font-weight: 700
+
+.nav-breadcrumbs li
+	font-family: 'Tiempos Headline', Georgia, serif
+	font-weight: 800
+
+.nav-home
+	display: inline-block
+	font-size: 1.1em
+
+.nav-parent
+	display: inline-block
+	font-size: 1.1em
+
+.nav-parent a
+	text-transform: capitalize
+
+.nav-title
+	white-space: normal
+	display: block
+	max-width: 290px;
+
+.nav-slash
+	display: inline-block
+	font-size: 1.1em
+	font-family: 'Tiempos Headline', Georgia, serif
+	font-weight: 700
+
+.nav-items,
+.nav-meta,
+.nav-imprint
+	margin-top: 2em
+
+.nav-items a,
+.nav-meta a,
+.nav-imprint a
+	font-size: 1.1 em
+	font-weight: 500
+
+
+//-----------
+// NEWSLETTER
+//-----------
+
+.nav-newsletter
+	margin-top: 2em
+
+.newsletter-signup
+	background: bw9
+	height: 100%  // to include child error messages
+	margin: 20px
+	margin-top: 10px
+
+form
+	overflow: auto
+
+input  // fixes iphone rounded button
+	-webkit-appearance: none
+	border-radius: 0
+
+input.button
+	text-align: center
+	font-size: 0.9em;
+	height: 2em
+	width: 32%
+	float: right
+	padding: 2px
+	vertical-align: middle
+	border: solid 2px bw9
+	border-left: none
+	color: white
+	background-color: bw3
+
+input.button:focus
+	background-color: black
+	outline: none
+
+input[type='text'],
+input[type='email']
+	height: 1.8em
+	border: solid 2px bw9
+	background: bw9
+	padding: 2px
+	vertical-align: middle
+	padding-left: 5px
+	float:left
+	width: 68%
+	font-weight: 600
+
+input[type='email']:focus
+	background: bw9
+	outline: none
+
+
+//-------------
+// SOCIAL ICONS
+//-------------
+
+#nav-social
+	text-align: center
+	margin: 2em 0 1em 0
+
+#nav-social div
+	display: inline
+
+.social-link
+	text-decoration: none
+	display: inline
+	margin: 0 1em
+
+.social-icon
+	color: black
+	display: inline
+
+.el-icon-twitter:hover
+	color: twitter
+
+.el-icon-facebook:hover
+	color: facebook
+
+.el-icon-instagram:hover
+	color: instagram
+
+.fa-github
+	font-size: 1.2em
+	line-height: 96%
+
+.fa-github:hover
+	color: github
+
+.fa-paper-plane-o
+	font-size: 0.98em
+.fa-paper-plane-o:hover 
+	color: mail
+
+.el-icon-link
+	font-size: 0.75em
+	margin-bottom: -1px
+

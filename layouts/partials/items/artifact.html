@@ -24,7 +24,7 @@
 
 		{{ with .Params.thread }}
 			<div class="meta-block">
-				<span class="thread">~</span>
+				<span class="thread-mark">~</span>
 				<span class="thread">
 					{{ range . }}
 						<a href="{{ $.Site.BaseURL  }}thread/{{ . | urlize }}">{{ . }}</a>
@@ -35,7 +35,7 @@
 
 		{{ with .Params.tag }}
 			<div class="meta-block">
-				<span class="tag">#</span>
+				<span class="tag-mark">#</span>
 				<span class="tag">
 					{{ range . }}
 						<a href="{{ $.Site.BaseURL  }}tag/{{ . | urlize }}">{{ . }}</a>

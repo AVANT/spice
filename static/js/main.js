@@ -150,33 +150,48 @@ $(document).ready(function() {
 //--------
 
 $('.gallery').flickity({
-    arrowShape: {
-      x0: 25,
-      x1: 59, y1: 60,
-      x2: 65, y2: 60,
-      x3: 29
-    },
-    cellAlign: 'left',
-    contain: true,
-    imagesLoaded: true,
-    lazyLoad : 3
+	// options
+	cellAlign: 'left',
+	contain: true,
+	lazyLoad: 2
 });
-
 
 //-------------
 // IMPRINT TABS
 //-------------
 
 $(document).ready(function() {
-    $('.tabs .tab-links a').on('click', function(e)  {
-        var currentAttrValue = jQuery(this).attr('href');
+	$('.tabs .tab-links a').on('click', function(e)  {
+		var currentAttrValue = jQuery(this).attr('href');
  
-        // Show/Hide Tabs
-        $('.tabs ' + currentAttrValue).show().siblings().hide();
+		// Show/Hide Tabs
+		$('.tabs ' + currentAttrValue).show().siblings().hide();
  
-        // Change/remove current tab to active
-        $(this).parent('li').addClass('active').siblings().removeClass('active');
+		// Change/remove current tab to active
+		$(this).parent('li').addClass('active').siblings().removeClass('active');
  
-        e.preventDefault();
-    });
+		e.preventDefault();
+	});
 });
+
+
+//----------------
+// INFINITE SCROLL
+//----------------
+
+(function($) {
+	$(document).ready(function() {
+
+		var ias = jQuery.ias({
+			container:  '#posts',
+			item:       '.post',
+			pagination: '#pagination',
+			next:       '.next'
+		});
+
+		ias.extension(new IASSpinnerExtension({ html: '<div class="spinner"><div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div></div>', }));
+		ias.extension(new IASNoneLeftExtension({text: "∎"}));
+
+	 });
+}(jQuery));
+
