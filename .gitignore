@@ -1,13 +1,14 @@
-.DS_Store
+.keys
+
 deploy.log
-watch.sh
+log/
 
 static/*
 !static/js/
 
-public/
 node_modules/
-example/
+public/
 data/
 content/
-log/
+
+.DS_Store
