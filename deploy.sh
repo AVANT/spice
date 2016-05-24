@@ -1,23 +1,27 @@
 #!/bin/sh
 
+# tag version
 git tag
-
 read -p "Tag current version with: " VERSION
-
 git tag -a $VERSION -m "$(date "+%H:%M:%S   %d/%m/%y")"
-
 git push --follow-tags
 
-SOURCE=$AVANT/alpha/
-DESTINATION=$AVANT/production/public
+# build paths
+STAGING=$AVANT/alpha/
+PRODUCTION=$AVANT/production/public
 LOG=$AVANT/alpha/deploy.log
-TEMP=`mktemp -d`
+TMP=`mktemp -d`
 
-echo "Building from $SOURCE"
-hugo --source="$SOURCE" --destination="$TEMP" --logFile="$LOG"
+# execute build to tmp directory
+echo "building from $STAGING"
+hugo --source="$STAGING" --destination="$TMP" --logFile="$LOG"
+
+# rsync tmp to production
 if [ $? -eq 0 ]; then
-	echo "Syncing to $DESTINATION"
-	rsync -aq --delete "$TEMP/" "$DESTINATION"
+	echo "syncing to $PRODUCTION"
+	rsync -aq --delete "$TMP/" "$PRODUCTION"
 fi
-echo "Cleaning up"
-rm -r $TEMP
+
+# remove tmp directory
+echo "cleaning up"
+rm -r $TMP
