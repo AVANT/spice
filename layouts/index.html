@@ -7,7 +7,7 @@
 			<div id="home">
 				<ul class="items" id="posts">
 
-				{{ $paginator := .Paginate ( where ( where ( where .Data.Pages.ByDate.Reverse "Type" "ne" "solo" ) "Draft" "ne" true ) ".Params.orphan" "!=" "true" ) }}
+				{{ $paginator := .Paginate ( where ( where ( where ( where .Data.Pages.ByDate.Reverse "Type" "!=" "solo" ) "Draft" "!=" true ) ".Params.orphan" "!=" "true" ) ".Params.homepage" "!=" "false" ) }}
 				{{ range $paginator.Pages }}
 
 				{{ if eq .Type "project" }}

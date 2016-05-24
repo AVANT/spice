@@ -6,7 +6,6 @@ nav
 	display: block
 	height: 100%
 
-
 [hidden],
 template
 	display: none
@@ -54,7 +53,6 @@ template
 	overflow: hidden
 	box-sizing: border-box
 	padding-right: 1em
-
 
 .menu .transition (.toggled)
 	transition: left 2s ease-in-out
@@ -110,7 +108,6 @@ template
 .menu nav .nav-items li a,
 .menu nav .nav-meta li a,
 .menu nav .nav-imprint li a
-//	border: 1px solid bw1
 	margin-bottom: 1.5em
 
 .menu nav .nav-items li a:hover,
@@ -119,8 +116,7 @@ template
 	color: white
 	background: bw1
 
-// BREADCRUMBS
-
+// breadcrumbs
 .nav-breadcrumbs
 	list-style-type: none
 	margin: auto
@@ -131,7 +127,7 @@ template
 	font-weight: 700
 
 .nav-breadcrumbs li
-	font-family: 'Tiempos Headline', Georgia, serif
+	font-family: headline
 	font-weight: 700
 
 .nav-home
@@ -154,7 +150,7 @@ template
 .nav-slash
 	display: inline-block
 	font-size: 1.1em
-	font-family: 'Tiempos Headline', Georgia, serif
+	font-family: headline
 	font-weight: 700
 
 .nav-items,
@@ -193,7 +189,7 @@ template
 
 .newsletter-signup
 	background: none
-	height: 100%  // to include child error messages
+	height: 100%
 	margin: 20px
 	margin-top: 10px
 
@@ -204,7 +200,7 @@ form
 	border: 0
 	border-bottom: 1px solid bw8
 
-input  // fixes iphone rounded button
+input
 	-webkit-appearance: none
 	border-radius: 0
 
@@ -245,9 +241,6 @@ input[type='email']
 	font-size: 0.8em
 	color: bw7
 	transition: all 0.2s ease
-	-moz-transition: all 0.28s ease
-	-o-transition: all 0.28s ease
-	-webkit-transition: all 0.28s ease
 	text-align: center
 
 input[type='email']:focus
@@ -329,252 +322,5 @@ input[type='text']:focus
 .fa-file-text-o:hover
 	color: bw5
 
-// footer icons
 .fa-github:hover
 	color: bw5
-
-
-//-------
-// SEARCH
-//-------
-
-//NOTE that the variable names are my own. You will obviously need to adjust according to how you design your sass variables.scss file. Honestly, you will probably want to write your own styling, especially since the variables and mixins are my own, but I'm throwing this in for good measure. The icon-* classes reflect [fontello](http://fontello.com/), which I used to reduce the overhead of including larger libraries like Font Awesome.
-
-topbar = 20px
-warnind = 'yellow'
-
-#search-button {
-	display: inline
-	color: bw1
-	background-color: white
-	font-size: topbar/4
-	height: topbar
-	line-height: topbar
-	cursor: pointer
-	position: absolute
-	top: 0px
-	right: topbar/4
-	transition: all .3s ease-in-out
-	&:hover {
-		color: $brand
-		span {
-			color: $brand
-			em {
-				color: $brand
-				border-color: $brand
-			}
-		}
-	}
-	span {
-		display: none
-		@include MQ(L) {
-			display: inline
-			height: topbar/2
-			line-height: topbar/2
-		}
-	}
-	em {
-		font-family: "Lucida Console", "Courier New", courier, monaco, monospace
-		font-style: normal
-		font-weight: 100
-		border: 1px solid lighten(bw1, 35%)
-		padding: .25em
-		border-radius: 3px
-		color: bw1
-	}
-	i.icon-search {
-		font-size: 2em
-		@include MQ(L){
-			font-size:1.5em
-		}
-	}
-}
-
-form.search-form {
-	position: fixed
-	top: 0
-	left: 0
-	width: 100%!important
-	width: 100vw!important
-	height: 100%
-	height: 100vh
-	display: none
-	overflow-y: scroll
-	&.open {
-		display: block
-		z-index: 999
-		background-color: white
-	}
-	input#search-input {
-		display: block
-		width: 90%
-		margin-left: 5%
-		margin-top: 1.5em
-		@include MQ(L) {
-			width: 70%
-			max-width: 70%
-			margin-left: auto
-			margin-right: auto
-			margin-top: 2rem
-			font-size: 2rem
-		}
-	}
-}
-
-div.press-escape {
-	display: none
-	@include MQ(L) {
-		display: block
-		position: absolute
-		margin-top: 20px
-		font-size: 16px
-		bottom: 25px
-		left: calc(50% - 100px)
-		right: calc(50% - 100px)
-		width: 200px
-		em {
-			font-family: "Lucida Console", "Courier New", courier, monaco, monospace
-			font-style: normal
-			font-weight: 100
-			position: relative
-			font-size: .7em
-			border: 1px solid lighten(bw1, 35%)
-			border-radius: 3px
-			color: bw1
-			top: -.67em
-			padding: .25em .5em 1.5em
-		}
-	}
-}
-
-#close-search {
-	width: 18px
-	position: fixed
-	top: 20px
-	right: 30px
-	z-index: 999
-}
-
-ul#search-results {
-	display: block
-	width: 90%
-	margin-left: 5%
-	margin-top: 1.5em
-	padding-left: 0
-	@include MQ(L) {
-		width: 70%
-		margin-left: auto
-		margin-right: auto
-		margin-top: 2rem
-	}
-	li {
-		list-style: none inside none
-		border: 1px solid bw1
-		position: relative
-		display: block
-		height: 100%
-		margin-left: 0
-		margin-bottom: .75em
-		padding-left: 0
-		z-index: 999
-		margin-left: -10px
-		margin-right: -10px
-		a {
-			&:hover {
-				cursor: pointer!important
-			}
-			&:focus {
-				h5 {
-					background-color: bw7
-					margin-left: -1px
-					width: calc(100% + 2px)
-				}
-			}
-		}
-		h5 {
-			transition: all .2s ease-in-out
-			background-color: bw9
-			color: white
-			margin-top: -1px
-			padding-top: -1px
-			padding-left: 10px
-			padding-right: 10px
-			font-weight: bold
-			&:hover,
-			&:focus,
-			&:active {
-				cursor: pointer!important
-				background-color: bw9
-				margin-left: -1px
-				width: calc(100% + 2px)
-			}
-		}
-		div.in-section {
-			display: block
-			width: 100%
-			padding-left: 10px
-			font-size: .75em
-			display: inline-block
-			color: black
-			font-weight: bold
-		}
-		p {
-			flex-grow: 1
-			padding-left: 10px
-			padding-right: 10px
-			margin-top: 5px
-			margin-bottom: 0px
-		}
-		//see _icons.scss for span.tags-icon
-		&.none {
-			border: 3px solid warning
-			padding-left: 10px
-		}
-	}
-	ul.tags {
-		display: none
-		@include MQ(M) {
-			display: flex
-			margin-bottom: .5rem
-			margin-top: .5rem
-			width: 100%
-			padding-left: 10px
-			justify-content: flex-end
-			li {
-				display:none
-				@include MQ(M){
-					display:inline
-				}
-				border: 0px
-				margin: 0 5px
-				padding: 0
-				//fontello icon
-				.icon-tags {
-					color: bw1
-				}
-				//only show mobile-plus size since tags are hidden in search overlay for mobile.
-				a.tag {
-					font-size: 1em
-					background-color: bw9
-					color: bw1
-					&:hover {
-						background-color: bw5
-					}
-				}
-			}
-		}
-	}
-}
-
-i.icon-cancel {
-	color: white
-	font-size: 1.2rem
-	background-color: bw1
-	border-radius: 50%
-}
-
-span.input-value {
-	color: warning
-	font-weight: bold
-	font-style: italic
-}

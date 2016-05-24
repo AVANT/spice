@@ -3,10 +3,9 @@
 //---------
 
 *
-	-webkit-box-sizing: border-box
-	box-sizing: border-box
 	margin: 0
 	padding: 0
+	box-sizing: border-box
 
 main,
 article,
@@ -22,10 +21,9 @@ summary,
 	display: block
 
 html
-	font-family: 'Tiempos Text', Georgia, serif
+	font-family: text
 	font-weight: 500
-	-ms-text-size-adjust: 100%
-	-webkit-text-size-adjust: 100%
+	text-size-adjust: 100%
 	width: 100%
 	height: 100%
     min-height: 100%
@@ -66,7 +64,7 @@ span
 
 body,
 td
-	font-family: 'Tiempos Text', Georgia, serif
+	font-family: text
 	font-weight: 400
 	font-size: 1.1em
 	color: bw1
@@ -75,10 +73,6 @@ td
 	background-color: white
 	margin: 0
 	background-color: bw10
-	-webkit-transition: opacity 0.3s ease-in
-	-moz-transition: opacity 0.3s ease-in
-	-o-transition: opacity 0.3s ease-in
-	-ms-transition: opacity 0.3s ease-in
 	transition: opacity 0.3s ease-in
 
 @media (max-width:942px)
@@ -106,7 +100,7 @@ h5,
 h6,
 h5,
 h6
-	font-family: 'Tiempos Headline', Georgia, serif
+	font-family: headline
 	font-weight: 700
 
 h1
@@ -130,18 +124,9 @@ h6
 	color: bw1
 	word-break: break-word
 	transition: all 0.2s ease
-	-moz-transition: all 0.28s ease
-	-o-transition: all 0.28s ease
-	-webkit-transition: all 0.28s ease
-	-o-box-shadow: inset 0 -0.1em 0 0 bw7
-	-webkit-box-shadow: inset 0 -0.1em 0 0 bw7
-	-moz-box-shadow: inset 0 -0.1em 0 0 bw7
 	box-shadow: inset 0 -0.1em 0 0 bw7
 
 .text-body a:hover
-	-o-box-shadow: inset 0 -0.1em 0 0 bw3
-	-webkit-box-shadow: inset 0 -0.1em 0 0 bw3
-	-moz-box-shadow: inset 0 -0.1em 0 0 bw3
 	box-shadow: inset 0 -0.1em 0 0 bw3
 
 a
@@ -218,7 +203,7 @@ strong
 	width: 100%
 	max-width: 740px
 	margin: 1em auto
-	font-family: 'Tiempos Text', Georgia, serif
+	font-family: text
 	z-index: 1
 
 .list-wrap .single-content
@@ -242,12 +227,11 @@ strong
 	text-decoration: none
 	padding: 0 1em
 	transition: all .2s ease-in
-	-webkit-transition: all .2s ease-in
 
 .list-wrap .page-date
 	display: inline-block
 	position: relative
-	font-family: 'Tiempos Headline', Georgia, serif
+	font-family: headline
 	font-style: italic
 	font-size: 85%
 	text-align: center
@@ -259,7 +243,7 @@ strong
 .list-wrap h1.page-title
 	font-size: 120%
 	line-height: 135%
-	font-family: 'Tiempos Headline', Georgia, serif
+	font-family: headline
 	font-weight: 700
 
 .single-wrap
@@ -323,7 +307,7 @@ strong
 	margin: 5px 20px 0px 0px
 	padding: 0px 18px 7px 18px
 	font-size: 4.3em
-	font-family: 'Tiempos Headline', Georgia, serif
+	font-family: headline
 	font-weight: 800
 	color: bw1
 	line-height: 1
@@ -372,7 +356,7 @@ sub
 // body anchor
 .footnote-ref a
 	text-decoration: none
-	color: blue2
+	color: blue0
 	padding: 0 0.2em
 	font-weight: 500
 
@@ -387,16 +371,13 @@ sub
 	vertical-align: baseline
 
 .footnote-return a
-	color: blue2 !important
+	color: blue0 !important
 	font-weight: 700 !important
 
 .footnote-ref a,
 .footnote-ref a:hover,
 .footnote-return a,
 .footnote-return a:hover
-	-o-box-shadow: none !important
-	-webkit-box-shadow: none !important
-	-moz-box-shadow: none !important
 	box-shadow: none !important
 
 .footnote-ref a:hover,
@@ -410,7 +391,7 @@ sub
 .footnotes a,
 .footnotes ol li,
 .footnotes ul li
-	font-family: 'Tiempos Headline', Georgia, serif
+	font-family: headline
 	font-weight: 500
 	color: bw1
 
@@ -462,7 +443,7 @@ legend
 .caption
 	font-size: 0.8em
 	padding: 1em
-	font-family: 'Tiempos Headline', Georgia, serif
+	font-family: headline
 	font-weight: 600
 	color: bw5
 	margin: 0 auto
@@ -577,7 +558,7 @@ small
 
 li
 	font-size: 0.9em
-	font-family: 'Tiempos Text', Georgia, serif
+	font-family: text
 	font-weight: 500
 
 
@@ -610,12 +591,12 @@ li
 	margin: 5% auto
 	text-align: center
 	letter-spacing: 0.5em
-	font-family: 'Tiempos Headline', Georgia, serif
+	font-family: headline
 	font-weight: 700
 
 .meta-block
 	display: block
-	font-family: 'Tiempos Headline', Georgia, serif
+	font-family: headline
 	font-weight: 700
 	padding: 0.2em 0
 	width: 70%
@@ -626,7 +607,7 @@ li
 
 .single-wrap h1.page-title
 	font-size: 1.3em
-	font-family: 'Tiempos Headline', Georgia, serif
+	font-family: headline
 	font-weight: 700
 	margin: 0 0 0.2em 0
 
@@ -665,20 +646,11 @@ li
 	line-height: 1.2em
 	margin: 0
 	transition: all 0.2s ease
-	-moz-transition: all 0.28s ease
-	-o-transition: all 0.28s ease
-	-webkit-transition: all 0.28s ease
-	-o-box-shadow: inset 0 -0.1em 0 0 bw7
-	-webkit-box-shadow: inset 0 -0.1em 0 0 bw7
-	-moz-box-shadow: inset 0 -0.1em 0 0 bw7
 	box-shadow: inset 0 -0.1em 0 0 bw7
 	white-space: nowrap3
 
 .author a:hover,
 .thread a:hover
-	-o-box-shadow: inset 0 -0.1em 0 0 bw3
-	-webkit-box-shadow: inset 0 -0.1em 0 0 bw3
-	-moz-box-shadow: inset 0 -0.1em 0 0 bw3
 	box-shadow: inset 0 -0.1em 0 0 bw3
 
 .authors a
@@ -721,7 +693,7 @@ li
 // block quote
 .single-wrap .block
 	font-size: 1em
-	font-family: 'Tiempos Headline', Georgia, serif
+	font-family: headline
 	font-weight: 600
 	color: bw1
 	border-left: 10px solid bw1
@@ -754,7 +726,7 @@ li
 // pullquote
 blockquote
 	font-size: 1.8em
-	font-family: 'Tiempos Headline', Georgia, serif
+	font-family: headline
 	font-weight: 800
 	color: bw1
 	padding: 0 0 0 0
@@ -857,14 +829,12 @@ footer
 	height: 280px
 	padding: 0
 	margin: 3em 0 0 0
-	font-family: 'Tiempos Headline', Georgia, serif
+	font-family: headline
 	font-size: 0.9em
 	line-height: 2em
 	font-weight: 600
 	color: white
 	background-color: bw1
-	-webkit-transform-style: preserve-3d
-	-moz-transform-style: preserve-3d
 	transform-style: preserve-3d
 	bottom: 0
 	margin: 0 auto 0
@@ -886,9 +856,6 @@ footer a
 	position: relative
 	vertical-align: baseline
 	transition: all 0.2s ease
-	-moz-transition: all 0.28s ease
-	-o-transition: all 0.28s ease
-	-webkit-transition: all 0.28s ease
 	display: block
 	text-align: right
 
@@ -920,18 +887,11 @@ footer div
 
 .license a
 	box-shadow: none !important
-	-o-box-shadow: none !important
-	-webkit-box-shadow: none !important
-	-moz-box-shadow: none !important
-	box-shadow: none !important
 
 #foot-cc
 	color: bw5
 	font-size: 1.8em
 	transition: all 0.2s ease
-	-moz-transition: all 0.28s ease
-	-o-transition: all 0.28s ease
-	-webkit-transition: all 0.28s ease
 
 #foot-cc:hover
 	color: white

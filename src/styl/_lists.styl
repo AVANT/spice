@@ -15,9 +15,8 @@
 .items li .p-wrap
 	padding: 2.5em
 	transition: all .15s ease-in
-	// background: bw8
 	border: solid 1px bw2
-	font-family: 'Tiempos Headline'
+	font-family: headline
 
 .items li .p-wrap .list-title
 	font-weight: 700
@@ -37,7 +36,6 @@
 .items li .p-wrap:active
 .items li .p-wrap:hover
 	background: bw9
-	// border: solid 1px white
 
 @media (max-width:942px)
 	.items li .p-wrap:hover::after
@@ -82,28 +80,16 @@
 	margin: 0 5px;
 	background-color: bw1
 	display: inline-block
-	-webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both
 	animation: sk-bouncedelay 1.4s infinite ease-in-out both
 
 .spinner .bounce1
-	-webkit-animation-delay: -0.32s
 	animation-delay: -0.32s
 
 .spinner .bounce2
-	-webkit-animation-delay: -0.16s
 	animation-delay: -0.16s
-
-@-webkit-keyframes sk-bouncedelay
-	0%, 80%, 100%
-		-webkit-transform: scale(0)
-	40%
-		-webkit-transform: scale(1.0)
 
 @keyframes sk-bouncedelay
 	0%, 80%, 100%
-		-webkit-transform: scale(0)
 		transform: scale(0)
 	40%
-		-webkit-transform: scale(1.0)
-		transform: scale(1.0)
-
+		transform: scale(1)
