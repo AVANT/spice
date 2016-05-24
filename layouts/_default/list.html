@@ -1,163 +1,61 @@
-{{ partial "head" . }}
+{{ partial "head/head" . }}
 <body>
-	
-	{{ partial "menu" . }}
-	{{ partial "nav" . }}
-	<div class="site-wrapper">
-		
-<!-- {{ printf "%#v" .Title }} -->
+{{ partial "menu" . }}
+{{ partial "nav" . }}
 
-		{{ if eq .Title "Projects" }}
-		<main>
-			<div id="home">
-				<ul class="items" id="posts">
-				{{ $paginator := .Paginate (where .Data.Pages.ByDate.Reverse "Type" "project") }}
-				{{ range $paginator.Pages }}
-				{{ if ne .Draft true}}
-					<li itemscope class="post">
-						<a href="{{ .Permalink }}" itemprop="url">
-							<div class="p-wrap">
-								<p class="project-list-title" itemprop="name headline">{{ .Title }}</p>
-								{{ with .Params.author }}
-								<span class="project-list-author">
-									{{ range . }}
-										<p>{{ . }}<p>
-									{{ end }}
-								</span>
-								{{ end }}
-							</div>
-						</a>
-					</li>
-				{{ end }}
-				{{ end }}
-				</ul>
-			</div>
-		</main>
-		{{ end }}
+<div class="site-wrapper">
+<main>
+<div id="home">
+<ul class="items" id="posts">
 
-		{{ if eq .Title "Artifacts" }}
-		<main>
-			<div id="home">
-				<ul class="items" id="posts">
-				{{ $paginator := .Paginate (where .Data.Pages.ByDate.Reverse "Type" "artifact") }}
-				{{ range $paginator.Pages }}
-				{{ if ne .Draft true}}
-					<li itemscope  class="post">
-						<a href="{{ .Permalink }}" itemprop="url">
-							<div class="p-wrap">
-								<p class="artifact-list-title" itemprop="name headline">{{ .Title }}</p>
-								{{ with .Params.author }}
-								<span class="artifact-list-author">
-									{{ range . }}
-										<p>{{ . }}<p>
-									{{ end }}
-								</span>
-								{{ end }}
-							</div>
-						</a>
-					</li>
-				{{ end }}
-				{{ end }}
-				</ul>
-			</div>
-		</main>
-		{{ end }}
+{{ if eq .Title "Projects" }}
+	{{ $paginator := .Paginate ( where ( where ( where .Data.Pages.ByDate.Reverse "Type" "project" ) "Draft" "ne" true ) ".Params.orphan" "!=" "true" ) }}
+	{{ range $paginator.Pages }}
+		{{ partial "list-item" . }}
+	{{ end }}
+{{ end }}
 
-		{{ if eq .Title "Galleries" }}
-		<main>
-			<div id="home">
-				<ul class="items" id="posts">
-				{{ $paginator := .Paginate (where .Data.Pages.ByDate.Reverse "Type" "gallery") }}
-				{{ range $paginator.Pages }}
-				{{ if ne .Draft true}}
-					<li itemscope class="post">
-						<a href="{{ .Permalink }}" itemprop="url">
-							<div class="p-wrap">
-								<p class="gallery-list-title" itemprop="name headline">{{ .Title }}</p>
-								{{ with .Params.author }}
-								<span class="gallery-list-author">
-									{{ range . }}
-										<p>{{ . }}<p>
-									{{ end }}
-								</span>
-								{{ end }}
-							</div>
-						</a>
-					</li>
-				{{ end }}
-				{{ end }}
-				</ul>
-			</div>
-		</main>
-		{{ end }}
+{{ if eq .Title "Artifacts" }}
+	{{ $paginator := .Paginate ( where ( where ( where .Data.Pages.ByDate.Reverse "Type" "artifact" ) "Draft" "ne" true ) ".Params.orphan" "!=" "true" ) }}
+	{{ range $paginator.Pages }}
+		{{ partial "list-item" . }}
+	{{ end }}
+{{ end }}
 
-		{{ if eq .Title "Events" }}
-		<main>
-			<div id="home">
-				<ul class="items" id="posts">
-				{{ $paginator := .Paginate (where .Data.Pages.ByDate.Reverse "Type" "event") }}
-				{{ range $paginator.Pages }}
-				{{ if ne .Draft true}}
-					<li itemscope class="post">
-						<a href="{{ .Permalink }}" itemprop="url">
-							<div class="p-wrap">
-								<p class="item-list-title" itemprop="name headline">{{ .Title }}</p>
-							</div>
-						</a>
-					</li>
-				{{ end }}
-				{{ end }}
-				</ul>
-			</div>
-		</main>
-		{{ end }}
+{{ if eq .Title "Galleries" }}
+	{{ $paginator := .Paginate ( where ( where ( where .Data.Pages.ByDate.Reverse "Type" "gallery" ) "Draft" "ne" true ) ".Params.orphan" "!=" "true" ) }}
+	{{ range $paginator.Pages }}
+		{{ partial "list-item" . }}
+	{{ end }}
+{{ end }}
 
-		{{ if eq .Title "Authors" }}
-		<main>
-			<div id="home">
-				<ul class="items" id="posts">
-				{{ $paginator := .Paginate (where .Data.Pages.ByDate.Reverse "Type" "author") }}
-				{{ range $paginator.Pages }}
-				{{ if ne .Draft true}}
-					<li itemscope class="post">
-						<a href="{{ .Permalink }}" itemprop="url">
-							<div class="p-wrap">
-								<p class="item-list-title" itemprop="name headline">{{ .Title }}</p>
-							</div>
-						</a>
-					</li>
-				{{ end }}
-				{{ end }}
-				</ul>
-			</div>
-		</main>
-		{{ end }}
+{{ if eq .Title "Events" }}
+	{{ $paginator := .Paginate ( where ( where ( where .Data.Pages.ByDate.Reverse "Type" "event" ) "Draft" "ne" true ) ".Params.orphan" "!=" "true" ) }}
+	{{ range $paginator.Pages }}
+		{{ partial "list-item" . }}
+	{{ end }}
+{{ end }}
 
-		{{ if eq .Title "Threads" }}
-		<main>
-			<div id="home">
-				<ul class="items" id="posts">
-				{{ $paginator := .Paginate (where .Data.Pages.ByDate.Reverse "Type" "thread") }}
-				{{ range $paginator.Pages }}
-				{{ if ne .Draft true}}
-					<li itemscope class="post">
-						<a href="{{ .Permalink }}" itemprop="url">
-							<div class="p-wrap">
-								<p class="item-list-title" itemprop="name headline">{{ .Title }}</p>
-							</div>
-						</a>
-					</li>
-				{{ end }}
-				{{ end }}
-				</ul>
-			</div>
-		</main>
-		{{ end }}
+{{ if eq .Title "Drafts" }}
+	{{ $paginator := .Paginate ( where .Data.Pages.ByDate.Reverse "Draft" "eq" true ) }}
+	{{ range $paginator.Pages }}
+		{{ partial "list-item" . }}
+	{{ end }}
+{{ end }}
 
-		{{ partial "pagination" . }}
-		{{ partial "footer" . }}
-	</div>
-	{{ partial "js" . }}
+</ul>
+</div>
+</main>
+
+{{ partial "pagination" . }}
+{{ partial "footer" . }}
+</div>
+
+{{ partial "js" . }}
+<script>
+	footer = document.getElementById('footer');
+	footer.style.display = 'none';
+</script>
 
 </body>
 </html>

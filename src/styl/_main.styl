@@ -28,6 +28,12 @@ html
 	-webkit-text-size-adjust: 100%
 	width: 100%
 	height: 100%
+    min-height: 100%
+	position: relative
+
+main
+	margin-bottom: 80px
+	min-height: 60%
 
 iframe
 	border:none
@@ -55,10 +61,13 @@ html[xmlns] .clearfix
 * html .clearfix
 	height: 1%
 
+span
+	letter-spacing: none
+
 body,
 td
 	font-family: 'Tiempos Text', Georgia, serif
-	font-weight: 500
+	font-weight: 400
 	font-size: 1.1em
 	color: bw1
 	text-rendering: optimizeLegibility
@@ -105,35 +114,35 @@ h1
 	margin: .67em 0
 
 h2
-	font-size: 180%
-	margin: 1em 0 .5em
+	font-size: 130%
+	margin: 1.5em 0 .5em
 
 h3,
 h4,
 h5,
 h6
-	font-size: 80%
 	font-weight: 700
-	margin: 3.5em 0 .5em
+	margin: 1em 0 .5em
 	color: bw4
 
 .text-body a
 	text-decoration: none !important
 	color: bw1
-	-o-box-shadow: inset 0 -0.128em 0 0 bw8
-	-webkit-box-shadow: inset 0 -0.128em 0 0 bw8
-	-moz-box-shadow: inset 0 -0.128em 0 0 bw8
-	box-shadow: inset 0 -0.128em 0 0 bw8
-	-moz-transition: all 0.2s ease
-	-o-transition: all 0.2s ease
-	-webkit-transition: all 0.2s ease
+	word-break: break-word
 	transition: all 0.2s ease
-	padding-bottom: 0.04em
+	-moz-transition: all 0.28s ease
+	-o-transition: all 0.28s ease
+	-webkit-transition: all 0.28s ease
+	-o-box-shadow: inset 0 -0.1em 0 0 bw7
+	-webkit-box-shadow: inset 0 -0.1em 0 0 bw7
+	-moz-box-shadow: inset 0 -0.1em 0 0 bw7
+	box-shadow: inset 0 -0.1em 0 0 bw7
 
 .text-body a:hover
-	-webkit-box-shadow: inset 0 -0.128em 0 0 bw9
-	-moz-box-shadow: inset 0 -0.128em 0 0 bw9
-	box-shadow: inset 0 -0.128em 0 0 bw9
+	-o-box-shadow: inset 0 -0.1em 0 0 bw3
+	-webkit-box-shadow: inset 0 -0.1em 0 0 bw3
+	-moz-box-shadow: inset 0 -0.1em 0 0 bw3
+	box-shadow: inset 0 -0.1em 0 0 bw3
 
 a
 	color: bw1
@@ -147,7 +156,7 @@ a:hover
 p
 	font-size: 0.9em
 	margin: 1em 0
-	line-height: 1.7
+	line-height: 1.4
 
 b,
 strong
@@ -158,9 +167,17 @@ strong
 	clear: both
 	display: block
 
-.center-inner	
-	margin: 0em auto
-	width:100%
+.center-inner
+	margin: 0 20%
+	width: 60%
+
+@media (max-width:600px)
+	.center-inner
+		margin: 0 5%
+		width: 90%
+
+.text-body .txt
+	margin: 0 auto
 
 .center-inner .txt
 	display: block
@@ -175,8 +192,8 @@ strong
 
 .right-inner
 	float: right
-	width: 90%
-	margin-right: 3em
+	width: 60%
+	margin: 0 35% 0 5%
 
 .right-inner .txt
 	display: block
@@ -189,9 +206,9 @@ strong
 	display: block
 
 .left-inner
-	float:left
-	width:100%
-	margin-left: 3em
+	float: left
+	width: 60%
+	margin: 0 5% 0 35%
 
 .left-inner .txt
 	margin: 0 20% 0 0
@@ -240,11 +257,10 @@ strong
 	text-transform: none
 
 .list-wrap h1.page-title
-	font-size: 180%
+	font-size: 120%
 	line-height: 135%
 	font-family: 'Tiempos Headline', Georgia, serif
-	font-style: bold
-	text-align: center
+	font-weight: 700
 
 .single-wrap
 	width: 100%	
@@ -263,7 +279,7 @@ strong
 .single-wrap .feat a.popup
 	display: inline-block
 	position: relative
-	top: .7em
+	top: 0.7em
 	font-size: 130%
 	text-align: center
 	text-decoration: none
@@ -275,25 +291,12 @@ strong
 	.single-wrap .feat a.popup
 		font-size: 150%
 
-.single-wrap .page-date
-	display: inline-block
-	position: relative
-	top: 0px
-	margin-top: 0px
-	font-size: 85%
-	text-align: center
-	font-style: italic
-	padding: 0 0em
-	text-transform: none
-
 .single-wrap .share
 	text-align: right
 
-.single-wrap h1.page-title
-	font-size: 180%
-	line-height: 135%
-	text-align: center
-	margin: 0 0 1em
+.single-wrap ul
+	margin: 2em 0 0 1em
+	list-style-type: circle
 
 .single-wrap ul,
 .single-wrap ol
@@ -314,11 +317,12 @@ strong
 	font-size: 0.9em
 	font-weight: 600
 
+
 .init
 	float: left
-	margin: 8px 20px 5px 0px
-	padding: 2px 18px 10px 18px
-	font-size: 5em
+	margin: 5px 20px 0px 0px
+	padding: 0px 18px 7px 18px
+	font-size: 4.3em
 	font-family: 'Tiempos Headline', Georgia, serif
 	font-weight: 800
 	color: bw1
@@ -337,9 +341,14 @@ hr
 
 .spacer
 	text-align: center
-	margin-bottom:20px
-	letter-spacing: 0.5em
+	margin-top: 20px
+	margin-bottom:30px
+	letter-spacing: 1em
+	font-size: 0.8em
 
+.div
+	margin: 0 auto
+	text-align: left
 
 //-----------
 // ANNOTATION
@@ -347,7 +356,7 @@ hr
 
 sup
 	top: -.4em
-	font-size: 85%
+	font-size: 80%
 	line-height: 0
 	position: relative
 	vertical-align: baseline
@@ -363,9 +372,9 @@ sub
 // body anchor
 .footnote-ref a
 	text-decoration: none
-	color: #2B4AB3
-	padding: 0 0.5em
-	font-weight: 600
+	color: blue2
+	padding: 0 0.2em
+	font-weight: 500
 
 // footnote anchor
 .footnote-return
@@ -376,16 +385,23 @@ sub
 	line-height: 0
 	position: relative
 	vertical-align: baseline
-	color: #2B4AB3 ! important
+
+.footnote-return a
+	color: blue2 !important
+	font-weight: 700 !important
 
 .footnote-ref a,
 .footnote-ref a:hover,
-.footnote-return,
-.footnote-return:hover
+.footnote-return a,
+.footnote-return a:hover
 	-o-box-shadow: none !important
 	-webkit-box-shadow: none !important
 	-moz-box-shadow: none !important
 	box-shadow: none !important
+
+.footnote-ref a:hover,
+.footnote-return a:hover
+	color: bw1 !important
 
 .footnotes h3
 	margin-top: 1.5em
@@ -395,7 +411,7 @@ sub
 .footnotes ol li,
 .footnotes ul li
 	font-family: 'Tiempos Headline', Georgia, serif
-	font-weight: 600
+	font-weight: 500
 	color: bw1
 
 .footnotes ol li p
@@ -405,6 +421,7 @@ sub
 
 .footnotes
 	padding: 0
+	font-size: 0.9em
 	
 .footnotes a
 	color: bw1
@@ -442,6 +459,14 @@ legend
 	padding: 5px 10px
 	width: auto
 
+.caption
+	font-size: 0.8em
+	padding: 1em
+	font-family: 'Tiempos Headline', Georgia, serif
+	font-weight: 600
+	color: bw5
+	margin: 0 auto
+	text-align: center
 
 //------------
 // UI ELEMENTS
@@ -512,6 +537,9 @@ input[type=search]::-webkit-search-cancel-button,
 input[type=search]::-webkit-search-decoration
 	-webkit-appearance: none
 
+input:-webkit-autofill
+	background-color: white !important
+
 fieldset
 	border: 1px solid silver
 	margin: 0 2px
@@ -551,57 +579,131 @@ li
 	font-size: 0.9em
 	font-family: 'Tiempos Text', Georgia, serif
 	font-weight: 500
-	list-style-type: decimal
 
 
 //--------------
 // PAGE ELEMENTS
 //--------------
 
+.meta-box
+	position: absolute
+	top: 0
+	right 0
+	width: 30%
+	padding-right: 1.8em
+
+@media (max-width:600px)
+	.meta-box
+		position: relative
+		margin: 1em auto
+		width: 90%
+
 .meta
-	margin: 0 auto
+	margin-top: 38%
+
+@media (max-width:600px)
+	.meta
+		width: 100%
+		margin-top: 1.5em
+
+.splash-spacer
+	margin: 5% auto
 	text-align: center
+	letter-spacing: 0.5em
+	font-family: 'Tiempos Headline', Georgia, serif
+	font-weight: 700
 
 .meta-block
-	margin: 0 auto
 	display: block
 	font-family: 'Tiempos Headline', Georgia, serif
 	font-weight: 700
 	padding: 0.2em 0
 	width: 70%
 
-.author,
-.thread,
-.tag
-	font-size: 1.2em
+@media (max-width:600px)
+	.meta-block
+		margin: 1em auto
+
+.single-wrap h1.page-title
+	font-size: 1.3em
 	font-family: 'Tiempos Headline', Georgia, serif
-	font-weight: 800
-	color: bw1
+	font-weight: 700
+	margin: 0 0 0.2em 0
+
+.single-wrap .page-date
+	font-size: 0.8em
+	margin: 0
+	font-weight: 700
+	color: bw5
+	margin: 1em 0 0.2em 0
+
+.tag-block
+	border solid 1px bw1
+	padding 1em
+	margin 1.5em 0
+	width: 75%
+
+@media (max-width:600px)
+	.tag-block
+		margin: 0 auto
+
+.author,
+.thread
+	margin: 0.7em 0
+
+@media (max-width:600px)
+	.author,
+	.thread,
+	.page-date
+		text-align: center
+
+.author a,
+.thread a
 	bottom: -.16em
-	line-height: 0
 	position: relative
 	vertical-align: baseline
-	line-height: 2.2em
+	line-height: 1.2em
+	margin: 0
+	transition: all 0.2s ease
+	-moz-transition: all 0.28s ease
+	-o-transition: all 0.28s ease
+	-webkit-transition: all 0.28s ease
+	-o-box-shadow: inset 0 -0.1em 0 0 bw7
+	-webkit-box-shadow: inset 0 -0.1em 0 0 bw7
+	-moz-box-shadow: inset 0 -0.1em 0 0 bw7
+	box-shadow: inset 0 -0.1em 0 0 bw7
+	white-space: nowrap3
 
-.author a
-	margin: 0 6px
+.author a:hover,
+.thread a:hover
+	-o-box-shadow: inset 0 -0.1em 0 0 bw3
+	-webkit-box-shadow: inset 0 -0.1em 0 0 bw3
+	-moz-box-shadow: inset 0 -0.1em 0 0 bw3
+	box-shadow: inset 0 -0.1em 0 0 bw3
 
-.thread a,
+.authors a
+	margin: 0 0.7em 0 0
+	line-height: 2em
+	white-space: nowrap
+
+.tag
+	line-height: 1.2em
+	font-size: 1.1em
+	font-weight: 600
+	margin: 0
+
 .tag a
-	border: 3px solid bw1
-	padding: 1px 5px 4px 5px
-	margin: 0 3px 0 3px
-	font-size: 0.9em
+	padding: 1px 8px 4px 8px
+	margin: 0
+	font-size: 0.7em
 	color: bw1
 	text-decoration: none
 	white-space: pre
-	background: white
+	display: block
 
 .tag a:hover
-.thread a:hover
 	color: white
 	background: bw1
-	border: 3px solid bw1
 
 .h-wrap h1.title
 	display: inline-block
@@ -646,8 +748,8 @@ li
 		margin-left: 0
 
 .single-wrap .block p
-	padding-left: 0!important
-	padding-right: 0!important
+	padding-left: 0 !important
+	padding-right: 0 !important
 
 // pullquote
 blockquote
@@ -656,7 +758,7 @@ blockquote
 	font-weight: 800
 	color: bw1
 	padding: 0 0 0 0
-	margin-top: 2em 0 2em -3.5em
+	margin: 1em 0 1.5em 0
 
 blockquote p
 	margin: 0
@@ -672,14 +774,27 @@ blockquote p
 	bottom: 40px
 	color: bw1
 	display: inline-block
+	border-radius: 0
+	width 150px
+	font-weight: 600
+	font-size: 1em
+	display: none
+
+#prev span,
+#next span
+	font-weight: 600
+	font-size: 1em
+	display: inline-block
 
 #prev
 	align: left
 	left: 40px
+	margin-left: 20px
 
 #next
 	align: right
 	right: 40px
+	margin-right: 20px
 
 #prev:active,
 #next:active
@@ -723,64 +838,106 @@ blockquote p
 .pagination a:hover
 	text-decoration: none
 
+//---------------
+// TAXONOMY PAGES
+//---------------
 
-//--------
-// IMPRINT
-//--------
+.taxonomy
+	margin 2em 0 0 4em
 
-// tabs
-.tabs
-	width: 90%
-	display: inline-block
-	padding: 1em
-	margin 0 auto
-	display: block
+.taxonomy-list
+	margin: 1em 0 0 6em
 
-.tab-links
-	margin: 0px
+.item-title
+	margin 2em 0 0 4em
 
-.tab-links:after
-	display: block
-	clear: both
-	content: ''
 
-.tab-links li
-	margin: 0px 10px 0px 0px !important;
-	float: left
-	list-style: none
-
-.tab-links a
-	padding: 9px 20px
-	display: inline-block
-	background: bw8
-	font-size: 16px
+footer
+	width: 100%
+	height: 280px
+	padding: 0
+	margin: 3em 0 0 0
+	font-family: 'Tiempos Headline', Georgia, serif
+	font-size: 0.9em
+	line-height: 2em
 	font-weight: 600
-	color: bw1
-	transition: all ease-in-out 0.15s
-	border: none
-	text-decoration: none
-	border: none
-	box-shadow: none
+	color: white
+	background-color: bw1
+	-webkit-transform-style: preserve-3d
+	-moz-transform-style: preserve-3d
+	transform-style: preserve-3d
+	bottom: 0
+	margin: 0 auto 0
 
-.tab-links a:hover
-	background: bw9
-	text-decoration: none
-	border: none
-	box-shadow: none
 
-li.active a, li.active a:hover
-	background: white
-	color: bw1
+footer div.links
+	position: absolute
+	color: bw5
+	right: 40px
+	margin-top: 2.2em
 
-// tab content
-.tab-content
-	padding: 15px
-	background: white
-	height: 500px;
+@media (max-width:600px)
+	footer div.links
+		right: 20px
 
-.tab
-	display: none
 
-.tab.active
+footer a
+	color: bw5 !important
+	position: relative
+	vertical-align: baseline
+	transition: all 0.2s ease
+	-moz-transition: all 0.28s ease
+	-o-transition: all 0.28s ease
+	-webkit-transition: all 0.28s ease
 	display: block
+	text-align: right
 
+footer a:hover
+	color white !important
+
+footer div
+	position: relative
+	top: 50%
+	transform: translateY(-50%)
+
+.logo-foot
+	width: 55px
+	background: bw5
+	
+@media (max-width:600px)
+	.logo-foot
+		margin-bottom: 7em
+
+.license
+	position: absolute
+	color: bw5
+	text-align: left
+	left: 40px
+
+@media (max-width:600px)
+	.license
+		left: 20px
+
+.license a
+	box-shadow: none !important
+	-o-box-shadow: none !important
+	-webkit-box-shadow: none !important
+	-moz-box-shadow: none !important
+	box-shadow: none !important
+
+#foot-cc
+	color: bw5
+	font-size: 1.8em
+	transition: all 0.2s ease
+	-moz-transition: all 0.28s ease
+	-o-transition: all 0.28s ease
+	-webkit-transition: all 0.28s ease
+
+#foot-cc:hover
+	color: white
+
+.foot-social
+	margin-top: 4em
+
+.social-link
+	margin: 0 0.8em !important

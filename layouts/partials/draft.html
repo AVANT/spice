@@ -7,8 +7,11 @@
 			<div id="home">
 				<ul class="items" id="posts">
 
-				{{ $paginator := .Paginate ( where ( where ( where .Data.Pages.ByDate.Reverse "Type" "ne" "solo" ) "Draft" "ne" true ) ".Params.orphan" "!=" "true" ) }}
+				{{ $paginator := .Paginate ( where .Data.Pages.ByDate.Reverse "Type" "ne" "solo" ) }}
 				{{ range $paginator.Pages }}
+				{{ if eq .Draft true}}
+
+				{{ if (not (isset .Params "orphan")) }}
 
 				{{ if eq .Type "project" }}
 					<li itemscope class="post">
@@ -95,6 +98,8 @@
 				{{ end }}
 
 				{{ end }}
+				{{ end }}
+				{{ end }}
 				</ul>
 			</div>
 		</main>
@@ -102,13 +107,8 @@
 		{{ partial "pagination" . }}
 		{{ partial "footer" . }}
 	</div>
-
+	
 	{{ partial "js" . }}
-
-<script>
-	footer = document.getElementById('footer');
-	footer.style.display = 'none';
-</script>
-
+	
 </body>
 </html>

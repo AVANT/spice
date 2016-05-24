@@ -1,0 +1,19 @@
+<!--layouts/section/json.html-->
+<!--note that I include title, subtitle (optional), tags, and description in all my content .md yaml. Once you get this down, remove the extra white space because it will cut down your site-index.json file considerably.-->
+[{{ range $index, $page := .Site.Pages }}
+{{ if ne $page.Type "json" }}
+{{ if and $index (gt $index 1) }},{{ end }}
+{
+	"url": "{{ $page.Permalink }}",
+	"title": "{{ $page.Title }}",
+	<!--Add content subtitle to index only if set, otherwise set to empty since subtitle is *still* added to lunr.js index.-->
+	{{ if $page.Params.subtitle }}
+		"subtitle": "{{ $page.Params.excerpt }}",
+		{{ else }}
+		"subtitle":"",
+	{{ end }}
+	"section": "{{ .Section }}",
+	"tags": [{{ range $tindex, $tag := $page.Params.tag }}{{ if $tindex }}, {{ end }}"{{ $tag }}"{{ end }}],
+	"description": "{{.Description}}",
+	"content": "{{$page.PlainWords}}"
+}{{ end }}{{ end }}]

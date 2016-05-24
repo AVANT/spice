@@ -1,4 +1,4 @@
-{{ partial "head" . }}
+{{ partial "head/head" . }}
 <body>
 	
 	{{ partial "menu" . }}
@@ -26,9 +26,6 @@
 							<h1 class="item-title">{{ . }}</h1>
 
 							{{ if eq $singular "thread" }}
-							{{ printf "%#v" $title }}
-
-
 
 
 							{{ end }}

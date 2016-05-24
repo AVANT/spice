@@ -1,3 +1,5 @@
-<div class="txt">
-{{ .Inner }}
+<div {{ if .IsNamedParams }}{{ if .Get "width" }} style="width: {{ .Get "width" }}"{{ end }}{{ end }} class="txt">
+{{ if .Inner  }}{{ .Inner }}{{ end }}
 </div>
+
+

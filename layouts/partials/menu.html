@@ -2,7 +2,8 @@
 
 	<nav>
 
-
+	<div class="menu-fill"></div>
+	<div class="menu-overlay">
 		{{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
 		{{ $.Scratch.Add "path" .Site.BaseURL }}
 		<ul class="nav-breadcrumbs">
@@ -21,6 +22,7 @@
 			{{ if .IsPage }}<span class="nav-slash"> / </span><li class="nav-title"><a href='{{ .Permalink }}'>{{ .Title }}</a></li>{{ end }}
 		</ul>
 
+		<div class="nav-link-box">
 		<ul class="nav-items">
 			<li><a href="{{ $.Site.BaseURL  }}project/">Project</a></li>
 			<li><a href="{{ $.Site.BaseURL  }}artifact/">Artifact</a></li>
@@ -28,36 +30,42 @@
 			<li><a href="{{ $.Site.BaseURL  }}event/">Event</a></li>
 		</ul>
 		<ul class="nav-meta">
+			<li><a href="{{ $.Site.BaseURL  }}imprint/">Imprint</a></li>
 			<li><a href="{{ $.Site.BaseURL  }}author/">Author</a></li>
 			<li><a href="{{ $.Site.BaseURL  }}thread/">Thread</a></li>
 			<li><a href="{{ $.Site.BaseURL  }}tag/">Tag</a></li>
 		</ul>
-		<ul class="nav-imprint">
-			<li><a href="{{ $.Site.BaseURL  }}imprint/">Imprint</a></li>
-		</ul>
-
-		<div id="nav-social"> 
-			<div id="twitter">
-				<a class="social-link" href="http://twitter.com/avantdotorg" target="_blank"><span id="menu-twitter" class="social-icon el-icon-twitter"></span></a>
-			</div>         
-			<div id="facebook">
-				<a class="social-link" href="http://facebook.com/avantdotorg" target="_blank"><span id="menu-twitter" class="social-icon el-icon-facebook"></span></a>
-			</div>
-			<div id="instagram">
-				<a class="social-link" href="http://instagram/avantdotorg" target="_blank"><span id="menu-instagram" class="social-icon el-icon-instagram"></span></a>
-			</div>
-			<div id="github">
-				<a class="social-link" href="http://github.com/avant" target="_blank"><i class="social-icon fa fa-github"></i></a>
-			</div>
-			<div id="mail">
-				<a class="social-link" href="mailto:editorial@avant.org?subject=message%20via%20AVANT.org" target="_blank"><i class="social-icon fa fa-paper-plane-o"></i></a>
-			</div>
 		</div>
 
-		<div class="nav-newsletter">
-		<form action="//avant.us3.list-manage.com/subscribe/post?u=ce9d44831a234bd3f42ef5ca4&amp;id=297278e3fc" method="post" name="mc-embedded-subscribe-form" class="newsletter-signup validate newsletter-signup" target="_blank" novalidate>
 
-			<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Email" required>
+		<!--BEGIN FORM-->
+<!-- 		<form action="" id="site-search" class="search-form" role="search">
+			<a href="#" id="close-search"><i class="icon-cancel"></i></a>
+			<input type="search" id="search-input" aria-label="Search the {{ .Site.Title }} website..." class="site-search" autocomplete="off" placeholder="Search DST documentation..." required>
+				<ul id="search-results">
+					<li class="search-result">
+						<a href="#"><h5>Sample Search Result Heading</h5></a>
+						<p>Here is a simple description area that should be kept relatively short, but just in case, let's make this a little bit longer.</p>
+						<div class="in-section">Found in: Digital Content Writers Guide</div>
+						<ul class="tags">
+							<li><i class="icon-tags"></i></li>
+							<li><a href="#" class="tag">sushi</a></li>
+							<li><a href="#" class="tag">japanese</a></li>
+						</ul>
+					</li>
+				</ul>
+			<div class="press-escape" title="Press Escape to Close the Site Search Overlay">Press <em>ESC</em> to close.</div>
+		</form> -->
+		<!--END FORM-->
+
+		<!--Search toggle button (place this wherever appropriate in your source-->
+<!-- 		<a href="#" id="search-button" role="button"><span> Press <em>S</em> to search</span><i class="icon-search"></i></a>
+ -->
+
+		<div class="nav-newsletter">
+		<form action="//avant.us3.list-manage.com/subscribe/post?u=ce9d44831a234bd3f42ef5ca4&amp;id=297278e3fc" method="post" name="mc-embedded-subscribe-form" class="newsletter-signup validate newsletter-signup" target="_blank" autocomplete="off" novalidate>
+
+			<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="monthly@post" type="text" name="textfield" value="" required>
 
 			<!-- bot honeypot -->
 			<div style="position: absolute; left: -5000px;">
@@ -65,11 +73,28 @@
 			</div>
 
 			<div class="clear">
-				<input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button js-submit">
+				<input type="submit" value="&#xf105" name="subscribe" id="mc-embedded-subscribe" class="button js-submit">
 			</div>
-
 		</form>
-		<div>
+		</div>
 
+
+		<div id="nav-social">
+			<div id="mail">
+				<a class="social-link" href="mailto:editorial@avant.org?subject=message%20via%20AVANT.org" target="_blank"><i class="fa fa-file-text-o" aria-hidden="true"></i></a>
+			</div>
+			<div id="rss">
+				<a class="social-link" href="http://avant.org/index.xml" target="_blank"><i class="el el-rss"></i></a>
+			</div>
+			<div id="instagram">
+				<a class="social-link" href="http://instagram/avantdotorg" target="_blank"><i class="el el-instagram"></i></a>
+			</div>       
+			<div id="facebook">
+				<a class="social-link" href="http://facebook.com/avantdotorg" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+			</div>
+			<div id="twitter">
+				<a class="social-link" href="http://twitter.com/avantdotorg" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+			</div>  
+		</div>
 	</nav>
 </div>

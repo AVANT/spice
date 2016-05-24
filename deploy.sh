@@ -9,7 +9,7 @@ git tag -a $VERSION -m "$(date "+%H:%M:%S   %d/%m/%y")"
 git push --follow-tags
 
 SOURCE=$AVANT/alpha/
-DESTINATION=$AVANT/production/
+DESTINATION=$AVANT/production/public
 LOG=$AVANT/alpha/deploy.log
 TEMP=`mktemp -d`
 

@@ -4,6 +4,7 @@
 
 nav
 	display: block
+	height: 100%
 
 
 [hidden],
@@ -42,7 +43,6 @@ template
 
 .menu
 	z-index: 100
-	padding: 1em
 	opacity: 0
 	position: fixed
 	width: 100%
@@ -51,30 +51,41 @@ template
 	top: 0.6em
 	bottom: 0.5em
 	margin: 0
-	background: white
 	overflow: hidden
 	box-sizing: border-box
+	padding-right: 1em
 
-@media (max-width:399px)
-	.menu
-		max-width: 320px
 
 .menu .transition (.toggled)
 	transition: left 2s ease-in-out
 	transition: opacity 3s ease-in-out
 
 .menu.toggled
-	opacity: 0.9
+	opacity: 1
 	left: 0.5em
+	padding: 0
 
-.menu .avatar
-	display: block
-	margin-bottom: 1em
+@media (max-width:399px)
+	.menu.toggled
+		bottom: 0
+		top: 0
+		left: 0
+		right: 0
+		margin: 0
+		padding: 0 0 2em 0
 
-.menu .avatar img
-	width: 6em
-	height: 6em
-	border-radius: 50%
+.menu.toggled .menu-fill
+	background: white
+	opacity: 0.9
+	width: 100%
+	height: 100%
+	position: absolute
+	z-index: -1
+
+.menu-overlay
+	padding: 1em
+	z-index: 2
+	height: 63%
 
 .menu nav h6
 	text-align: left
@@ -86,30 +97,50 @@ template
 
 .menu nav ul li
 	list-style-type: none
-	margin-bottom: .5em
+	margin-bottom: 1em 0 1em 0
 
 .menu nav ul li a
 	text-decoration: none
+	padding: 4px 12px 6px 12px
+	margin: 0
+	color: bw1
+	text-decoration: none
+	display: block
+
+.menu nav .nav-items li a,
+.menu nav .nav-meta li a,
+.menu nav .nav-imprint li a
+//	border: 1px solid bw1
+	margin-bottom: 1.5em
+
+.menu nav .nav-items li a:hover,
+.menu nav .nav-meta li a:hover,
+.menu nav .nav-imprint li a:hover
+	color: white
+	background: bw1
+
+// BREADCRUMBS
 
 .nav-breadcrumbs
 	list-style-type: none
 	margin: auto
 	overflow: hidden
 	white-space: nowrap
-	margin: 0.4em 0 0 5em
+	margin: 3em auto 0
+	text-align: center
 	font-weight: 700
 
 .nav-breadcrumbs li
 	font-family: 'Tiempos Headline', Georgia, serif
-	font-weight: 800
+	font-weight: 700
 
 .nav-home
 	display: inline-block
-	font-size: 1.1em
+	font-size: 1.2em
 
 .nav-parent
 	display: inline-block
-	font-size: 1.1em
+	font-size: 1.2em
 
 .nav-parent a
 	text-transform: capitalize
@@ -117,7 +148,8 @@ template
 .nav-title
 	white-space: normal
 	display: block
-	max-width: 290px;
+	padding: 0 2.3em
+	line-height: 1.6em
 
 .nav-slash
 	display: inline-block
@@ -127,14 +159,26 @@ template
 
 .nav-items,
 .nav-meta,
-.nav-imprint
-	margin-top: 2em
+	margin-top: 1em
+	text-align: center
+
+.nav-items,
+.nav-meta
+	margin: 2em auto
+	display: inline-block
+	padding: 0 1em
 
 .nav-items a,
 .nav-meta a,
-.nav-imprint a
 	font-size: 1.1 em
 	font-weight: 500
+
+.nav-link-box
+	text-align: center
+	margin: 0em 1em 0em 1em
+	position: relative
+	top: 45%
+	transform: translateY(-45%)
 
 
 //-----------
@@ -142,16 +186,23 @@ template
 //-----------
 
 .nav-newsletter
-	margin-top: 2em
+	position: absolute
+	margin: 0 auto
+	width: 90%
+	bottom: 5em
 
 .newsletter-signup
-	background: bw9
+	background: none
 	height: 100%  // to include child error messages
 	margin: 20px
 	margin-top: 10px
 
 form
 	overflow: auto
+	margin: 0 auto !important
+	width: 180px
+	border: 0
+	border-bottom: 1px solid bw8
 
 input  // fixes iphone rounded button
 	-webkit-appearance: none
@@ -159,37 +210,77 @@ input  // fixes iphone rounded button
 
 input.button
 	text-align: center
-	font-size: 0.9em;
-	height: 2em
-	width: 32%
+	font-size: 1em
+	height: 2.5em
+	width: 5%
 	float: right
 	padding: 2px
 	vertical-align: middle
-	border: solid 2px bw9
-	border-left: none
-	color: white
-	background-color: bw3
+	border-left: 0
+	color: bw7
+	font-weight: 600
+	background: none
+	outline: none
+	-webkit-box-shadow: none
+	box-shadow: none
+	font-family: 'FontAwesome'
+	border: 0
+
+input.button:hover
+	color: bw1
 
 input.button:focus
-	background-color: black
+	background: none
 	outline: none
 
 input[type='text'],
 input[type='email']
-	height: 1.8em
-	border: solid 2px bw9
-	background: bw9
-	padding: 2px
+	height: 2.8em
+	border: 0
+	background: none
 	vertical-align: middle
-	padding-left: 5px
 	float:left
-	width: 68%
+	width: 95%
 	font-weight: 600
+	font-size: 0.8em
+	color: bw7
+	transition: all 0.2s ease
+	-moz-transition: all 0.28s ease
+	-o-transition: all 0.28s ease
+	-webkit-transition: all 0.28s ease
+	text-align: center
 
 input[type='email']:focus
-	background: bw9
 	outline: none
 
+input[type='text']:focus
+	display: none
+
+:-moz-placeholder
+	color: bw8
+
+::-moz-placeholder
+	color: bw8
+	opacity: 1
+
+::-webkit-input-placeholder
+	color: bw8
+
+:-ms-input-placeholder 
+	color: bw8
+
+:-moz-placeholder:hover
+	color: white
+
+::-moz-placeholder:hover
+	color: white
+	opacity: 1
+
+::-webkit-input-placeholder:hover
+	color: white
+
+:-ms-input-placeholder:hover
+	color: white
 
 //-------------
 // SOCIAL ICONS
@@ -197,7 +288,10 @@ input[type='email']:focus
 
 #nav-social
 	text-align: center
-	margin: 2em 0 1em 0
+	margin: 0 auto
+	position: absolute
+	bottom: 2em
+	width: 90%
 
 #nav-social div
 	display: inline
@@ -211,28 +305,276 @@ input[type='email']:focus
 	color: black
 	display: inline
 
-.el-icon-twitter:hover
-	color: twitter
+.fa-twitter:hover
+	color: bw5
 
-.el-icon-facebook:hover
-	color: facebook
+.fa-facebook:hover
+	color:  bw5
 
-.el-icon-instagram:hover
-	color: instagram
+.el-instagram
+	font-size: 0.8em
 
-.fa-github
-	font-size: 1.2em
-	line-height: 96%
+.el-instagram:hover
+	color: bw5
 
+.el-rss
+	font-size: 0.8em
+
+.el-rss:hover
+	color: bw5
+
+.fa-file-text-o
+	font-size: 0.9em 
+
+.fa-file-text-o:hover
+	color: bw5
+
+// footer icons
 .fa-github:hover
-	color: github
+	color: bw5
 
-.fa-paper-plane-o
-	font-size: 0.98em
-.fa-paper-plane-o:hover 
-	color: mail
 
-.el-icon-link
-	font-size: 0.75em
-	margin-bottom: -1px
+//-------
+// SEARCH
+//-------
 
+//NOTE that the variable names are my own. You will obviously need to adjust according to how you design your sass variables.scss file. Honestly, you will probably want to write your own styling, especially since the variables and mixins are my own, but I'm throwing this in for good measure. The icon-* classes reflect [fontello](http://fontello.com/), which I used to reduce the overhead of including larger libraries like Font Awesome.
+
+topbar = 20px
+warnind = 'yellow'
+
+#search-button {
+	display: inline
+	color: bw1
+	background-color: white
+	font-size: topbar/4
+	height: topbar
+	line-height: topbar
+	cursor: pointer
+	position: absolute
+	top: 0px
+	right: topbar/4
+	transition: all .3s ease-in-out
+	&:hover {
+		color: $brand
+		span {
+			color: $brand
+			em {
+				color: $brand
+				border-color: $brand
+			}
+		}
+	}
+	span {
+		display: none
+		@include MQ(L) {
+			display: inline
+			height: topbar/2
+			line-height: topbar/2
+		}
+	}
+	em {
+		font-family: "Lucida Console", "Courier New", courier, monaco, monospace
+		font-style: normal
+		font-weight: 100
+		border: 1px solid lighten(bw1, 35%)
+		padding: .25em
+		border-radius: 3px
+		color: bw1
+	}
+	i.icon-search {
+		font-size: 2em
+		@include MQ(L){
+			font-size:1.5em
+		}
+	}
+}
+
+form.search-form {
+	position: fixed
+	top: 0
+	left: 0
+	width: 100%!important
+	width: 100vw!important
+	height: 100%
+	height: 100vh
+	display: none
+	overflow-y: scroll
+	&.open {
+		display: block
+		z-index: 999
+		background-color: white
+	}
+	input#search-input {
+		display: block
+		width: 90%
+		margin-left: 5%
+		margin-top: 1.5em
+		@include MQ(L) {
+			width: 70%
+			max-width: 70%
+			margin-left: auto
+			margin-right: auto
+			margin-top: 2rem
+			font-size: 2rem
+		}
+	}
+}
+
+div.press-escape {
+	display: none
+	@include MQ(L) {
+		display: block
+		position: absolute
+		margin-top: 20px
+		font-size: 16px
+		bottom: 25px
+		left: calc(50% - 100px)
+		right: calc(50% - 100px)
+		width: 200px
+		em {
+			font-family: "Lucida Console", "Courier New", courier, monaco, monospace
+			font-style: normal
+			font-weight: 100
+			position: relative
+			font-size: .7em
+			border: 1px solid lighten(bw1, 35%)
+			border-radius: 3px
+			color: bw1
+			top: -.67em
+			padding: .25em .5em 1.5em
+		}
+	}
+}
+
+#close-search {
+	width: 18px
+	position: fixed
+	top: 20px
+	right: 30px
+	z-index: 999
+}
+
+ul#search-results {
+	display: block
+	width: 90%
+	margin-left: 5%
+	margin-top: 1.5em
+	padding-left: 0
+	@include MQ(L) {
+		width: 70%
+		margin-left: auto
+		margin-right: auto
+		margin-top: 2rem
+	}
+	li {
+		list-style: none inside none
+		border: 1px solid bw1
+		position: relative
+		display: block
+		height: 100%
+		margin-left: 0
+		margin-bottom: .75em
+		padding-left: 0
+		z-index: 999
+		margin-left: -10px
+		margin-right: -10px
+		a {
+			&:hover {
+				cursor: pointer!important
+			}
+			&:focus {
+				h5 {
+					background-color: bw7
+					margin-left: -1px
+					width: calc(100% + 2px)
+				}
+			}
+		}
+		h5 {
+			transition: all .2s ease-in-out
+			background-color: bw9
+			color: white
+			margin-top: -1px
+			padding-top: -1px
+			padding-left: 10px
+			padding-right: 10px
+			font-weight: bold
+			&:hover,
+			&:focus,
+			&:active {
+				cursor: pointer!important
+				background-color: bw9
+				margin-left: -1px
+				width: calc(100% + 2px)
+			}
+		}
+		div.in-section {
+			display: block
+			width: 100%
+			padding-left: 10px
+			font-size: .75em
+			display: inline-block
+			color: black
+			font-weight: bold
+		}
+		p {
+			flex-grow: 1
+			padding-left: 10px
+			padding-right: 10px
+			margin-top: 5px
+			margin-bottom: 0px
+		}
+		//see _icons.scss for span.tags-icon
+		&.none {
+			border: 3px solid warning
+			padding-left: 10px
+		}
+	}
+	ul.tags {
+		display: none
+		@include MQ(M) {
+			display: flex
+			margin-bottom: .5rem
+			margin-top: .5rem
+			width: 100%
+			padding-left: 10px
+			justify-content: flex-end
+			li {
+				display:none
+				@include MQ(M){
+					display:inline
+				}
+				border: 0px
+				margin: 0 5px
+				padding: 0
+				//fontello icon
+				.icon-tags {
+					color: bw1
+				}
+				//only show mobile-plus size since tags are hidden in search overlay for mobile.
+				a.tag {
+					font-size: 1em
+					background-color: bw9
+					color: bw1
+					&:hover {
+						background-color: bw5
+					}
+				}
+			}
+		}
+	}
+}
+
+i.icon-cancel {
+	color: white
+	font-size: 1.2rem
+	background-color: bw1
+	border-radius: 50%
+}
+
+span.input-value {
+	color: warning
+	font-weight: bold
+	font-style: italic
+}

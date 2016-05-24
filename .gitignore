@@ -1,5 +1,6 @@
 .DS_Store
 deploy.log
+watch.sh
 
 static/*
 !static/js/

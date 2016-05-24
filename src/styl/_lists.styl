@@ -4,27 +4,40 @@
 
 .items li
 	display: block
-	margin: 1.5em auto
-	width: 80%
+	margin: 0em auto
+	width: 50%
+	
+@media (max-width:642px)
+	.items li
+		width: 90%
+		margin 1em auto
 
 .items li .p-wrap
-	padding: 2.5em 2em 2.5em 6em
+	padding: 2.5em
 	transition: all .15s ease-in
-	background: bw8
+	// background: bw8
+	border: solid 1px bw2
+	font-family: 'Tiempos Headline'
 
-.items li .p-wrap .author 
-	color: bw1
-	font-size: 0.9em
-	margin-left: 1.5em
+.items li .p-wrap .list-title
+	font-weight: 700
+	font-size: 1.5em
+	margin: 0 0 1em 0
 
-.items li .p-wrap .author p
-	padding-left: 0.3em
-	margin-left: 0
+.items li .p-wrap .list-author 
+	font-weight: 500
+	font-size: 1.2em
+	text-align: right
+	display: block
+	margin-top: 2em
+
+.items li .p-wrap .list-author p
+	margin: 0.5em 0 0 0
 
 .items li .p-wrap:active
 .items li .p-wrap:hover
-	background: bw7
-	background: bw7
+	background: bw9
+	// border: solid 1px white
 
 @media (max-width:942px)
 	.items li .p-wrap:hover::after
@@ -35,11 +48,6 @@
 	.items li .p-wrap
 		padding: 2em
 
-.items li .p-wrap p
-	display: inline
-	margin: 0 0 0 0.6em
-	font-size: 1.1em
-
 @media (max-width:942px)
 	.items li time
 		display: block
@@ -47,13 +55,17 @@
 .items li a
 	color: bw1
 	text-decoration: none
+	margin: 4em 0
+	display: block
 
-.project-list-title
-	margin-right: 2em !important
+	.list li a
+		margin 2em 0
+#posts
+	margin-top: 20px
 
-.project-list-author
-	font-size: 0.9em
-
+.taxonomy-list
+	margin-bottom: 5em
+	min-height: 300px
 
 //-------------------------------
 // infinite scroll load animation

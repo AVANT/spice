@@ -1,12 +1,10 @@
-baseurl = "http://alpha.avant.org/"
+baseurl = "http://avant.org/"
 languageCode = "en-us"
-title = "avant.org"
+title = "Avant.org"
 googleAnalytics = "UA-46800316-1"
 watch = true
 FootnoteReturnLinkContents = "↥"
 builddrafts = true
-
-all = ["project", "artifact", "event", "gallery"]
 
 [blackfriday]
 	hrefTargetBlank = true
@@ -17,19 +15,20 @@ all = ["project", "artifact", "event", "gallery"]
 	author = "author"
 
 [params]
-	name = "Your name"
+	name = "Avant.org"
 	description = "A project space for the internet and elsewhere."
+	indextypes = ["project", "artifact", "event", "gallery"]
 
 	# Links to newer/older blog posts
 	newer = "Newer"
 	older = "Older"
 
-	pageNotFoundTitle = "Page not found"
-	pageNotFoundSubtitle = "Sorry, but the requested page wasn’t <br> found on the server."
+	pageNotFoundTitle = "404"
+	pageNotFoundSubtitle = "Requested page not found."
 
 	[params.menu]
 		# Menu items
-		title = "avant.org"
+		title = "Avant.org"
 		bio = "A project space for the internet and elsewhere."
 
 		# Enable Google search
@@ -41,7 +40,6 @@ all = ["project", "artifact", "event", "gallery"]
 			name          = "Taeyoon Choi"
 			thumbnail     = "http://objects.avant.org/author_photos/taeyoon_choi.jpeg"
 			bio           = "taeyoon's bio"
-			email         = "test@gmail.com"
 		[params.authors.taeyoon.choi.social]
 			twitter       = "tchoi8"
 
@@ -49,6 +47,5 @@ all = ["project", "artifact", "event", "gallery"]
 			name          = "Sam Silver"
 			thumbnail     = "http://objects.avant.org/author_photos/sam_silver.jpeg"
 			bio           = "ss's bio"
-			email         = "test2@gmail.com"
 		[params.authors.sam.silver.social]
 			twitter       = "_samsilver"
