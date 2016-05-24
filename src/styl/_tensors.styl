@@ -28,6 +28,16 @@ black = #000000 // 0%
 blue0 = #2b4ab3 // 44%
 blue1 = #5b78d7 // 60%
 
+
+//-----------------------
+// media querry variables
+//-----------------------
+
+small-width = 320px
+mid-width = 414px
+large-width = 1024px
+
+
 //-------
 // mixins
 //-------
@@ -79,6 +89,18 @@ box-sizing()
 	-moz-box-sizing: arguments
 	-o-box-sizing: arguments
 	box-sizing: arguments
+
+user-select()
+	-webkit-user-select: arguments
+	-moz-user-select: arguments
+	-o-user-select: arguments
+	user-select: arguments
+
+pointer-events()
+	-webkit-pointer-events: arguments
+	-moz-pointer-events: arguments
+	-o-pointer-events: arguments
+	pointer-events: arguments
 
 transition()
 	-webkit-transition: arguments
