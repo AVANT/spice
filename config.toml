@@ -19,33 +19,14 @@ builddrafts = true
 	description = "A project space for the internet and elsewhere."
 	indextypes = ["project", "artifact", "event", "gallery"]
 
-	# Links to newer/older blog posts
+	# links to newer/older blog posts
 	newer = "Newer"
 	older = "Older"
 
 	pageNotFoundTitle = "404"
-	pageNotFoundSubtitle = "Requested page not found."
+	pageNotFoundSubtitle = "Page not found."
 
 	[params.menu]
 		# Menu items
 		title = "Avant.org"
 		bio = "A project space for the internet and elsewhere."
-
-		# Enable Google search
-		search_enabled = false
-		search = "Search"
-
-	[params.authors]
-		[params.authors.taeyoon.choi]
-			name          = "Taeyoon Choi"
-			thumbnail     = "http://objects.avant.org/author_photos/taeyoon_choi.jpeg"
-			bio           = "taeyoon's bio"
-		[params.authors.taeyoon.choi.social]
-			twitter       = "tchoi8"
-
-		[params.authors.sam.silver]
-			name          = "Sam Silver"
-			thumbnail     = "http://objects.avant.org/author_photos/sam_silver.jpeg"
-			bio           = "ss's bio"
-		[params.authors.sam.silver.social]
-			twitter       = "_samsilver"
