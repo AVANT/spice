@@ -1,6 +1,5 @@
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
-
 <script type="text/javascript" src="{{ .Site.BaseURL }}js/vendor/fontfaceobserver.standalone.js"></script>
 <script type="text/javascript" src="{{ .Site.BaseURL }}js/vendor/flickity.pkgd.min.js"></script>
 <script type="text/javascript" src="{{ .Site.BaseURL }}js/vendor/lunr.min.js"></script>
@@ -18,3 +17,7 @@
 {{ "<!-- Syntax highlighting -->" | safeHTML }}
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
+
+{{ "<!-- Syntax hyphenation -->" | safeHTML }}
+<script type="text/javascript" src="{{ .Site.BaseURL }}js/vendor/hylo.js"></script>
+<script type="text/javascript" src="{{ .Site.BaseURL }}js/vendor/hyphenator.js"></script>

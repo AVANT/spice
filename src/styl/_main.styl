@@ -1,32 +1,59 @@
-//---------
+// --------
 // DEFAULTS
-//---------
+// --------
 
 *
+	box-sizing: border-box
 	margin: 0
 	padding: 0
-	box-sizing: border-box
 
 main,
 article,
 aside,
 details,
-figure,
 footer,
+figure,
 header,
+ul,
+a,
+li,
+ol,
+div,
+a,
+span,
 hgroup,
 section,
-summary,
-.caption
-	display: block
+summary
+	::selection
+		background-color: rgb(189, 190, 219)
+		background-color: rgba(106, 107, 173, .35)
+
+	::-moz-selection
+		background-color: rgb(189, 190, 219)
+		background-color: rgba(106, 107, 173, .35)
+
+.nav-wrapper *,
+.menu *,
+img,
+splash-spacer,
+.init,
+.img
+	::selection
+		background-color: rgb(189, 190, 219)
+		background-color: rgba(106, 107, 173, 0)
+
+	::-moz-selection
+		background-color: rgb(189, 190, 219)
+		background-color: rgba(106, 107, 173, 0)
+
 
 html
 	font-family: text
 	font-weight: 500
 	text-size-adjust: 100%
-	width: 100%
 	height: 100%
-    min-height: 100%
+	width: 100%
+	min-height: 100%
 	position: relative
 
 main
@@ -49,7 +76,7 @@ a:focus
 	visibility: hidden
 	line-height: 0
 	height: 0
-	
+
 .clearfix
 	display: inline-block
 
@@ -88,9 +115,9 @@ td
 	padding: 0
 
 
-//---------------
+// --------------
 // TEXT HIERARCHY
-//---------------
+// --------------
 
 h1,
 h2,
@@ -247,7 +274,7 @@ strong
 	font-weight: 700
 
 .single-wrap
-	width: 100%	
+	width: 100%
 	z-index: 1
 
 .single-wrap .single-content
@@ -402,7 +429,7 @@ sub
 .footnotes
 	padding: 0
 	font-size: 0.9em
-	
+
 .footnotes a
 	color: bw1
 
@@ -426,6 +453,10 @@ sub
 .footnotes ul li + li
 	padding-top: 0.4em
 
+ul li ul li
+	margin-left: 2em
+	list-style: square
+
 legend
 	border: 0
 	padding: 0
@@ -440,14 +471,13 @@ legend
 	width: auto
 
 .caption
-	font-size: 0.8em
+	font-size: 0.9em
 	padding: 1em
 	font-family: headline
-	font-weight: 600
+	font-weight: 500
 	color: bw5
 	margin: 0 auto
 	text-align: center
-
 
 //------------
 // UI ELEMENTS
@@ -542,12 +572,16 @@ th
 
 footer
 	padding: 2em
-
-footer
 	width: 100%
 	bottom: 0
 	left: 0
 	text-align: center
+
+	.social-link
+		color: bw9
+		text-decoration: none
+		display: inline
+		margin: 0 1em
 
 ::after,
 ::before
@@ -718,7 +752,7 @@ li
 	text-align: right
 
 .block-inner p
-	margin-top: 0.5em	
+	margin-top: 0.5em
 
 @media (max-width: large-width)
 	.single-wrap .block
@@ -732,9 +766,10 @@ blockquote
 	font-size: 1.8em
 	font-family: headline
 	font-weight: 800
-	color: bw1
 	padding: 0 0 0 0
-	margin: 1em 0 1.5em 0
+	margin: 1em 0 1.4em 0
+	color: rgba(0, 0, 0, 0)
+	text-stroke: 1px bw1
 
 blockquote p
 	margin: 0
@@ -776,21 +811,6 @@ blockquote p
 #next:active
 	border-color: bw5
 
-.nav-title
-	display: none
-
-.nav-title-prev
-	margin-left: 10px
-	margin-right: 5px
-
-.nav-title-next
-	margin-right: 10px
-	margin-left: 5px
-
-#prev:hover .nav-title,
-#next:hover .nav-title
-	display: inline
-
 .pagination
 	overflow: hidden
 	margin-top: 40px
@@ -814,94 +834,5 @@ blockquote p
 .pagination a:hover
 	text-decoration: none
 
-
-//---------------
-// TAXONOMY PAGES
-//---------------
-
-.taxonomy
-	margin 2em 0 0 4em
-
-.taxonomy-list
-	margin: 1em 0 0 6em
-
 .item-title
 	margin 2em 0 0 4em
-
-footer
-	width: 100%
-	height: 280px
-	padding: 0
-	margin: 3em 0 0 0
-	font-family: headline
-	font-size: 0.9em
-	line-height: 2em
-	font-weight: 600
-	color: white
-	background-color: bw1
-	transform-style: preserve-3d
-	bottom: 0
-	margin: 0 auto 0
-
-
-footer div.links
-	position: absolute
-	color: bw5
-	right: 40px
-	margin-top: 2.2em
-
-@media (max-width: mid-width)
-	footer div.links
-		right: 20px
-
-
-footer a
-	color: bw5 !important
-	position: relative
-	vertical-align: baseline
-	transition: all 0.2s ease
-	display: block
-	text-align: right
-
-footer a:hover
-	color white !important
-
-footer div
-	position: relative
-	top: 50%
-	transform: translateY(-50%)
-
-.logo-foot
-	width: 55px
-	background: bw5
-	
-@media (max-width: mid-width)
-	.logo-foot
-		margin-bottom: 7em
-
-.license
-	position: absolute
-	color: bw5
-	text-align: left
-	left: 40px
-
-@media (max-width: mid-width)
-	.license
-		left: 20px
-
-.license a
-	box-shadow: none !important
-
-#foot-cc
-	color: bw5
-	font-size: 1.8em
-	transition: all 0.2s ease
-
-#foot-cc:hover
-	color: white
-
-.foot-social
-	margin-top: 4em
-
-.social-link
-	margin: 0 0.8em !important

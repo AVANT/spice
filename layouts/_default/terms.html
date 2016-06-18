@@ -1,10 +1,11 @@
-{{ partial "head/head" . }}
+{{ partial "head" . }}
+
 <body>
-	
-	{{ partial "menu" . }}
-	{{ partial "nav" . }}
+
+	{{ partial "navigation" . }}
+
 	<div class="site-wrapper">
-		
+
 <!-- {{ printf "%#v" .Title }} -->
 
 	{{ $taxonomyName := .Data.Plural }}

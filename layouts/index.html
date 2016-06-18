@@ -1,8 +1,8 @@
-{{ partial "head/head" . }}
+{{ partial "head" . }}
 <body>
-	{{ partial "menu" . }}
-	{{ partial "nav" . }}
-	
+
+	{{ partial "navigation" . }}
+
 		<main>
 			<div id="home">
 				<ul class="items" id="posts">
@@ -101,6 +101,7 @@
 
 		{{ partial "pagination" . }}
 		{{ partial "footer" . }}
+
 	</div>
 
 	{{ partial "js" . }}

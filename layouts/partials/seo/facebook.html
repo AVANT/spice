@@ -1,7 +1,7 @@
 <!-- Required Open Graph Info -->
 <meta property="og:title" content="{{ .Title }}{{ with .Params.author }} | {{ range . }}{{ . }} {{ end }}{{ end }}" />
 <meta property="author" content="{{ with .Params.author }}{{ range . }}{{ . }}{{ end }}{{ end }}" />
-<meta property="og:description" content="{{ if .Description }}{{ .Description }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ end }}{{ end }}" />
+<meta property="og:description" content="{{ if .Params.excerpt }}{{ .Params.excerpt }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ end }}{{ end }}" />
 <meta property="og:type" content="{{ if .Params.type }}{{ .Params.type }}{{ else }}website{{ end }}" />
 <meta property="og:url" content="{{ .Permalink }}" />
 

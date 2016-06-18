@@ -1,21 +1,32 @@
 $(document).ready(function() {
 
-	var $menuIcon = document.getElementsByClassName('menu-icon')[0],
+	var $menuIcon = document.getElementsByClassName('nav-link')[0],
+		$navBack = document.getElementsByClassName('nav-back')[0],
 		$offCanva = document.getElementsByClassName('menu')[0],
 		$siteWrap = document.getElementsByClassName('site-wrapper')[0];
 
 	$menuIcon.addEventListener('click', function() {
-		toggleClass($menuIcon, 'close');
+		toggleClass($menuIcon, 'open');
+		toggleClass($navBack, 'open');
 		toggleClass($offCanva, 'toggled');
-		toggleClass($siteWrap, 'open');
+		toggleClass($siteWrap, 'close');
+	}, false);
+
+	$navBack.addEventListener('click', function() {
+		toggleClass($menuIcon, 'open');
+		toggleClass($navBack, 'open');
+		toggleClass($offCanva, 'toggled');
+		toggleClass($siteWrap, 'close');
 	}, false);
 
 	$menuIcon.addEventListener('mouseenter', function() {
 		addClass($menuIcon, 'hover');
+		addClass($navBack, 'hover');
 	});
 
 	$menuIcon.addEventListener('mouseleave', function() {
 		removeClass($menuIcon, 'hover');
+		removeClass($navBack, 'hover');
 	});
 
 	function addClass(element, className) {
@@ -352,3 +363,47 @@ var tiempos_text = new FontFaceObserver('Tiempos Text');
 // 		searchResults.innerHTML = '<li class=\"search-result none\">No results found for <span class=\"input-value\">' + inputVal + '</span>.<br/>Please check spelling and spacing.</li>';
 // 	}
 // }
+
+
+//------------------
+// email input logic
+//------------------
+
+function autoUnput(thefield, orig){
+	if(orig){
+		if(thefield.value == ''){
+			thefield.value = orig;
+		}
+	} else if (thefield.defaultValue==thefield.value){
+		thefield.value = "";
+	}
+}
+
+
+//-------------
+// svg coloring
+//-------------
+
+$(document).ready(function() {
+    $('img[src$=".svg"]').each(function() {
+        var $img = jQuery(this);
+        var imgURL = $img.attr('src');
+        var attributes = $img.prop("attributes");
+
+        $.get(imgURL, function(data) {
+            // Get the SVG tag, ignore the rest
+            var $svg = jQuery(data).find('svg');
+
+            // Remove any invalid XML tags
+            $svg = $svg.removeAttr('xmlns:a');
+
+            // Loop through IMG attributes and apply on SVG
+            $.each(attributes, function() {
+                $svg.attr(this.name, this.value);
+            });
+
+            // Replace IMG with SVG
+            $img.replaceWith($svg);
+        }, 'xml');
+    });
+});

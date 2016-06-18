@@ -1,10 +1,11 @@
 baseurl = "http://avant.org/"
 languageCode = "en-us"
-title = "Avant.org"
+title = "avant.org"
 googleAnalytics = "UA-46800316-1"
 watch = true
 FootnoteReturnLinkContents = "↥"
 builddrafts = true
+pygmentsuseclasses = true
 
 [blackfriday]
 	hrefTargetBlank = true
@@ -15,7 +16,7 @@ builddrafts = true
 	author = "author"
 
 [params]
-	name = "Avant.org"
+	name = "avant.org"
 	description = "A project space for the internet and elsewhere."
 	indextypes = ["project", "artifact", "event", "gallery"]
 
@@ -28,5 +29,5 @@ builddrafts = true
 
 	[params.menu]
 		# Menu items
-		title = "Avant.org"
+		title = "avant.org"
 		bio = "A project space for the internet and elsewhere."

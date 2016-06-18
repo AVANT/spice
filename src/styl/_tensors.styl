@@ -25,8 +25,8 @@ bw1 = #1a1a1a // 10%
 black = #000000 // 0%
 
 // blue palette
-blue0 = #2b4ab3 // 44%
-blue1 = #5b78d7 // 60%
+blue0 = #6A6BAD //
+
 
 
 //-----------------------
@@ -41,6 +41,25 @@ large-width = 1024px
 //-------
 // mixins
 //-------
+
+placeholder()
+	::-webkit-input-placeholder
+		arguments
+
+	:-moz-placeholder  // Firefox 18-
+		arguments
+
+	::-moz-placeholder  // Firefox 19+
+		arguments
+
+	:-ms-input-placeholder
+		arguments
+
+skew()
+	-webkit-skew: arguments
+	-moz-skew: arguments
+	-o-skew: arguments
+	skew: arguments
 
 animation()
 	-webkit-animation: arguments
@@ -83,6 +102,12 @@ transform-style()
 	-moz-transform-style: arguments
 	-o-transform-style: arguments
 	transform-style: arguments
+
+text-stroke()
+	-webkit-text-stroke: arguments
+	-moz-text-stroke: arguments
+	-o-text-stroke: arguments
+	text-stroke: arguments
 
 box-sizing()
 	-webkit-box-sizing: arguments

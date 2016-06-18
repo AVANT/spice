@@ -1,4 +1,4 @@
-<div class="gallery-cell">
-{{ if .IsNamedParams }}{{ if .Get "url" }}<img {{ if .Get "height" }}style="height:{{ .Get "height" }}"{{ end }} class="gallery-cell-image" data-flickity-lazyload="{{ .Get "url" }}" alt="" />{{ end }}{{ end }}
-{{ if .Inner  }}<p class="img-text">{{ .Inner }}</p>{{ end }}
+<div class="gallery-cell">{{ if .IsNamedParams }}{{ if .Get "url" }}
+<img {{ if .IsNamedParams }}{{ if .Get "style" }}style="{{ .Get "style" | safeCSS }}"{{ end }}{{ end }} class="gallery-cell-image" data-flickity-lazyload="{{ .Get "url" }}" alt="" />{{ end }}{{ end }}
+{{ if .Inner  }}{{ .Inner }}{{ end }}
 </div>

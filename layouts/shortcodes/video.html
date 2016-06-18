@@ -1,38 +1,24 @@
-<div class="media-box">
-<div class="video-box-inner">
+<div class="media-box" {{ if .IsNamedParams }}{{ if .Get "style" }} style="{{ .Get "style" | safeCSS }}"{{ end }}{{ end }}>
+<div class="media-box-inner">
 {{ if .Get "mov" }}
-<video width="640"
-{{ if .Get "url" }}poster="{{ .Get "url" }}"{{ end }}
-controls preload="auto" class="b-lazy single-video" data-src="{{ .Get "mov" }}" type="video/mp4">
-Your browser does not support the video tag.
+<video width="640" {{ if .Get "url" }}poster="{{ .Get "url" }}"{{ end }} controls preload="auto" class="b-lazy single-video" data-src="{{ .Get "mov" }}" type="video/mp4">
+<p>Your browser does not support the video tag.</p>
 </video>
 {{ end }}
-
 {{ if .Get "vimeo" }}
 <div class="video-container" {{ if .Get "ratio" }}style="padding-bottom:{{ .Get "ratio" }}"{{ end }}>
-<iframe class="b-lazy"
-data-src="//player.vimeo.com/video/{{ .Get "vimeo" }}?title=0&byline=0&portrait=0"
-frameborder="0" width="560" height="349" webkitallowfullscreen mozallowfullscreen allowfullscreen>
-<p>iframes not supported by your browser</p>
+<iframe class="b-lazy" data-src="//player.vimeo.com/video/{{ .Get "vimeo" }}?title=0&byline=0&portrait=0" frameborder="0" width="560" height="349" webkitallowfullscreen mozallowfullscreen allowfullscreen>
+<p>iframes not supported by your browser.</p>
 </iframe>
 </div>
 {{ end }}
-
 {{ if .Get "youtube" }}
 <div class="video-container" {{ if .Get "ratio" }}style="padding-bottom:{{ .Get "ratio" }}"{{ end }}>
-<iframe class="b-lazy"
-data-src="//www.youtube.com/embed/{{ .Get "youtube" }}?rel=0&hd=1"
-frameborder="0" width="560" height="349" webkitallowfullscreen mozallowfullscreen allowfullscreen>
-<p>iframes not supported by your browser</p>
+<iframe class="b-lazy" data-src="//www.youtube.com/embed/{{ .Get "youtube" }}?rel=0&hd=1" frameborder="0" width="560" height="349" webkitallowfullscreen mozallowfullscreen allowfullscreen>
+<p>iframes not supported by your browser.</p>
 </iframe>
 </div>
 {{ end }}
-
-{{ if .Inner  }}
-<div class="media-text" {{ if .Get "width" }}style="width: {{ .Get "width" }}"{{ end }} >
-{{ .Inner }}
-</div>
-{{ end }}
-
+{{ if .Inner  }}<div class="media-text" {{ if .Get "width" }}style="width: {{ .Get "width" }}"{{ end }} >{{ .Inner }}</div>{{ end }}
 </div>
 </div>

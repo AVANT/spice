@@ -5,7 +5,7 @@
 audio, canvas, progress, video
 	display: inline-block
 	vertical-align: baseline
-	
+
 audio:not([controls])
 	display: none
 	height: 0
@@ -23,14 +23,13 @@ audio:not([controls])
 	overflow-y: hidden
 
 // gallery contents
-.gallery-cell {
+.gallery-cell
 	width: 66%
 	margin-right: 10px
 	background: bw10
 	position: relative
 	top: 50%
 	transform: translateY(-50%) !important
-}
 
 .gallery-cell-image
 	display: block
@@ -114,7 +113,8 @@ audio:not([controls])
 //------------
 
 .media-box
-	margin: 0em 0 0.5em 0
+	margin: 0 auto
+	padding:  0em 0 0.5em 0
 	display: block
 	width: 100%
 
@@ -173,7 +173,8 @@ audio
 svg:not(:root)
 	overflow: hidden
 
-.media-text
+.media-text,
+.media-text p
 	font-size: 0.85em
 	padding: 1em 1em 0.5em 1em
 	font-family: headline
@@ -190,7 +191,7 @@ svg:not(:root)
 	width: 60%
 	background-size: cover
 	background-repeat: no-repeat
-	background-position: center center 
+	background-position: center center
 
 @media (max-width: large-width)
 	.cover

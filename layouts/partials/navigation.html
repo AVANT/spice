@@ -1,0 +1,133 @@
+
+<div class="nav-wrapper">
+	<a class="nav-link">
+		<img class="nav-icon" src="http://avant.org/logo.svg">
+	</a>
+</div>
+
+<div class="menu transition">
+
+	<div class="nav-back"></div>
+	<nav>
+	<div class="menu-fill"></div>
+	<div class="menu-overlay">
+		{{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
+		{{ $.Scratch.Add "path" .Site.BaseURL }}
+		<ul class="nav-breadcrumbs">
+			<li class="nav-home"><a href="/">Avant.org</a></li>
+
+			{{ range $index, $element := split $url "/" }}
+				{{ $.Scratch.Add "path" $element }}
+				{{ if ne $element "" }}
+					{{ if $index }}{{else}}
+					<span class="nav-slash"> / </span>
+					<li class="nav-parent"><a href='{{ $.Scratch.Get "path" }}'>{{ . }}</a></li>
+					{{ $.Scratch.Add "path" "/" }}
+					{{ end }}
+				{{ end }}
+			{{ end }}
+			{{ if .IsPage }}
+			{{ if ne .Title "Imprint" }}
+			<span class="nav-slash"> / </span>
+			<li class="nav-title">
+			<a href='{{ .Permalink }}'>{{ .Title }}</a></li>
+			{{ end }}
+			{{ end }}
+		</ul>
+
+		<div class="links">
+		<ul>
+			<li><a href="{{ $.Site.BaseURL  }}project/">Project</a></li>
+			<li><a href="{{ $.Site.BaseURL  }}artifact/">Artifact</a></li>
+		</ul>
+		<ul>
+			<li><a href="{{ $.Site.BaseURL  }}event/">Event</a></li>
+			<li><a href="{{ $.Site.BaseURL  }}gallery/">Gallery</a></li>
+		</ul>
+		<ul>
+			<li><a href="{{ $.Site.BaseURL  }}thread/">Thread</a></li>
+			<li><a href="{{ $.Site.BaseURL  }}tag/">Tag</a></li>
+		</ul>
+		<ul>
+			<li><a href="{{ $.Site.BaseURL  }}author/">Author</a></li>
+			<li><a href="{{ $.Site.BaseURL  }}imprint/">Imprint</a></li>
+		</ul>
+		</div>
+
+
+		<!-- SEARCH -->
+		<!-- search input -->
+<!-- 		<form action="" id="site-search" class="search-form" role="search">
+			<a href="#" id="close-search"><i class="icon-cancel"></i></a>
+			<input type="search" id="search-input" aria-label="Search the {{ .Site.Title }} website..." class="site-search" autocomplete="off" placeholder="Search DST documentation..." required>
+				<ul id="search-results">
+					<li class="search-result">
+						<a href="#"><h5>Sample Search Result Heading</h5></a>
+						<p>description</p>
+						<div class="in-section">Found in: Digital Content Writers Guide</div>
+						<ul class="tags">
+							<li><i class="icon-tags"></i></li>
+							<li><a href="#" class="tag">sushi</a></li>
+							<li><a href="#" class="tag">japanese</a></li>
+						</ul>
+					</li>
+				</ul>
+			<div class="press-escape" title="Press Escape to Close the Site Search Overlay">Press <em>ESC</em> to close.</div>
+		</form> -->
+
+		<!-- search button -->
+		<!-- <a href="#" id="search-button" role="button"><span>Press <em>S</em> to search</span><i class="icon-search"></i></a> -->
+
+
+		<!-- NEWSLETTER -->
+
+		<div class="nav-newsletter">
+
+			<form action="//avant.us3.list-manage.com/subscribe/post?u=ce9d44831a234bd3f42ef5ca4&amp;id=297278e3fc" method="post" name="mc-embedded-subscribe-form" class="newsletter-signup validate newsletter-signup" target="_blank" autocomplete="off" novalidate>
+
+				<!-- input -->
+				<input onfocus="autoUnput(this)" onblur="autoUnput(this, 'Newsletter')" type="email" value="Newsletter" name="EMAIL" class="email" id="mce-EMAIL" type="text" name="textfield" required>
+
+				<!-- honeypot -->
+				<div style="position: absolute; left: -5000px;">
+					<input type="text" name="b_ce9d44831a234bd3f42ef5ca4_297278e3fc" tabindex="-1" value="">
+				</div>
+
+				<!-- submit -->
+				<div class="clear">
+					<input type="submit" value="&#xf105" name="subscribe" id="mc-embedded-subscribe" class="button js-submit">
+				</div>
+
+			</form>
+
+		</div>
+
+
+		<!-- SOCIAL LINKS -->
+
+		<div id="nav-social">
+
+			<div class="social-link-wrapper" id="mail">
+				<a class="social-link" href="mailto:editorial@avant.org?subject=message%20via%20AVANT.org" target="_blank"><i class="social-link-icon fa fa-file-text-o" aria-hidden="true"></i></a>
+			</div>
+
+			<div class="social-link-wrapper" id="rss">
+				<a class="social-link" href="http://avant.org/index.xml" target="_blank"><i class="social-link-icon el el-rss"></i></a>
+			</div>
+
+			<div class="social-link-wrapper" id="instagram">
+				<a class="social-link" href="http://instagram/avantdotorg" target="_blank"><i class="social-link-icon fa fa-instagram" aria-hidden="true"></i></a>
+			</div>
+
+			<div class="social-link-wrapper" id="facebook">
+				<a class="social-link" href="http://facebook.com/avantdotorg" target="_blank"><i class="social-link-icon fa fa-facebook" aria-hidden="true"></i></a>
+			</div>
+
+			<div class="social-link-wrapper" id="twitter">
+				<a class="social-link" href="http://twitter.com/avantdotorg" target="_blank"><i class="social-link-icon fa fa-twitter" aria-hidden="true"></i></a>
+			</div> 
+
+		</div>
+
+	</nav>
+</div>
