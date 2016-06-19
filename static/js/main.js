@@ -8,15 +8,15 @@ $(document).ready(function() {
 	$menuIcon.addEventListener('click', function() {
 		toggleClass($menuIcon, 'open');
 		toggleClass($navBack, 'open');
-		toggleClass($offCanva, 'toggled');
-		toggleClass($siteWrap, 'close');
+		toggleClass($offCanva, 'open');
+		toggleClass($siteWrap, 'open');
 	}, false);
 
 	$navBack.addEventListener('click', function() {
 		toggleClass($menuIcon, 'open');
 		toggleClass($navBack, 'open');
-		toggleClass($offCanva, 'toggled');
-		toggleClass($siteWrap, 'close');
+		toggleClass($offCanva, 'open');
+		toggleClass($siteWrap, 'open');
 	}, false);
 
 	$menuIcon.addEventListener('mouseenter', function() {

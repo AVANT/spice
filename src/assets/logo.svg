@@ -13,24 +13,23 @@
 <svg version="1.1" id="Layer_1" xmlns:x="&ns_extend;" xmlns:i="&ns_ai;" xmlns:graph="&ns_graphs;"
 	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 800 800"
 	 enable-background="new 0 0 800 800" xml:space="preserve">
-<font horiz-adv-x="1000">
-<!-- Copyright: Copyright 2016 Adobe System Incorporated. All rights reserved. -->
-<font-face font-family="TiemposHeadline-Black" units-per-em="1000" underline-position="-100" underline-thickness="30"/>
-<missing-glyph horiz-adv-x="960" d="M90,0l780,0l0,780l-780,0M480,345l279,-279l-558,0M201,714l558,0l-279,-279M435,390l-275,-275l0,550M525,390l275,275l0,-550z"/>
-<glyph unicode="a" horiz-adv-x="568" d="M276,98C228,98 211,136 211,186C211,245 233,261 265,273l40,15l0,-185C295,100 287,98 276,98M507,375C507,510 417,553 271,553C146,553 48,512 48,417C48,379 70,354 100,344l124,16C218,385 214,410 214,434C214,480 227,511 262,511C295,511 305,484 305,444l0,-110l-162,-56C73,254 13,218 13,130C13,41 74,-6 160,-6C234,-6 280,30 308,73C326,20 370,-10 431,-10C491,-10 535,12 570,44l-7,30C558,72 545,69 532,69C509,69 507,90 507,110z"/>
-</font>
-
-	<metadata>
+<metadata>
 	<sfw  xmlns="&ns_sfw;">
 		<slices></slices>
-		<sliceSourceBounds  height="810.6" width="419.7" bottomLeftOrigin="true" y="-432.7" x="-212.9"></sliceSourceBounds>
+		<sliceSourceBounds  width="410.1" height="414.5" bottomLeftOrigin="true" y="-213.3" x="-212.9"></sliceSourceBounds>
 		<optimizationSettings>
 			<targetSettings  targetSettingsID="0" fileFormat="PNG24Format">
-				<PNG24Format  transparency="true" noMatteColor="false" matteColor="#FFFFFF" filtered="false" interlaced="false">
+				<PNG24Format  transparency="true" interlaced="false" filtered="false" matteColor="#FFFFFF" noMatteColor="false">
 					</PNG24Format>
 			</targetSettings>
 		</optimizationSettings>
 	</sfw>
 </metadata>
-<text transform="matrix(-1 0 0 -1 606.7646 206.1382)" font-family="'TiemposHeadline-Black'" font-size="736.2674">a</text>
+<g>
+	<path d="M233.5,287.1c0-14.7-1.5-30.2-18.4-30.2c-9.6,0-19.1,2.2-22.8,3.7l-5.2-22.1c25.8-23.6,58.2-39.8,102.3-39.8
+		c44.9,0,77.3,22.1,90.6,61.1c20.6-31.7,54.5-58.2,109-58.2c63.3,0,108.2,34.6,108.2,100.1c0,64.8-44.2,91.3-95.7,109l-119.3,41.2
+		v81c0,29.5,7.4,49.3,31.7,49.3c25.8,0,35.3-22.8,35.3-56.7c0-17.7-2.9-36.1-7.4-54.5l91.3-11.8c22.1,7.4,38.3,25.8,38.3,53.7
+		c0,69.9-72.2,100.1-164.2,100.1c-107.5,0-173.8-31.7-173.8-131.1V287.1z M382.2,282v136.2l29.5-11c23.6-8.8,39.8-20.6,39.8-64.1
+		c0-36.8-12.5-64.8-47.9-64.8C395.5,278.3,389.6,279.8,382.2,282z"/>
+</g>
 </svg>

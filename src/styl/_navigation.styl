@@ -3,6 +3,10 @@
 template
 	display: none
 
+@media (max-width: mid-width)
+	.site-wrapper.open
+		overflow: hidden
+
 //-----
 // MENU
 //-----
@@ -50,6 +54,14 @@ template
 			border: 1px solid bw9
 			fill: bw9
 
+		.nav-link.open:hover
+			border: 1px solid bw9
+			fill: bw9
+
+		.nav-link:hover
+			border: 1px solid bw1
+			fill: bw1
+
 .menu .bio h1 a
 	text-decoration: none
 
@@ -76,7 +88,7 @@ template
 	position: fixed
 	z-index: 0
 
-.menu.toggled
+.menu.open
 	opacity: 1
 	transition: opacity 0.07s ease-in-out
 
@@ -100,8 +112,9 @@ nav
 
 @media (max-width: mid-width)
 
-	.menu,
+	.menu.open,
 	nav
+		position: fixed
 		bottom: 0
 		top: 0
 		left: 0
@@ -110,6 +123,13 @@ nav
 		padding: 0
 		height: 100% !important
 		width: 100% !important
+
+	.menu.open
+		.links ul
+			margin 0 2em
+		
+		.links ul li
+			margin 0
 
 	.nav-breadcrumbs li
 		font-size: 1.2em
@@ -130,7 +150,7 @@ nav
 			margin: 0
 			padding: 0.5em
 
-		.menu.toggled nav
+		.menu.open nav
 			top: 0%
 			transform: translateY(0%)
 			height: 100%
@@ -138,7 +158,7 @@ nav
 	.close svg path
 			fill: bw9
 
-.menu.toggled .menu-fill
+.menu.open .menu-fill
 	background: bw1
 	opacity: 0.98
 	width: 100%
@@ -187,9 +207,9 @@ nav ul li a:hover
 
 .menu
 	.links
-		margin: 0 auto 0.5em auto
+		margin: 1em auto 0.5em auto
 		text-align: center
-		font-size: 1.2em
+		font-size: 1em
 
 	.links ul
 		margin: 0 1em
