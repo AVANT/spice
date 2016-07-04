@@ -1,1 +1,8 @@
-{{ .Inner | safeHTML }}
+{{ if .IsNamedParams }}
+	{{ if (.Get "foot") ne "" }}
+		{{ $.Page.Scratch.Set "js" (.Inner | safeHTML) }}
+	{{ end }}
+{{ else }}
+	{{ .Get .Inner }}
+{{ end }}
+

@@ -1,8 +1,8 @@
 $(document).ready(function() {
 
-	var $menuIcon = document.getElementsByClassName('nav-link')[0],
-		$navBack = document.getElementsByClassName('nav-back')[0],
-		$offCanva = document.getElementsByClassName('menu')[0],
+	var $menuIcon = document.getElementsByClassName('logo-link')[0],
+		$navBack = document.getElementsByClassName('nav-background')[0],
+		$offCanva = document.getElementsByClassName('nav-wrapper')[0],
 		$siteWrap = document.getElementsByClassName('site-wrapper')[0];
 
 	$menuIcon.addEventListener('click', function() {
@@ -80,10 +80,16 @@ $(document).ready(function() {
 // add visibility class on load
 //-----------------------------
 
+// $(document).ready(function() {
+// 	if (window.Hyphenator) {
+// 			$('.site-wrapper').addClass('load');
+// 			console.log('sup');
+// 		}
+// });
+
 (setTimeout(function(){
 	$('.site-wrapper').addClass('load');
-}, 300));
-
+}, 200));
 
 
 //-----------------------------
@@ -134,7 +140,7 @@ window.setTimeout(function() {
 
 function setDimensions(){
 	var windowsHeight = $(window).height();
-	$('.cover').css('height', windowsHeight * 0.65 + 'px');
+	$('.cover').css('height', windowsHeight * 0.75 + 'px');
 }
 
 setDimensions();
@@ -153,16 +159,6 @@ $(document).ready(function() {
 		})();
 });
 
-//--------
-// GALLERY
-//--------
-
-// $('.gallery').flickity({
-// 	// options
-// 	cellAlign: 'left',
-// 	contain: true,
-// 	lazyLoad: 2
-// });
 
 //-------------
 // IMPRINT TABS
@@ -198,20 +194,6 @@ $(document).ready(function() {
 });
 
 
-// $(document).ready(function() {
-// 	$('.tabs .tab-links a').on('click', function(e)  {
-// 		var currentAttrValue = jQuery(this).attr('href');
- 
-// 		// Show/Hide Tabs
-// 		$('.tabs ' + currentAttrValue).show().siblings().hide();
- 
-// 		// Change/remove current tab to active
-// 		$(this).parent('li').addClass('active').siblings().removeClass('active');
- 
-// 		e.preventDefault();
-// 	});
-// });
-
 //----------------
 // INFINITE SCROLL
 //----------------
@@ -227,26 +209,18 @@ $(document).ready(function() {
 		});
 
 		ias.extension(new IASSpinnerExtension({ html: '<div class="spinner"><div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div></div>', }));
-		ias.extension(new IASNoneLeftExtension({ html: '<div class="spinner">∎</div><script>footer = document.getElementById("footer");footer.style.display = "block";</script>' }));
+		ias.extension(new IASNoneLeftExtension({ html: '<div class="spinner">∎</div><script>footer = document.getElementById("footer");try { footer.style.opacity = "1"; footer.style.height = "280px"; } catch(e) {"waiting for footer"}</script>' }));
 
 	 });
 }(jQuery));
 
 
-//-------------------
-// FONT FACE OBSERVER
-//-------------------
+//--------------------
+// FONT LOAD DETECTION
+//--------------------
 
 var tiempos_headline = new FontFaceObserver('Tiempos Headline');
 var tiempos_text = new FontFaceObserver('Tiempos Text');
-
-// tiempos_headline.load().then(function () {
-// 	console.log('Tiempos Headline available');
-// });
-
-// tiempos_text.load().then(function () {
-// 	console.log('Tiempos Text available');
-// });
 
 
 //-------------
@@ -385,25 +359,52 @@ function autoUnput(thefield, orig){
 //-------------
 
 $(document).ready(function() {
-    $('img[src$=".svg"]').each(function() {
-        var $img = jQuery(this);
-        var imgURL = $img.attr('src');
-        var attributes = $img.prop("attributes");
+	$('img[src$=".svg"]').each(function() {
+		var $img = jQuery(this);
+		var imgURL = $img.attr('src');
+		var attributes = $img.prop("attributes");
 
-        $.get(imgURL, function(data) {
-            // Get the SVG tag, ignore the rest
-            var $svg = jQuery(data).find('svg');
+		$.get(imgURL, function(data) {
+			// Get the SVG tag, ignore the rest
+			var $svg = jQuery(data).find('svg');
 
-            // Remove any invalid XML tags
-            $svg = $svg.removeAttr('xmlns:a');
+			// Remove any invalid XML tags
+			$svg = $svg.removeAttr('xmlns:a');
 
-            // Loop through IMG attributes and apply on SVG
-            $.each(attributes, function() {
-                $svg.attr(this.name, this.value);
-            });
+			// Loop through IMG attributes and apply on SVG
+			$.each(attributes, function() {
+				$svg.attr(this.name, this.value);
+			});
 
-            // Replace IMG with SVG
-            $img.replaceWith($svg);
-        }, 'xml');
-    });
+			// Replace IMG with SVG
+			$img.replaceWith($svg);
+		}, 'xml');
+	});
 });
+
+
+//-------------------------------
+// prevent one word lines of text
+//-------------------------------
+
+var breakPhrase = function(e){
+	var n = [], r = []
+	n = e.length?e:n.concat(e), Array.prototype.map.call(n, function(e){
+		var n = String(e.innerHTML)
+		n = n.replace(/\s+/g," ").replace(/^\s|\s$/g,""),
+			r.push(n?e.innerHTML = n.replace(new RegExp("((?:[^ ]* ){" + ((n.match(/\s/g)||0).length-1) + "}[^ ]*) "), "$1&nbsp;"):void 0)
+	})
+}
+
+phrase = document.getElementsByClassName('phrase');
+breakPhrase(phrase);
+$(phrase).removeClass("phrase");
+
+
+//----------------------------
+// accomodate iOS touch events
+//----------------------------
+
+if ('ontouchstart' in document) {
+	$('.no-touch').removeClass('no-touch');
+}

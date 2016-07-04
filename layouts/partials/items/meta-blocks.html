@@ -1,0 +1,51 @@
+<div class="meta-wrapper">
+	<div class="meta">
+
+		<h1 class="page-title phrase" itemprop="name headline">{{ .Title }}</h1>
+
+		<div class="meta-block">
+			<span class="date">
+				<time datetime="" itemprop="datePublished">
+					{{ .Date.Format "2 January 2006" }}
+				</time>
+			</span>
+		</div>
+
+		{{ with .Params.author }}
+		<div class="meta-block">
+			<ul class="author">
+				{{ range . }}
+					<li>
+						<a href="{{ $.Site.BaseURL  }}author/{{ . | urlize }}">{{ . }}</a>
+					</li>
+				{{ end }}
+			</ul>
+		</div>
+		{{ end }}
+
+		{{ if ((isset .Params "thread") or (isset .Params "tag")) }}
+			<div class="meta-block">
+
+			{{ with .Params.thread }}
+				<ul class="thread-tag">
+
+					{{ range . }}
+						<li class="thread">
+							<a href="{{ $.Site.BaseURL  }}thread/{{ . | urlize }}">~ {{ . }}</a>
+						</li>
+					{{ end }}
+			{{ end }}
+
+			{{ with .Params.tag }}
+					{{ range . }}
+						<li class="tag">
+							<a href="{{ $.Site.BaseURL  }}tag/{{ . | urlize }}"># {{ . }}</a>
+						</li>
+					{{ end }}
+				</ul>
+			</div>
+			{{ end }}
+		{{ end }}
+
+	</div>
+</div>

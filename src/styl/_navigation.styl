@@ -1,384 +1,405 @@
-
-[hidden],
-template
-	display: none
-
-@media (max-width: mid-width)
-	.site-wrapper.open
-		overflow: hidden
-
 //-----
-// MENU
+// LOGO
 //-----
 
-.nav-title
-	display: none
-
-.nav-title-prev
-	margin-left: 10px
-	margin-right: 5px
-
-.nav-title-next
-	margin-right: 10px
-	margin-left: 5px
-
-#prev:hover .nav-title,
-#next:hover .nav-title
-	display: inline
-
-.nav-wrapper
+.logo-link-wrapper
 	display: block
 	position: fixed
 	z-index: 200
 	cursor: pointer
 	opacity: 0.95
-	top: 1.2em
-	left: 1.2em
+	top: 16px
+	left: 16px
 	width: 45px
 	height: 45px
 
-	.nav-link
+
+	.logo-link
 		display: block
 		border: 1px solid bw1
-		transition: border 0.03s ease-in-out
+		transition: border t0
 		fill: bw1
-		transition: fill 0.03s ease-in-out
+		transition: all t0
+		background: none
 
-	.nav-link.open,
-	.nav-link:hover
-		border: 1px solid blue0
-		fill: blue0
+		&.open,
+		&:hover
+			fill: white
+			background: bw1
+			border: 1px solid white
 
-	@media (max-width: mid-width)
-		.nav-link.open
-			border: 1px solid bw9
-			fill: bw9
+.site-wrapper
+	transition: margin-left .1s ease-in-out
+	margin-left: 0px
 
-		.nav-link.open:hover
-			border: 1px solid bw9
-			fill: bw9
+.site-wrapper.open
+	margin-left: 250px
 
-		.nav-link:hover
+	.cover
+		width: -webkit-calc(62% - 250px)
+		width: -moz-calc(62% - 250px)
+		width: calc(62% - 250px)
+
+
+// LOGO SMALL-WIDTH
+@media (max-width: small-width)
+	.site-wrapper.open  // freeze small-width site
+		overflow: hidden
+		margin-left: 0
+
+		.cover
+			width: 100% !important
+
+	// iOS hover fix
+	.logo-link-wrapper .logo-link
+		&:hover
 			border: 1px solid bw1
 			fill: bw1
+			background: none
 
-.menu .bio h1 a
-	text-decoration: none
+		&.open
+			border: 1px solid white
+			fill: white
+			background: none
 
-	:hover
-		opacity: 1
+			&:hover
+				border: 1px solid white
+				fill: white
+				background: none
+
+	// defaults
+	.logo-link-wrapper.no-touch .logo-link
+		&:hover
+			border: 1px solid bw1
+			fill: white
+			background: bw1
+
+		&.open
+			border: 1px solid white
+			fill: white
+			background: none
+
+			&:hover
+				border: 1px solid white
+				fill: bw1
+				background: white
 
 
 //-----
 // MENU
 //-----
 
-.menu
+.nav-wrapper
 	z-index: 100
-	opacity: 0
 	overflow: hidden
 	box-sizing: border-box
 	padding-right: 1em
-	transition: opacity 0.07s ease-in-out
 	padding: 0
-
-.nav-back
-	width: 0%
-	height: 0%
 	position: fixed
-	z-index: 0
+	bottom: 0
+	top: 0
+	left: 0
+	right: 0
+	margin: 0
+	padding: 0
+	height: 100% !important
+	width: 100% !important
+	z-index: -50
 
-.menu.open
-	opacity: 1
-	transition: opacity 0.07s ease-in-out
-
-	nav
-		top: 50%
-		transform: translateY(-50%)
+	&.open
 		z-index: 1
 
-	.nav-back
-		width: 100%
-		height: 100%
+		.nav
+			margin-left: 0px
 
-nav
-	position: fixed
-	display: block
-	margin-right: -300px
-	right: 50%
-	top: -1000px
-	height: 450px
-	width: 600px
-
-@media (max-width: mid-width)
-
-	.menu.open,
-	nav
-		position: fixed
-		bottom: 0
-		top: 0
-		left: 0
-		right: 0
-		margin: 0
-		padding: 0
-		height: 100% !important
-		width: 100% !important
-
-	.menu.open
-		.links ul
-			margin 0 2em
-		
-		.links ul li
-			margin 0
-
-	.nav-breadcrumbs li
-		font-size: 1.2em
-
-		.links
-			position: relative
-			top: 30%
-			transform: translateY(-50%) 
-
-		.links ul
-			margin: 0 2em !important
-		
-		.links ul li
-			margin: 2em 0 !important
-			padding: 0
-		
-		.links ul li a
-			margin: 0
-			padding: 0.5em
-
-		.menu.open nav
-			top: 0%
-			transform: translateY(0%)
+		.nav-background
+			position: fixed
+			z-index: 0
+			width: 100%
 			height: 100%
 
-	.close svg path
-			fill: bw9
+	.nav
+		z-index: 1
+		position: fixed
+		display: block
+		margin-left: -250px
+		height: 100%
+		width: 250px
+		transition: margin-left 0.1s ease-in-out
 
-.menu.open .menu-fill
-	background: bw1
-	opacity: 0.98
-	width: 100%
-	height: 100%
-	position: absolute
-	z-index: -1
-	border: 1px solid bw2
+		.nav-fill
+			background: bw1
+			opacity: 0.98
+			width: 100%
+			height: 100%
+			position: absolute
+			z-index: -1
+			border: 1px solid bw2
 
-.menu-overlay
-	padding: 1em
-	z-index: 2
-	height: 100%
+		.nav-background
+			position: fixed
+			z-index: 0
+			width: 0
+			height: 0
 
-@media (max-width: mid-width)
-	.menu-overlay
-		padding-top: 4.5em
-	
-	.nav-breadcrumbs
-		margin: 1em
+		.nav-overlay
+			z-index: 2
+			height: 100%
+			margin: 80px 16px 16px 16px
 
-nav h6
-	text-align: left
-	margin-top: 2em
-	margin-bottom: 1em
-	color: bw9
-	padding-bottom: .5em
-	border-bottom: 1px solid bw9
+			ul
+				margin: 1.5em 1em
+				display: inline-block
 
-nav ul
-	margin: 1.5em 1em
-	display: inline-block
+				li
+					list-style-type: none
+					transition: background t0
+					transition: border t0
+					background: rgb(237, 237, 237)
+					background: rgba(255, 255, 255, 0)
 
-nav ul li
-	list-style-type: none
+					a
+						text-decoration: none
+						margin: 0
+						transition: color t0
+						color: white
+						font-weight: 500
+						text-decoration: none
+						display: block
 
-nav ul li a
-	text-decoration: none
-	margin: 0
-	color: bw9
-	font-weight: 500
-	text-decoration: none
-	display: block
+			// BREADCRUMBS
+			.nav-breadcrumbs
+				list-style-type: none
+				overflow: hidden
+				text-align: left
+				width: calc(100% - 1.2em)
+				font-size: 1.1em
+				word-wrap: break-word
+				margin: 0 0 0 1.2em
 
-nav ul li a:hover
-	color: blue0
+				li
+					font-family: headline
+					font-weight: 600
+					word-break: keep-all
+					display: inline-block
 
-.menu
-	.links
-		margin: 1em auto 0.5em auto
-		text-align: center
-		font-size: 1em
+					a
+						transition: color t0
+						font-weight: 700
 
-	.links ul
-		margin: 0 1em
+						&:hover
+							color: bw5
 
-	.links ul li
-		margin: 2em 0em
-		transform: scaleX(1) scaleY(1) scaleZ(1) skewX(-16deg)
-		border: 1px solid rgb(0, 0, 0)
-		border: 1px solid rgba(0, 0, 0, 0)
-		-webkit-background-clip: padding-box
-		background-clip: padding-box
+				.nav-parent
+					a
+						text-transform: capitalize
 
-	.links ul li:hover
-		color: bw1
-		border: 1px solid blue0
+				.nav-title
+					line-height: 1.6em
 
-		a
-			color: blue0
+				.nav-slash
+					color: bw9
+					display: inline-block
+					font-size: 0.9em
+					font-family: headline
+					font-weight: 800
+					top: -0.1em
+					position: relative
+					margin: 0.2em
 
-	.links ul li a
-		padding: 0.8em 1em 1em 1em
-		transform: scaleX(1) scaleY(1) scaleZ(1) skewX(16deg)
+			.nav-links
+				transform: translateY(5%)
+				height: 100%
 
+				ul
+					margin: 0 1em
 
-//------------
-// BREADCRUMBS
-//------------
+					li
 
-.nav-breadcrumbs
-	list-style-type: none
-	overflow: hidden
-	margin: 1em 0
-	text-align: center
-	font-weight: 600
-	width: 100%
-	font-size: 1.15em
-	word-wrap: break-word
+						a
+							color: white
+							padding: 0.25em 0.35em 0.35em 0.35em
+							font-size: 0.9em
+							font-family: headline
+							font-weight: 600
 
-.nav-breadcrumbs li
-	font-family: headline
-	font-weight: 600
-	word-break: keep-all
+							&:hover
+								color: bw5
 
-.nav-home
-	display: inline-block
+			.nav-social
+				text-align: center
+				margin: 0 auto
+				width: calc(100% - 32px)
+				position: absolute
+				bottom: 1.5em
+				font-size: 0.9em
 
-.nav-parent
-	display: inline-block
+				.social-link-wrapper
+					display: inline
 
-.nav-parent a
-	text-transform: capitalize
+					.social-link
+						color: white
+						text-decoration: none
+						display: inline
+						margin: 0 0.65em
 
-.nav-title
-	display: inline-block
-	line-height: 1.6em
+						.social-link-icon
+							transition: color t0
 
-.nav-slash
-	color: bw9
-	display: inline-block
-	font-size: 1.1em
-	font-family: headline
-	font-weight: 700
+							&:hover
+								color: bw5
 
-//-----------
-// NEWSLETTER
-//-----------
+			.nav-newsletter
+				position: absolute
+				margin: 0 auto
+				width: calc(100% - 32px)
+				bottom: 3.5em
 
-.nav-newsletter
-	position: absolute
-	margin: 0 auto
-	width: 95%
-	bottom: 5em
+			.newsletter-signup
+				background: none
+				height: 100%
+				margin: 20px
+				margin-top: 10px
 
-.newsletter-signup
-	background: none
-	height: 100%
-	margin: 20px
-	margin-top: 10px
+			form
+				overflow: auto
+				margin: 0 auto !important
+				width: 180px
+				border: 0
+				border-bottom: 1px solid white
 
-form
-	overflow: auto
-	margin: 0 auto !important
-	width: 180px
-	border: 0
-	border-bottom: 1px solid bw9
+			input
+				-webkit-appearance: none
+				border-radius: 0
 
-input
-	-webkit-appearance: none
-	border-radius: 0
+				&.button
+					text-align: center
+					font-size: 1.1em
+					height: 2.9em
+					width: 5%
+					float: right
+					padding: 2px
+					vertical-align: middle
+					border-left: 0
+					color: white
+					font-weight: 600
+					background: none
+					outline: none
+					-webkit-box-shadow: none
+					box-shadow: none
+					font-family: 'FontAwesome'
+					border: 0
 
-input.button
-	text-align: center
-	font-size: 1em
-	height: 2.5em
-	width: 5%
-	float: right
-	padding: 2px
-	vertical-align: middle
-	border-left: 0
-	color: bw9
-	font-weight: 600
-	background: none
-	outline: none
-	-webkit-box-shadow: none
-	box-shadow: none
-	font-family: 'FontAwesome'
-	border: 0
-
-input.button:hover
-	color: blue0
-
-input.button:focus
-	background: none
-	outline: none
-
-input[type='text'],
-input[type='email']
-	height: 2.8em
-	border: 0
-	background: none
-	vertical-align: middle
-	float:left
-	width: 95%
-	font-family: headline
-	font-weight: 600
-	font-size: 0.8em
-	color: bw9
-	transition: all 0.2s ease
-	text-align: center
-
-input[type='email']:focus
-	outline: none
-
-input[type='text']:focus
-	display: none
-
-placeholder
-	color: bw9
-
-placeholder:hover
-	color: blue0
-
-
-//-------------
-// SOCIAL ICONS
-//-------------
-
-#nav-social
-	text-align: center
-	margin: 0 auto
-	position: absolute
-	bottom: 2em
-	width: 95%
-
-	.social-link-wrapper
-		display: inline
-
-		.social-link
-			color: bw9
-			text-decoration: none
-			display: inline
-			margin: 0 0.8em
-
-			.social-link-icon:hover
-				color: blue0
-
-			.fa-file-text-o
-				font-size: 0.9em 
-
-			.el-rss
+			input[type='text'],
+			input[type='email']
+				height: 3.8em
+				border: 0
+				background: none
+				vertical-align: middle
+				float:left
+				width: 95%
+				font-family: headline
+				font-weight: 600
 				font-size: 0.8em
+				color: white
+				transition: all 0.2s ease-in-out
+				text-align: center
+				outline: none
+				padding-left: 10px
 
+			input.button
+				&:hover,focus
+					color: bw5
+					background: none
+					outline: none
+
+			input[type='text']:focus
+				display: none
+
+			placeholder
+				color: white
+
+				&:hover
+					color: bw5
+
+
+// MENU SMALL-WIDTH
+@media (max-width: small-width)
+	.nav-wrapper
+		display: none
+
+		&.open
+			position: fixed
+			bottom: 0
+			top: 0
+			left: 0
+			right: 0
+			margin: 0
+			padding: 0
+			height: 100%
+			width: 100%
+			display: block
+
+			.nav
+				transform: translateY(0%)
+
+		.nav
+			transform: translateY(0%)
+			z-index: 1
+			position: fixed
+			display: absolute
+			margin: 0
+			right: 0
+			top: 0
+			height: 100%
+			width: 100%
+
+			.nav-overlay
+				padding-top: 0
+				margin: 1em !important
+
+				.nav-breadcrumbs
+					text-align: center
+					margin: 14px 0
+					width: 100%
+
+					a
+						font-size: 1.3em
+						font-weight: 700
+						margin: 0
+						padding: 0
+
+					.nav-home
+						margin-left: 1em
+
+					.nav-title
+						margin-top: 1.4em
+
+					.nav-slash a
+						font-weight: 800
+
+				.nav-links
+					transform: translateY(2%)
+					text-align: center
+
+					ul
+						margin: 0
+
+						li
+							margin:0
+
+							a
+								font-size: 1.2em
+								padding: 0.1em 0.2em 0.2em 0.2em
+
+				.nav-newsletter
+					bottom: 3.7em
+
+				input[type='text'],
+				input[type='email']
+					height: 3.6em
+					font-size: 1em
+
+				input.button
+					font-size: 1.4em
+					height: 2.7em

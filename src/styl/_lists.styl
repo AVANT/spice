@@ -1,101 +1,95 @@
-.items
-	overflow: hidden
-	width 100%
-
-.items li
-	display: block
-	margin: 0em auto
-	width: 50%
-	
-@media (max-width: mid-width)
-	.items li
-		width: 90%
-		margin 1em auto
-
-.items li .p-wrap
-	padding: 2.5em
-	transition: all .15s ease-in
-	border: solid 1px bw1
-	font-family: headline
-
-.items li .p-wrap .list-title
-	font-weight: 700
-	font-size: 1.5em
-	margin: 0 0 1em 0
-	color: bw1
-	transition: all .15s ease-in
-
-
-.items li .p-wrap .list-author 
-	font-weight: 500
-	font-size: 1.2em
-	text-align: right
-	display: block
-	margin-top: 2em
-	transition: all .15s ease-in
-
-
-.items li .p-wrap .list-author p
-	margin: 0.5em 0 0 0
-	transition: all .15s ease-in
-
-.items li .p-wrap:hover
-	//background: bw9
-	border: solid 1px blue0
-	
-	.list-author p
-		color: blue0
-	
-	.list-title
-		color: blue0
-
-@media (max-width: large-width)
-	.items li .p-wrap:hover::after
-		content: none
-		margin: 0
-
-	.items li .p-wrap
-		padding: 2em
-
-	.items li time
-		display: block
-
-.items li a
-	color: bw1
-	text-decoration: none
-	margin: 4em 0
-	display: block
-
-	.list li a
-		margin 2em 0
-#posts
-	margin-top: 20px
-
 #home
-	min-height: 450px
+	min-height: 70%
+
+	.items
+		overflow: hidden
+		width 100%
+		margin-top: 20px
+
+		li
+			display: block
+			margin: 0em auto
+			width: 50%
+			min-width: 240px
+
+			a
+				color: bw1
+				text-decoration: none
+				margin: 4em 0
+				display: block
+
+			.p-wrap
+				padding: 2.5em
+				transition: border t0
+				border: solid 1px bw1
+				font-family: headline
+				position: relative
+				background: bw10
+				transition: background t0
+
+				&:hover
+					background: white
+					border: solid 1px bw1
+
+				.list-title
+					font-weight: 700
+					font-size: 1.5em
+					color: bw1
+					margin: 0.5em 0 1em 0
+
+				.list-author 
+					font-weight: 500
+					font-size: 1.2em
+					text-align: right
+					display: block
+					margin-top: 2em
+
+
+// SMALL-WIDTH
+@media (max-width: small-width)
+	#home
+		.items li
+			width: 90%
+			margin 1em auto
+
+
+
+// LARGE-WIDTH
+@media (max-width: large-width)
+	#home
+		.items li .p-wrap:hover::after
+			content: none
+			margin: 0
+
+		.items li .p-wrap
+			padding: 2em
+
+		.items li time
+			display: block
+
 
 //-------------------------------
 // infinite scroll load animation
 //-------------------------------
 
 .spinner
-	margin: 0px auto 0
+	margin: 20px auto 0 auto
 	width: 70px
 	text-align: center
 
-.spinner > div
-	width: 6px
-	height: 8px
-	margin: 0 5px;
-	background-color: bw1
-	display: inline-block
-	animation: sk-bouncedelay 1.4s infinite ease-in-out both
+	.bounce1
+		animation-delay: -0.32s
 
-.spinner .bounce1
-	animation-delay: -0.32s
+	.bounce2
+		animation-delay: -0.16s
 
-.spinner .bounce2
-	animation-delay: -0.16s
+	& > div
+		width: 6px
+		height: 8px
+		margin: 0 5px;
+		background-color: bw1
+		display: inline-block
+		animation: sk-bouncedelay 1.4s infinite ease-in-out both
 
 @keyframes sk-bouncedelay
 	0%, 80%, 100%

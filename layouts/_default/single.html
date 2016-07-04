@@ -6,8 +6,6 @@
 
 	<div class="site-wrapper">
 
-<!-- {{ printf "%#v" . }} -->
-
 		{{ if eq .Type "solo" }}
 			<section class="single-wrap-solo">
 				<main role="main" class="item">
@@ -65,7 +63,7 @@
 						<li itemscope class="post">
 							<a href="{{ .Permalink }}" itemprop="url">
 								<div class="p-wrap">
-									<p class="list-title" itemprop="name headline">{{ .Title }}</p>
+									<p class="list-title phrase" itemprop="name headline">{{ .Title }}</p>
 									{{ with .Params.cover }}
 									<div class="list-cover" ><img width="600" class="img b-lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ . }}" alt="alt-text"></div>
 									<script>;(function() {var bLazy = new Blazy();})();</script>
@@ -86,7 +84,7 @@
 						<li itemscope class="post">
 							<a href="{{ .Permalink }}" itemprop="url">
 								<div class="p-wrap">
-									<p class="list-title" itemprop="name headline">{{ .Title }}</p>
+									<p class="list-title phrase" itemprop="name headline">{{ .Title }}</p>
 									{{ with .Params.cover }}
 									<div class="list-cover" ><img width="600" class="img b-lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ . }}" alt="alt-text"></div>
 									<script>;(function() {var bLazy = new Blazy();})();</script>
@@ -107,7 +105,7 @@
 						<li itemscope class="post">
 							<a href="{{ .Permalink }}" itemprop="url">
 								<div class="p-wrap">
-									<p class="list-title" itemprop="name headline">{{ .Title }}</p>
+									<p class="list-title phrase" itemprop="name headline">{{ .Title }}</p>
 									{{ with .Params.cover }}
 									<div class="list-cover" ><img width="600" class="img b-lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ . }}" alt="alt-text"></div>
 									<script>;(function() {var bLazy = new Blazy();})();</script>
@@ -128,7 +126,7 @@
 						<li itemscope class="post">
 							<a href="{{ .Permalink }}" itemprop="url">
 								<div class="p-wrap">
-									<p class="list-title" itemprop="name headline">{{ .Title }}</p>
+									<p class="list-title phrase" itemprop="name headline">{{ .Title }}</p>
 									{{ with .Params.cover }}
 									<div class="list-cover" ><img width="600" class="img b-lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ . }}" alt="alt-text"></div>
 									<script>;(function() {var bLazy = new Blazy();})();</script>
@@ -155,34 +153,21 @@
 			{{ partial "pagination" . }}
 		{{ end }}
 
-		{{ if eq .Type "thread-list" }}
-			<section class="single-wrap">
-				<main role="main" class="item">
-					{{ partial "items/thread-list.html" . }}
-				</main>
-			</section>
-		{{ end }}
-
-		{{ if eq .Type "author" }}
-			<section class="single-wrap">
-				<main role="main" class="item">
-					{{ partial "items/author.html" . }}
-				</main>
-			</section>
-		{{ end }}
-
-
-		{{ if eq .Type "thread-landing" }}
-			<section class="single-wrap">
-				<main role="main" class="item">
-					{{ partial "items/thread-landing.html" . }}
-				</main>
-			</section>
-		{{ end }}
-
 		{{ partial "footer" . }}
 	</div>
+
+	<script>
+		footer = document.getElementById('footer');
+		try { footer.style.opacity = "1"; footer.style.height = "280px"; } catch(e) {"waiting for footer"};
+	</script>
+
+	<!-- GLOBAL FOOTER JS --> 
 	{{ partial "js" . }}
+
+	<!-- OPTIONALLY INSERT SHOTCODE JS --> 
+	{{ if ($.Scratch.Get "js") ne "" }}
+		{{ ($.Scratch.Get "js") | safeHTML }}
+	{{ end }}
 
 </body>
 </html>

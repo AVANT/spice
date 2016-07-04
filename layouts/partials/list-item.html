@@ -1,10 +1,38 @@
 <li itemscope class="post">
 	<a href="{{ .Permalink }}" itemprop="url">
 		<div class="p-wrap">
-			<p class="list-title" itemprop="name headline">{{ .Title }}</p>
+			<p class="list-title phrase" itemprop="name headline">{{ .Title }}</p>
 			{{ with .Params.cover }}
 				<img class="list-cover img b-lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ . }}" alt="alt-text">
-				<script>;(function() {var bLazy = new Blazy();})();</script>
+
+				<script type="text/javascript">
+
+					function hasClass(ele, cls) {
+						return ele.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
+					}
+
+					function removeClass(ele, cls) {
+						if (hasClass(ele, cls)) {
+							var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
+							ele.className = ele.className.replace(reg, ' ');
+						}
+					}
+
+					phrase = document.getElementsByClassName('phrase');
+
+					if(phrase.length != 0 && breakPhrase != null) {
+
+						breakPhrase(phrase);
+
+						for (var i = 0; i < phrase.length; i++) {
+							removeClass(phrase[i], 'phrase')
+						}
+					}
+
+					(function() {var bLazy = new Blazy();})();
+
+				</script>
+
 			{{ end }}
 			{{ with .Params.author }}
 				<div class="list-author">

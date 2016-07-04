@@ -23,7 +23,7 @@
 				{{ if eq $taxonomy $singular }}
 					{{ range (index $page.Params $plural) }}
 						{{ if eq $title (. | urlize | title) }}
-							<h1 class="item-title">{{ . }}</h1>
+							<h1 class="item-title phrase">{{ . }}</h1>
 
 							{{ if eq $singular "thread" }}
 
@@ -51,6 +51,12 @@
 			</div>
 		</main>
 		{{ partial "footer" . }}
+
+		<script>
+			footer = document.getElementById('footer');
+			try { footer.style.opacity = "1"; footer.style.height = "280px"; } catch(e) {"waiting for footer"};
+		</script>
+
 	</div>
 	{{ partial "js" . }}
 

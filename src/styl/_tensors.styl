@@ -25,16 +25,26 @@ bw1 = #1a1a1a // 10%
 black = #000000 // 0%
 
 // blue palette
-blue0 = #6A6BAD //
+blue0 = #282878
+blue0-rgb = rgb(40, 40, 120)
+blue0-rgba = rgba(40, 40, 120, 0.2)
 
+blue1 = #AAAADC
+blue1-rgb = rgb(170, 170, 220)
+blue1-rgba = rgba(170, 170, 220, 0.2)
 
+//------------
+// transitions
+//------------
+
+t0 = 0.03s ease-in-out
+t1 = 0.1s ease-in-out
 
 //-----------------------
 // media querry variables
 //-----------------------
 
-small-width = 320px
-mid-width = 414px
+small-width = 414px
 large-width = 1024px
 
 
@@ -54,6 +64,13 @@ placeholder()
 
 	:-ms-input-placeholder
 		arguments
+
+user-select()
+	-webkit-user-select: arguments
+	-moz-user-select: arguments
+	-khtml-user-select: arguments
+	-o-user-select: arguments
+	user-select: arguments
 
 skew()
 	-webkit-skew: arguments

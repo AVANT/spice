@@ -17,8 +17,8 @@
 	{{ "<!-- pace -->" | safeHTML }}
 	<script src="{{ .Site.BaseURL }}js/vendor/pace-min.js"></script>
 
-	{{ "<!-- font-awesome -->" | safeHTML }}
-	<link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" >
+	{{ "<!-- icon fonts -->" | safeHTML }}
+	<script src="https://use.fontawesome.com/07df8a58bb.js"></script>
 	<link rel="stylesheet" type="text/css" href="/styles/vendor/elusive-icons.min.css" />
 
 	{{ "<!-- site stylesheets -->" | safeHTML }}
@@ -52,7 +52,8 @@
 	{{ partial "seo/seo.html" . }}
 
 	<script>
-	var Blazy = function() {return null}
+		var Blazy = function() {return null}
+		breakPhrase = null
 	</script>
 
 	</head>

@@ -2,58 +2,14 @@
 
 	<div style="background-image: url('{{ with .Params.cover }}{{ . }}{{ end }}')" class="cover"></div>
 
-	<div class="meta-box">
-	<div class="meta">
-
-		<h1 class="page-title" itemprop="name headline">{{ .Title }}</h1>
-
-		{{ with .Params.author }}
-		<div class="meta-block">
-			<p class="author">
-			<span class="authors">
-				{{ range . }}
-					<a href="{{ $.Site.BaseURL  }}author/{{ . | urlize }}">{{ . }}</a>
-				{{ end }}
-			</span>
-			</p>
-		</div>
-		{{ end }}
-
-		{{ with .Params.thread }}
-			<div class="meta-block thread-block">
-				<p class="thread">
-					{{ range . }}
-						<a href="{{ $.Site.BaseURL  }}thread/{{ . | urlize }}">{{ . }}</a>
-					{{ end }}
-				</p>
-			</div>
-		{{ end }}
-
-		<div class="meta-block">
-			<p class="page-date">
-			<time datetime="" itemprop="datePublished">
-			{{ .Date.Format "2 January 2006" }}
-			</time>
-			</p>
-		</div>
-
-		{{ with .Params.tag }}
-			<div class="meta-block tag-block">
-				<p class="tag">
-					{{ range . }}
-						<a href="{{ $.Site.BaseURL  }}tag/{{ . | urlize }}">{{ . }}</a>
-					{{ end }}
-				</p>
-			</div>
-		{{ end }}
-	</div>
-	</div>
+	{{ partial "items/meta-blocks" . }}
 
 	<p class="splash-spacer">§</p>
 
 	<div class="text-body hyphenate" itemprop="articleBody">
 		{{ .Content }}
 	</div>
+
 	<div class="feat share">
 		<a href="//twitter.com/share" class="popup">
 			<span class="icon-twitter"></span>
@@ -71,9 +27,11 @@
 			<span class="nav-title nav-title-next">{{ with .Site.Params.newer }}{{ . }}{{ end }}</span> &rarr;
 		</a>
 	{{ end }}
+
 	{{ if .PrevInSection }}
 		<a rel="prev" href="{{ .PrevInSection.Permalink }}" id="prev">
 			&larr; <span class="nav-title nav-title-prev">{{ with .Site.Params.older }}{{ . }}{{ end }}</span>
 		</a>
 	{{ end }}
+
 </article>

@@ -1,0 +1,133 @@
+.single-wrap
+	.meta-wrapper
+		position: absolute
+		top: 0
+		right 0
+		width: 28%
+		padding-right: 6.5%
+
+		.meta
+			margin-top: 41%
+
+			.page-title
+				font-size: 1.5em
+				margin: 0 0 0.8em 0.6em
+
+			.meta-block
+				display: block
+				font-family: headline
+				font-weight: 700
+				padding: 0.2em 0
+				max-width: 70%
+				margin: 0
+
+				ul li a
+					white-space: nowrap
+					font-family: headline
+
+				.date
+					font-size: 0.8em
+					margin: 0 0 0 1.2em
+					font-weight: 700
+					color: bw5
+					list-style: none
+
+				.author
+					margin: 1em 0 1em 0.95em
+					list-style: none
+
+					a
+						margin: 1em 0
+						font-size: 1em
+						font-weight: 700
+
+				.thread-tag
+					border solid 1px bw1
+					display: inline-block
+					text-align: left
+					margin: 0
+					list-style: none
+
+					a
+						padding: 8px 8px 7px 8px
+						margin: 0
+						font-size: 0.9em
+						color: bw1
+						text-decoration: none
+						display: block
+						box-shadow: none
+						font-weight: 700
+						line-height: 1.2em
+
+					.thread
+						padding: 0.6em
+						margin: 0
+						background: bw1
+
+						a
+							color: white
+							font-size: 0.8em
+
+							&:hover
+								color: bw1
+								background: white
+								box-shadow: none
+
+					.tag
+						margin: 0
+						padding: 0.6em
+
+						a
+							font-size: 0.8em
+
+							&:hover
+								color: white
+								background: bw1
+								box-shadow: none
+
+					.tag + .tag,
+					.thread + .thread
+						padding: 0 0.6em 0.6em 0.6em
+
+	.splash-spacer
+		margin: 2% auto
+		text-align: center
+		letter-spacing: 0.5em
+		font-family: headline
+		font-weight: 700
+		min-height: 3em
+		transform: translateY(25%)
+
+
+	// LARGE-WIDTH
+	@media (max-width: large-width)
+		.meta-wrapper
+			position: relative
+			margin: 1em auto
+			width: 90%
+			padding-right: 0
+			width: 100%
+			margin-top: 1.5em
+
+			.meta
+				margin-top: 0.5em
+
+				.page-title
+					text-align: center
+					font-size: 1.5em
+					margin: 1.5em auto
+					width: 90%
+
+				.meta-block
+					margin: 1.5em auto
+					text-align: center
+
+					.author,
+					.date
+						text-align: center
+						margin: 0.5em auto
+
+
+	// SMALL-WIDTH
+	@media (max-width: small-width)
+		text-align: center
