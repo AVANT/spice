@@ -1,3 +1,26 @@
+//----------------------------------------
+// disable horizontal scroll for open menu
+//----------------------------------------
+
+$(document).ready(function() {
+
+	$(function() {
+		var $body = $(document);
+		$body.bind('scroll', function() {
+			// disable horizontal scroll
+			if ($body.scrollLeft() !== 0) {
+				$body.scrollLeft(0);
+			}
+		});
+	});
+
+});
+
+
+//------------------
+// menu button logic
+//------------------
+
 $(document).ready(function() {
 
 	var $menuIcon = document.getElementsByClassName('logo-link')[0],
@@ -34,8 +57,7 @@ $(document).ready(function() {
 	}
 
 	function removeClass(element, className) {
-		// capture any surrounding space characters to prevent repeated
-		// additions and removals from leaving lots of spaces.
+		// capture surrounding whitespace characters
 		var classNameRegEx = new RegExp("\\s*" + className + "\\s*");
 		element.className = element.className.replace(classNameRegEx, " ");
 	}
@@ -51,8 +73,15 @@ $(document).ready(function() {
 			removeClass(element, className);
 		}
 	}
+});
 
-	// open Twitter/share in a Pop-Up
+
+//-----------------------------
+// open twitter/share in pop-up
+//-----------------------------
+
+$(document).ready(function() {
+
 	var $popup = document.getElementsByClassName('popup')[0];
 	if (!$popup) {
 		return;
@@ -76,40 +105,14 @@ $(document).ready(function() {
 
 });
 
+
 //-----------------------------
 // add visibility class on load
 //-----------------------------
 
-// $(document).ready(function() {
-// 	if (window.Hyphenator) {
-// 			$('.site-wrapper').addClass('load');
-// 			console.log('sup');
-// 		}
-// });
-
 (setTimeout(function(){
 	$('.site-wrapper').addClass('load');
 }, 200));
-
-
-//-----------------------------
-// in-page anchor smooth scroll
-//-----------------------------
-
-// $(function() {
-//   $('a[href*="#"]:not([href="#"])').click(function() {
-//     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-//       var target = $(this.hash);
-//       target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-//       if (target.length) {
-//         $('html, body').animate({
-//           scrollTop: target.offset().top
-//         }, 1000);
-//         return false;
-//       }
-//     }
-//   });
-// });
 
 
 //-----------------------------
@@ -145,14 +148,14 @@ function setDimensions(){
 
 setDimensions();
 
-//when resizing the site, we adjust the heights of the sections
+// when resizing the site adjust section heights
 $(window).resize(function() {
 	setDimensions();
 });
 
 $(document).ready(function() {
 	;(function() {
-			// Initialize
+			// initialize
 			var bLazy = new Blazy({
 				offset: 1000
 			});
@@ -161,7 +164,7 @@ $(document).ready(function() {
 
 
 //-------------
-// IMPRINT TABS
+// imprint tabs
 //-------------
 
 $(document).ready(function() {
@@ -180,10 +183,10 @@ $(document).ready(function() {
 
 			window.location.hash = currentAttrValue;
 
-			// Show/Hide Tabs
+			// show/hide Tabs
 			$('.tabs ' + currentAttrValue + '-tab').show().siblings().hide();
 
-			// Change/remove current tab to active
+			// change current tab to active & remove active class from siblings
 			$(this).parent('li').addClass('active').siblings().removeClass('active');
 
 			e.preventDefault();
@@ -195,7 +198,7 @@ $(document).ready(function() {
 
 
 //----------------
-// INFINITE SCROLL
+// infinite scroll
 //----------------
 
 (function($) {
@@ -216,127 +219,11 @@ $(document).ready(function() {
 
 
 //--------------------
-// FONT LOAD DETECTION
+// font load detection
 //--------------------
 
 var tiempos_headline = new FontFaceObserver('Tiempos Headline');
 var tiempos_text = new FontFaceObserver('Tiempos Text');
-
-
-//-------------
-// LUNAR SEARCH
-//-------------
-
-// var index = lunr(function () {
-// 	this.pipeline.add(function (token, tokenIndex, tokens) {
-// 		// text processing in here
-// })
-
-// this.pipeline.after(lunr.stopWordFilter, function (token, tokenIndex, tokens) {
-// 		// text processing in here
-// 	})
-// })
-
-// //I will try and add more comments to this later...
-// /*Begin full-screen search overlay toggle*/
-// //Note that this requires the element.classList method, which is not supported in IE9. If you need IE9 support, use the classList.js polyfill (https://github.com/eligrey/classList.js/)
-// //Full-screen overlay opens via click/touch event or if the user hits "s' on the keyboard. When search is open, this is controlled for so that people can search words with "s" in them
-// var searchOverlay = document.querySelector('.search-form');
-// var searchButton = document.getElementById('search-button');
-// var searchInput = document.getElementById('search-input');
-// var closeSearch = document.getElementById('close-search');
-// closeSearch.onclick = function() {
-// 	if (searchOverlay.classList.contains('open')) {
-// 		searchOverlay.classList.remove('open');
-// 	}
-// }
-// window.addEventListener('keyup', function(event) {
-// 	var keyPressed = event.keyCode;
-// 	if (keyPressed === 83 && searchOverlay.classList.contains('open')) {
-// 		return;
-// 	} else if (keyPressed === 83) {
-// 		searchOverlay.classList.add('open');
-// 		if (searchInput.value.length > 0) {
-// 			searchInput.value = '';
-// 		}
-// 		searchInput.focus();
-// 	} else if (keyPressed === 27 && searchOverlay.classList.contains('open')) {
-// 		searchOverlay.classList.remove('open');
-// 	}
-// }, true);
-// searchButton.addEventListener('click', function(event) {
-// 	searchOverlay.classList.toggle('open');
-// 	searchInput.focus();
-// }, true);
-// /*End search overlay toggle*/
-
-// /*Begin Lunr live search*/
-// //for more information on lunr.js, go to http://lunrjs.com/
-// var searchData;
-// var searchInput = document.getElementById('search-input');
-// searchInput.addEventListener('keyup', lunrSearch, true);
-// window.index = lunr(function() {
-// 	this.field('id');
-// 	this.field('url');
-// 	this.field('title', { boost: 50 });
-// 	this.field('excerpt');
-// 	this.field('description');
-// 	this.field('tag',{ boost: 30});
-// 	this.field('content', { boost: 10 });
-// //boosting for relevancy is up to you.
-// });
-
-// var searchReq = new XMLHttpRequest();
-// searchReq.open('GET', '/site-index.json', true);
-// searchReq.onload = function() {
-// 	if (this.status >= 200 && this.status < 400) {
-// 		console.log("Got the site index");
-// 		searchData = JSON.parse(this.response);
-// 		searchData.forEach(function(obj, index) {
-// 			obj['id'] = index;
-// 			window.index.add(obj);
-// 		});
-// 	} else {
-// 		console.log("Failed status for site-index.js. Check /static/site-index.json");
-// 	}
-// }
-// searchReq.onerror = function() {
-// 	console.log("Error when attempting to load site-index.json.");
-// }
-// searchReq.send();
-
-// function lunrSearch(event) {
-// 	var query = document.querySelector("#search-input").value;
-// 	var searchResults = document.querySelector('#search-results');
-// 	if (query.length === 0) {
-// 		searchResults.innerHTML = '';
-// 	}
-// 	if ((event.keyCode !== 9) && (query.length > 2)) {
-// 		var matches = window.index.search(query);
-// 		displayResults(matches);
-// 	}
-// }
-
-// function displayResults(results) {
-// 	var searchResults = document.querySelector('#search-results');
-// 	var inputVal = document.querySelector('#search-input').value;
-// 	if (results.length) {
-// 		searchResults.innerHTML = '';
-// 		results.forEach(function(result) {
-// 			var item = window.searchData[result.ref];
-// 			var section = item.section.split('-').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' ');
-// 			var appendString = '<li class=\"search-result\"><a href=\"' + item.url + '\"><h5>' + item.title + '</h5></a><p>' + item.description + '</p><div class=\"in-section\">In: ' + section + '</div><ul class=\"tags\"><li><i class=\"icon-tags\"></i></li>';
-// 			// var tags = '';
-// 			for (var i = 0; i < item.tags.length; i++) {
-// 				appendString += '<li><a href=\"/tags/' + item.tags[i] + '\" class=\"tag\">' + item.tags[i] + '</a> ';
-// 			}
-// 			appendString += '</ul></li>';
-// 			searchResults.innerHTML += appendString;
-// 		})
-// 	} else {
-// 		searchResults.innerHTML = '<li class=\"search-result none\">No results found for <span class=\"input-value\">' + inputVal + '</span>.<br/>Please check spelling and spacing.</li>';
-// 	}
-// }
 
 
 //------------------
@@ -359,33 +246,35 @@ function autoUnput(thefield, orig){
 //-------------
 
 $(document).ready(function() {
+
 	$('img[src$=".svg"]').each(function() {
+
 		var $img = jQuery(this);
 		var imgURL = $img.attr('src');
 		var attributes = $img.prop("attributes");
 
 		$.get(imgURL, function(data) {
-			// Get the SVG tag, ignore the rest
+			// get the SVG tag & ignore remainder
 			var $svg = jQuery(data).find('svg');
 
-			// Remove any invalid XML tags
+			// remove any invalid XML tags
 			$svg = $svg.removeAttr('xmlns:a');
 
-			// Loop through IMG attributes and apply on SVG
+			// loop through image attributes and apply on SVG
 			$.each(attributes, function() {
 				$svg.attr(this.name, this.value);
 			});
 
-			// Replace IMG with SVG
+			// replace image with SVG
 			$img.replaceWith($svg);
 		}, 'xml');
 	});
 });
 
 
-//-------------------------------
-// prevent one word lines of text
-//-------------------------------
+//----------------------------------
+// prevent single word lines of text
+//----------------------------------
 
 var breakPhrase = function(e){
 	var n = [], r = []
@@ -396,10 +285,21 @@ var breakPhrase = function(e){
 	})
 }
 
-phrase = document.getElementsByClassName('phrase');
-breakPhrase(phrase);
-$(phrase).removeClass("phrase");
+$(document).ready(function() {
 
+	Bphrase = function() {
+		// calculate non-breaking whitespace
+		phrase = $('.phrase').add('.caption p').add('.media-text p');
+
+		if(phrase.length != 0) {
+			breakPhrase(phrase);
+			$(phrase).removeClass("phrase");
+		}
+	}
+
+	var bPhrase = new Bphrase();
+
+});
 
 //----------------------------
 // accomodate iOS touch events
@@ -408,3 +308,4 @@ $(phrase).removeClass("phrase");
 if ('ontouchstart' in document) {
 	$('.no-touch').removeClass('no-touch');
 }
+

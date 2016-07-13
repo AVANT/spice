@@ -1,13 +1,13 @@
-<!-- Schema.org markup -->
+<!-- schema.org markup -->
 <meta itemprop="name" content="{{ .Title }}">
 <meta itemprop="description" content="{{ if .Params.excerpt }}{{ .Params.excerpt }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ end }}{{ end }}">
 
-<!-- Output images -->
+<!-- output images -->
 {{ with .Params.images }}{{ range first 6 . }}
 	<meta itemprop="image" content="{{ . }}">
 {{ end }}{{ end }}
 
-<!-- Output all taxonomies as schema.org keywords -->
+<!-- output all taxonomies as schema.org keywords -->
 <meta itemprop="keywords" content="{{ range $plural, $terms := .Site.Taxonomies }}{{ range $term, $val := $terms }}{{ printf "%s," $term }}{{ end }}{{ end }}" />
 
 {{if .IsPage}}

@@ -1,23 +1,39 @@
+<!-- jquery -->
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
+<!-- font loading -->
 <script type="text/javascript" src="{{ .Site.BaseURL }}js/vendor/fontfaceobserver.standalone.js"></script>
+
+<!-- carousel -->
 <script type="text/javascript" src="{{ .Site.BaseURL }}js/vendor/flickity.pkgd.min.js"></script>
-<script type="text/javascript" src="{{ .Site.BaseURL }}js/vendor/lunr.min.js"></script>
+
+<!-- lazy loading -->
 <script src="//cdn.jsdelivr.net/blazy/latest/blazy.min.js"></script>
 
-
-{{ "<!-- import main js -->" | safeHTML }}
+<!-- js main -->
 <script type="text/javascript" src="{{ .Site.BaseURL }}js/main.js"></script>
 
-{{ "<!-- import infinite scroll -->" | safeHTML }}
+<!-- infinite scroll -->
 <script type="text/javascript" src="{{ .Site.BaseURL }}js/vendor/ias-min.js"></script>
 
-{{ template "_internal/google_analytics.html" . }}
-
-{{ "<!-- Syntax highlighting -->" | safeHTML }}
+<!-- syntax -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-{{ "<!-- Syntax hyphenation -->" | safeHTML }}
+<!-- hyphenation -->
 <script type="text/javascript" src="{{ .Site.BaseURL }}js/vendor/hylo.js"></script>
 <script type="text/javascript" src="{{ .Site.BaseURL }}js/vendor/hyphenator.js"></script>
+
+<!-- search -->
+<script src="//cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.js"></script>
+<script src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.jquery.min.js"></script>
+<script>
+	var client = $.algolia.Client("V00AAD9LUF", 'apiKey');
+	var index = client.initIndex('avant');
+	index.search('something', function searchDone(err, content) {
+		console.log(err, content)
+	});
+</script>
+
+<!-- google analytics -->
+{{ template "_internal/google_analytics.html" . }}

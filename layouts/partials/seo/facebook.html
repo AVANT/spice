@@ -1,24 +1,23 @@
-<!-- Required Open Graph Info -->
+<!-- required open graph info -->
 <meta property="og:title" content="{{ .Title }}{{ with .Params.author }} | {{ range . }}{{ . }} {{ end }}{{ end }}" />
 <meta property="author" content="{{ with .Params.author }}{{ range . }}{{ . }}{{ end }}{{ end }}" />
 <meta property="og:description" content="{{ if .Params.excerpt }}{{ .Params.excerpt }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ end }}{{ end }}" />
 <meta property="og:type" content="{{ if .Params.type }}{{ .Params.type }}{{ else }}website{{ end }}" />
 <meta property="og:url" content="{{ .Permalink }}" />
-
 <meta property="og:image" content="{{ with .Params.cover }}{{ . }}{{ else }}http://objects.avant.org/logos/logo_white_border.png{{ end }}" />
 
 
-<!-- Optional Open Graph Markup -->
+<!-- optional open graph info -->
 <meta property="og:updated_time" content="{{ .Date }}"/>
-{{ with .Params.audio }}<meta property="og:audio" content="{{ . }}" />{{ end }}
-{{ with .Params.locale }}<meta property="og:locale" content="{{ . }}" />{{ end }}
-{{ with .Site.Params.title }}<meta property="og:site_name" content="{{ . }}" />{{ end }}
-{{ with .Params.videos }}{{ range . }}
-	<meta property="og:video" content="{{ . }}" />
-{{ end }}{{ end }}
+	{{ with .Params.audio }}<meta property="og:audio" content="{{ . }}" />{{ end }}
+	{{ with .Params.locale }}<meta property="og:locale" content="{{ . }}" />{{ end }}
+	{{ with .Site.Params.title }}<meta property="og:site_name" content="{{ . }}" />{{ end }}
+	{{ with .Params.videos }}{{ range . }}
+		<meta property="og:video" content="{{ . }}" />
+	{{ end }}{{ end }}
 <meta property="fb:app_id" content="624628847586856" />
 
-<!-- If it is part of a series, link to related articles -->
+<!-- link to related articles if part of eries -->
 {{ $permalink := .Permalink }}
 {{ $siteSeries := .Site.Taxonomies.series }}
 {{ with .Params.series }}{{ range $name := . }}
@@ -38,5 +37,5 @@
 	<meta property="article:tag" content="{{ . }}" />
 {{ end }}{{ end }}
 
-<!-- Facebook Page Admin ID for Domain Insights -->
+<!-- facebook page admin ID for domain insights -->
 {{ with .Site.Params.social.facebook_admin }}<meta property="fb:admins" content="{{ . }}" />{{ end }}

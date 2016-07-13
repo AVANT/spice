@@ -1,0 +1,28 @@
+<li itemscope class="post">
+	<a href="{{ .Permalink }}" itemprop="url">
+		<div class="p-wrap">
+
+			<p class="list-title phrase" itemprop="name headline">{{ .Title }}</p>
+
+			{{ with .Params.cover }}
+				<img class="list-cover img b-lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ . }}" alt="alt-text">
+			{{ end }}
+
+				<script>
+					// call lazy load
+					(function() {var bPhrase = new Bphrase();})();
+					// call lazy load
+					(function() {var bLazy = new Blazy();})();
+				</script>
+
+			{{ with .Params.author }}
+				<div class="list-author">
+					{{ range . }}
+						<p>{{ . }}</p>
+					{{ end }}
+				</div>
+			{{ end }}
+
+		</div>
+	</a>
+</li>

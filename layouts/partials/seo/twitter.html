@@ -1,7 +1,7 @@
-<!-- Twitter summary card with large image must be at least 280x150px -->
+<!-- twitter summary card with large image must be at least 280x150px -->
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image:src" content="{{ with .Params.cover }}{{ . }}{{ else }}http://objects.avant.org/logos/logo_large.png{{ end }}"/>
 
-<!-- Twitter Card data -->
+<!-- twitter card data -->
 <meta name="twitter:title" content="{{ .Title }}"/>
 <meta name="twitter:description" content="{{ if .Params.excerpt }}{{ .Params.excerpt }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ end }}{{ end }}"/>

@@ -169,14 +169,16 @@ audio
 svg:not(:root)
 	overflow: hidden
 
-.media-text,
 .media-text p
-	font-size: 0.85em
+	font-size: 0.8em
 	padding: 1em 1em 0.5em 1em
 	font-family: headline
 	font-weight: 500
 	color: bw5
 	margin: 0 auto
+
+	&:empty
+		display: none
 
 .single-wrap img
 	width: 100%
@@ -189,8 +191,10 @@ svg:not(:root)
 	background-repeat: no-repeat
 	background-position: center center
 	transition: all 0.1s ease-in-out
+	min-height: 500px
 
 @media (max-width: large-width)
 	.cover
 		width: 100% !important
 		margin 0 auto
+		min-height: none

@@ -14,23 +14,26 @@
 	<meta name="description" `content="{{ with .Site.Params.description }}{{ . }}{{ end }}">
 	{{ .Hugo.Generator }}
 
-	{{ "<!-- pace -->" | safeHTML }}
-	<script src="{{ .Site.BaseURL }}js/vendor/pace-min.js"></script>
+	<!-- pace -->
+	<script src="{{ .Site.BaseURL }}js/vendor/pace.min.js"></script>
 
-	{{ "<!-- icon fonts -->" | safeHTML }}
+	<!-- icon fonts -->
 	<script src="https://use.fontawesome.com/07df8a58bb.js"></script>
 	<link rel="stylesheet" type="text/css" href="/styles/vendor/elusive-icons.min.css" />
 
-	{{ "<!-- site stylesheets -->" | safeHTML }}
+	<!-- stylesheets -->
 	<link rel="stylesheet" type="text/css" href="{{ .Site.BaseURL }}styles/world.css" />
 
-	{{ "<!-- syntax highlighting -->" | safeHTML }}
+	<!-- syntax -->
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/tomorrow.min.css" >
 
-	{{ "<!-- img gallery -->" | safeHTML }}
+	<!-- carousel -->
 	<link rel="stylesheet" type="text/css" href="https://npmcdn.com/flickity@1.1.2/dist/flickity.min.css">
 
-	{{ "<!-- favicons -->" | safeHTML }}
+	<!-- search -->
+	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.css" />
+
+	<!-- favicons -->
 	<link rel="apple-touch-icon" sizes="57x57" href="{{ .Site.BaseURL }}favicons/apple-icon-57x57.png" />
 	<link rel="apple-touch-icon" sizes="60x60" href="{{ .Site.BaseURL }}favicons/apple-icon-60x60.png" />
 	<link rel="apple-touch-icon" sizes="72x72" href="{{ .Site.BaseURL }}favicons/apple-icon-72x72.png" />
@@ -52,8 +55,8 @@
 	{{ partial "seo/seo.html" . }}
 
 	<script>
-		var Blazy = function() {return null}
-		breakPhrase = null
+		var Blazy = function() { return null }
+		var Bphrase = function() { return null }
 	</script>
 
-	</head>
+</head>

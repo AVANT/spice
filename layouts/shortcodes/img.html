@@ -1,4 +1,4 @@
 <div class="media-box {{ if .Get "class" }}{{ .Get "class" }}{{ end }}">
 <img class="img b-lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ .Get "url" }}" alt="alt-text" {{ if .Get "width" }}style="width: {{ .Get "width" | safeCSS }}"{{ end }}{{ if .Get "max-width" }}style="max-width: {{ .Get "max-width" | safeCSS }}"{{ end }}>
-{{ if .Inner  }}<div class="media-text" {{ if .Get "width" }}style="width: {{ .Get "width" }}"{{ end }}>{{ .Inner }}</div>{{ end }}
+{{ if .Inner  }}<div class="media-text" {{ if .Get "width" }}style="width: {{ .Get "width" }}"{{ end }}><p>{{ .Inner }}</p></div>{{ end }}
 </div>

@@ -23,28 +23,38 @@
 		</div>
 		{{ end }}
 
-		{{ if ((isset .Params "thread") or (isset .Params "tag")) }}
+		{{ if isset .Params "tag" }}
 			<div class="meta-block">
+				<ul class="thread-tag">
+		{{ else if isset .Params "thread" }}
+			<div class="meta-block">
+				<ul class="thread-tag">
+		{{ else }}
+		{{ end }}
 
 			{{ with .Params.thread }}
-				<ul class="thread-tag">
-
-					{{ range . }}
-						<li class="thread">
-							<a href="{{ $.Site.BaseURL  }}thread/{{ . | urlize }}">~ {{ . }}</a>
-						</li>
-					{{ end }}
+				{{ range . }}
+					<li class="thread">
+						<a href="{{ $.Site.BaseURL  }}thread/{{ . | urlize }}">~ {{ . }}</a>
+					</li>
+				{{ end }}
 			{{ end }}
 
 			{{ with .Params.tag }}
-					{{ range . }}
-						<li class="tag">
-							<a href="{{ $.Site.BaseURL  }}tag/{{ . | urlize }}"># {{ . }}</a>
-						</li>
-					{{ end }}
+				{{ range . }}
+					<li class="tag">
+						<a href="{{ $.Site.BaseURL  }}tag/{{ . | urlize }}"># {{ . }}</a>
+					</li>
+				{{ end }}
+			{{ end }}
+
+		{{ if isset .Params "tag" }}
 				</ul>
 			</div>
-			{{ end }}
+		{{ else if isset .Params "thread" }}
+				</ul>
+			</div>
+		{{ else }}
 		{{ end }}
 
 	</div>

@@ -28,3 +28,10 @@
 	</div>
 
 </div>
+
+{{ if .IsPage }}
+	<script>
+		footer = document.getElementById('footer');
+		try { footer.style.opacity = "1"; footer.style.height = "280px"; } catch(e) { "waiting for footer" };
+	</script>
+{{ end }}

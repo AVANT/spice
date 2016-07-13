@@ -36,11 +36,12 @@
 	font-family: headline
 
 .tab-links a:hover
-	background: bw8
+	background: bw10
 	text-decoration: none
 	border: none
 	box-shadow: none
-	border: solid 1px bw8
+	border: solid 1px bw10
+	color: bw5
 	border-bottom: none
 	border-top: solid 1px bw10
 
@@ -56,8 +57,13 @@
 // tab content
 .tab-content
 	padding: 4em 0.5em
-	height: 150%;
+	height: 120%
 	border solid 1px bw1
+
+@media (max-width: small-width)
+	.tab-content
+		padding: 4em 0.5em
+		height: 200%
 
 .tab-content table
 	width: 90%
@@ -73,3 +79,13 @@
 
 .tab.active
 	display: block
+
+#collaborators-tab ul
+	columns: 2
+	list-style-type: none
+	display: block
+	margin: 0 auto
+	font-weight: 500
+
+	li
+		margin-top: 0.8em
