@@ -309,3 +309,39 @@ if ('ontouchstart' in document) {
 	$('.no-touch').removeClass('no-touch');
 }
 
+
+//-----------------
+// detect ul length
+//-----------------
+
+$(document).ready(function(){
+	$('.taxonomy-list ul').each(function() {
+		var listLength = $(this).children().size();
+		if(listLength >= '20'){
+			$(this).addClass('multi-col');
+		}
+	});
+
+	var letList = { letters: [] };  // object to collect the li elements and a list of initial letters
+	$('.taxonomy-list .multi-col').children('li').each(function(){
+		var itmLetter = $(this).children('a').first().text().substring(0,1).toUpperCase();
+		if (!(itmLetter in letList)) {
+			letList[itmLetter] = [];
+			letList.letters.push(itmLetter);
+		}
+		letList[itmLetter].push($(this));  // add li element to the letter's array in the letList object
+	});
+
+	letList.letters.sort();  // sort all available letters to iterate over them
+	$.each(letList.letters, function(i, letter){
+		letList[letter].sort(function(a, b) {
+			return $(a).text().toUpperCase().localeCompare($(b).text().toUpperCase());  //sort li elements of one letter
+		});
+		var ul = $('<ul/>');  // create new dom element and add li elements
+		$.each(letList[letter], function(idx, itm){
+			ul.append(itm);
+		});
+		$('.taxonomy-list .multi-col').append($('<li/>').append($('<span/>').attr('name', letter.toLowerCase()).addClass('title').html(letter)).append(ul));  // add the list to a new li and to #list ul
+	});
+
+});
