@@ -5,51 +5,50 @@
 	{{ partial "navigation" . }}
 
 	<div class="site-wrapper">
-
 		<main>
-			<div id="home">
+			<div id="home" class="taxonomy-wrapper">
 
 
-	{{ $root := . }}
+				{{ $root := . }}
+				{{ $title := (.Title | urlize | title) }}
+				{{ $page := (index .Data.Pages 0) }}
+				{{ $plural := .Data.Plural }}
+				{{ $singular := .Data.Singular }}
 
-
-			{{ $title := (.Title | urlize | title) }}
-
-
-			{{ $page := (index .Data.Pages 0) }}
-			{{ $plural := .Data.Plural }}
-			{{ $singular := .Data.Singular }}
-			{{ range $taxonomy, $value := .Data }}
+				{{ range $taxonomy, $value := .Data }}
 				{{ if eq $taxonomy $singular }}
+
 					{{ range (index $page.Params $plural) }}
-						{{ if eq $title (. | urlize | title) }}
-							<h1 class="item-title phrase">{{ . }}</h1>
+					{{ if eq $title (. | urlize | title) }}
+							<h2 class="item-title phrase">{{ . }}</h2>
 
-							{{ if eq $singular "thread" }}
+						{{ $desc := printf "%s-desc" $taxonomy }}
+						{{ $desctax := index $root.Site.Taxonomies $desc }}
+						{{ $descpages := index $desctax (. | urlize) }}
 
-
-							{{ end }}
-							{{ $desc := printf "%s-desc" $taxonomy }}
-							{{ $desctax := index $root.Site.Taxonomies $desc }}
-							{{ $descpages := index $desctax (. | urlize) }}
-							{{ if len $descpages }}
-								{{ $descpage := index $descpages 0 }}
-								<span class="term-desc">{{ $descpage.Page.Content }}</span>
-							{{ end }}
+						{{ if len $descpages }}
+							{{ $descpage := index $descpages 0 }}
+							<span class="term-desc">{{ $descpage.Page.Content }}</span>
 						{{ end }}
-					{{ end }}
-				{{ end }}
-			{{ end }}
 
-			<ul class="items">
-				{{ range .Data.Pages }}
-				{{ if ne .Draft true}}
-				<li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
+					{{ end }}
+					{{ end }}
+
 				{{ end }}
 				{{ end }}
-			</ul>
+
+				<ul class="items">
+					{{ range .Data.Pages }}
+					{{ if ne .Draft true}}
+						{{ partial "items/list-item.html" . }}
+					{{ end }}
+					{{ end }}
+				</ul>
+
 			</div>
 		</main>
+
+		{{ partial "pagination" . }}
 		{{ partial "footer" . }}
 
 		<script>

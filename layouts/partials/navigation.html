@@ -30,11 +30,51 @@
 						{{ end }}
 					{{ end }}
 				{{ end }}
+
+				{{ if .IsNode }}
+
+					{{ $root := . }}
+					{{ $title := (.Title | urlize | title) }}
+					{{ if .Data.Pages }}
+					{{ $page := (index .Data.Pages 0) }}
+					{{ $plural := .Data.Plural }}
+					{{ $singular := .Data.Singular }}
+
+					{{ range $taxonomy, $value := .Data }}
+					{{ if eq $taxonomy $singular }}
+
+						{{ range (index $page.Params $plural) }}
+						{{ if eq $title (. | urlize | title) }}
+							<span class="nav-slash"> / </span>
+								<li class="nav-title">
+									<a href='http://www.google.com'>{{ . }}</a>
+								<li>
+
+							{{ $desc := printf "%s-desc" $taxonomy }}
+							{{ $desctax := index $root.Site.Taxonomies $desc }}
+							{{ $descpages := index $desctax (. | urlize) }}
+
+							{{ if len $descpages }}
+								{{ $descpage := index $descpages 0 }}
+								<span class="term-desc">{{ $descpage.Page.Content }}</span>
+							{{ end }}
+
+						{{ end }}
+						{{ end }}
+
+					{{ end }}
+					{{ end }}
+					{{ end }}
+
+
+				{{ end }}
+
 				{{ if .IsPage }}
 				{{ if ne .Title "Imprint" }}
-				<span class="nav-slash"> / </span>
-				<li class="nav-title phrase">
-				<a href='{{ .Permalink }}'>{{ .Title }}</a></li>
+					<span class="nav-slash"> / </span>
+					<li class="nav-title phrase">
+						<a href='{{ .Permalink }}'>{{ .Title }}</a>
+					</li>
 				{{ end }}
 				{{ end }}
 			</ul>

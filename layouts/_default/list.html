@@ -5,7 +5,11 @@
 
 		<div class="site-wrapper">
 			<main>
-				<div id="home">
+				<div id="home" class="list-wrapper">
+
+					{{ $title := (.Title | singularize | urlize | title) }}
+					<h2 class="item-title phrase">{{ $title }}</h2>
+
 					<ul class="items" id="posts">
 
 						{{ if eq .Title "Projects" }}
