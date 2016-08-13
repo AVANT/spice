@@ -1,0 +1,11 @@
+	{{ if .NextInSection }}
+		<a rel="next" href="{{ .NextInSection.Permalink }}" id="next">
+			<span class="nav-title nav-title-next">{{ with .Site.Params.newer }}{{ . }}{{ end }}</span> &rarr;
+		</a>
+	{{ end }}
+
+	{{ if .PrevInSection }}
+		<a rel="prev" href="{{ .PrevInSection.Permalink }}" id="prev">
+			&larr; <span class="nav-title nav-title-prev">{{ with .Site.Params.older }}{{ . }}{{ end }}</span>
+		</a>
+	{{ end }}

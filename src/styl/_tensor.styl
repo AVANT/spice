@@ -25,13 +25,39 @@ bw1 = #1a1a1a // 10%
 black = #000000 // 0%
 
 // blue palette
-blue0 = #282878
+blue0 = #33339C
 blue0-rgb = rgb(40, 40, 120)
 blue0-rgba = rgba(40, 40, 120, 0.2)
 
 blue1 = #AAAADC
 blue1-rgb = rgb(170, 170, 220)
 blue1-rgba = rgba(170, 170, 220, 0.2)
+
+
+//------
+// SIZES
+//------
+
+html
+	font-size: 62.5%
+
+f30 = 30px 3rem
+f28 = 28px 2.8rem
+f26 = 26px 2.6rem
+f24 = 24px 2.4rem
+f22 = 22px 2.2rem
+f20 = 20px 2rem
+f18 = 18px 1.8rem
+f16 = 16px 1.6rem
+f14 = 14px 1.4rem
+f12 = 12px 1.2rem
+f10 = 10px 1rem
+
+
+default-width-inner = 650px
+large-width-inner = 410px
+small-width-inner = 90%
+
 
 //------------
 // transitions
@@ -40,30 +66,103 @@ blue1-rgba = rgba(170, 170, 220, 0.2)
 t0 = 0.03s ease-in-out
 t1 = 0.1s ease-in-out
 
+
 //-----------------------
 // media querry variables
 //-----------------------
 
 small-width = 414px
+medium-width = 650px
 large-width = 1024px
+ex-large-width = 1300px
 
 
 //-------
 // mixins
 //-------
 
+// selectors
+
+selection()
+	&:-moz-selection
+		{block}
+	&::selection
+		{block}
+
 placeholder()
-	::-webkit-input-placeholder
-		arguments
+	&::-webkit-input-placeholder
+		{block}
+	&:-moz-placeholder
+		{block}
+	&::-moz-placeholder
+		{block}
+	&:-ms-input-placeholder
+		{block}
 
-	:-moz-placeholder  // Firefox 18-
-		arguments
 
-	::-moz-placeholder  // Firefox 19+
-		arguments
+// properties
 
-	:-ms-input-placeholder
-		arguments
+column-break-inside()
+	-webkit-column-break-inside: arguments
+	column-break-inside: arguments
+
+column-fill()
+	-webkit-column-fill: arguments
+	-moz-column-fill: arguments
+	column-fill: arguments
+
+column-gap()
+	-webkit-column-gap: arguments
+	-moz-column-gap: arguments
+	column-gap: arguments
+
+column-rule-width()
+	-webkit-column-rule-width: arguments
+	-moz-column-rule-width: arguments
+	column-rule-width: arguments
+
+column-rule-style()
+	-webkit-column-rule-style: arguments
+	-moz-column-rule-style: arguments
+	column-rule-style: arguments
+
+column-rule-color()
+	-webkit-column-rule-color: arguments
+	-moz-column-rule-color: arguments
+	column-rule-color: arguments
+
+font-feature-settings()
+	-webkit-font-feature-settings: arguments
+	-moz-font-feature-settings: arguments
+	font-feature-settings: arguments
+
+font-variant-ligatures()
+	-webkit-font-variant-ligatures: arguments
+	font-variant-ligatures: arguments
+
+font-variant-numeric()
+	-webkit-font-variant-numeric: arguments
+	font-variant-numeric: arguments
+
+font-variant-caps()
+	-webkit-font-variant-caps: arguments
+	font-variant-caps: arguments
+
+font-size()
+	for size in arguments
+		font-size: size
+
+hyphens()
+	-webkit-hyphens: arguments
+	-moz-hyphens: arguments
+	-o-hyphens: arguments
+	hyphens: arguments
+
+animation-delay()
+	-webkit-animation-delay: arguments
+	-moz-animation-delay: arguments
+	-o-animation-delay: arguments
+	animation-delay: arguments
 
 columns()
 	-webkit-columns: arguments

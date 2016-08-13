@@ -1,17 +1,22 @@
+.breadcrumbs
+	position: absolute
+	left: 9rem
+	margin: 2.6rem 0
+
 .single-wrap
 	.meta-wrapper
 		position: absolute
-		top: 0
+		top: 14%
 		right 0
 		width: 28%
 		padding-right: 6.5%
-		transition: 0.1s right ease-in-out
+		transition: left .1s ease-in-out
 
 		.meta
 			margin-top: 0.5em
 
 			.page-title
-				font-size: 1.5em
+				font-size: 1.25em
 				margin: 0 0 0.8em 0em
 
 			.meta-block
@@ -30,11 +35,12 @@
 					font-size: 0.8em
 					margin: 0
 					font-weight: 700
-					color: bw5
+					color: bw4
 					list-style: none
 
 				.author
 					margin: 1em 0 1em 0
+					padding: 0
 					list-style: none
 
 					li
@@ -44,54 +50,61 @@
 							margin: 1em 0
 							font-size: 1em
 							font-weight: 700
-
-				.thread-tag
-					border solid 1px bw1
-					display: inline-block
-					text-align: left
-					margin: 0
-					list-style: none
-
-					a
-						padding: 10px 10px 9px 10px
-						margin: 0
-						font-size: 0.95em
-						color: bw1
-						text-decoration: none
-						display: block
-						box-shadow: none
-						font-weight: 700
-						line-height: 1.2em
-
-					.thread
-						padding: 0.6em
-						margin: 0
-						background: bw1
-
-						a
-							color: white
-							font-size: 0.8em
+							transition: color t0
 
 							&:hover
-								color: bw1
-								background: white
-								box-shadow: none
+								color: bw4
 
-					.tag
-						margin: 0
-						padding: 0.6em
+				.thread-tag
+					display: inline
+					text-align: left
+					padding: 0
+					list-style: none
+
+					li
+						margin: 1.2em 0
+						padding: 0
 
 						a
+							display: inline
+							margin: 0
+							padding: 6px 6px 6px 6px
+							font-size: 0.95em
+							
+							text-decoration: none
+							box-shadow: none
+							font-weight: 700
+							line-height: 1.2em
+
+					.thread
+						margin: 0.5em 0 0 0
+
+						a
+							color: bw1
 							font-size: 0.8em
+							background: bw10
+							border: solid 1px bw1
+							transition: background t0
 
 							&:hover
 								color: white
 								background: bw1
 								box-shadow: none
+								border: solid 1px bw1
 
-					.tag + .tag,
-					.thread + .thread
-						padding: 0 0.6em 0.6em 0.6em
+					.tag
+
+						a
+							font-size: 0.8em
+							color: bw4
+							background: white
+							border: solid 1px white
+
+							&:hover
+								color: bw1
+								background: white
+								box-shadow: none
+								border: solid 1px white
 
 	.splash-spacer
 		margin: 2.5% auto
@@ -138,10 +151,18 @@
 						font-size: 1.2em
 
 					.thread-tag
+						display: inline-block
+						text-align: center
+						margin: 0 auto
+
 						.thread,
 						.tag
+							margin: 0.5em
+
 							a
 								font-size: 0.9em
+								display: inline-block
+								margin: 0
 
 
 	// SMALL-WIDTH

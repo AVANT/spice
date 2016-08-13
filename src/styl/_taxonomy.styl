@@ -6,21 +6,27 @@
 	.multi-col
 		column-count: 4
 
-		li
-			.title
+		ul
+			margin: 1 0 1.5em 0
+			padding-top: 0
+			list-style: inside none
+			column-break-inside: avoid
+			page-break-inside: avoid
+			column-fill: balance
+			display: inline-block
+			width: 100%
+
+			.letter-title
 				font-size: 2em
-				color: bw5
+				color: bw4
 
-			ul
-				margin: 1 0 1.5em 0
-				padding-top: 0
-				list-style: inside none
+			li
+				display: block
+				white-space: nowrap
 
-				li
-					display: block
-					-webkit-column-break-inside: avoid
-					column-break-inside: avoid
-					page-break-inside: avoid
+				a,
+				span
+					whitespace: nowrap
 
 	ul
 		margin-top: 20px
@@ -35,13 +41,13 @@
 				transition: color t0
 
 				&:hover
-					color: bw5
+					color: bw4
 
 			span
 				font-weight: 500
 				font-family: headline
 				font-size: 0.8em
-				color: bw5
+				color: bw4
 
 @media (max-width: large-width)
 	.taxonomy-list ul
@@ -50,6 +56,6 @@
 	.taxonomy-list .multi-col
 		column-count: 2
 
-@media (max-width: small-width)
+@media (max-width: medium-width)
 	.taxonomy-list .multi-col
 		column-count: 1

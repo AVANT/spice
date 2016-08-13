@@ -5,47 +5,24 @@
 	{{ partial "navigation" . }}
 
 	<div class="site-wrapper">
+		{{ partial "breadcrumbs.html" . }}
 
 		{{ if eq .Type "solo" }}
-			<section class="single-wrapper-solo">
+			<div class="single-wrapper-solo">
 				<main role="main" class="item">
-						<div class="text-body" itemprop="articleBody">
+					<div class="text-body" itemprop="articleBody">
 						{{ .Content }}
-						</div>
+					</div>
 				</main>
-			</section>
+			</div>
 		{{ end }}
 
-		{{ if eq .Type "project" }}
-			<section class="single-wrap">
+		{{ if ((eq "project" .Type) or (eq "artifact" .Type) or (eq "event" .Type) or (eq "gallery" .Type)) }}
+			<div class="single-wrap">
 				<main role="main" class="item">
-					{{ partial "items/project.html" . }}
+					{{ partial "article.html" . }}
 				</main>
-			</section>
-		{{ end }}
-
-		{{ if eq .Type "artifact" }}
-			<section class="single-wrap">
-				<main role="main" class="item">
-					{{ partial "items/artifact.html" . }}
-				</main>
-			</section>
-		{{ end }}
-
-		{{ if eq .Type "event" }}
-			<section class="single-wrap">
-				<main role="main" class="item">
-					{{ partial "items/event.html" . }}
-				</main>
-			</section>
-		{{ end }}
-
-		{{ if eq .Type "gallery" }}
-			<section class="single-wrap">
-				<main role="main" class="item">
-					{{ partial "items/gallery.html" . }}
-				</main>
-			</section>
+			</div>
 		{{ end }}
 
 		{{ partial "footer" . }}

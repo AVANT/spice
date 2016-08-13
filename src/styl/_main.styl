@@ -6,7 +6,7 @@
 	box-sizing: border-box
 	margin: 0
 	padding: 0
-	-webkit-tap-highlight-color: rgba(0,0,0,0)
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0)
 
 html
 	font-family: text
@@ -15,14 +15,45 @@ html
 	height: 100%
 	width: 100%
 	min-height: 100%
+	max-width: 100%
+	overflow-x: hidden
 
-main
-	margin-bottom: 80px
-	min-height: 70%
+	body,
+	td
+		font-size: f16
+		font-family: text
+		font-weight: 400
+		color: bw1
+		margin: 0
+		background-color: bw10
+		transition: opacity t0
+		text-rendering: optimizeLegibility
+		-webkit-font-smoothing: antialiased
 
-.site-wrapper
-	-webkit-overflow-scrolling: touch
-	position: relative
+		main
+			margin-bottom: 80px
+			min-height: 70%
+
+	.site-wrapper
+		-webkit-overflow-scrolling: touch
+		top: 0
+		position: absolute
+
+	.hyphenate
+		hyphens: auto
+
+	.donthyphenate
+		hyphens: none
+
+
+.small
+	font-size: 90%
+
+h3
+	font-size: $f20
+
+h5
+	font-size: $f16
 
 iframe
 	border:none
@@ -53,26 +84,16 @@ html[xmlns] .clearfix
 span
 	letter-spacing: none
 
-body,
-td
-	font-family: text
-	font-weight: 400
-	font-size: 1.1em
-	color: bw1
-	text-rendering: optimizeLegibility
-	-webkit-font-smoothing: antialiased
-	background-color: white
-	margin: 0
-	background-color: bw10
-	transition: opacity t0
+
+
 
 @media (max-width: large-width)
 	body
-		font-size: 1.125em
+		font-size: f12
 
 @media (max-width: large-width)
 	body
-		font-size: .9em
+		font-size: f9
 
 .items
 	margin: 0
@@ -85,7 +106,6 @@ td
 
 h1,
 h2,
-h3,
 h4,
 h5,
 h6,
@@ -93,9 +113,9 @@ h5,
 h6
 	font-family: headline
 	font-weight: 700
+	color: bw1
 
 h1
-	font-size: 2em
 	margin: .67em 0
 
 h2
@@ -103,26 +123,13 @@ h2
 	margin: 1.5em 0 .5em
 
 h3,
-h4,
-h5,
-h6
+h5
 	font-weight: 700
 	margin: 1em 0 .5em
-	color: bw4
+	color: bw1
 
-.text-body
-	a
-		text-decoration: none !important
-		color: bw1
-		word-break: break-word
-		transition: box-shadow t0
-		box-shadow: inset 0 -0.1em 0 0 bw7
 
-		&:hover
-			box-shadow: inset 0 -0.1em 0 0 bw3
-
-	.txt
-		margin: 0 auto
+	font-size: 1.2em
 
 a
 	color: bw1
@@ -135,163 +142,13 @@ a
 
 p
 	font-size: 0.9em
-	margin: 1em 0
+	margin: 1em auto
 	line-height: 1.4
 
 b,
 strong
-	font-weight: 700
+	font-weight: 600
 
-.center
-	width: 100%
-	clear: both
-	display: block
-
-.center-inner
-	margin: 0 auto
-	width: 650px
-
-	.txt
-		display: block
-		max-width: 740px
-		margin: 0.5em auto
-
-.right
-	width: 100%
-	clear: both
-	display: block
-	position: relative
-
-.right-inner
-	float: right
-	width: 60%
-	margin: 0 35% 0 5%
-
-	.txt
-		display: block
-		max-width: large-width
-		margin: 0 0 0 20%
-
-.left
-	width: 100%
-	clear: both
-	display: block
-
-.left-inner
-	float: left
-	width: 60%
-	margin: 0 5% 0 35%
-
-	.txt
-		margin: 0 20% 0 0
-		max-width: small-width
-
-.list-wrap
-	width: 100%
-	max-width: small-width
-	margin: 1em auto
-	font-family: text
-	z-index: 1
-
-	.single-content
-		padding: 0 2em
-
-	.feat
-		text-align: center
-		border-bottom: 1px dotted bw9
-		margin: 0 auto 3.5em
-
-		.popup
-			display: inline-block
-			position: relative
-			top: 0.7em
-			font-size: 100%
-			text-align: center
-			text-decoration: none
-			padding: 0 1em
-
-	.date
-		display: inline-block
-		position: relative
-		font-family: headline
-		font-style: italic
-		font-size: 85%
-		text-align: center
-		font-style: italic
-		margin: 0 auto
-		padding: 0 1em
-		text-transform: none
-
-	.page-title
-		font-size: 120%
-		line-height: 135%
-		font-family: headline
-		font-weight: 700
-
-.single-wrap
-	width: 100%
-	z-index: 1
-
-	.single-content
-		padding: 0
-
-
-	.feat
-		text-align: center
-
-		.popup
-			display: inline-block
-			position: relative
-			top: 0.7em
-			font-size: 130%
-			text-align: center
-			text-decoration: none
-			padding: 0 1em
-
-	.share
-		text-align: right
-
-	ul
-		margin: 2em 0 0 1em
-		list-style-type: circle
-
-	ul,
-	ol
-		margin: 2em 0
-
-		li
-		margin-bottom: .5em
-
-		ul li
-			margin-left: 2em
-			list-style: square
-
-	.block
-		ul,
-		ol
-			margin: 1em 0
-
-			li
-				margin-left: 1em
-				padding-left: 0.3em
-				font-size: 0.9em
-				font-weight: 600
-
-.init
-	float: left
-	margin: 5px 20px 0px 0px
-	padding: 0px 18px 7px 18px
-	font-size: 4.3em
-	font-family: headline
-	font-weight: 800
-	color: bw1
-	line-height: 1
-	text-indent: 0
-	background: white
-
-p + .init
-	text-indent: 0
-	margin-top: 0
 
 hr
 	box-sizing: content-box
@@ -306,141 +163,6 @@ hr
 .div
 	margin: 0 auto
 	text-align: left
-
-@media (max-width: large-width)
-	.center-inner
-		margin: 0 auto
-		width: 410px
-
-@media (max-width: small-width)
-	.center-inner
-		margin: 0 5%
-		width: 90%
-
-	.list-wrap .single-content
-		padding-bottom: 3.5em
-
-	.single-wrap .feat .popup
-		font-size: 150%
-
-
-//-----------
-// ANNOTATION
-//-----------
-
-sup
-	top: -.4em
-	font-size: 80%
-	line-height: 0
-	position: relative
-	vertical-align: baseline
-	padding-left: 0.1em
-
-sub
-	bottom: -.25em
-	font-size: 75%
-	line-height: 0
-	position: relative
-	vertical-align: baseline
-
-.foot-hr
-	margin-top: 1.5em
-	border-style: solid
-	border-color: bw1
-
-// body anchor
-.footnote-ref a
-	text-decoration: none
-	color: blue0
-	padding: 0 0.2em
-	font-weight: 500
-	box-shadow: none
-
-// footnote anchor
-.footnote-return
-	text-decoration: none
-	font-size: 90%
-	font-weight: 700 !important
-	top: -.1em !important
-	line-height: 0
-	position: relative
-	vertical-align: baseline
-
-	a
-		color: blue0 !important
-		font-weight: 700 !important
-		box-shadow: none !important
-
-.footnote-ref,
-.footnote-return
-	a:hover
-		box-shadow: none !important
-
-.footnote-ref,
-.footnote-return
-	a:hover
-		color: bw1 !important
-
-
-.footnotes
-	padding: 0
-	font-size: 0.9em
-
-	&,
-	a,
-	ol li,
-	ul li
-		font-family: headline
-		font-weight: 500
-		color: bw1
-
-	h3
-		margin-top: 1.5em
-
-	a
-		color: bw1
-
-	hr
-		display: none
-
-	ol,
-	ul
-		padding-left: 1em
-		margin: 1em 0
-
-		li
-			padding-left: 0.2em
-			
-			p
-				font-size: inherit
-				margin: 0
-				line-height: 1.2em
-				margin-bottom: 0.6em
-
-	ul li + li
-		padding-top: 0.4em
-
-legend
-	border: 0
-	padding: 0
-
-.box
-	margin: 10px
-	font: 16px 'Courier New'
-	background-color: white
-	color: bw9
-	margin: 5px 0 0 15px
-	padding: 5px 10px
-	width: auto
-
-.caption
-	font-size: 0.9em
-	padding: 1em
-	font-family: headline
-	font-weight: 500
-	color: bw5
-	margin: 0 auto
-	text-align: center
 
 
 //------------
@@ -534,19 +256,6 @@ td,
 th
 	padding: 0
 
-footer
-	padding: 2em
-	width: 100%
-	bottom: 0
-	left: 0
-	text-align: center
-
-	.social-link
-		color: bw9
-		text-decoration: none
-		display: inline
-		margin: 0 1em
-
 ::after,
 ::before
 	box-sizing: border-box
@@ -559,106 +268,10 @@ li
 	font-family: text
 	font-weight: 500
 
+.not-found-wrapper
+		position: relative
+		top: 50%
+		transform: translateY(-50%)
 
-//--------------
-// PAGE ELEMENTS
-//--------------
-
-.single-wrap
-	.block
-		font-size: 1em
-		font-family: headline
-		font-weight: 600
-		color: bw1
-		border-left: 10px solid bw1
-		padding: 0 0 0 1.4em
-		margin: 1.1em 0 1.1em 0
-		line-height: 1.5em
-
-		p
-			margin: 0.5em 0 0.5em 0
-			line-height: 155%
-			padding-left: 0 !important
-			padding-right: 0 !important
-
-		p + p
-			margin: 0.8em 0 0.5em 0
-
-.block-inner
-	line-height: 165%
-	text-align: right
-
-	p
-		margin-top: 0.5em
-
-@media (max-width: large-width)
-	.single-wrap .block
-		margin-left: 0
-
-blockquote
-	font-size: 1.8em
-	font-family: headline
-	font-weight: 800
-	padding: 0 0 0 0
-	margin: 1em 5% 1.5em 5%
-	color: rgba(0, 0, 0, 0)
-	text-stroke: 1px bw1
-
-	p
-		margin: 0
-		line-height: 1.5em
-
-#prev,
-#next
-	text-decoration: none
-	border: 1px solid bw1
-	padding: 10px
-	line-height: 1
-	border-radius: 25px
-	bottom: 40px
-	color: bw1
-	display: inline-block
-	border-radius: 0
-	width 150px
-	font-weight: 600
-	font-size: 1em
-	display: none
-
-	&:active
-		border-color: bw5
-
-	span
-		font-weight: 600
-		font-size: 1em
-		display: inline-block
-
-#prev
-	align: left
-	left: 40px
-	margin-left: 20px
-
-#next
-	align: right
-	right: 40px
-	margin-right: 20px
-
-.pagination
-	overflow: hidden
-	margin-top: 40px
-	color: bw8
+.not-found
 	text-align: center
-	border: 1px solid bw9
-
-	a,span
-		box-sizing: border-box
-		float: left
-		width: 50%
-		padding: 20px
-		text-decoration: none
-
-		&:first-child
-			text-decoration: none
-			border-right: 1px solid bw9
-
-.item-title
-	margin 2em 0 0 4em

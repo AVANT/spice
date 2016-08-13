@@ -1,0 +1,201 @@
+.pagination
+	overflow: hidden
+	margin-top: 40px
+	color: bw8
+	text-align: center
+	border: 1px solid bw9
+
+	a,span
+		box-sizing: border-box
+		float: left
+		width: 50%
+		padding: 20px
+		text-decoration: none
+
+		&:first-child
+			text-decoration: none
+			border-right: 1px solid bw9
+
+.item-title
+	margin 2em 0 0 4em
+
+@media (max-width: small-width)
+	.list-wrap .single-content
+		padding-bottom: 3.5em
+
+.list-wrap
+	width: 100%
+	max-width: small-width
+	margin: 1em auto
+	font-family: text
+	z-index: 1
+
+	.single-content
+		padding: 0 2em
+
+	.feat
+		text-align: center
+		border-bottom: 1px dotted bw9
+		margin: 0 auto 3.5em
+
+		.popup
+			display: inline-block
+			position: relative
+			top: 0.7em
+			font-size: 100%
+			text-align: center
+			text-decoration: none
+			padding: 0 1em
+
+	.date
+		display: inline-block
+		position: relative
+		font-family: headline
+		font-style: italic
+		font-size: 85%
+		text-align: center
+		font-style: italic
+		margin: 0 auto
+		padding: 0 1em
+		text-transform: none
+
+	.page-title
+		font-size: 120%
+		line-height: 135%
+		font-family: headline
+		font-weight: 700
+
+
+#home
+	min-height: 70%
+
+	*
+		box-sizing: border-box
+
+	.items
+		padding-top: 75px
+		height: auto
+		margin: 0 auto
+		position: relative
+		left: 20px
+		width: calc(100% - 50px) !important
+
+		&:after
+			content: ' '
+			display: block
+			clear: both
+
+		.post-sizer,
+		.post
+			width: 800px
+
+		.post
+			float: left
+			display: block
+			margin: -25px
+
+			a
+				color: bw1
+				text-decoration: none
+				margin: 0
+				display: block
+
+			p
+				z-index: 3
+
+			.p-wrap
+				padding: 7em
+				font-family: headline
+				position: relative
+				transition: background t0
+
+				&:hover
+					background: white
+
+				.list-title
+					font-weight: 700
+					font-size: 1.5em
+					color: bw1
+					margin: 0.5em 0 1em 0
+
+				.list-author 
+					font-weight: 600
+					font-size: 1.3em
+					text-align: right
+					display: block
+					margin-top: 2em
+
+					p
+						margin: 0.4em 0
+
+		.project 
+			.p-wrap
+				border: solid 1px bw1
+				z-index: 2
+
+		.event
+			width: 378px
+
+			.p-wrap
+				background-color: rgba(200, 200, 200, 0.5)
+
+		.artifact
+			width: 378px
+			//margin: -20px
+
+			.p-wrap
+				background-color: rgba(255, 255, 255, 0.5)
+
+		.gallery .p-wrap
+			border: solid 1px bw1
+
+
+// LARGE-WIDTH
+@media (max-width: large-width)
+	#home
+		.items li .p-wrap:hover::after
+			content: none
+			margin: 0
+
+		.items li .p-wrap
+			padding: 2em
+
+		.items li time
+			display: block
+
+// SMALL-WIDTH
+@media (max-width: small-width)
+	#home
+		.items li
+			width: 90%
+			margin 1em auto
+			min-width: 240px
+
+//-------------------------------
+// infinite scroll load animation
+//-------------------------------
+
+.spinner
+	margin: 20px auto 0 auto
+	width: 70px
+	text-align: center
+
+	.bounce1
+		animation-delay: -0.32s
+
+	.bounce2
+		animation-delay: -0.16s
+
+	& > div
+		width: 6px
+		height: 8px
+		margin: 0 5px;
+		background-color: bw1
+		display: inline-block
+		animation: sk-bouncedelay 1.4s infinite ease-in-out both
+
+@keyframes sk-bouncedelay
+	0%, 80%, 100%
+		transform: scale(0)
+	40%
+		transform: scale(1)

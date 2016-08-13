@@ -4,13 +4,13 @@
 
 		<div class="foot-links">
 			<a target="_blank" href="http://researchtactics.com">Research Tactics</a>
-			<a href="http://avant.org/imprint">Imprint</a>
-			<a target="_blank" href="http://avant.org/index.xml">RSS</a>
+			<a href="{{ .Site.BaseURL }}imprint">Imprint</a>
+			<a target="_blank" href="{{ $.Site.BaseURL  }}index.xml">RSS</a>
 		</div>
 
 		<div class="foot-social">
-			<a class="social-link" href="mailto:editorial@avant.org?subject=message%20via%20AVANT.org" target="_blank"><i class="fa fa-reply" aria-hidden="true"></i></a>
-			<a class="social-link" href="http://avant.org/rss" target="_blank"><i class="fa fa-rss"></i></a>
+			<a class="social-link" href="mailto:editorial@avant.org?subject=message%20via%20avant.org" target="_blank"><i class="fa fa-reply" aria-hidden="true"></i></a>
+			<a class="social-link" href="{{ $.Site.BaseURL  }}rss" target="_blank"><i class="fa fa-rss"></i></a>
 			<a class="social-link" href="http://github.com/avant" target="_blank"><i class="fa fa-code-fork" aria-hidden="true"></i></a>
 			<a class="social-link" href="http://soundcloud.com/avantdotorg" target="_blank"><i class="fa fa-soundcloud" aria-hidden="true"></i></a>
 			<a class="social-link" href="http://vimeo.com/avantdotorg" target="_blank"><i class="fa fa-vimeo"></i></a>
@@ -23,7 +23,7 @@
 			<a target="_blank" href="https://creativecommons.org/licenses/by-nc/4.0/"><i id="foot-cc" class="el el-cc"></i></a>
 		</div>
 
-		<img class="foot-logo" src="http://avant.org/logo.svg">
+		<img class="foot-logo" src="{{ $.Site.BaseURL  }}logo.svg" alt="">
 
 	</div>
 

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # include keys
-. ".keys"
+. "../.keys"
 
 # precompile paths
 static=$AVANT/alpha/static/
@@ -30,9 +30,6 @@ while inotifywait -qre modify \
 	echo '<br>' >> $AVANT/status/html/index.html
 	hugo 2>&1 | tee >(sed 's/$/<br>/' >> $AVANT/status/html/index.html)
 	cat $AVANT/status/tail.txt >> $AVANT/status/html/index.html
-
-	# port json index for search
-	cp public/json/index.html static/site-index.json
 
 	# set cloudflare development mode to true
 	curl -s -X PATCH "https://api.cloudflare.com/client/v4/zones/$cloudflare_zone/settings/development_mode" \

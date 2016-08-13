@@ -1,0 +1,19 @@
+<figure class="img-right">
+
+	{{ $url := .Get "url" }}
+	{{ range $.Site.Data.dimensions.images }}
+	{{ if (in .url $url) }}<div class="sigle-img-wrapper" style="padding-bottom: {{ .ratio }}%">{{ end }}
+	{{ end }}
+		<img class="figure figure-right img b-lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ .Get "url" }}" alt="alt-text" />
+	</div>
+
+<figcaption class="">
+	{{ if .Get "title" }}<h3>{{ .Get "title"}}</h3>{{ end }}
+	{{ if .Inner  }}
+	<div class="media-text">
+		<p>{{ .Inner }}</p>
+	</div>
+	{{ end }}
+</figcaption>
+
+</figure>

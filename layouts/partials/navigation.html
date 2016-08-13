@@ -1,7 +1,7 @@
 
 <div class="logo-link-wrapper no-touch">
 	<a class="logo-link">
-		<img class="logo" src="http://avant.org/logo.svg">
+		<img class="logo" src="{{ $.Site.BaseURL  }}logo.svg" alt="">
 	</a>
 </div>
 
@@ -15,96 +15,39 @@
 
 		<div class="nav-overlay">
 
-			{{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
-			{{ $.Scratch.Add "path" .Site.BaseURL }}
-			<ul class="nav-breadcrumbs">
-				<li class="nav-home"><a href="/">Avant.org</a></li>
-
-				{{ range $index, $element := split $url "/" }}
-					{{ $.Scratch.Add "path" $element }}
-					{{ if ne $element "" }}
-						{{ if $index }}{{else}}
-						<span class="nav-slash"> / </span>
-						<li class="nav-parent"><a href='{{ $.Scratch.Get "path" }}'>{{ . }}</a></li>
-						{{ $.Scratch.Add "path" "/" }}
-						{{ end }}
-					{{ end }}
-				{{ end }}
-
-				{{ if .IsNode }}
-
-					{{ $root := . }}
-					{{ $title := (.Title | urlize | title) }}
-					{{ if .Data.Pages }}
-					{{ $page := (index .Data.Pages 0) }}
-					{{ $plural := .Data.Plural }}
-					{{ $singular := .Data.Singular }}
-
-					{{ range $taxonomy, $value := .Data }}
-					{{ if eq $taxonomy $singular }}
-
-						{{ range (index $page.Params $plural) }}
-						{{ if eq $title (. | urlize | title) }}
-							<span class="nav-slash"> / </span>
-								<li class="nav-title">
-									<a href='http://www.google.com'>{{ . }}</a>
-								<li>
-
-							{{ $desc := printf "%s-desc" $taxonomy }}
-							{{ $desctax := index $root.Site.Taxonomies $desc }}
-							{{ $descpages := index $desctax (. | urlize) }}
-
-							{{ if len $descpages }}
-								{{ $descpage := index $descpages 0 }}
-								<span class="term-desc">{{ $descpage.Page.Content }}</span>
-							{{ end }}
-
-						{{ end }}
-						{{ end }}
-
-					{{ end }}
-					{{ end }}
-					{{ end }}
-
-
-				{{ end }}
-
-				{{ if .IsPage }}
-				{{ if ne .Title "Imprint" }}
-					<span class="nav-slash"> / </span>
-					<li class="nav-title phrase">
-						<a href='{{ .Permalink }}'>{{ .Title }}</a>
-					</li>
-				{{ end }}
-				{{ end }}
-			</ul>
-
+			<!-- LINKS -->
 			<div class="nav-links">
-				<ul>
-					<li><a href="{{ $.Site.BaseURL  }}project/">Project</a></li>
-					<li><a href="{{ $.Site.BaseURL  }}artifact/">Artifact</a></li>
-					<li><a href="{{ $.Site.BaseURL  }}event/">Event</a></li>
-					<li><a href="{{ $.Site.BaseURL  }}gallery/">Gallery</a></li>
-					<li><a href="{{ $.Site.BaseURL  }}tag/">Tag</a></li>
-					<li><a href="{{ $.Site.BaseURL  }}thread/">Thread</a></li>
+				<ul class="nav-objects">
+					<li><a class="upper" href="{{ $.Site.BaseURL  }}project/">Project</a></li>
+					<li><a class="upper" href="{{ $.Site.BaseURL  }}artifact/">Artifact</a></li>
+					<li><a class="upper" href="{{ $.Site.BaseURL  }}event/">Event</a></li>
+					<li><a class="upper" href="{{ $.Site.BaseURL  }}gallery/">Gallery</a></li>
+				</ul>
+				<div class="nav-spacer"></div>
+				<ul class="nav-taxonomies">
 					<li><a href="{{ $.Site.BaseURL  }}author/">Author</a></li>
-					<li><a href="{{ $.Site.BaseURL  }}imprint/">Imprint</a></li>
+					<li><a href="{{ $.Site.BaseURL  }}thread/">Thread</a></li>
+					<li><a href="{{ $.Site.BaseURL  }}tag/">Tag</a></li>
+				</ul>
+				<div class="nav-spacer"></div>
+				<ul class="nav-imprint">
+					<li><a class="upper" href="{{ $.Site.BaseURL  }}imprint/">Imprint</a></li>
 				</ul>
 			</div>
 
-		<!-- NEWSLETTER -->
 
+			<!-- NEWSLETTER -->
 			<div class="nav-newsletter">
 				<form action="//avant.us3.list-manage.com/subscribe/post?u=ce9d44831a234bd3f42ef5ca4&amp;id=297278e3fc" method="post" name="mc-embedded-subscribe-form" class="newsletter-signup validate newsletter-signup" target="_blank" autocomplete="off" novalidate>
 					<!-- input -->
-					<input onfocus="autoUnput(this)" onblur="autoUnput(this, 'Newsletter')" type="email" value="Newsletter" name="EMAIL" class="email" id="mce-EMAIL" type="text" name="textfield" required>
+					<input onfocus="this.placeholder = ''" onblur="this.placeholder = 'Newsletter'" value="" type="email" placeholder="Newsletter" name="EMAIL" class="email" id="mce-EMAIL" required>
 					<!-- honeypot -->
-					<div style="position: absolute; left: -5000px;">
+					<div class="honeypot">
 						<input type="text" name="b_ce9d44831a234bd3f42ef5ca4_297278e3fc" tabindex="-1" value="">
 					</div>
 					<!-- submit -->
 					<div class="clear">
-						<input type="submit" value="&#xf105" name="subscribe" id="mc-embedded-subscribe" class="button js-submit">
+						<input type="submit" value="&#xf105" name="subscribe" id="mc-embedded-subscribe" class="button js-submit" />
 					</div>
 				</form>
 			</div>

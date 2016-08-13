@@ -1,5 +1,5 @@
 {{- $.Scratch.Add "index" slice -}}
-{{- range where .Site.Pages "Type" "not in"  (slice "page" "json") -}}
-{{- $.Scratch.Add "index" (dict "title" .Title "ref" .Permalink "tags" .Params.tags "content" .Plain) -}}
+{{- range (where (where .Site.Pages "Type" "not in" (slice "solo" "json" "gallery")) "Draft" "!=" true ) -}}
+{{- $.Scratch.Add "index" (dict "slug" .Permalink "type" .Type "title" .Title "author" .Params.author "date" .Date "thread" .Params.thread "tag" .Params.tag "cover" .Params.cover "excerpt" .Params.excerpt) -}}
 {{- end -}}
 {{- $.Scratch.Get "index" | jsonify -}}

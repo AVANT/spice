@@ -4,50 +4,23 @@
 	{{ partial "navigation" . }}
 
 		<div class="site-wrapper">
+
+			{{ partial "breadcrumbs.html" . }}
+
 			<main>
 				<div id="home" class="list-wrapper">
 
-					{{ $title := (.Title | singularize | urlize | title) }}
-					<h2 class="item-title phrase">{{ $title }}</h2>
-
 					<ul class="items" id="posts">
 
-						{{ if eq .Title "Projects" }}
-							{{ $paginator := .Paginate ( where ( where ( where .Data.Pages.ByDate.Reverse "Type" "project" ) "Draft" "ne" true ) ".Params.orphan" "!=" "true" ) }}
+						{{ if ((eq .Title "Projects") or (eq .Title "Artifacts") or (eq .Title "Galleries") or (eq .Title "Events")) }}
+							{{ $paginator := .Paginate ( where ( where .Data.Pages.ByDate.Reverse "Type" (.Title | singularize | lower) ) "Draft" "!=" true ) }}
 							{{ range $paginator.Pages }}
-								{{ partial "items/list-item.html" . }}
-							{{ end }}
-						{{ end }}
-
-						{{ if eq .Title "Artifacts" }}
-							{{ $paginator := .Paginate ( where ( where ( where .Data.Pages.ByDate.Reverse "Type" "artifact" ) "Draft" "ne" true ) ".Params.orphan" "!=" "true" ) }}
-							{{ range $paginator.Pages }}
-								{{ partial "items/list-item.html" . }}
-							{{ end }}
-						{{ end }}
-
-						{{ if eq .Title "Galleries" }}
-							{{ $paginator := .Paginate ( where ( where ( where .Data.Pages.ByDate.Reverse "Type" "gallery" ) "Draft" "ne" true ) ".Params.orphan" "!=" "true" ) }}
-							{{ range $paginator.Pages }}
-								{{ partial "items/list-item.html" . }}
-							{{ end }}
-						{{ end }}
-
-						{{ if eq .Title "Events" }}
-							{{ $paginator := .Paginate ( where ( where ( where .Data.Pages.ByDate.Reverse "Type" "event" ) "Draft" "ne" true ) ".Params.orphan" "!=" "true" ) }}
-							{{ range $paginator.Pages }}
-								{{ partial "items/list-item.html" . }}
-							{{ end }}
-						{{ end }}
-
-						{{ if eq .Title "Drafts" }}
-							{{ $paginator := .Paginate ( where .Data.Pages.ByDate.Reverse "Draft" "eq" true ) }}
-							{{ range $paginator.Pages }}
-								{{ partial "items/list-item.html" . }}
+								{{ partial "card.html" . }}
 							{{ end }}
 						{{ end }}
 
 					</ul>
+
 				</div>
 			</main>
 

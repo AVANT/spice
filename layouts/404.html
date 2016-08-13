@@ -5,11 +5,9 @@
 
 	<div class="site-wrapper">
 
-		<div class="single-wrap">
-			<div class="single-content">
-				<h1 class="page-title" itemprop="name headline">{{ .Site.Params.pageNotFoundTitle | markdownify }}</h1>
-				<h3 style="text-align: center;">{{ .Site.Params.pageNotFoundSubtitle | markdownify }}</h3>
-			</div>
+		<div class="not-found-wrapper">
+			<h1 class="page-title not-found" itemprop="name headline">{{ .Site.Params.pageNotFoundTitle | markdownify }}</h1>
+			<h3 class="not-found">{{ .Site.Params.pageNotFoundSubtitle | markdownify }}</h3>
 		</div>
 
 		{{ partial "footer" . }}

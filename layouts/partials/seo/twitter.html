@@ -4,4 +4,4 @@
 
 <!-- twitter card data -->
 <meta name="twitter:title" content="{{ .Title }}"/>
-<meta name="twitter:description" content="{{ if .Params.excerpt }}{{ .Params.excerpt }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ end }}{{ end }}"/>
+<meta name="twitter:description" content='{{ if isset .Params "excerpt" }}{{ .Params.excerpt }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ end }}{{ end }}'/>

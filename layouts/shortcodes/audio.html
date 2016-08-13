@@ -1,4 +1,4 @@
 <div class="media-box audio-box{{ if .Get "class" }} {{ .Get "class" }}{{ end }}" {{ if .Get "style" }}style="{{ .Get "style" }}"{{ end }}>
-	<audio class="b-lazy" style="margin: 0 auto" data-src="{{ .Get "url" }}" controls="" preload="auto" autobuffer=""></audio>
+	<audio class="b-lazy" data-src="{{ .Get "url" }}" controls="" preload="auto" autobuffer=""></audio>
 	{{ if .Inner  }}<div class="media-text" {{ if .Get "width" }}style="width: {{ .Get "width" }}"{{ end }}>{{ .Inner }}</div>{{ end }}
 </div>

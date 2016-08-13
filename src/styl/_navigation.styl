@@ -13,7 +13,6 @@
 	width: 45px
 	height: 45px
 
-
 	.logo-link
 		display: block
 		border: 1px solid bw1
@@ -28,37 +27,39 @@
 			background: bw1
 			border: 1px solid white
 
-.site-wrapper
-	transition: margin-left .1s ease-in-out
-	margin-left: 0px
-
-.site-wrapper.open
-	margin-left: 250px
-
-	.cover
-		width: -webkit-calc(62% - 250px)
-		width: -moz-calc(62% - 250px)
-		width: calc(62% - 250px)
-
-	.meta-wrapper
-		right: 250px
-
-	.single-wrapper-solo,
-	.taxonomy-wrapper,
-	.list-wrapper
-		h2
-			margin: 0.2em 0 0 calc(4em - 250px)
-			opacity: 0
 
 .site-wrapper
+	transition: left .1s ease-in-out
+	left: 0px
+
+	&.open
+		left: 250px
+
+		.cover
+			width: -webkit-calc(62% - 250px)
+			width: -moz-calc(62% - 250px)
+			width: calc(62% - 250px)
+
+		.meta-wrapper
+			right: 250px
+
+		.single-wrapper-solo,
+		.taxonomy-wrapper,
+		.list-wrapper
+			h2
+				margin: 0.15em 0 0 calc(4em - 250px)
+				opacity: 0
+
 	.single-wrapper-solo,
 	.taxonomy-wrapper,
 	.list-wrapper
 		h2
 			position: absolute
-			margin: 0.2em 0 0 4em
+			margin: 0.15em 0 0 4em
 			opacity: 1
 			transition: all .1s ease-in-out
+
+
 
 @media (max-width: large-width)
 	.site-wrapper
@@ -194,7 +195,6 @@
 
 		.nav-overlay
 			z-index: 2
-			//height: 100%
 			margin: 80px 0px 0px 0px
 
 			ul
@@ -214,61 +214,9 @@
 						transition: color t0
 						color: white
 						font-weight: 500
+						font-size: $f14
 						text-decoration: none
 						display: block
-
-			// BREADCRUMBS
-			.nav-breadcrumbs
-				list-style-type: none
-				overflow: hidden
-				text-align: left
-				width: calc(100% - 2em)
-				font-size: 1.1em
-				word-wrap: break-word
-				margin: 0 0 0 0.82em
-
-				li
-					font-family: headline
-					font-weight: 600
-					word-break: keep-all
-					display: inline-block
-
-					a
-						transition: color t0
-						font-weight: 700
-
-						&:hover
-							color: bw5
-
-				.nav-home
-					padding-left: calc(0.5em + 2px)
-
-					a
-						font-size: 1em
-
-				.nav-parent
-					a
-						text-transform: capitalize
-						font-size: 1em
-
-				.nav-title
-					line-height: 1.6em
-					margin-top: 0.5em
-
-					a
-						font-size: 0.95em
-						border-left: 2px solid bw3
-						padding-left: 0.6em
-
-				.nav-slash
-					color: bw9
-					display: inline-block
-					font-size: 0.9em
-					font-family: headline
-					font-weight: 800
-					top: -0.1em
-					position: relative
-					margin: 0.2em
 
 			.nav-links
 				transform: translateY(5%)
@@ -276,19 +224,26 @@
 				padding-left: 0.4em
 
 				ul
-					margin: 0 1em
+					display: inline-block
+					margin: 0.4em 4em 0.4em 0.95em
 
 					li
+						margin: 0
 
 						a
 							color: white
 							padding: 0.25em 0.35em 0.35em 0.35em
-							font-size: 0.9em
 							font-family: headline
 							font-weight: 600
 
 							&:hover
 								color: bw5
+
+				.nav-spacer
+					height: 0
+					width: 1%
+					margin-left: 1.4rem
+					border-top: 2px solid bw3
 
 			.nav-social
 				text-align: center
@@ -296,7 +251,6 @@
 				width: calc(100% - 32px)
 				position: absolute
 				bottom: 1.5em
-				font-size: 0.9em
 
 				.social-link-wrapper
 					display: inline
@@ -319,110 +273,78 @@
 				width: calc(100% - 32px)
 				bottom: 3.5em
 
-			.newsletter-signup
-				background: none
-				height: 100%
-				margin: 20px
-				margin-top: 10px
-
-			form
-				overflow: auto
-				margin: 0 auto !important
-				width: 180px
-				border: 0
-				border-bottom: 1px solid white
-
-			input
-				-webkit-appearance: none
-				border-radius: 0
-
-				&.button
-					text-align: center
-					font-size: 1.1em
-					height: 2.9em
-					width: 5%
-					float: right
-					padding: 2px
-					vertical-align: middle
-					border-left: 0
-					color: white
-					font-weight: 600
+				.newsletter-signup
 					background: none
-					outline: none
-					-webkit-box-shadow: none
-					box-shadow: none
-					font-family: 'FontAwesome'
+					height: 100%
+					margin: 20px
+					margin-top: 10px
+
+				form
+					overflow: auto
+					margin: 0 auto !important
+					width: 180px
 					border: 0
+					border-bottom: 1px solid white
 
-			input[type='text'],
-			input[type='email']
-				height: 3.8em
-				border: 0
-				background: none
-				vertical-align: middle
-				float:left
-				width: 95%
-				font-family: headline
-				font-weight: 600
-				font-size: 0.8em
-				color: white
-				transition: all 0.2s ease-in-out
-				text-align: center
-				outline: none
-				padding-left: 10px
+					.honeypot
+						position: absolute
+						left: -5000px
 
-			input.button
-				&:hover,focus
-					color: bw5
-					background: none
-					outline: none
+				input
+					-webkit-appearance: none
+					border-radius: 0
 
-			input[type='text']:focus
-				display: none
+					&[type='email']
+						height: 3rem
+						background: none
+						vertical-align: middle
+						float: left
+						width: 95%
+						font-family: headline
+						font-weight: 600
+						font-size: 0.85rem
+						color: white
+						outline: none
+						border: 0
+						padding-left: 10px
+						text-align: center
 
-			input[type='email']:focus
-				text-align: left
+					+placeholder()
+						text-align: center
+						color: white
 
-			placeholder
-				color: white
+					&.button
+						text-align: center
+						font-size: 1.1em
+						height: 2.9em
+						width: 5%
+						float: right
+						padding: 2px
+						vertical-align: middle
+						border-left: 0
+						color: white
+						font-weight: 600
+						background: none
+						outline: none
+						-webkit-box-shadow: none
+						box-shadow: none
+						font-family: 'FontAwesome'
+						border: 0
 
-				&:hover
-					color: bw5
+						&:hover
+							color: bw5
+							background: none
+							outline: none
+
 
 
 // MENU LARGE-WIDTH
 @media (max-width: large-width)
 	.nav-wrapper
 
-		.nav
-
-			.nav-overlay
-				padding: 0
-				margin: 0
-
-				.nav-breadcrumbs
-					margin: 1.7em 0 0.5em 0
-					width: calc(100% - 1em)
-
-					.nav-home
-						padding-left: 2.8em
-
-						a
-							margin: 0 0 0 2em
-							font-size: 1.1em
-
-					.nav-parent a
-						font-size: 1.1em
-
-					.nav-slash a
-						font-size: 1.1em
-
-					.nav-title
-						margin-top: 2em
-
-						a
-							margin: 0em 0 0 1.1em
-							font-size: 1emem
+		.nav .nav-overlay
+			padding: 0
+			margin: 0
 
 
 // MENU SMALL-WIDTH
@@ -461,40 +383,6 @@
 				padding-top: 0
 				margin: 1em !important
 
-				.nav-breadcrumbs
-					text-align: center
-					margin: 12px 0
-					width: 100%
-
-					a
-						font-size: 1.3em
-						font-weight: 700
-						margin: 0
-						padding: 0
-
-					.nav-home
-						margin-left: 1em
-						padding-left: 0
-
-						a
-							font-size: 1.3em
-
-					.nav-parent
-						a
-							font-size: 1.3em
-
-					.nav-title
-						margin-top: 1.6em
-
-						a
-							border-left: none
-							padding-left: 0
-							font-size: 1.1em
-
-					.nav-slash a
-						font-weight: 800
-						font-size: 1.2em
-
 				.nav-links
 					transform: translateY(2%)
 					text-align: center
@@ -507,18 +395,21 @@
 							margin:0
 
 							a
-								font-size: 1.1em
+								font-size: $f10
 								padding: 0.1em 0.2em 0.3em 0.2em
+
+					.nav-spacer
+						margin: 0.5em auto
 
 				.nav-newsletter
 					bottom: 3.7em
 
-				input[type='text'],
-				input[type='email']
-					height: 3.7em
-					font-size: 1em
+					input
+						&[type='email']
+							height: 3.7em
+							font-size: 1em
 
-				input.button
-					font-size: 1.4em
-					height: 2.5em
-					margin-top: 0.1em
+						&.button
+							font-size: 1.4em
+							height: 2.5em
+							margin-top: 0.1em
