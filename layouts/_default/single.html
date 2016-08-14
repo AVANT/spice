@@ -15,15 +15,14 @@
 					</div>
 				</main>
 			</div>
-		{{ end }}
-
-		{{ if ((eq "project" .Type) or (eq "artifact" .Type) or (eq "event" .Type) or (eq "gallery" .Type)) }}
+		{{ else }}
 			<div class="single-wrap">
 				<main role="main" class="item">
 					{{ partial "article.html" . }}
 				</main>
 			</div>
 		{{ end }}
+
 
 		{{ partial "footer" . }}
 	</div>

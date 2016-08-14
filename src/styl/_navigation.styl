@@ -12,25 +12,110 @@
 	left: 16px
 	width: 45px
 	height: 45px
+	font-size: 0
 
 	.logo-link
 		display: block
-		border: 1px solid bw1
-		transition: border t0
-		fill: bw1
-		transition: all t0
-		background: none
 
-		&.open,
-		&:hover
-			fill: white
-			background: bw1
-			border: 1px solid white
+		.logo
+			width: 45px
+			display: block
+			margin: 0 auto
+
+			path
+				transition: stroke t0, fill t0
+
+			#a-border
+				//fill: bw1
+				stroke: none
+				//stroke-width: 1
+
+			#a-fill
+				fill: bw1
+				stroke: none
+				//stroke-width: 1
+
+			#circle-border
+				fill: bw1
+				stroke: none
+				//stroke-width: 1
+
+			#circle-fill
+				fill: none
+				stroke: none
+				//stroke-width: 1
+
+			&:hover
+				#a-border
+					//fill: white
+					stroke: none
+					//stroke-width: 1
+
+				#a-fill
+					fill: white
+					stroke: none
+					//stroke-width: 1
+
+				#circle-border
+					fill: bw1
+					stroke: none
+					//stroke-width: 1
+
+				#circle-fill
+					fill: bw1
+					stroke: none
+					//stroke-width: 1
+
+		&.open
+			.logo
+				#a-border
+					//fill: white
+					stroke: none
+					//stroke-width: 1
+
+				#a-fill
+					fill: white
+					stroke: none
+					//stroke-width: 1
+
+				#circle-border
+					fill: white
+					stroke: none
+					//stroke-width: 2
+
+				#circle-fill
+					fill: none
+					stroke: none
+					//stroke-width: 2
+
+				&:hover
+					#a-border
+						//fill: bw1
+						stroke: none
+						//stroke-width: 1
+
+					#a-fill
+						fill: bw1
+						stroke: none
+						//stroke-width: 1
+
+					#circle-border
+						fill: white
+						stroke: none
+						//stroke-width: 1
+
+					#circle-fill
+						fill: white
+						stroke: none
+						//stroke-width: 1
 
 
 .site-wrapper
 	transition: left .1s ease-in-out
 	left: 0px
+
+	.breadcrumbs
+		z-index: 5
 
 	&.open
 		left: 250px

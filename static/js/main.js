@@ -191,7 +191,7 @@ $(document).ready(function() {
 
 $(document).ready(function() {
 
-	if(window.location.href.split('#')[0] == "http://avant.org/imprint/"){
+	if(window.location.href.split('#')[0] == window.location.origin + '/imprint/'){
 
 		var currentHashValue = window.location.hash;
 
