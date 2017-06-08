@@ -4,93 +4,150 @@
 	display: inline-block
 	margin 0 auto
 	display: block
-	margin-top: 20px
-	padding: 3em 1em 1em 1em
+	margin-top: 9.5rem
 
-@media (max-width: large-width)
-	.tabs
-		padding: 4em 1em 1em 1em
+	.tab-links
+		display: block
+		text-align: center
+		margin: 0 auto
+		padding: 0
 
-.tab-links
-	margin: 0px
+		&:after
+			display: block
+			clear: both
+			content: ''
 
-.tab-links:after
-	display: block
-	clear: both
-	content: ''
+		.tab-link a
+			font-weight: 600
 
-.tab-links li
-	margin: 0px 0px 0px 0px !important;
-	float: left
-	list-style: none
+			h3
+				font-size: f19
+				margin: 0
 
-.tab-links a
-	padding: 8px 12px
-	display: inline-block
-	background: bw10
-	font-size: 1em
-	font-weight: 600
-	color: bw1
-	transition: all ease-in-out 0.15s
-	border: none
-	text-decoration: none
-	border: none
-	box-shadow: none
-	border: solid 1px bw10
-	border-bottom: none
-	font-family: headline
+		li
+			display: inline-block
+			margin: 0 3%
+			list-style: none
 
-.tab-links a:hover
-	background: bw10
-	text-decoration: none
-	border: none
-	box-shadow: none
-	border: solid 1px bw10
-	color: bw5
-	border-bottom: none
-	border-top: solid 1px bw10
+			&:first-child
+				margin: 0 1% 0 0
 
-.tab-links .active a
-	background: bw10
-	border: solid 1px bw1
-	border-bottom: none
-	box-shadow: 0px 2px 0px -1px rgba(237,237,237,1)
+			&:last-child
+				margin: 0 0 0 1%
+
+	a
+		padding: 0
+		display: inline-block
+		background: bw10
+		transition: border-bottom t0
+		text-decoration: none
+		font-family: headline
+		border-bottom: 2px solid bw10
+
+		&:hover
+			text-decoration: none
+			border-bottom: 2px solid white
+
+	.center
+		text-align: center
+
+	.small-width
+		max-width: 600px
+
+	.active a
+		text-decoration: none
+
+		&:hover
+			border-bottom: 2px solid white
+
+	.tab-link.active a
+		border-bottom: 2px solid bw1
+
+	a,
+	span,
+	p,
+	li
+		font-weight: 500
+		font-size: f16
+		color: bw1
 
 .single-wrapper-solo h2
 	margin-left: 4em
 
 // tab content
 .tab-content
-	padding: 4em 0.5em
-	height: 125%
-	border solid 1px bw1
+	padding: 2em 0.5em 0 0.5em
+	max-width: 820px
+	margin: 0 auto
+	display: block
+
+	table
+		width: 90%
+		margin: 0 5% 0 5%
+
+	td
+		width: 50%
+		font-size: f16
+		padding: 0 0 0.8em 0
+
+	.tab
+		display: none
+
+		&.active
+			display: block
+
+	#colophon-tab p
+		margin-top: 1rem
+
+	#network-tab ul
+		columns: 3
+		list-style-type: none
+		display: block
+		margin: 0 auto
+		font-weight: 500
+		list-style: inside none
+		column-break-inside: avoid
+		page-break-inside: avoid
+		column-fill: balance
+		padding-left: 0
+
+		li
+			margin: 1.6rem 1.6rem 0 1.6rem
+			display: inline-block
+			width: 100%
+			white-space: nowrap
+			vertical-align: top
+
+			a,
+			span
+				white-space: nowrap
+				vertical-align: super
+				padding-bottom: 0
+
+			a:hover
+				border-bottom: 2px solid white
+
+@media (max-width: large-width)
+	.tab-content
+		#network-tab ul
+			columns: 2
+
+@media (max-width: medium-width)
+	.tab-content
+		#network-tab ul
+			columns: 1
 
 @media (max-width: small-width)
-	.tab-content
-		padding: 4em 0.5em
-		height: 200%
+	.tabs
+		a,
+		span,
+		p,
+		li
+			font-size: f14
 
-.tab-content table
-	width: 90%
-	margin: 0 5% 0 5%
+		.tab-links .tab-link a h3
+				font-size: f17
 
-.tab-content td
-	width: 50%
-	font-size: 0.9em
-	padding: 0 0 0.8em 0
+		.tab-content h3
+			font-size: f15
 
-.tab
-	display: none
-
-.tab.active
-	display: block
-
-#collaborators-tab ul
-	columns: 2
-	list-style-type: none
-	display: block
-	margin: 0 auto
-	font-weight: 500
-
-	li
-		margin-top: 0.8em

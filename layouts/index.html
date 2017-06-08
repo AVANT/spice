@@ -3,23 +3,28 @@
 
 	{{ partial "navigation" . }}
 
-	<div class="site-wrapper">
-		<main>
-			<div id="home">
-				<ul class="items" id="posts">
+		<div class="site-wrapper">
 
-				{{ $paginator := .Paginate ( where ( where ( where ( where ( where .Data.Pages.ByDate.Reverse "Type" "!=" "solo" ) "Type" "!=" "json" ) "Draft" "!=" true ) ".Params.orphan" "!=" "true" ) ".Params.homepage" "!=" "false" ) }}
-				{{ range $paginator.Pages }}
-					{{ partial "items/list-item.html" . }}
-				{{ end }}
-				</ul>
-			</div>
-		</main>
+			{{ partial "breadcrumbs.html" . }}
 
-	{{ partial "pagination" . }}
-	{{ partial "footer" . }}
+			<main>
+				<div id="home" class="list-wrapper index">
 
-	</div>
+					<ul class="items" id="posts">
+
+					{{ $paginator := .Paginate (where (where .Data.Pages.ByDate.Reverse "Type" "not in"  (slice "author-index" "thread-index" "landing" "solo" "json" "gallery")) "Draft" "!=" true ) }}
+					{{ range $paginator.Pages }}
+						{{ partial "card.html" . }}
+					{{ end }}
+
+					</ul>
+
+				</div>
+			</main>
+
+			{{ partial "pagination" . }}
+			{{ partial "footer" . }}
+		</div>
 
 	{{ partial "js" . }}
 

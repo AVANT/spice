@@ -16,24 +16,14 @@
 <!-- infinite scroll -->
 <script type="text/javascript" src="{{ .Site.BaseURL }}js/vendor/ias-min.js"></script>
 
+<!-- packery -->
+<script src="https://npmcdn.com/isotope-layout@3.0/dist/isotope.pkgd.min.js"></script>
+<script src="https://npmcdn.com/isotope-packery@2/packery-mode.pkgd.js"></script>
+<script type="text/javascript" src="{{ .Site.BaseURL }}js/packery.js"></script>
+
 <!-- syntax -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-
-<!-- hyphenation -->
-<script type="text/javascript" src="{{ .Site.BaseURL }}js/vendor/hylo.js"></script>
-<script type="text/javascript" src="{{ .Site.BaseURL }}js/vendor/hyphenator.js"></script>
-
-<!-- search -->
-<script src="//cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.js"></script>
-<script src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.jquery.min.js"></script>
-<script>
-	var client = $.algolia.Client("V00AAD9LUF", 'apiKey');
-	var index = client.initIndex('avant');
-	index.search('something', function searchDone(err, content) {
-		console.log(err, content)
-	});
-</script>
 
 <!-- google analytics -->
 {{ template "_internal/google_analytics.html" . }}

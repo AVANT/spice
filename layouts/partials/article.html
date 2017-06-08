@@ -1,0 +1,75 @@
+<div style="background-image: url('{{ with .Params.cover }}{{ . }}{{ end }}')" class="cover"></div>
+
+<article>
+	<div class="text-body hyphenate" itemprop="articleBody">
+		<div class="meta-wrapper">
+
+			<div class="meta">
+
+				<div class="meta-block">
+				{{ partial "breadcrumbs.html" . }}
+				</div>
+
+				{{ with .Params.author }}
+				<div class="meta-block">
+					<ul class="author">
+						{{ range . }}
+							<li>
+								<a href="{{ $.Site.BaseURL  }}author/{{ . | urlize }}">{{ . }}</a>
+							</li>
+						{{ end }}
+					</ul>
+				</div>
+				{{ end }}
+
+				<div class="meta-block">
+					<span class="date">
+						<time datetime="" itemprop="datePublished">
+							{{ if .Params.index }}{{ else }}{{ .Date.Format "2 January 2006" }}{{ end }}
+						</time>
+					</span>
+				</div>
+
+				{{ if isset .Params "tag" }}
+					<div class="meta-block">
+						<ul class="thread-tag">
+				{{ else if isset .Params "thread" }}
+					<div class="meta-block">
+						<ul class="thread-tag">
+				{{ else }}
+				{{ end }}
+
+				{{ with .Params.thread }}
+					{{ range . }}
+						<li class="thread">
+							<a href="{{ $.Site.BaseURL  }}thread/{{ . | urlize }}">{{ . }}</a>
+						</li>
+					{{ end }}
+				{{ end }}
+
+				{{ with .Params.tag }}
+					{{ range . }}
+						<li class="tag">
+							<a href="{{ $.Site.BaseURL  }}tag/{{ . | urlize }}">{{ . }}</a>
+						</li>
+					{{ end }}
+				{{ end }}
+
+				{{ if isset .Params "tag" }}
+						</ul>
+					</div>
+				{{ else if isset .Params "thread" }}
+						</ul>
+					</div>
+				{{ else }}
+				{{ end }}
+
+			</div>
+		</div>
+
+		<p class="splash-spacer"></p>
+
+		{{ .Content }}
+
+	</div>
+</article>

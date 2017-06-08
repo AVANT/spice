@@ -1,0 +1,78 @@
+<!-- BREADCRUMBS -->
+
+{{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
+{{ $.Scratch.Add "path" .Site.BaseURL }}
+
+<h1 class="breadcrumbs">
+<span class="bc-underline">
+
+	<!-- root -->
+	<span class="bc-home"><a href="{{ .Site.BaseURL }}">Avant.org</a></span>
+
+	<!-- parent -->
+	{{ range $index, $element := split $url "/" }}
+	{{ $.Scratch.Add "path" $element }}
+	{{ if ne $element "" }}
+		{{ if $index }}{{else}}
+
+			<span class="bc-slash"> / </span>
+			<span class="bc-parent"><a href='{{ $.Scratch.Get "path" }}'>{{ . | title }}</a></span>
+
+			{{ $.Scratch.Add "path" "/" }}
+
+		{{ end }}
+	{{ end }}
+	{{ end }}
+
+	<!-- page -->
+	{{ if .IsNode }}
+
+		{{ $root := . }}
+		{{ $title := (.Title | urlize | title) }}
+
+		{{ if .Data.Pages }}
+
+			{{ $page := (index .Data.Pages 0) }}
+			{{ $plural := .Data.Plural }}
+			{{ $singular := .Data.Singular }}
+
+			{{ range $taxonomy, $value := .Data }}
+			{{ if eq $taxonomy $singular }}
+
+				{{ range (index $page.Params $plural) }}
+				{{ if eq $title (. | urlize | title) }}
+
+					<span class="bc-slash"> / </span>
+
+					<span class="bc-title nohyphen">{{ . | title }}</span>
+
+					{{ $desc := printf "%s-desc" $taxonomy }}
+					{{ $desctax := index $root.Site.Taxonomies $desc }}
+					{{ $descpages := index $desctax (. | urlize) }}
+
+					{{ if len $descpages }}
+						{{ $descpage := index $descpages 0 }}
+						<span class="term-desc">{{ $descpage.Page.Content }}</span>
+					{{ end }}
+
+				{{ end }}
+				{{ end }}
+
+			{{ end }}
+			{{ end }}
+
+		{{ end }}
+
+	{{ end }}
+
+	<!-- imprint -->
+	{{ if .IsPage }}
+		{{ if ne .Title "Imprint" }}
+
+			<span class="bc-slash"> / </span>
+			<span class="bc-title"><a class="phrase" href="{{ .Permalink }}">{{ .Title }}</a></span>
+
+		{{ end }}
+	{{ end }}
+</span>
+</h1>

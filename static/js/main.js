@@ -87,7 +87,7 @@ $(document).ready(function() {
 		return;
 	}
 	$popup.addEventListener('click', function(e) {
-		e.preventDefault()
+		e.preventDefault();
 		var width  = 575,
 			height = 400,
 			left   = (document.documentElement.clientWidth  - width)  / 2,
@@ -101,7 +101,7 @@ $(document).ready(function() {
 
 		window.open(url, 'twitter', opts);
 		return false;
-	})
+	});
 
 });
 
@@ -143,7 +143,7 @@ window.setTimeout(function() {
 
 function setDimensions(){
 	var windowsHeight = $(window).height();
-	$('.cover').css('height', windowsHeight * 0.75 + 'px');
+	$('.cover').css('height', windowsHeight - 180 + 'px');
 }
 
 setDimensions();
@@ -153,14 +153,36 @@ $(window).resize(function() {
 	setDimensions();
 });
 
+
+
+
+function bLazy() {
+	Blazy ({
+		offset: 1500,
+		success: function(ele){
+			// success
+			function viewLazy() {
+				$('.b-lazy.b-loaded').animate({ opacity: 1 }, 350, 'swing');
+				return false;
+			}
+			viewLazy();
+		},
+		error: function(ele, msg){
+			if(msg === 'missing') {
+				// data-src is missing
+			}
+			else if(msg === 'invalid') {
+				// data-src is invalid
+			}
+		}
+	});
+}
+
 $(document).ready(function() {
-	;(function() {
-			// initialize
-			var bLazy = new Blazy({
-				offset: 1000
-			});
-		})();
+	// initialize
+	var Blazy = bLazy();
 });
+
 
 
 //-------------
@@ -169,7 +191,7 @@ $(document).ready(function() {
 
 $(document).ready(function() {
 
-	if(window.location.href.split('#')[0] == "http://avant.org/imprint/"){
+	if(window.location.href.split('#')[0] == window.location.origin + '/imprint/'){
 
 		var currentHashValue = window.location.hash;
 
@@ -211,10 +233,18 @@ $(document).ready(function() {
 			next:       '.next'
 		});
 
-		ias.extension(new IASSpinnerExtension({ html: '<div class="spinner"><div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div></div>', }));
+		ias.extension(new IASSpinnerExtension({ html: '<div class="spinner load"><div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div></div>', }));
 		ias.extension(new IASNoneLeftExtension({ html: '<div class="spinner">∎</div><script>footer = document.getElementById("footer");try { footer.style.opacity = "1"; footer.style.height = "280px"; } catch(e) {"waiting for footer"}</script>' }));
 
+		ias.on('loaded', function(data, items) {
+			var Bphrase = new bPhrase();
+
+			var $items = $(items);
+			console.log('Loaded ' + $items.length + ' items from server');
+		});
+
 	 });
+
 }(jQuery));
 
 
@@ -224,21 +254,6 @@ $(document).ready(function() {
 
 var tiempos_headline = new FontFaceObserver('Tiempos Headline');
 var tiempos_text = new FontFaceObserver('Tiempos Text');
-
-
-//------------------
-// email input logic
-//------------------
-
-function autoUnput(thefield, orig){
-	if(orig){
-		if(thefield.value == ''){
-			thefield.value = orig;
-		}
-	} else if (thefield.defaultValue==thefield.value){
-		thefield.value = "";
-	}
-}
 
 
 //-------------
@@ -277,28 +292,27 @@ $(document).ready(function() {
 //----------------------------------
 
 var breakPhrase = function(e){
-	var n = [], r = []
-	n = e.length?e:n.concat(e), Array.prototype.map.call(n, function(e){
-		var n = String(e.innerHTML)
-		n = n.replace(/\s+/g," ").replace(/^\s|\s$/g,""),
-			r.push(n?e.innerHTML = n.replace(new RegExp("((?:[^ ]* ){" + ((n.match(/\s/g)||0).length-1) + "}[^ ]*) "), "$1&nbsp;"):void 0)
-	})
-}
+	var n = [],
+		r = [];
+	n = e.length?e:n.concat(e), Array.prototype.map.call(n, function(e) {
+		var n = String(e.innerHTML);
+		n = n.replace(/(?![^<]*>)\s+/g," ").replace(/^\s|\s$/g,""),
+			r.push(n?e.innerHTML = n.replace(new RegExp("((?:[^ ]* ){" + ((n.match(/(?![^<]*>)\s/g)||0).length-1) + "}[^ ]*) "), "$1&nbsp;"):void 0);
+	});
+};
+
+bPhrase = function() {
+	// calculate non-breaking whitespace
+	phrase = $('.phrase').add('.caption p').add('.media-text p');
+
+	if(phrase.length != 0) {
+		breakPhrase(phrase);
+		$(phrase).removeClass("phrase");
+	}
+};
 
 $(document).ready(function() {
-
-	Bphrase = function() {
-		// calculate non-breaking whitespace
-		phrase = $('.phrase').add('.caption p').add('.media-text p');
-
-		if(phrase.length != 0) {
-			breakPhrase(phrase);
-			$(phrase).removeClass("phrase");
-		}
-	}
-
-	var bPhrase = new Bphrase();
-
+	var Bphrase = new bPhrase();
 });
 
 //----------------------------
@@ -315,6 +329,7 @@ if ('ontouchstart' in document) {
 //-----------------
 
 $(document).ready(function(){
+
 	$('.taxonomy-list ul').each(function() {
 		var listLength = $(this).children().size();
 		if(listLength >= '20'){
@@ -333,15 +348,56 @@ $(document).ready(function(){
 	});
 
 	letList.letters.sort();  // sort all available letters to iterate over them
+
 	$.each(letList.letters, function(i, letter){
+
 		letList[letter].sort(function(a, b) {
 			return $(a).text().toUpperCase().localeCompare($(b).text().toUpperCase());  //sort li elements of one letter
 		});
+
 		var ul = $('<ul/>');  // create new dom element and add li elements
 		$.each(letList[letter], function(idx, itm){
 			ul.append(itm);
 		});
-		$('.taxonomy-list .multi-col').append($('<li/>').append($('<span/>').attr('name', letter.toLowerCase()).addClass('title').html(letter)).append(ul));  // add the list to a new li and to #list ul
+
+		var cap = $(ul).prepend($('<li/>').attr('name', letter.toLowerCase()).addClass('letter-title').html(letter));
+		console.log(cap);
+		$('.taxonomy-list .multi-col').append(cap);  // add the list to a new li
+
+	});
+
+});
+
+
+
+
+//-----------------
+// new page control
+//-----------------
+
+Page = function() {
+
+	// word breaking
+	if (typeof bPhrase == 'function') { var Bphrase = new bPhrase(); }
+
+	// lazy load images
+	if (typeof bLazy == 'function') { var Blazy = new bLazy(); }
+
+	// tiled layout
+	if (typeof Iso == 'function') { var iso = new Iso(); }
+
+};
+
+
+//---------------------
+// hanging punctutation
+//---------------------
+
+$(document).ready(function(){
+
+	$.holdReady(true);
+	$.getScript("/js/vendor/hanging-punctuation.min.js", function() {
+		$.holdReady(false);
 	});
 
 });

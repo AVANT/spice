@@ -5,14 +5,15 @@
 	{{ partial "navigation" . }}
 
 	<div class="site-wrapper">
+
+		{{ partial "breadcrumbs.html" . }}
+
 		<main>
 			<div id="home" class="taxonomy-wrapper">
 
 				{{ $taxonomyName := .Data.Plural }}
 				{{ $description := printf "%s-desc" .Data.Singular }}
 				{{ $taxonomyDescription := index $.Site.Taxonomies $description }}
-
-				<h2 class="taxonomy">{{ ($taxonomyName | title) }}</h2>
 
 				<div class="taxonomy-list">
 					<ul>
@@ -22,7 +23,7 @@
 						{{ range $friendly := index $page.Page.Params $taxonomyName }}
 							{{ if eq ($friendly | urlize) $name }}
 								<li>
-									<a href="{{ (printf "/%s/%s" $taxonomyName $name) | relURL }}">{{ $friendly }}</a>
+									<a href="{{ (printf "/%s/%s" $taxonomyName $name) | relURL }}">{{ $friendly | title }}</a>
 									&nbsp;<span class="nav-item-number">[ {{ $len }} ]<span>
 								</li>
 							{{ end }}

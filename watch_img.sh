@@ -19,8 +19,8 @@ while inotifywait -qre modify \
 "$static" "$layouts" "$content" "$archetypes" "$objects" "$src"; do
 
 	# rebuilding image index
-	#printf "rebuilding image index"
-	#bash ./dimensions.sh
+	printf "rebuilding image index"
+	bash ./dimensions.sh
 
 	# compile css
 	stylus src/styl/world.styl -o static/styles/world.css --compress

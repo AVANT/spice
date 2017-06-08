@@ -1,6 +1,6 @@
 baseurl = "http://avant.org/"
 languageCode = "en-us"
-title = "avant.org"
+title = "Avant.org"
 googleAnalytics = "UA-46800316-1"
 watch = true
 FootnoteReturnLinkContents = "↥"
@@ -16,9 +16,9 @@ pygmentsuseclasses = true
 	author = "author"
 
 [params]
-	name = "avant.org"
+	name = "Avant.org"
 	description = "A project space for the internet and elsewhere."
-	indextypes = ["project", "artifact", "event", "gallery"]
+	indextypes = ["project", "artifact", "event", "gallery", "index"]
 
 	# links to newer/older blog posts
 	newer = "Newer"
@@ -29,5 +29,5 @@ pygmentsuseclasses = true
 
 	[params.menu]
 		# Menu items
-		title = "avant.org"
+		title = "Avant.org"
 		bio = "A project space for the internet and elsewhere."

@@ -10,6 +10,5 @@ node_modules/
 public/
 data/
 content/
-objects
 
 .DS_Store

@@ -1,29 +1,35 @@
 <div id="footer" class="foot-wrapper">
 
+<div class="foot-border"></div>
+
 	<div class="foot">
 
 		<div class="foot-links">
 			<a target="_blank" href="http://researchtactics.com">Research Tactics</a>
-			<a href="http://avant.org/imprint">Imprint</a>
-			<a target="_blank" href="http://avant.org/index.xml">RSS</a>
+			<a href="{{ .Site.BaseURL }}imprint">Imprint</a>
+			<a target="_blank" href="{{ $.Site.BaseURL  }}index.xml">RSS</a>
 		</div>
 
 		<div class="foot-social">
-			<a class="social-link" href="mailto:editorial@avant.org?subject=message%20via%20AVANT.org" target="_blank"><i class="fa fa-reply" aria-hidden="true"></i></a>
-			<a class="social-link" href="http://avant.org/rss" target="_blank"><i class="fa fa-rss"></i></a>
-			<a class="social-link" href="http://github.com/avant" target="_blank"><i class="fa fa-code-fork" aria-hidden="true"></i></a>
-			<a class="social-link" href="http://soundcloud.com/avantdotorg" target="_blank"><i class="fa fa-soundcloud" aria-hidden="true"></i></a>
-			<a class="social-link" href="http://vimeo.com/avantdotorg" target="_blank"><i class="fa fa-vimeo"></i></a>
-			<a class="social-link" href="http://instagram/avantdotorg" target="_blank"><i class="fa fa-instagram"></i></a>
-			<a class="social-link" href="http://facebook.com/avantdotorg" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-			<a class="social-link" href="http://twitter.com/avantdotorg" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+			<a class="social-link" href="mailto:editorial@avant.org?subject=message%20via%20avant.org" target="_blank"><i class="fa fa-reply" aria-hidden="true"></i></a>
+			<a class="social-link" href="{{ $.Site.BaseURL }}index.xml" target="_blank"><i class="fa fa-rss"></i></a>
+			<a class="social-link" href="https://github.com/avant" target="_blank"><i class="fa fa-code-fork" aria-hidden="true"></i></a>
+			<a class="social-link" href="https://soundcloud.com/avantdotorg" target="_blank"><i class="fa fa-soundcloud" aria-hidden="true"></i></a>
+			<a class="social-link" href="https://vimeo.com/avantdotorg" target="_blank"><i class="fa fa-vimeo"></i></a>
+			<a class="social-link" href="https://www.instagram.com/avantdotorg/" target="_blank"><i class="fa fa-instagram"></i></a>
+			<a class="social-link" href="https://facebook.com/avantdotorg" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+			<a class="social-link" href="https://twitter.com/avantdotorg" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
 		</div>
 
 		<div class="foot-license">
-			<a target="_blank" href="https://creativecommons.org/licenses/by-nc/4.0/"><i id="foot-cc" class="el el-cc"></i></a>
+			<a class="foot-cc-wrap" target="_blank" href="https://creativecommons.org/licenses/by-nc/4.0/">
+				<img class="foot-cc" src="{{ $.Site.BaseURL  }}cc.svg" alt="">
+				<img class="foot-cc" src="{{ $.Site.BaseURL  }}by.svg" alt="">
+				<img class="foot-cc" src="{{ $.Site.BaseURL  }}nc.svg" alt="">
+			</a>
 		</div>
 
-		<img class="foot-logo" src="http://avant.org/logo.svg">
+		<a href="http://avant.org/"><img class="foot-logo" src="{{ $.Site.BaseURL  }}logo_san.svg" alt=""></a>
 
 	</div>
 

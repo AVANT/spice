@@ -1,10 +1,10 @@
 <!-- required open graph info -->
-<meta property="og:title" content="{{ .Title }}{{ with .Params.author }} | {{ range . }}{{ . }} {{ end }}{{ end }}" />
+<meta property="og:title" content="{{ .Title }}" />
 <meta property="author" content="{{ with .Params.author }}{{ range . }}{{ . }}{{ end }}{{ end }}" />
-<meta property="og:description" content="{{ if .Params.excerpt }}{{ .Params.excerpt }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ end }}{{ end }}" />
+<meta property="og:description" content='{{ if isset .Params "excerpt" }}{{ .Params.excerpt }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ end }}{{ end }}' />
 <meta property="og:type" content="{{ if .Params.type }}{{ .Params.type }}{{ else }}website{{ end }}" />
 <meta property="og:url" content="{{ .Permalink }}" />
-<meta property="og:image" content="{{ with .Params.cover }}{{ . }}{{ else }}http://objects.avant.org/logos/logo_white_border.png{{ end }}" />
+<meta property="og:image" content="{{ with .Params.cover }}{{ . }}{{ else }}http://objects.avant.org/logos/logo.png{{ end }}" />
 
 
 <!-- optional open graph info -->

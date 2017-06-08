@@ -1,4 +1,8 @@
-<div class="media-box audio-box{{ if .Get "class" }} {{ .Get "class" }}{{ end }}" {{ if .Get "style" }}style="{{ .Get "style" }}"{{ end }}>
-	<audio class="b-lazy" style="margin: 0 auto" data-src="{{ .Get "url" }}" controls="" preload="auto" autobuffer=""></audio>
-	{{ if .Inner  }}<div class="media-text" {{ if .Get "width" }}style="width: {{ .Get "width" }}"{{ end }}>{{ .Inner }}</div>{{ end }}
+<div class="media-box audio-box {{ if .IsNamedParams }}{{ if .Get "class" }} {{ .Get "class" }}{{ end }}{{ end }}" {{ if .IsNamedParams }}{{ if .Get "style" }} style="{{ .Get "style" | safeCSS }}"{{ end }}{{ end }}>
+<div class="media-box-inner">
+<audio controls preload="auto" class="b-lazy single-audio" data-src="{{ .Get "url" }}" type="audio/mpeg" controls preload="auto">
+<p>Your browser does not support the audio tag.</p>
+</audio>
+</div>
+{{ if .Inner  }}<div class="media-text donthyphenate"><p>{{ .Inner }}</p></div>{{ end }}
 </div>

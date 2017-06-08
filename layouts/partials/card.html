@@ -1,0 +1,36 @@
+<li itemscope class="uninit post {{ .Type }}">
+	<a href="{{ .Permalink }}" itemprop="url">
+		<div class="p-wrap-border"></div>
+		<div class="p-wrap">
+
+			<p class="list-title phrase" itemprop="name headline">{{ .Title }}</p>
+			{{ with .Params.cover }}
+			{{ $url := . }}
+				{{ range $.Site.Data.dimensions.images }}
+				{{ if (in .url $url) }}
+					<div class="list-img-wrapper" style="padding-bottom: {{ .ratio }}%">
+						<img class="list-cover img b-lazy" data-src="{{ $url }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="alt-text" />
+					</div>
+				{{ end }}
+			{{ end }}
+			{{ end }}
+
+				<script>
+					(function() {
+						if (typeof Page == 'function') {
+							var page = new Page();
+						}
+					})();
+				</script>
+
+			{{ with .Params.author }}
+				<div class="list-author">
+					{{ range . }}
+						<p>{{ . }}</p>
+					{{ end }}
+				</div>
+			{{ end }}
+
+		</div>
+	</a>
+</li>

@@ -5,12 +5,18 @@
 	{{ partial "navigation" . }}
 
 	<div class="site-wrapper">
+
+		{{ partial "breadcrumbs.html" . }}
+		{{ $tax := . }}
+		{{ $.Scratch.Add "tax" $tax }}
+
+
 		<main>
 			<div id="home" class="taxonomy-wrapper">
 
-
 				{{ $root := . }}
-				{{ $title := (.Title | urlize | title) }}
+				{{ $title := (.Title | urlize) }}
+				{{ $thread := (.Title | urlize) }}
 				{{ $page := (index .Data.Pages 0) }}
 				{{ $plural := .Data.Plural }}
 				{{ $singular := .Data.Singular }}
@@ -19,8 +25,22 @@
 				{{ if eq $taxonomy $singular }}
 
 					{{ range (index $page.Params $plural) }}
-					{{ if eq $title (. | urlize | title) }}
-							<h2 class="item-title phrase">{{ . }}</h2>
+					{{ if eq $title (. | urlize) }}
+
+						{{ range $root.Site.Pages }}
+						{{ if .Params.index }}
+
+						{{ if eq (.Params.index | urlize) ($title | urlize) }}
+						<div class="taxonomy-landing">
+							<div class="taxonomy-landing-content single-wrap">
+								<main role="main" class="item">
+									{{ partial "article.html" . }}
+								</main>
+							</div>
+						</div>
+						{{ end }}
+						{{ end }}
+						{{ end }}
 
 						{{ $desc := printf "%s-desc" $taxonomy }}
 						{{ $desctax := index $root.Site.Taxonomies $desc }}
@@ -40,7 +60,7 @@
 				<ul class="items">
 					{{ range .Data.Pages }}
 					{{ if ne .Draft true}}
-						{{ partial "items/list-item.html" . }}
+						{{ partial "card.html" . }}
 					{{ end }}
 					{{ end }}
 				</ul>

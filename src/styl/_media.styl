@@ -1,3 +1,40 @@
+figure
+	position: relative
+	font-weight: normal
+	display: inline-block
+
+	img 
+		display: block
+
+	figcaption
+		top: 100%
+		position: relative
+		padding-top: 0.5rem
+		max-width: inherit !important
+
+		*
+			max-width: inherit !important
+
+.single-figure
+	width: 100%
+	margin: 0 auto
+	display: block
+	max-width: inherit
+
+.sigle-img-wrapper,
+.list-img-wrapper
+	position: relative
+	height: 0
+
+.list-cover,
+.figure
+	position: absolute
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
+
+
 //---------
 // DEFAULTS
 //---------
@@ -30,13 +67,16 @@ audio:not([controls])
 		top: 50%
 		transform: translateY(-50%) !important
 
+		.caption
+			text-align: center
+			color: bw1
+
 		.gallery-cell-image
 			display: block
 			margin: 0 auto
 			max-width: 100%
 			opacity: 0
-			-webkit-transition: opacity 0.4s
-			transition: opacity 0.4s
+			transition: opacity 0.4s ease-in
 
 			&.flickity-lazyloaded,
 			&.flickity-lazyerror
@@ -90,14 +130,10 @@ audio:not([controls])
 		z-index: 2
 
 .b-lazy
-	transition: all 400ms ease-in
-	max-width: 100%
 	opacity: 0
-	max-width: 100%
 	margin-top: -10px
 
 	&.b-loaded
-		opacity: 1
 		margin-top: 0px
 
 @media (max-width: small-width)
@@ -109,24 +145,71 @@ audio:not([controls])
 //------------
 
 .media-box
-	margin: 0 auto
+	margin: 3.5rem auto 3rem auto
 	padding:  0em 0 0.5em 0
 	display: block
 	width: 100%
 
 .audio-box
-	margin: 1.5em 0 2.5em !important
+	margin: 2rem auto
+
+audio,
+audio.b-lazy.b-loaded,
+video
+	-webkit-appearance:none
+	margin: 1em auto 0.5em auto
+	width: 100%
+
+	&::-webkit-progress-value
+		background: blue0
+
+	&::-webkit-media-controls-panel
+		background: none
+
+	&::-webkit-media-controls-play-button
+		color: bw1
+
+	// &::-webkit-media-controls-volume-slider,
+	// &::-webkit-media-controls-mute-button,
+	// &::-webkit-media-controls-timeline,
+	// &::-webkit-media-controls-timeline-container
+	// 	background: red
+	// 	color: red
+
+
+	&::-webkit-media-controls-current-time-display
+		color: bw4
+
+	&::-webkit-media-controls-time-remaining-display
+		color: bw4
+
+	// &::-webkit-media-controls-seek-back-button
+
+	// &::-webkit-media-controls-seek-forward-button
+
+	// &::-webkit-media-controls-fullscreen-button
+
+	// &::-webkit-media-controls-rewind-button
+
+	// &::-webkit-media-controls-return-to-realtime-button
+
+	// &::-webkit-media-controls-toggle-closed-captions-button
+
+	// &::-webkit-media-controls-status-display
 
 audio
 	display: block
+	margin-top: 3.5rem !important
 
 .media-box-inner
 	display: block
 	margin: 0 auto
+	max-width: inherit
 
 .single-video
 	display: block
 	margin: 0 auto
+	max-width: inherit
 
 .img-box p
 	margin-bottom: 0
@@ -158,8 +241,10 @@ audio
 .img,
 .audio
 	margin: 0 auto
-	padding-top: 0.5em
 	display: block
+
+.audio
+	padding-top: 0.5em
 
 .img-right-left
 	float: left
@@ -171,27 +256,32 @@ svg:not(:root)
 
 .media-text p
 	font-size: 0.8em
-	padding: 1em 1em 0.5em 1em
+	padding: 1em 1em 0 1em
 	font-family: headline
 	font-weight: 500
-	color: bw5
+	color: bw1
 	margin: 0 auto
 
 	&:empty
 		display: none
 
-.single-wrap img
+.single-wrap .img-box
 	width: 100%
+	max-width: none
+	height: 0
+	position: relative
+	margin: 0 auto
+
+	img
+		width: 100%
+		height: auto
+		max-width: none
 
 // cover images
 .cover
-	margin: 6.5% 0 0 6.5%
-	width: 62%
 	background-size: cover
 	background-repeat: no-repeat
 	background-position: center center
-	transition: all 0.1s ease-in-out
-	min-height: 500px
 
 @media (max-width: large-width)
 	.cover
