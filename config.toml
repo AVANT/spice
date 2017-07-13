@@ -6,6 +6,9 @@ watch = true
 FootnoteReturnLinkContents = "↥"
 builddrafts = true
 pygmentsuseclasses = true
+contentDir = "content"
+layoutDir = "layouts"
+publishDir = "public"
 
 [blackfriday]
 	hrefTargetBlank = true
@@ -14,11 +17,11 @@ pygmentsuseclasses = true
 	tag = "tag"
 	thread = "thread"
 	author = "author"
+	editor = "editor"
 
 [params]
 	name = "Avant.org"
-	description = "A project space for the internet and elsewhere."
-	indextypes = ["project", "artifact", "event", "gallery", "index"]
+	description = "A distributed project space for research and practice."
 
 	# links to newer/older blog posts
 	newer = "Newer"
@@ -26,8 +29,3 @@ pygmentsuseclasses = true
 
 	pageNotFoundTitle = "404"
 	pageNotFoundSubtitle = "Page not found."
-
-	[params.menu]
-		# Menu items
-		title = "Avant.org"
-		bio = "A project space for the internet and elsewhere."

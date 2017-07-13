@@ -1,4 +1,3 @@
-
 // overwrite Packery methods
 var __resetLayout = Packery.prototype._resetLayout;
 Packery.prototype._resetLayout = function() {
@@ -42,14 +41,10 @@ var $grid = '';
 
 var $grid = $('.items').packery({
 	itemSelector: '.post',
-	columnWidth: 400,
-	hiddenStyle: {
-		opacity: 0
-	},
-	visibleStyle: {
-		opacity: 1
-	},
-	gutter: 20
+	columnWidth: 380,
+	gutter: 28,
+	transitionDuration: '0',
+	stamp: '.stamp'
 });
 
 // mark items as initialized

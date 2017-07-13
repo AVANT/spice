@@ -1,20 +1,10 @@
 {{ partial "head" . }}
-<body>
+{{ partial "site-map" . }}
 
-	{{ partial "navigation" . }}
+<main class="not-found-wrapper">
+	<h1 class="page-title not-found" itemprop="name headline">{{ .Site.Params.pageNotFoundTitle | markdownify }}</h1>
+	<h3 class="not-found">{{ .Site.Params.pageNotFoundSubtitle | markdownify }}</h3>
+</main>
 
-	<div class="site-wrapper">
-
-		<div class="not-found-wrapper">
-			<h1 class="page-title not-found" itemprop="name headline">{{ .Site.Params.pageNotFoundTitle | markdownify }}</h1>
-			<h3 class="not-found">{{ .Site.Params.pageNotFoundSubtitle | markdownify }}</h3>
-		</div>
-
-		{{ partial "footer" . }}
-
-	</div>
-
-	{{ partial "js" . }}
-
-</body>
-</html>
+{{ partial "footer" . }}
+{{ partial "tail" . }}

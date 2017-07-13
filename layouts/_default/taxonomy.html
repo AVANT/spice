@@ -1,80 +1,23 @@
 {{ partial "head" . }}
+{{ partial "site-map" . }}
 
-<body>
+<main class="taxonomy">
 
-	{{ partial "navigation" . }}
+	<article>
+		{{ .Content }}
+	</article>
 
-	<div class="site-wrapper">
+	<ul class="taxonomy-list">
+		{{ range .Data.Pages }}
+		{{ if ne .Draft true}}
+			{{ partial "card.html" . }}
+		{{ end }}
+		{{ end }}
+	</ul>
 
-		{{ partial "breadcrumbs.html" . }}
+</main>
 
-		<main>
-			<div id="home" class="taxonomy-wrapper">
-
-				{{ $root := . }}
-				{{ $title := (.Title | urlize) }}
-				{{ $thread := (.Title | urlize) }}
-				{{ $page := (index .Data.Pages 0) }}
-				{{ $plural := .Data.Plural }}
-				{{ $singular := .Data.Singular }}
-
-				{{ range $taxonomy, $value := .Data }}
-				{{ if eq $taxonomy $singular }}
-
-					{{ range (index $page.Params $plural) }}
-					{{ if eq $title (. | urlize) }}
-
-						{{ range $root.Site.Pages }}
-						{{ if .Params.index }}
-
-						{{ if eq (.Params.index | urlize) ($title | urlize) }}
-						<div class="taxonomy-landing">
-							<div class="taxonomy-landing-content single-wrap">
-								<main role="main" class="item">
-									{{ partial "article.html" . }}
-								</main>
-							</div>
-						</div>
-						{{ end }}
-						{{ end }}
-						{{ end }}
-
-						{{ $desc := printf "%s-desc" $taxonomy }}
-						{{ $desctax := index $root.Site.Taxonomies $desc }}
-						{{ $descpages := index $desctax (. | urlize) }}
-
-						{{ if len $descpages }}
-							{{ $descpage := index $descpages 0 }}
-							<span class="term-desc">{{ $descpage.Page.Content }}</span>
-						{{ end }}
-
-					{{ end }}
-					{{ end }}
-
-				{{ end }}
-				{{ end }}
-
-				<ul class="items">
-					{{ range .Data.Pages }}
-					{{ if ne .Draft true}}
-						{{ partial "card.html" . }}
-					{{ end }}
-					{{ end }}
-				</ul>
-
-			</div>
-		</main>
-
-		{{ partial "pagination" . }}
-		{{ partial "footer" . }}
-
-		<script>
-			footer = document.getElementById('footer');
-			try { footer.style.opacity = "1"; footer.style.height = "280px"; } catch(e) {"waiting for footer"};
-		</script>
-
-	</div>
-	{{ partial "js" . }}
-
-</body>
-</html>
+{{ partial "pagination" . }}
+{{ partial "footer" . }}
+{{ partial "footer-load" . }}
+{{ partial "tail" . }}

@@ -1,16 +1,8 @@
-<div class="media-box">
-<figure class="single-figure"
-{{ if .Get "width" }}style="width: {{ .Get "width" | safeCSS }}"{{ end }}{{ if .Get "max-width" }}style="max-width: {{ .Get "max-width" | safeCSS }}"{{ end }}>
-<div class="img-box"
-{{ $url := .Get "url" }}
-{{ range $.Site.Data.dimensions.images }}
-{{ if (in .url $url) }}
-style="padding-bottom: {{ .ratio }}%"
-{{ end }}
-{{ end }}
->
+<div {{ if .IsNamedParams }} {{ if .Get "wide" }}style="max-width: 800px;"{{ end }} {{ if .Get "style" }} style="{{ .Get "style" | safeCSS }}"{{ end }}{{ end }} class="media-box">
+<figure class="single-figure" {{ if .Get "width" }}style="width: {{ .Get "width" | safeCSS }};"{{ end }}>
+<div class="img-box" {{ $url := .Get "url" }}{{ range $.Site.Data.dimensions.images }}{{ if (in .url $url) }} style="padding-bottom: {{ .ratio }}%"{{ end }}{{ end }}>
 <img class="img b-lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ .Get "url" }}" alt="alt-text" />
 </div>
-{{ if .Inner  }}<figcaption class="media-text"><p>{{ .Inner }}</p></figcaption>{{ end }}
+{{ if .Inner  }}<figcaption class="media-text donthyphenate"><p>{{ .Inner }}</p></figcaption>{{ end }}
 </figure>
 </div>

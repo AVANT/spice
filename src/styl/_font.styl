@@ -1,6 +1,9 @@
+
+
 //-------------
 // TIEMPOS TEXT
 //-------------
+
 
 @font-face
 	font-family: 'Tiempos Text'
@@ -61,6 +64,7 @@
 // TIEMPOS TEXT ITALIC
 //--------------------
 
+
 @font-face
 	font-family: 'Tiempos Text'
 	src: url('../fonts/TiemposTextWeb-LightItalic.eot')
@@ -120,6 +124,7 @@
 // TIEMPOS HEADLINE
 //-----------------
 
+
 @font-face
 	font-family: 'Tiempos Headline'
 	src: url('../fonts/TiemposHeadlineWeb-Light.eot')
@@ -178,6 +183,7 @@
 //------------------------
 // TIEMPOS HEADLINE ITALIC
 //------------------------
+
 
 @font-face
 	font-family: 'Tiempos Headline'
@@ -264,11 +270,12 @@ td
 		-moz-font-feature-settings: "kern=1, liga=1, dlig=1, frac=1, pnum=1, onum=1, frac=1, ordn=1, smcp=1"
 		font-feature-settings: "kern", "liga", "dlig", "frac", "pnum", "onum", "frac", "ordn", "smcp"
 		font-variant-caps: small-caps
-		text-transform: uppercase
+
 
 //----------
 // SELECTION
 //----------
+
 
 main,
 article,
@@ -282,10 +289,20 @@ ol,
 li,
 div,
 a,
+p,
+em,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong,
+
 span,
 section,
 summary,
-.media-text,
+.media-text
 	+selection()
 		background-color: bw2
 		color: white
@@ -300,10 +317,15 @@ img,
 .img,
 .nav *,
 .foot *,
+.meta *,
+.spacer *,
+sup *,
 .init,
+br,
 .splash-spacer
 	+selection()
 		background-color: transparent
+		color: inherit
 
 img
 	user-select: none
@@ -313,30 +335,11 @@ img
 // HYPHENATION
 //------------
 
+
 .hyphenate
 	hyphens: auto
 
 .donthyphenate,
 blockquote p 
 	hyphens: none !important
-
-
-//--------
-// ELUSIVE
-//--------
-
-.el-icon-link:before
-	content: '\e68f'
-
-.el-icon-twitter:before
-	content: '\e61b'
-
-.el-icon-facebook:before
-	content: '\e6d9'
-
-.el-icon-instagram:before
-	content: '\e698'
-
-.el-icon-cc:before
-	content: '\e702'
 

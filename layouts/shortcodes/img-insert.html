@@ -7,9 +7,9 @@
 		<img class="figure figure-right img b-lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ .Get "url" }}" alt="alt-text" />
 	</div>
 
-<figcaption class="">
+<figcaption class="donthyphenate">
 	{{ if .Get "title" }}<h3>{{ .Get "title"}}</h3>{{ end }}
-	{{ if .Inner  }}
+	{{ if .Inner }}
 	<div class="media-text">
 		<p>{{ .Inner }}</p>
 	</div>

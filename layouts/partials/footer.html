@@ -1,32 +1,41 @@
+<div class="yoooo">
+	{{ .IsPage }}
+</div>
+
 <div id="footer" class="foot-wrapper">
 
-<div class="foot-border"></div>
+	<div class="foot-border"></div>
 
 	<div class="foot">
 
 		<div class="foot-links">
 			<a target="_blank" href="http://researchtactics.com">Research Tactics</a>
-			<a href="{{ .Site.BaseURL }}imprint">Imprint</a>
-			<a target="_blank" href="{{ $.Site.BaseURL  }}index.xml">RSS</a>
 		</div>
 
 		<div class="foot-social">
 			<a class="social-link" href="mailto:editorial@avant.org?subject=message%20via%20avant.org" target="_blank"><i class="fa fa-reply" aria-hidden="true"></i></a>
-			<a class="social-link" href="{{ $.Site.BaseURL  }}rss" target="_blank"><i class="fa fa-rss"></i></a>
-			<a class="social-link" href="http://github.com/avant" target="_blank"><i class="fa fa-code-fork" aria-hidden="true"></i></a>
-			<a class="social-link" href="http://soundcloud.com/avantdotorg" target="_blank"><i class="fa fa-soundcloud" aria-hidden="true"></i></a>
-			<a class="social-link" href="http://vimeo.com/avantdotorg" target="_blank"><i class="fa fa-vimeo"></i></a>
-			<a class="social-link" href="http://instagram/avantdotorg" target="_blank"><i class="fa fa-instagram"></i></a>
-			<a class="social-link" href="http://facebook.com/avantdotorg" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-			<a class="social-link" href="http://twitter.com/avantdotorg" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+			<a class="social-link" href="{{ $.Site.BaseURL }}index.xml" target="_blank"><i class="fa fa-rss"></i></a>
+			<a class="foot-cc-wrap" target="_blank" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="fa fa-creative-commons" aria-hidden="true"></i></a>
+			<a class="social-link" href="https://www.instagram.com/avantdotorg/" target="_blank"><i class="fa fa-instagram"></i></a>
+			<a class="social-link" href="https://twitter.com/avantdotorg" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
 		</div>
 
-		<div class="foot-license">
-			<a target="_blank" href="https://creativecommons.org/licenses/by-nc/4.0/"><i id="foot-cc" class="el el-cc"></i></a>
-		</div>
+		<a href="http://avant.org/"><img class="foot-logo" src="{{ $.Site.BaseURL  }}logo_san.svg" alt=""></a>
 
-		<!-- <img class="foot-logo" src="{{ $.Site.BaseURL  }}logo.svg" alt=""> -->
-		<img class="foot-logo" src="{{ $.Site.BaseURL  }}logo_san_serif_layered.svg" alt="">
+		<div class="nav-newsletter">
+			<form action="//avant.us3.list-manage.com/subscribe/post?u=ce9d44831a234bd3f42ef5ca4&amp;id=297278e3fc" method="post" name="mc-embedded-subscribe-form" class="newsletter-signup validate newsletter-signup" target="_blank" autocomplete="off" novalidate>
+				<!-- input -->
+				<input onfocus="this.placeholder = ''" onblur="this.placeholder = 'Newsletter '" value="" type="email" placeholder="Newsletter " name="EMAIL" class="email" id="mce-EMAIL" required>
+				<!-- honeypot -->
+				<div class="honeypot">
+					<input type="text" name="b_ce9d44831a234bd3f42ef5ca4_297278e3fc" tabindex="-1" value="">
+				</div>
+				<!-- submit -->
+				<div class="clear">
+					<input type="submit" value="→" name="subscribe" id="mc-embedded-subscribe" class="button js-submit" />
+				</div>
+			</form>
+		</div>
 
 	</div>
 

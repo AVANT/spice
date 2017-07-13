@@ -1,6 +1,8 @@
+#home.taxonomy-wrapper .items
+	top: 100px
 
 .taxonomy-list
-	margin: 0 0 5em 5.5em
+	margin: 0 0 5em 0
 	min-height: 60%
 
 	.multi-col
@@ -17,28 +19,37 @@
 			width: 100%
 
 			.letter-title
-				font-size: f38
-				color: white
-				font-weight: 600
+				color: bw4
+				font-weight: 900
 				font-family: headline
-				margin: 0 0 -0.2rem
+				margin: 0.2rem 0 0.8rem 0
 
 			li
 				display: block
 				white-space: nowrap
+				line-height: 2rem
+				font-size: f14
 
 				a,
 				span
 					whitespace: nowrap
 					font-family: headline
-					font-weight: 500
+					font-weight: 600
+
+				.nav-item-number
+					font-weight: 700
+					position: relative
+					line-height: 0
+					top: -0.1rem
 
 	ul
 		margin-top: 20px
-		padding-top: 3em
+		padding-top: 4em
 
 		li
 			list-style-type: none
+			line-height: 3rem
+			font-size: f16
 
 			a
 				font-weight: 600
@@ -49,14 +60,21 @@
 					color: bw4
 
 			span
-				font-weight: 500
+				font-weight: 600
 				font-family: headline
 				font-size: 0.8em
 				color: bw4
 
+			.letter-title
+				margin: 0 0 1.2rem
+
+			.nav-item-number
+				font-weight: 700
+				position: relative
+				line-height: 0
+				top: -0.1rem
+
 @media (max-width: large-width)
-	.taxonomy-list ul
-		padding-top: 4em
 
 	.taxonomy-list .multi-col
 		column-count: 2
@@ -64,3 +82,7 @@
 @media (max-width: medium-width)
 	.taxonomy-list .multi-col
 		column-count: 1
+
+@media (max-width: small-width)
+	.taxonomy-list .multi-col ul
+		padding-left: 30px

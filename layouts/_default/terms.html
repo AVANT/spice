@@ -1,55 +1,41 @@
 {{ partial "head" . }}
+{{ partial "site-map" . }}
 
-<body>
+<main class="terms">
 
-	{{ partial "navigation" . }}
+	{{ $taxonomyName := .Data.Plural }}
+	{{ $description := printf "%s-desc" .Data.Singular }}
+	{{ $taxonomyDescription := index $.Site.Taxonomies $description }}
 
-	<div class="site-wrapper">
+	<article>
+		{{ .Content }}
+	</article>
 
-		{{ partial "breadcrumbs.html" . }}
+	<ul class="terms-list">
+	{{ range $name, $pages := .Data.Terms }}
+		{{ $page := index $pages 0 }}
+		{{ $len := len $pages }}
+		{{ range $friendly := index $page.Page.Params $taxonomyName }}
+			{{ if eq ($friendly | urlize) $name }}
+				<li>
+					<a href="{{ (printf "/%s/%s" $taxonomyName $name) | relURL }}">{{ $friendly | title }}</a>
+					&nbsp;<span class="nav-item-number">[ {{ $len }} ]<span>
+				</li>
+			{{ end }}
+		{{ end }}
 
-		<main>
-			<div id="home" class="taxonomy-wrapper">
+		{{ $descPages := index $taxonomyDescription $name }}
+		{{ if len $descPages }}
+		<li>
+			{{ $descPage := index $descPages 0 }}
+			<span class="term-desc">{{ $descPage.Page.Content }}</span>
+		</li>
+		{{ end }}
+	{{ end }}
+	</ul>
 
-				{{ $taxonomyName := .Data.Plural }}
-				{{ $description := printf "%s-desc" .Data.Singular }}
-				{{ $taxonomyDescription := index $.Site.Taxonomies $description }}
+</main>
 
-				<div class="taxonomy-list">
-					<ul>
-					{{ range $name, $pages := .Data.Terms }}
-						{{ $page := index $pages 0 }}
-						{{ $len := len $pages }}
-						{{ range $friendly := index $page.Page.Params $taxonomyName }}
-							{{ if eq ($friendly | urlize) $name }}
-								<li>
-									<a href="{{ (printf "/%s/%s" $taxonomyName $name) | relURL }}">{{ $friendly | title }}</a>
-									&nbsp;<span class="nav-item-number">[ {{ $len }} ]<span>
-								</li>
-							{{ end }}
-						{{ end }}
-
-						{{ $descPages := index $taxonomyDescription $name }}
-						{{ if len $descPages }}
-						<li>
-							{{ $descPage := index $descPages 0 }}
-							<span class="term-desc">{{ $descPage.Page.Content }}</span>
-						</li>
-						{{ end }}
-					{{ end }}
-					</ul>
-				</div>
-			</div>
-		</main>
-	{{ partial "footer" . }}
-	</div>
-
-	<script>
-		footer = document.getElementById('footer');
-		try { footer.style.opacity = "1"; footer.style.height = "280px"; } catch(e) {"waiting for footer"};
-	</script>
-
-	{{ partial "js" . }}
-
-</body>
-</html>
+{{ partial "footer" . }}
+{{ partial "footer-load" . }}
+{{ partial "tail" . }}

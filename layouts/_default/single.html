@@ -1,39 +1,15 @@
 {{ partial "head" . }}
+{{ partial "site-map" . }}
 
-<body>
+<main class="single">
 
-	{{ partial "navigation" . }}
+	<img class="cover-img" src="{{ with .Params.cover }}{{ . }}{{ end }}">
 
-	<div class="site-wrapper">
-		{{ partial "breadcrumbs.html" . }}
+	<article class="text-body">
+		{{ .Content }}
+	</article>
 
-		{{ if eq .Type "solo" }}
-			<div class="single-wrapper-solo">
-				<main role="main" class="item">
-					<div class="text-body" itemprop="articleBody">
-						{{ .Content }}
-					</div>
-				</main>
-			</div>
-		{{ else }}
-			<div class="single-wrap">
-				<main role="main" class="item">
-					{{ partial "article.html" . }}
-				</main>
-			</div>
-		{{ end }}
+</main>
 
-
-		{{ partial "footer" . }}
-	</div>
-
-	<!-- global footer js --> 
-	{{ partial "js" . }}
-
-	<!-- optionally insert shortcode js --> 
-	{{ if ($.Scratch.Get "js") ne "" }}
-		{{ ($.Scratch.Get "js") | safeHTML }}
-	{{ end }}
-
-</body>
-</html>
+{{ partial "footer" . }}
+{{ partial "tail" . }}

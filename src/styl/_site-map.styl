@@ -1,0 +1,434 @@
+//-----
+// LOGO
+//-----
+
+.site-map
+	z-index: 400
+
+.logo-link-wrapper
+	display: block
+	position: fixed
+	z-index: 200
+	cursor: pointer
+	top: 16px
+	left: 16px
+	width: 64px
+	height: 64px
+
+	.logo-link
+		display: block
+
+		.logo
+			width: 64px
+			display: block
+			margin: 0 auto
+			transition: width t0
+
+			path
+				transition: all t0
+
+			#a
+				fill: white
+
+			#circle
+				fill: none
+
+			#fill
+				fill: bw1
+				opacity: 0.1
+
+			&:hover
+				#a
+					fill: bw1
+
+				#circle
+					fill: none
+
+				#fill
+					fill: white
+					opacity: 0.5
+
+		&.open
+			.logo
+				#a
+					fill: bw1
+
+				#circle
+					fill: none
+
+				#fill
+					fill: white
+
+				&:hover
+					#a
+						fill: bw1
+
+					#circle
+						fill: none
+
+					#fill
+						fill: white
+						opacity: 0.5
+
+.site-wrapper
+	transition: left 0.1s ease-in-out
+	left: 0px
+
+	.meta-block .breadcrumbs
+		display: none
+
+	.breadcrumbs
+		position: absolute
+
+		.bc-underline
+			border-bottom: 2px solid white
+			padding-bottom: 0.3rem
+
+			a
+				transition: color t0
+				line-height: 4rem
+				font-size: f22
+
+				&:hover
+					color: bw5
+
+			.bc-title
+				font-size: 2.2rem
+
+	.breadcrumbs,
+	.splash-spacer
+		width: 76%
+		text-align: center
+		transition: margin 0.1s ease-in-out
+
+	.breadcrumbs
+		margin: 3rem 12%
+
+	.splash-spacer
+		padding: 3rem 0 4.5rem 0
+		margin: 1.2rem 12%
+
+	&.open
+		left: 250px
+
+		.bc-title. breadcrumbs
+			left: 250px
+
+		.bc-top .breadcrumbs
+			margin: 3rem calc(12% - 250px)
+
+		.breadcrumbs
+			margin: 3rem calc(12% - 250px)
+
+		.splash-spacer
+			margin: 1.2rem calc(12% - 250px)
+
+		.meta-wrapper
+			left: calc(100% - 590px)
+
+		.single-wrapper-solo,
+		.taxonomy-wrapper,
+		.list-wrapper
+			h2
+				margin: 0.15em 0 0 calc(4em - 250px)
+				opacity: 0
+
+	.single-wrapper-solo,
+	.taxonomy-wrapper,
+	.list-wrapper
+		h2
+			position: absolute
+			margin: 0.15em 0 0 4em
+			opacity: 1
+			transition: all .1s ease-in-out
+
+
+
+@media (max-width: large-width)
+	.site-wrapper
+		.single-wrapper-solo,
+		.taxonomy-wrapper,
+		.list-wrapper
+			h2
+				margin: 0.3em 0 0 4em
+				opacity: 1
+				transition: all .1s ease-in-out
+
+	.site-wrapper.open
+		.single-wrapper-solo,
+		.taxonomy-wrapper,
+		.list-wrapper
+			h2
+				margin: 0.3em 0 0 calc(4em - 250px)
+				opacity: 0
+
+
+//-----
+// MENU
+//-----
+
+.nav-wrapper
+	z-index: 100
+	overflow: hidden
+	box-sizing: border-box
+	padding-right: 1em
+	padding: 0
+	bottom: 0
+	top: 0
+	left: 0
+	right: 0
+	margin: 0
+	padding: 0
+	height: 100% !important
+	width: 100% !important
+	z-index: -50
+	position: fixed
+
+	&.open
+		z-index: 10
+
+		.nav
+			margin-left: 0px
+
+			.nav-overlay
+				left: 0
+
+		.nav-background
+			position: absolute
+			z-index: 0
+			width: 100%
+			height: 100%
+
+	.nav
+		z-index: 1
+		display: block
+		margin-left: -250px
+		height: 100%
+		width: 250px
+		transition: margin-left 0.1s ease-in-out
+		min-height: 550px
+		overflow-y: auto
+
+		.nav-fill
+			background: bw1
+			opacity: 0.98
+			width: 100%
+			height: 100%
+			position: relative
+			z-index: -1
+			border: 1px solid bw2
+
+		.nav-background
+			position: fixed
+			z-index: 0
+			width: 0
+			height: 0
+
+		.nav-overlay
+			z-index: 2
+			margin: 105px 0 0 0
+			width: 250px
+			height: 100%
+			position: absolute
+			top: 0
+			left: -250px
+			transition: left 0.1s ease-in-out
+
+			ul
+				margin: 1.5rem 1rem
+				display: inline-block
+
+				li
+					list-style-type: none
+					transition: background t0
+					transition: border t0
+					background: rgba(255, 255, 255, 0)
+
+					a
+						text-decoration: none
+						margin: 0
+						transition: color t0
+						color: white
+						font-weight: 500
+						font-size: f14
+						text-decoration: none
+						display: block
+
+			.nav-links
+				padding-left: 0.2em
+
+				.nav-home
+					margin: 0
+					width: 100%
+					//text-transform: uppercase
+
+					li a
+						font-size: f17
+						// font-variant: small-caps
+						padding: 0
+
+				.nav-imprint
+					margin-top: 0
+
+				.nav-objects li a
+					font-size: f13
+					font-family: headline
+					text-transform: uppercase
+					font-variant-caps: small-caps
+
+				ul
+					display: inline-block
+					margin: 0.4rem 4rem 0.4rem 0
+					padding: 0 0 0 2.4rem
+
+					li
+						margin: 0
+
+						a
+							color: white
+							padding: 0.25rem 0.35rem 0.35rem 0
+							font-family: headline
+							font-weight: 600
+
+							&:hover
+								color: bw5
+
+				.nav-spacer
+					height: 0
+					width: 2px
+					border-top: 2px solid bw5
+					margin: 0.5rem 0 0.5rem 2.5rem
+
+			.nav-social
+				text-align: center
+				margin: 0 auto
+				width: 100%
+				position: absolute
+				bottom: 10.4rem
+
+				.social-link-wrapper
+					display: inline
+
+					.social-link
+						color: white
+						text-decoration: none
+						display: inline
+						margin: 0 0.65em
+
+						.social-link-icon
+							transition: color t0
+
+							&:hover
+								color: bw5
+
+
+// SMALL-WIDTH
+@media (max-width: small-width)
+	.site-wrapper
+		transition: left 0s ease-in-out
+
+		.breadcrumbs
+			width: 80%
+			transition: none !important
+			margin: 1.4rem 10% !important
+
+			.bc-underline
+				font-size: f20
+
+				a
+					font-size: f20
+
+		&.open  // freeze small-width site
+			overflow: hidden
+			left: 100%
+			transition: none
+
+			.meta-wrapper
+				right: 0 !important
+
+	.nav-wrapper
+		display: none
+
+		&.open
+			position: absolute
+			bottom: 0
+			top: 0
+			left: 0
+			right: 0
+			margin: 0
+			padding: 0
+			height: 100%
+			width: 100%
+			display: block
+
+		.nav
+			display: block
+			margin: 0
+			left: 0
+			top: 0
+			height: 100%
+			width: 100%
+
+			.nav-overlay
+				width: 100%
+				margin-top: 85px !important
+
+
+
+
+// LARGE-WIDTH
+@media (max-width: large-width)
+	.site-wrapper
+
+		.meta-wrapper,
+		.breadcrumbs,
+		.splash-spacer
+			transition: left 0.1s ease-in-out, margin 0.1s ease-in-out
+			left: 0
+
+		.breadcrumbs
+			width: 80%
+			transition: none !important
+			margin: 2rem 10% !important
+
+			.bc-underline
+				font-size: f20
+
+				a
+					font-size: f20
+
+		.bc-top
+			display: none
+
+		.meta-block .breadcrumbs
+			position: relative !important
+			display: block
+
+			.bc-underline
+				border-bottom: 0 !important
+
+				a
+					border-bottom: 0
+					box-shadow: none
+
+
+		&.open
+			.splash-spacer,
+			.breadcrumbs
+				left: 250px !important
+
+			.meta-wrapper
+				left: 0 !important
+
+			.splash-spacer,
+			.meta-wrapper
+				margin: 1.5rem auto !important
+
+	.logo-link-wrapper
+		top: 13px
+		left: 13px
+		width: 52px
+		height: 52px
+
+		.logo-link .logo
+			width: 52px

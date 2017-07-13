@@ -1,3 +1,5 @@
+
+
 //------
 // fonts
 //------
@@ -21,7 +23,7 @@ bw5 = #808080 // 50%
 bw4 = #666666 // 40%
 bw3 = #4d4d4d // 30%
 bw2 = #333333 // 20%
-bw1 = #1a1a1a // 10%
+bw1 = #1a1a1a // 10% - site text
 black = #000000 // 0%
 
 // blue palette
@@ -35,27 +37,42 @@ blue1-rgba = rgba(170, 170, 220, 0.2)
 
 
 //------
-// SIZES
+// sizes
 //------
 
 html
 	font-size: 62.5%
 
 f40 = 40px 4rem
+f39 = 39px 3.9rem
 f38 = 38px 3.8rem
+f37 = 37px 3.7rem
 f36 = 36px 3.6rem
+f35 = 35px 3.5rem
 f34 = 34px 3.4rem
+f33 = 33px 3.3rem
 f32 = 32px 3.2rem
+f31 = 31px 3.1rem
 f30 = 30px 3rem
+f29 = 29px 2.9rem
 f28 = 28px 2.8rem
+f27 = 27px 2.7rem
 f26 = 26px 2.6rem
+f25 = 25px 2.5rem
 f24 = 24px 2.4rem
+f23 = 23px 2.3rem
 f22 = 22px 2.2rem
+f21 = 21px 2.1rem
 f20 = 20px 2rem
+f19 = 19px 1.9rem
 f18 = 18px 1.8rem
+f17 = 17px 1.7rem
 f16 = 16px 1.6rem
+f15 = 15px 1.5rem
 f14 = 14px 1.4rem
+f13 = 13px 1.3rem
 f12 = 12px 1.2rem
+f11 = 11px 1.1rem
 f10 = 10px 1rem
 
 
@@ -76,22 +93,31 @@ t1 = 0.1s ease-in-out
 // media querry variables
 //-----------------------
 
-small-width = 414px
-medium-width = 650px
+small-width = 480px
+medium-width = 768px
 large-width = 1024px
-ex-large-width = 1300px
 
 
 //-------
 // mixins
 //-------
 
+// components
+
+underline(primary, secondary)
+	text-decoration: none
+	transition: box-shadow t0
+	box-shadow: inset 0 0.1em 0 0 bw10, inset 0 -0.15em 0 0 primary
+
+	&:hover
+		box-shadow: inset 0 0.1em 0 0 bw10, inset 0 -0.15em 0 0 secondary
+
 // selectors
 
 selection()
-	&:-moz-selection
-		{block}
 	&::selection
+		{block}
+	&:-moz-selection
 		{block}
 
 placeholder()
@@ -104,6 +130,11 @@ placeholder()
 	&:-ms-input-placeholder
 		{block}
 
+
+ms-opacity()
+	@css {
+		filter: progid:DXImageTransform.Microsoft.Alpha(opacity=arguments);
+	}
 
 // properties
 

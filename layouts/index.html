@@ -1,32 +1,21 @@
 {{ partial "head" . }}
-<body>
+{{ partial "site-map" . }}
 
-	{{ partial "navigation" . }}
+<main id="homepage" class="list">
 
-		<div class="site-wrapper">
+	<article>
+		{{ .Content }}
+	</article>
 
-			{{ partial "breadcrumbs.html" . }}
+	<ul class="items index" id="posts">
+		{{ $paginator := .Paginate (where (where .Data.Pages.ByDate.Reverse "Type" "not in"  (slice "imprint" "json")) "Draft" "!=" true ) }}
+		{{ range $paginator.Pages }}
+			{{ partial "card.html" . }}
+		{{ end }}
+	</ul>
 
-			<main>
-				<div id="home" class="list-wrapper">
+</main>
 
-					<ul class="items" id="posts">
-
-					{{ $paginator := .Paginate (where (where .Data.Pages.ByDate.Reverse "Type" "not in"  (slice "author-index" "thread-index" "landing" "solo" "json" "gallery")) "Draft" "!=" true ) }}
-					{{ range $paginator.Pages }}
-						{{ partial "card.html" . }}
-					{{ end }}
-
-					</ul>
-
-				</div>
-			</main>
-
-			{{ partial "pagination" . }}
-			{{ partial "footer" . }}
-		</div>
-
-	{{ partial "js" . }}
-
-</body>
-</html>
+{{ partial "pagination" . }}
+{{ partial "footer" . }}
+{{ partial "tail" . }}

@@ -28,8 +28,11 @@ html
 		text-rendering: optimizeLegibility
 		-webkit-font-smoothing: antialiased
 
+		th
+			text-align: left
+
 		main
-			margin-bottom: 80px
+			margin-bottom: 215px
 			min-height: 70%
 
 	.site-wrapper
@@ -42,16 +45,6 @@ html
 
 	.donthyphenate
 		hyphens: none
-
-
-.small
-	font-size: 90%
-
-h3
-	font-size: $f20
-
-h5
-	font-size: $f16
 
 iframe
 	border:none
@@ -83,11 +76,9 @@ span
 	letter-spacing: none
 
 
-
-
-@media (max-width: large-width)
-	body
-		font-size: f12
+@media (max-width: small-width)
+	html body main
+		margin-bottom: 195px
 
 @media (max-width: large-width)
 	body
@@ -105,9 +96,6 @@ span
 h1,
 h2,
 h4,
-h5,
-h6,
-h5,
 h6
 	font-family: headline
 	font-weight: 700
@@ -115,6 +103,7 @@ h6
 
 h1
 	margin: .67em 0
+	font-size: f25 
 
 h2
 	font-size: 130%
@@ -122,12 +111,16 @@ h2
 
 h3,
 h5
-	font-weight: 700
+	font-weight: 600
 	margin: 1em 0 .5em
 	color: bw1
+	font-family: text
 
+h3
+	font-size: f16
 
-	font-size: 1.2em
+h5
+	font-size: f14
 
 a
 	color: bw1
@@ -141,12 +134,17 @@ a
 p
 	font-size: 0.9em
 	margin: 1em auto
-	line-height: 1.4
+	line-height: 1.5
+
+	&:empty
+		margin: 0 !important
+
+.small
+	font-size: 90%
 
 b,
 strong
 	font-weight: 600
-
 
 hr
 	box-sizing: content-box

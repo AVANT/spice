@@ -1,8 +1,9 @@
 <div class="media-box" {{ if .IsNamedParams }}{{ if .Get "style" }} style="{{ .Get "style" | safeCSS }}"{{ end }}{{ end }}>
 
 <div class="media-box-inner">
+
 {{ if .Get "mov" }}
-<video width="640" {{ if .Get "url" }}poster="{{ .Get "url" }}"{{ end }} controls preload="auto" class="b-lazy single-video" data-src="{{ .Get "mov" }}" type="video/mp4">
+<video {{ if .Get "url" }}poster="{{ .Get "url" }}"{{ end }} controls preload="auto" class="b-lazy single-video" data-src="{{ .Get "mov" }}" type="video/mp4">
 <p>Your browser does not support the video tag.</p>
 </video>
 {{ end }}
@@ -22,8 +23,9 @@
 </iframe>
 </div>
 {{ end }}
+
 </div>
 
-{{ if .Inner  }}<div class="media-text" {{ if .Get "width" }}style="width: {{ .Get "width" }}"{{ end }} ><p>{{ .Inner }}</p></div>{{ end }}
+{{ if .Inner }}<div class="media-text donthyphenate" {{ if .Get "width" }}style="width: {{ .Get "width" }}"{{ end }} ><p>{{ .Inner }}</p></div>{{ end }}
 
 </div>

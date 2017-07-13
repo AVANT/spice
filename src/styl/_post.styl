@@ -11,26 +11,25 @@
 		margin-left: auto
 		margin-right: auto
 
+	p:last-child
+		margin-bottom: 0
+
+p
+	hanging-punctuation: first
+
+html[lang="zh-Hans"]
+	text-align: justify
+	hanging-punctuation: allow-end
+
 .single-wrap
 	width: 100%
-	z-index: 1
+	z-index: -2
 
-	.single-content
-		padding: 0
-
-		.text-body
-			a
-				text-decoration: none !important
-				color: bw1
-				word-break: break-word
-				transition: box-shadow t0
-				box-shadow: inset 0 -0.1em 0 0 bw7
-
-				&:hover
-					box-shadow: inset 0 -0.1em 0 0 bw3
-
-	.txt
-		margin: 0 auto
+	.text-body
+		a
+			color: bw1
+			word-break: break-word
+			underline: bw8 white
 
 	.feat
 		text-align: center
@@ -48,7 +47,7 @@
 		text-align: right
 
 	ul
-		padding-left: 1em
+		padding-left: 2rem
 		list-style-type: circle
 
 	ul,
@@ -56,49 +55,49 @@
 		margin: 2em auto
 
 		li
-		margin-bottom: .5em
+			margin-bottom: 1rem
+
+			.block-inner
+				font-size: f14
+				margin-bottom: 1rem
 
 		ul li
-			margin-left: 2em
+			margin-left: 2rem
 			list-style: square
 
 	.block
 		ul,
 		ol
-			margin: 1em auto
+			margin: 1em auto 0.2em auto
 
 			li
-				margin-left: 1em
+				margin-left: 1rem
 				padding-left: 0.3em
-				font-size: 0.9em
+				font-size: f12
 				font-weight: 600
+
+				&:last-child
+					margin-bottom: 0
 
 @media (max-width: small-width)
 
 	.single-wrap .feat .popup
 		font-size: 150%
 
-.init
-	float: left
-	margin: 5px 20px 0px 0px
-	padding: 0px 18px 7px 18px
-	font-size: 4.3em
-	font-family: headline
-	font-weight: 800
-	color: bw1
-	line-height: 1
-	text-indent: 0
-	background: white
-
-p + .init
-	text-indent: 0
-	margin-top: 0
-
 .spacer
 	text-align: center
-	margin: 35px auto 40px auto
-	letter-spacing: 1em
-	font-size: 0.8em
+	display: block
+	margin: 35px auto 42px auto
+	width: 140px
+	text-align: center
+
+	.space
+		display: block
+		margin: 0 auto
+		letter-spacing: 1em
+		font-size: f14
+		text-align: center
+		padding-left: 14px
 
 @media (max-width: large-width)
 	.center-inner
@@ -121,31 +120,32 @@ p + .init
 // ANNOTATION
 //-----------
 
-sup
-	top: -.4em
-	font-size: 80%
-	line-height: 0
+sup,
+sub
+	line-height: 1
+	height: 0
 	position: relative
 	vertical-align: baseline
-	padding-left: 0.1em
+	_vertical-align: bottom
+	font-size: 75%
+	hyphens: none
+
+sup
+	top: -.5em
 
 sub
 	bottom: -.25em
-	font-size: 75%
-	line-height: 0
-	position: relative
-	vertical-align: baseline
 
 .foot-hr
-	margin-top: 1.5em
+	margin: 5rem auto 3rem auto
 	border-style: solid
 	border-color: bw1
 
 // body anchor
 .footnote-ref a
 	text-decoration: none
-	color: blue0
-	padding: 0 0.2em
+	color: blue0 !important
+	padding: 0
 	font-weight: 500
 	box-shadow: none !important
 
@@ -158,7 +158,6 @@ sub
 	line-height: 0
 	position: relative
 	vertical-align: baseline
-	box-shadow: none !important
 
 	a
 		color: blue0 !important
@@ -169,50 +168,51 @@ sub
 .footnote-return
 	a:hover
 		box-shadow: none !important
-
-.footnote-ref,
-.footnote-return
-	a:hover
 		color: bw1 !important
 
+.single-wrap
+	.footnotes
+		padding: 0
 
-.footnotes
-	padding: 0
-	font-size: 0.9em
+		&,
+		a,
+		p,
+		ol li,
+		ul li
+			font-family: headline
+			font-weight: 500
+			color: bw1
+			font-size: f13
 
-	&,
-	a,
-	ol li,
-	ul li
-		font-family: headline
-		font-weight: 500
-		color: bw1
+		h3
+			margin-top: 1.5rem
 
-	h3
-		margin-top: 1.5em
+		a
+			color: bw1
 
-	a
-		color: bw1
+		hr
+			display: none
 
-	hr
-		display: none
+		ol,
+		ul
+			padding-left: 1.7rem
+			margin: 1rem 0
 
-	ol,
-	ul
-		padding-left: 1.2em
-		margin: 1em 0
+			li
+				padding-left: 0.2rem
+				font-size: f13
+				margin-bottom: 0.5rem
 
-		li
-			padding-left: 0.2em
-			
-			p
-				font-size: inherit
-				margin: 0
-				line-height: 1.2em
-				margin-bottom: 0.6em
+				p
+					font-size: f13
+					margin: 0
+					margin-bottom: 0.5rem
 
-	ul li + li
-		padding-top: 0.4em
+		ul li + li
+			padding-top: 0.4rem
+
+		.block
+			font-size: f13
 
 legend
 	border: 0
@@ -234,7 +234,6 @@ legend
 	font-weight: 500
 	color: bw4
 	margin: 0 auto
-	text-align: center
 
 ::after,
 ::before
@@ -244,7 +243,7 @@ small
 	font-size: 60%
 
 li
-	font-size: 0.9em
+	font-size: f14
 	font-family: text
 	font-weight: 500
 
@@ -255,14 +254,16 @@ li
 
 .single-wrap
 	.block
-		font-size: 1em
-		font-family: headline
+		font-size: f16
+		font-family: text
 		font-weight: 600
 		color: bw1
-		border-left: 10px solid bw1
-		padding: 0 0 0 1.4em
+		border-left: 6px solid bw1
+		padding: 0 0 0.1em 1.4em
 		margin: 1.5em auto
-		line-height: 1.5em
+
+		a
+			underline: bw8 white
 
 		p
 			margin: 0.5em 0 0.5em 0
@@ -271,17 +272,37 @@ li
 			padding-right: 0 !important
 
 		p + p
-			margin: 0.8em 0 0.5em 0
+			margin: 0.8em 0 0 0
+
+
+	.article-button
+		color: white !important
+		background: bw1
+		border: solid 1px bw1
+		transition: background t0, border t0
+		margin: 0 auto
+		padding: 8px 9px 9px 9px
+		font-size: f13
+		text-decoration: none
+		box-shadow: none
+		font-weight: 700
+		line-height: 1.2rem
+		box-shadow: none !important
+
+		&:hover
+			background: bw8
+			border: solid 1px bw8
+			color: bw1 !important
 
 .block-inner
 	line-height: 165%
 	text-align: right
 
 	p,a
-		font-size: 0.9em
+		font-size: f14
 
 	p
-		margin-top: 0.5em
+		margin: 0.5em 0 0 0
 
 		a
 			font-size: 1em
@@ -289,6 +310,11 @@ li
 @media (max-width: large-width)
 	.single-wrap .block
 		margin-left: 0
+
+table
+	tr,
+	th
+		text-align: left
 
 blockquote
 	font-size: 1.8em
@@ -302,3 +328,4 @@ blockquote
 	p
 		margin: 0
 		line-height: 1.5em
+

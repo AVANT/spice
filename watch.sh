@@ -12,7 +12,7 @@ src=$AVANT/alpha/src/
 objects=$AVANT/objects/
 
 # print status
-printf "watching directories:\n$static\n$layouts\n$content\n$archetypes\n$src\n$objects\n\n"
+printf '%s\n---\n' "- watching"
 
 # build loop
 while inotifywait -qre modify \
@@ -22,6 +22,7 @@ while inotifywait -qre modify \
 	stylus src/styl/world.styl -o static/styles/world.css --compress
 
 	# copy over src assets
+	cp -r src/js static/
 	cp -r src/assets/* static/
 
 	# update public status page
@@ -38,4 +39,7 @@ while inotifywait -qre modify \
 		-H "Content-Type: application/json" \
 		--data '{"value":"on"}' | \
 		jq . > /dev/null
+
+	printf '%s---\n'
+
 done

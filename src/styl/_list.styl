@@ -1,184 +1,215 @@
-.pagination
-	overflow: hidden
-	margin-top: 40px
-	color: bw8
-	text-align: center
-	border: 1px solid bw9
+.site-wrapper
+	margin-top: 300px
 
-	a,span
-		box-sizing: border-box
-		float: left
-		width: 50%
-		padding: 20px
-		text-decoration: none
+.list-wrapper
+	max-width: 700px
+	margin: 0 auto
 
-		&:first-child
-			text-decoration: none
-			border-right: 1px solid bw9
+// #pagination
+// 	overflow: hidden
+// 	margin-top: 40px
+// 	color: bw8
+// 	text-align: center
+// 	border: 1px solid bw9
 
-.item-title
-	margin 2em 0 0 4em
+// 	a,
+// 	span
+// 		box-sizing: border-box
+// 		float: left
+// 		width: 50%
+// 		padding: 20px
+// 		text-decoration: none
 
-@media (max-width: small-width)
-	.list-wrap .single-content
-		padding-bottom: 3.5em
+// 		&:first-child
+// 			text-decoration: none
+// 			border-right: 1px solid bw9
 
-.list-wrap
-	width: 100%
-	max-width: small-width
-	margin: 1em auto
-	font-family: text
-	z-index: 1
+// .item-title
+// 	margin 2em 0 0 4em
 
-	.single-content
-		padding: 0 2em
+// #home
+// 	min-height: 70%
+// 	width: calc(100% - 74px)
+// 	margin-left: 36px
 
-	.feat
-		text-align: center
-		border-bottom: 1px dotted bw9
-		margin: 0 auto 3.5em
+// 	*
+// 		box-sizing: border-box
 
-		.popup
-			display: inline-block
-			position: relative
-			top: 0.7em
-			font-size: 100%
-			text-align: center
-			text-decoration: none
-			padding: 0 1em
+// 	.items
+// 		top: 100px
+// 		height: auto
+// 		margin: 0 auto
+// 		position: relative
 
-	.date
-		display: inline-block
-		position: relative
-		font-family: headline
-		font-style: italic
-		font-size: 85%
-		text-align: center
-		font-style: italic
-		margin: 0 auto
-		padding: 0 1em
-		text-transform: none
+// 		&:after
+// 			content: ' '
+// 			display: block
+// 			clear: both
 
-	.page-title
-		font-size: 120%
-		line-height: 135%
-		font-family: headline
-		font-weight: 700
+// 		.post-sizer,
+// 		.post
+// 			width: 1200px
 
+// 		.post
+// 			float: left
+// 			display: block
+// 			margin: 0
 
-#home
-	min-height: 70%
+// 			&:hover
+// 				z-index: 6
 
-	*
-		box-sizing: border-box
+// 			a
+// 				color: bw1
+// 				text-decoration: none
+// 				margin: 0
+// 				display: block
 
-	.items
-		padding-top: 75px
-		height: auto
-		margin: 0 auto
-		position: relative
-		left: 20px
-		width: calc(100% - 50px) !important
+// 				.p-wrap-border
+// 					display: none
 
-		&:after
-			content: ' '
-			display: block
-			clear: both
+// 				.p-wrap
+// 					font-family: headline
+// 					position: relative
+// 					transition: background-color t0
+// 					padding: 2.3rem 3.7rem
 
-		.post-sizer,
-		.post
-			width: 800px
+// 					&:hover
+// 						background-color: white
+// 						z-index: 5
 
-		.post
-			float: left
-			display: block
-			margin: -25px
+// 					.list-title
+// 						font-weight: 700
+// 						font-size: f20
+// 						color: bw1
+// 						margin: 0 0.5rem 2rem 0.5rem
 
-			a
-				color: bw1
-				text-decoration: none
-				margin: 0
-				display: block
+// 					.list-author 
+// 						font-weight: 600
+// 						text-align: right
+// 						display: block
+// 						margin: 1.9rem 0 0 0
 
-			p
-				z-index: 3
+// 						p
+// 							margin: 0
+// 							font-size: f16
+// 							line-height: 1.4em
 
-			.p-wrap
-				padding: 7em
-				font-family: headline
-				position: relative
-				transition: background t0
+// 					.list-img-wrapper .list-cover
+// 						width: 100%
 
-				&:hover
-					background: white
+// 		.project
+// 			margin-top: 0
 
-				.list-title
-					font-weight: 700
-					font-size: 1.5em
-					color: bw1
-					margin: 0.5em 0 1em 0
+// 			&:first-child
+// 				margin-top: 0px
 
-				.list-author 
-					font-weight: 600
-					font-size: 1.3em
-					text-align: right
-					display: block
-					margin-top: 2em
+// 			&:last-child
+// 				margin-bottom: 0
 
-					p
-						margin: 0.4em 0
+// 			a
+// 				.p-wrap-border
+// 					width: 100%
+// 					height: 100%
+// 					box-shadow: inset 0 0 0 2px white
+// 					opacity: 0.85
+// 					top: 0
+// 					left: 0
+// 					position: absolute
+// 					display: block
+// 					z-index: 5
+// 					background-color: rgba(255, 255, 255, 0)
+// 					transition: background-color t0
+// 					box-sizing: content-box
 
-		.project 
-			.p-wrap
-				border: solid 1px bw1
-				z-index: 2
+// 				&:hover
+// 					.p-wrap-border
+// 						z-index: 5
+// 						opacity: 1
 
-		.event
-			width: 378px
+// 					.p-wrap
+// 						background-color: rgba(255, 255, 255, 1)
+// 						z-index: 6
 
-			.p-wrap
-				background-color: rgba(200, 200, 200, 0.5)
+// 				.p-wrap
+// 					z-index: 4
+// 					background-color: rgba(255, 255, 255, 0)
 
-		.artifact
-			width: 378px
-			//margin: -20px
+// 		.event,
+// 		.artifact,
+// 		.gallery
+// 			z-index: 1
 
-			.p-wrap
-				background-color: rgba(255, 255, 255, 0.5)
+// 		.event a
+// 			background-color: rgba(200, 200, 200, 0.65)
 
-		.gallery .p-wrap
-			border: solid 1px bw1
+// 		.artifact a
+// 			background-color: rgba(255, 255, 255, 0.65)
+
+// 		.gallery a
+// 			background-color: rgba(160, 160, 160, 0.65)
 
 
-// LARGE-WIDTH
-@media (max-width: large-width)
-	#home
-		.items li .p-wrap:hover::after
-			content: none
-			margin: 0
+// // LARGE-WIDTH
+// @media (max-width: large-width)
+// 	#home
+// 		margin: 0 auto
+// 		width: 100%
 
-		.items li .p-wrap
-			padding: 2em
+// 		.items
+// 			top: 65px
+// 			left: 0
+// 			margin: 0 auto !important
+// 			width: calc(100% - 5.5rem) !important
+// 			height: 100% !important
+// 			max-width: 600px
 
-		.items li time
-			display: block
+// 			.post
+// 				width: 100% !important
+// 				margin: 1.5rem auto !important
+// 				position: static !important
 
-// SMALL-WIDTH
-@media (max-width: small-width)
-	#home
-		.items li
-			width: 90%
-			margin 1em auto
-			min-width: 240px
+// 				a
+// 					.p-wrap-border
+// 						display: none
+
+// 			.project
+// 				.p-wrap
+// 					box-shadow: inset 0 0 0 2px #fff
+
+// // SMALL-WIDTH
+// @media (max-width: small-width)
+// 	#home .items .post a .p-wrap
+// 		padding: 2rem 3rem
+
+// 		.list-title
+// 			margin: 0 0.5rem 2rem 0.5rem
+// 			font-size: f18
+
+// 		.list-author
+// 			margin: 1.5rem 0.5rem 0 0.5rem
+
+// 			p
+// 				font-size: f14
+
 
 //-------------------------------
 // infinite scroll load animation
 //-------------------------------
 
+
+.index .spinner
+	bottom: -62px !important
+
 .spinner
-	margin: 20px auto 0 auto
-	width: 70px
+	position: absolute
+	bottom: -62px
+	width: 100%
 	text-align: center
+	z-index: 6
+
+	&.load
+		bottom: -92px
+		margin-top: 40px
 
 	.bounce1
 		animation-delay: -0.32s
@@ -199,3 +230,8 @@
 		transform: scale(0)
 	40%
 		transform: scale(1)
+
+@media (max-width: large-width)
+	.spinner
+		width: 100%
+

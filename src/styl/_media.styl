@@ -9,18 +9,23 @@ figure
 	figcaption
 		top: 100%
 		position: relative
+		padding-top: 0.5rem
+		max-width: inherit !important
+
+		*
+			max-width: inherit !important
 
 .single-figure
 	width: 100%
 	margin: 0 auto
 	display: block
+	max-width: inherit
 
 .sigle-img-wrapper,
 .list-img-wrapper
 	position: relative
 	height: 0
 
-.list-cover,
 .figure
 	position: absolute
 	top: 0
@@ -60,6 +65,10 @@ audio:not([controls])
 		position: relative
 		top: 50%
 		transform: translateY(-50%) !important
+
+		.caption
+			text-align: center
+			color: bw1
 
 		.gallery-cell-image
 			display: block
@@ -135,19 +144,20 @@ audio:not([controls])
 //------------
 
 .media-box
-	margin: 0 auto
+	margin: 3.5rem auto 3rem auto
 	padding:  0em 0 0.5em 0
 	display: block
 	width: 100%
 
 .audio-box
-	margin: 1.5em 0 2.5em !important
+	margin: 2rem auto
 
 audio,
 audio.b-lazy.b-loaded,
 video
 	-webkit-appearance:none
 	margin: 1em auto 0.5em auto
+	width: 100%
 
 	&::-webkit-progress-value
 		background: blue0
@@ -158,44 +168,25 @@ video
 	&::-webkit-media-controls-play-button
 		color: bw1
 
-	// &::-webkit-media-controls-volume-slider,
-	// &::-webkit-media-controls-mute-button,
-	// &::-webkit-media-controls-timeline,
-	// &::-webkit-media-controls-timeline-container
-	// 	background: red
-	// 	color: red
-
-
 	&::-webkit-media-controls-current-time-display
 		color: bw4
 
 	&::-webkit-media-controls-time-remaining-display
 		color: bw4
 
-	// &::-webkit-media-controls-seek-back-button
-
-	// &::-webkit-media-controls-seek-forward-button
-
-	// &::-webkit-media-controls-fullscreen-button
-
-	// &::-webkit-media-controls-rewind-button
-
-	// &::-webkit-media-controls-return-to-realtime-button
-
-	// &::-webkit-media-controls-toggle-closed-captions-button
-
-	// &::-webkit-media-controls-status-display
-
 audio
 	display: block
+	margin-top: 3.5rem !important
 
 .media-box-inner
 	display: block
 	margin: 0 auto
+	max-width: inherit
 
 .single-video
 	display: block
 	margin: 0 auto
+	max-width: inherit
 
 .img-box p
 	margin-bottom: 0
@@ -242,10 +233,10 @@ svg:not(:root)
 
 .media-text p
 	font-size: 0.8em
-	padding: 1em 1em 0.5em 1em
+	padding: 1em 1em 0 1em
 	font-family: headline
 	font-weight: 500
-	color: bw4
+	color: bw1
 	margin: 0 auto
 
 	&:empty
@@ -263,18 +254,4 @@ svg:not(:root)
 		height: auto
 		max-width: none
 
-// cover images
-.cover
-	margin: 6.5% 0 0 6.5%
-	width: 62%
-	background-size: cover
-	background-repeat: no-repeat
-	background-position: center center
-	transition: all 0.1s ease-in-out
-	min-height: 500px
 
-@media (max-width: large-width)
-	.cover
-		width: 100% !important
-		margin 0 auto
-		min-height: none
