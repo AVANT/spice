@@ -24,11 +24,13 @@
 		vertical-align: baseline
 		transition: all 0.2s ease
 
-		&:hover
-			underline: white bw1
-
 	p
 		font-size: f14
+
+
+//---
+// hr
+//---
 
 #foot-hr
 	margin: 0 3rem
@@ -58,11 +60,15 @@
 			margin-right: 0
 
 #foot-logo
+	width: 100%
 	position: absolute
 	display: block
-	left: calc(50% - 38px)
 	bottom: calc(50% - 34px)
 	margin: 0
+	text-align: center
+
+	.logo
+		width: 80px
 
 	#a
 		fill: #e3e3e3
@@ -73,10 +79,23 @@
 	#fill
 		fill: white
 
-//------------
-// small width
-//------------
 
+//------
+// links
+//------
+
+#foot-links
+	font-family: programm
+	position: absolute
+	color: bw1
+	right: 0
+	top: 1.2rem
+	text-align: right
+
+	&:hover
+		underline: white bw1
+
+// small
 @media (max-width: small-width)
 	#foot-links
 		top: 0
@@ -92,19 +111,6 @@
 		bottom: 2rem
 
 
-//------
-// links
-//------
-
-#foot-links
-	font-family: programm
-	position: absolute
-	color: bw1
-	right: 0
-	top: 1.2rem
-	text-align: right
-
-
 //--------
 // address
 //--------
@@ -116,6 +122,9 @@
 
 	:first-child
 		margin-bottom: 1rem
+
+	a:hover
+		underline: white bw1
 
 
 // ----------
@@ -187,7 +196,7 @@
 
 			&:hover
 				color: bw5
-
+// small
 @media (max-width: small-width)
 	#foot-newsletter
 		z-index: 2
