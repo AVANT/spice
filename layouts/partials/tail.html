@@ -1,34 +1,44 @@
-</div>
 </body>
 
-<!-- jquery -->
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<div id="scripts">
 
-<!-- font loading -->
-<script type="text/javascript" src="{{ .Site.BaseURL }}js/vendor/fontfaceobserver.standalone.js"></script>
+	{{ if or (eq .Kind "page") (eq .Kind "taxonomy") (eq .Kind "taxonomyTerm") }}
+		<script>
+			foot = document.getElementById('foot');
+			try { foot.style.opacity = "1"; foot.style.height = "280px"; } catch(e) { "waiting for footer" };
+		</script>
+	{{ end }}
 
-<!-- carousel -->
-<script type="text/javascript" src="{{ .Site.BaseURL }}js/vendor/flickity.pkgd.min.js"></script>
+	<!-- jquery -->
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
-<!-- lazy loading -->
-<script src="//cdn.jsdelivr.net/blazy/latest/blazy.min.js"></script>
+	<!-- font loading -->
+	<script type="text/javascript" src="{{ .Site.BaseURL }}js/vendor/fontfaceobserver.standalone.js"></script>
 
-<!-- js main -->
-<script type="text/javascript" src="{{ .Site.BaseURL }}js/main.js"></script>
+	<!-- carousel -->
+	<script type="text/javascript" src="{{ .Site.BaseURL }}js/vendor/flickity.pkgd.min.js"></script>
 
-<!-- infinite scroll -->
-<script type="text/javascript" src="{{ .Site.BaseURL }}js/vendor/ias-min.js"></script>
+	<!-- lazy loading -->
+	<script src="//cdn.jsdelivr.net/blazy/latest/blazy.min.js"></script>
 
-<!-- syntax -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
+	<!-- js main -->
+	<script type="text/javascript" src="{{ .Site.BaseURL }}js/main.js"></script>
 
-<!-- google analytics -->
-{{ template "_internal/google_analytics.html" . }}
+	<!-- infinite scroll -->
+	<script type="text/javascript" src="{{ .Site.BaseURL }}js/vendor/ias-min.js"></script>
 
-<!-- optionally insert shortcode js --> 
-{{ if ($.Scratch.Get "js") ne "" }}
-	{{ ($.Scratch.Get "js") | safeHTML }}
-{{ end }}
+	<!-- syntax -->
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+
+	<!-- google analytics -->
+	{{ template "_internal/google_analytics.html" . }}
+
+	<!-- optionally insert shortcode js --> 
+	{{ if ($.Scratch.Get "js") ne "" }}
+		{{ ($.Scratch.Get "js") | safeHTML }}
+	{{ end }}
+
+</div>
 
 </html>

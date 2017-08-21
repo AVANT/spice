@@ -1,5 +1,5 @@
 <!-- required open graph info -->
-<meta property="og:title" content="{{ .Title }}" />
+<meta property="og:title" content="{{ if (eq .Kind "section") }}{{ .Title | singularize }}{{ else }}{{ .Title }}{{ end }}" />
 <meta property="author" content="{{ with .Params.author }}{{ range . }}{{ . }}{{ end }}{{ end }}" />
 <meta property="og:description" content='{{ if isset .Params "excerpt" }}{{ .Params.excerpt }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ end }}{{ end }}' />
 <meta property="og:type" content="{{ if .Params.type }}{{ .Params.type }}{{ else }}website{{ end }}" />

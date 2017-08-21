@@ -3,5 +3,5 @@
 <meta name="twitter:image:src" content="{{ with .Params.cover }}{{ . }}{{ else }}http://objects.avant.org/logos/logo.png{{ end }}"/>
 
 <!-- twitter card data -->
-<meta name="twitter:title" content="{{ .Title }}"/>
+<meta name="twitter:title" content="{{ if (eq .Kind "section") }}{{ .Title | singularize }}{{ else }}{{ .Title }}{{ end }}"/>
 <meta name="twitter:description" content='{{ if isset .Params "excerpt" }}{{ .Params.excerpt }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ end }}{{ end }}'/>

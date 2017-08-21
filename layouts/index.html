@@ -1,13 +1,9 @@
 {{ partial "head" . }}
 {{ partial "site-map" . }}
 
-<main id="homepage" class="list">
+<main id="list" class="homepage">
 
-	<article>
-		{{ .Content }}
-	</article>
-
-	<ul class="items index" id="posts">
+	<ul class="posts">
 		{{ $paginator := .Paginate (where (where .Data.Pages.ByDate.Reverse "Type" "not in"  (slice "imprint" "json")) "Draft" "!=" true ) }}
 		{{ range $paginator.Pages }}
 			{{ partial "card.html" . }}
@@ -17,5 +13,5 @@
 </main>
 
 {{ partial "pagination" . }}
-{{ partial "footer" . }}
+{{ partial "foot" . }}
 {{ partial "tail" . }}

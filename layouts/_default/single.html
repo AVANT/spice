@@ -3,13 +3,14 @@
 
 <main class="single">
 
-	<img class="cover-img" src="{{ with .Params.cover }}{{ . }}{{ end }}">
-
-	<article class="text-body">
+	<article class="{{ $.Scratch.Get "type" }}">
 		{{ .Content }}
 	</article>
 
 </main>
 
-{{ partial "footer" . }}
+<!-- maintain scroll position -->
+<script type="text/javascript" src="{{ .Site.BaseURL }}js/vendor/maintainscroll.jquery.min.js"></script>
+
+{{ partial "foot" . }}
 {{ partial "tail" . }}

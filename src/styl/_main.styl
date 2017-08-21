@@ -16,38 +16,59 @@ html
 	max-width: 100%
 	overflow-x: hidden
 
-	body,
-	td
-		font-size: f16
-		font-family: text
-		font-weight: 400
-		color: bw1
-		margin: 0
-		background-color: bw10
-		transition: opacity t0
-		text-rendering: optimizeLegibility
-		-webkit-font-smoothing: antialiased
+body,
+td
+	font-size: f15
+	font-family: text
+	font-weight: 400
+	color: bw1
+	margin: 0
+	background-color: bw10
+	transition: opacity t0
+	text-rendering: optimizeLegibility
+	-webkit-font-smoothing: antialiased
 
-		th
-			text-align: left
+th
+	text-align: left
 
-		main
-			margin-bottom: 215px
-			min-height: 70%
+.site-wrapper
+	-webkit-overflow-scrolling: touch
+	top: 0
+	position: absolute
 
-	.site-wrapper
-		-webkit-overflow-scrolling: touch
-		top: 0
-		position: absolute
+.hyphenate
+	hyphens: auto
 
-	.hyphenate
-		hyphens: auto
-
-	.donthyphenate
-		hyphens: none
+.donthyphenate
+	hyphens: none
 
 iframe
 	border:none
+
+ul
+	padding: 0
+	margin: 0
+
+hr
+	box-sizing: inherit
+	border: none
+	height: 2px
+
+
+main
+	width: 900px
+	margin: 0 auto
+	margin-bottom: 215px
+	min-height: 70%
+
+@media (max-width: large-width)
+	main
+		width: 600px
+
+@media (max-width: medium-width)
+	main
+		width: 300px
+
 
 input:active,
 input:focus,
@@ -98,16 +119,22 @@ h2,
 h4,
 h6
 	font-family: headline
-	font-weight: 700
+	font-weight: 600
 	color: bw1
 
 h1
+	font-size: f22
 	margin: .67em 0
-	font-size: f25 
 
 h2
-	font-size: 130%
+	font-size: f20
 	margin: 1.5em 0 .5em
+
+h3
+	font-size: f18
+
+h5
+	font-size: f16
 
 h3,
 h5
@@ -116,11 +143,7 @@ h5
 	color: bw1
 	font-family: text
 
-h3
-	font-size: f16
 
-h5
-	font-size: f14
 
 a
 	color: bw1
@@ -132,9 +155,10 @@ a
 		color: bw1
 
 p
-	font-size: 0.9em
-	margin: 1em auto
-	line-height: 1.5
+	font-size: f15
+	margin: 0 auto
+	line-height: 145%
+	hanging-punctuation: first
 
 	&:empty
 		margin: 0 !important
@@ -145,10 +169,6 @@ p
 b,
 strong
 	font-weight: 600
-
-hr
-	box-sizing: content-box
-	height: 0
 
 .spacer
 	text-align: center

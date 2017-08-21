@@ -3,39 +3,36 @@
 
 <main class="terms">
 
-	{{ $taxonomyName := .Data.Plural }}
-	{{ $description := printf "%s-desc" .Data.Singular }}
-	{{ $taxonomyDescription := index $.Site.Taxonomies $description }}
-
-	<article>
-		{{ .Content }}
-	</article>
-
 	<ul class="terms-list">
-	{{ range $name, $pages := .Data.Terms }}
-		{{ $page := index $pages 0 }}
-		{{ $len := len $pages }}
-		{{ range $friendly := index $page.Page.Params $taxonomyName }}
-			{{ if eq ($friendly | urlize) $name }}
-				<li>
-					<a href="{{ (printf "/%s/%s" $taxonomyName $name) | relURL }}">{{ $friendly | title }}</a>
-					&nbsp;<span class="nav-item-number">[ {{ $len }} ]<span>
-				</li>
+		{{ $taxonomyName := .Data.Plural }}
+		{{ $isThread := eq .Type "thread" }}
+
+		{{ range $pageName, $pageList := (where .Data.Terms "Draft" "!=" true) }}
+
+			{{ $firstPage := index $pageList 0 }}
+
+			{{ range $threadName := index $firstPage.Page.Params $taxonomyName }}
+
+				{{ if eq ($threadName | urlize) $pageName }}
+
+
+					<li class="term">
+						<a href="{{ (printf "/%s/%s" $taxonomyName $pageName) | relURL }}" class="term-title">{{ $threadName | title }}</a>
+						<span class="term-number">{{ len $pageList }}</span>
+
+{{/*
+						{{ if $isThread }}
+							<span class="term-desc">{{ with $page.Params }}{{ . }}{{ end }}</span>
+						{{ end }}
+*/}}
+
+					</li>
+				{{ end }}
 			{{ end }}
 		{{ end }}
-
-		{{ $descPages := index $taxonomyDescription $name }}
-		{{ if len $descPages }}
-		<li>
-			{{ $descPage := index $descPages 0 }}
-			<span class="term-desc">{{ $descPage.Page.Content }}</span>
-		</li>
-		{{ end }}
-	{{ end }}
 	</ul>
 
 </main>
 
-{{ partial "footer" . }}
-{{ partial "footer-load" . }}
+{{ partial "foot" . }}
 {{ partial "tail" . }}

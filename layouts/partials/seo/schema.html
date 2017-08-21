@@ -1,5 +1,5 @@
 <!-- schema.org markup -->
-<meta itemprop="name" content="{{ .Title }}">
+<meta itemprop="name" content="{{ if (eq .Kind "section") }}{{ .Title | singularize }}{{ else }}{{ .Title }}{{ end }}">
 <meta itemprop="description" content='{{ if isset .Params "excerpt" }}{{ .Params.excerpt }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ end }}{{ end }}'>
 
 <!-- output images -->

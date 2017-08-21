@@ -1,103 +1,80 @@
 <div id="site-map">
 
-	<!-- LOGO -->
-	<div class="logo-link-wrapper no-touch">
-		<a class="logo-link">
-			<img class="logo" src="{{ $.Site.BaseURL }}logo_san.svg" alt="Avant.org logo">
-		</a>
-	</div>
+<!-- 	<a id="site-map-logo" href="{{ $.Site.BaseURL }}">
+		<img class="logo" src="{{ $.Site.BaseURL }}logo.svg">
+	</a> -->
+
+	<!-- <a id="site-map-home" href="{{ $.Site.BaseURL }}">Avant.org</a> -->
+
+	<a id="site-map-logo" href="{{ $.Site.BaseURL }}">
+		<img class="logo" src="{{ $.Site.BaseURL }}logo.svg">
+	</a>
+
+	<ul id="site-map-type" class="site-map-base-links{{ if (eq .Kind "section") }} {{ .Title | singularize | lower }}{{ end }}
+
+	{{ if (eq .Kind "page") }}{{ $section := .Section }}
+		{{ with .Site.GetPage "section" $section }} {{ .Section | lower }}{{end}}
+	{{ end }}
+
+	">
+		<li>
+			<a href="{{ $.Site.BaseURL }}project/" class="project">Project</a>
+			<span>{{ if (eq .Kind "page") }}{{ $section := .Section }}{{ if (eq $section "project") }} — {{ .Params.title }}{{ end }}{{ end }}</span>
+		</li>
+		<li>
+			<a href="{{ $.Site.BaseURL }}event/" class="event">Event</a>
+			<span>{{ if (eq .Kind "page") }}{{ $section := .Section }}{{ if (eq $section "event") }} — {{ .Params.title }}{{ end }}{{ end }}</span>
+		</li>
+		<li>
+			<a href="{{ $.Site.BaseURL }}artifact/" class="artifact">Artifact</a>
+			<span>{{ if (eq .Kind "page") }}{{ $section := .Section }}{{ if (eq $section "artifact") }} — {{ .Params.title }}{{ end }}{{ end }}</span>
+		</li>
+		<li>
+			<a href="{{ $.Site.BaseURL }}gallery/" class="gallery">Gallery</a>
+			<span>{{ if (eq .Kind "page") }}{{ $section := .Section }}{{ if (eq $section "gallery") }} — {{ .Params.title }}{{ end }}{{ end }}</span>
+		</li>
+	</ul>
 
 
-	<!-- links -->
-
-	<div class="links">
-
-		<ul class="site-map-home">
-			<li><a href="{{ $.Site.BaseURL }}">Avant.org</a></li>
-		</ul>
-
-		<ul class="site-map-imprint">
-			<li><a href="{{ $.Site.BaseURL }}imprint/">Imprint</a></li>
-		</ul>
-
-		<ul class="site-map-type">
-			<li><a class="upper" href="{{ $.Site.BaseURL }}project/">Project</a></li>
-			<li><a class="upper" href="{{ $.Site.BaseURL }}artifact/">Artifact</a></li>
-			<li><a class="upper" href="{{ $.Site.BaseURL }}event/">Event</a></li>
-			<li><a class="upper" href="{{ $.Site.BaseURL }}gallery/">Gallery</a></li>
-		</ul>
-
-		<ul class="site-map-schema">
-			<li><a href="{{ $.Site.BaseURL }}thread/">Thread</a></li>
-			<li><a href="{{ $.Site.BaseURL }}tag/">Tag</a></li>
-			<li><a href="{{ $.Site.BaseURL }}author/">Author</a></li>
-		</ul>
-
-	</div>
-
-
-	<!-- BREADCRUMBS -->
-
-	{{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
-	{{ $.Scratch.Add "path" .Site.BaseURL }}
-
-		<!-- parent -->
-		{{ range $index, $element := split $url "/" }}
-		{{ $.Scratch.Add "path" $element }}
-		{{ if ne $element "" }}
-			{{ if $index }}{{else}}
-
-				<span class="site-map-type-is"><a href='{{ $.Scratch.Get "path" }}'>{{ . | title }}</a></span>
-
-				{{ $.Scratch.Add "path" "/" }}
-
-			{{ end }}
-		{{ end }}
-		{{ end }}
-
-		<!-- page -->
-		{{ if .IsNode }}
-
-			{{ $root := . }}
-			{{ $title := (.Title | urlize | title) }}
-
-			{{ if .Data.Pages }}
-
-				{{ $page := (index .Data.Pages 0) }}
-				{{ $plural := .Data.Plural }}
-				{{ $singular := .Data.Singular }}
-
-				{{ range $taxonomy, $value := .Data }}
-				{{ if eq $taxonomy $singular }}
-
-					{{ range (index $page.Params $plural) }}
-					{{ if eq $title (. | urlize | title) }}
-
-						<span class="bc-title nohyphen">{{ . | title }}</span>
-
-						{{ $desc := printf "%s-desc" $taxonomy }}
-						{{ $desctax := index $root.Site.Taxonomies $desc }}
-						{{ $descpages := index $desctax (. | urlize) }}
-
-						{{ if len $descpages }}
-							{{ $descpage := index $descpages 0 }}
-							<span class="term-desc">{{ $descpage.Page.Content }}</span>
-						{{ end }}
-
+	<ul id="site-map-meta" class="site-map-base-links{{ if (eq .Kind "taxonomyTerm") }} {{ .Title | lower }}{{ end }}{{ if (eq .Kind "taxonomy") }} {{ .Data.Singular | lower }}{{ end }}">
+		<li>
+			<a href="{{ $.Site.BaseURL }}thread/" class="thread">
+				{{ if (eq .Kind "taxonomy") }}
+					{{ if eq (.Data.Singular | lower) "thread" }}{{ .Title }} — {{ end }}
+				{{ end }}Thread
+			</a>
+			{{ with .Params.thread }}
+				<ul class="thread">
+					{{ range . }}
+						<li class="thread">
+							<a href="{{ $.Site.BaseURL  }}thread/{{ . | urlize }}">{{ . }}</a>
+						</li>
 					{{ end }}
-					{{ end }}
-
-				{{ end }}
-				{{ end }}
-
+				</ul>
 			{{ end }}
-
-		{{ else }}
-
-			<ul class="title">
-				{{ .Params.title }}
-			</ul>
-
+		</li>
+		<li>
+			<a href="{{ $.Site.BaseURL }}tag/" class="tag">
+				{{ if (eq .Kind "taxonomy") }}
+					{{ if eq (.Data.Singular | lower) "tag" }}{{ .Title }} — {{ end }}
+				{{ end }}Tag
+			</a>
+			{{ with .Params.tag }}
+				<ul class="tag">
+					{{ range . }}
+						<li class="tag">
+							<a href="{{ $.Site.BaseURL  }}tag/{{ . | urlize }}">{{ . }}</a>
+						</li>
+					{{ end }}
+				</ul>
+			{{ end }}
+		</li>
+		<li>
+			<a href="{{ $.Site.BaseURL }}author/" class="author">
+				{{ if (eq .Kind "taxonomy") }}
+					{{ if eq (.Data.Singular | lower) "author" }}{{ .Title }} — {{ end }}
+				{{ end }}Author
+			</a>
 			{{ with .Params.author }}
 				<ul class="author">
 					{{ range . }}
@@ -107,42 +84,44 @@
 					{{ end }}
 				</ul>
 			{{ end }}
-
-			<div class=time>{{ if isset .Params "date" }}{{ .Date.Format "2 January 2006" }}{{ end }}</time>
-
-			{{ if isset .Params "tag" }}
-					<ul class="thread-tag">
-			{{ else if isset .Params "thread" }}
-					<ul class="thread-tag">
-			{{ else }}
-			{{ end }}
-
-			{{ with .Params.thread }}
-				{{ range . }}
-					<li class="thread">
-						<a href="{{ $.Site.BaseURL  }}thread/{{ . | urlize }}">{{ . }}</a>
-					</li>
-				{{ end }}
-			{{ end }}
-
-			{{ with .Params.tag }}
-				{{ range . }}
-					<li class="tag">
-						<a href="{{ $.Site.BaseURL  }}tag/{{ . | urlize }}">{{ . }}</a>
-					</li>
-				{{ end }}
-			{{ end }}
-
-			{{ if isset .Params "tag" }}
+		</li>
+		<li>
+			<a href="{{ $.Site.BaseURL }}editor/" class="editor">
+				{{ if (eq .Kind "taxonomy") }}
+					{{ if eq (.Data.Singular | lower) "editor" }}{{ .Title }} — {{ end }}
+				{{ end }}Editor
+			</a>
+			{{ with .Params.editor }}
+				<ul class="editor">
+					{{ range . }}
+						<li>
+							<a href="{{ $.Site.BaseURL  }}editor/{{ . | urlize }}">{{ . }}</a>
+						</li>
+					{{ end }}
 				</ul>
-			{{ else if isset .Params "thread" }}
-				</ul>
-			{{ else }}
 			{{ end }}
+		</li>
+	</ul>
 
+	{{ if (eq .Kind "page") }}
+
+		{{ if isset .Params "date" }}
+			<div id="date">{{ .Date.Format "2 January 2006" }}</div>
 		{{ end }}
 
-	</span>
-	</h1>
+	{{ end }}
+
+
+	<div id="splash" class="{{ .Title | lower }} clearfix">
+		
+		{{ with .Params.cover }}<img class="cover-img" src="{{ . }}">{{ end }}
+		
+		{{ if ne .Kind "page" }}
+			{{ .Content }}
+		{{ end }}
+
+	</div>
 
 </div>
+
+<!-- <hr id="site-map-hr" noshade> -->

@@ -3,21 +3,16 @@
 
 <main class="taxonomy">
 
-	<article>
-		{{ .Content }}
-	</article>
-
-	<ul class="taxonomy-list">
+	<ul class="meta-list">
 		{{ range .Data.Pages }}
-		{{ if ne .Draft true}}
-			{{ partial "card.html" . }}
-		{{ end }}
+			{{ if ne .Draft true}}
+				{{ partial "card.html" . }}
+			{{ end }}
 		{{ end }}
 	</ul>
 
 </main>
 
 {{ partial "pagination" . }}
-{{ partial "footer" . }}
-{{ partial "footer-load" . }}
+{{ partial "foot" . }}
 {{ partial "tail" . }}

@@ -10,26 +10,27 @@
 	<!ENTITY ns_custom "http://ns.adobe.com/GenericCustomNamespace/1.0/">
 	<!ENTITY ns_adobe_xpath "http://ns.adobe.com/XPath/1.0/">
 ]>
-<svg version="1.1" id="Layer_1" xmlns:x="&ns_extend;" xmlns:i="&ns_ai;" xmlns:graph="&ns_graphs;"
-	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 800 800"
-	 enable-background="new 0 0 800 800" xml:space="preserve">
+<svg version="1.1" id="base" xmlns:x="&ns_extend;" xmlns:i="&ns_ai;" xmlns:graph="&ns_graphs;"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1000 1000"
+	 enable-background="new 0 0 1000 1000" xml:space="preserve">
 <metadata>
 	<sfw  xmlns="&ns_sfw;">
 		<slices></slices>
-		<sliceSourceBounds  width="410.1" height="414.5" bottomLeftOrigin="true" y="-213.3" x="-212.9"></sliceSourceBounds>
+		<sliceSourceBounds  height="1000" width="1000" x="-500" y="-500" bottomLeftOrigin="true"></sliceSourceBounds>
 		<optimizationSettings>
-			<targetSettings  targetSettingsID="0" fileFormat="PNG24Format">
-				<PNG24Format  transparency="true" interlaced="false" filtered="false" matteColor="#FFFFFF" noMatteColor="false">
+			<targetSettings  fileFormat="PNG24Format" targetSettingsID="0">
+				<PNG24Format  transparency="true" noMatteColor="false" interlaced="false" filtered="false" matteColor="#FFFFFF">
 					</PNG24Format>
 			</targetSettings>
 		</optimizationSettings>
 	</sfw>
 </metadata>
-<g>
-	<path d="M233.5,287.1c0-14.7-1.5-30.2-18.4-30.2c-9.6,0-19.1,2.2-22.8,3.7l-5.2-22.1c25.8-23.6,58.2-39.8,102.3-39.8
-		c44.9,0,77.3,22.1,90.6,61.1c20.6-31.7,54.5-58.2,109-58.2c63.3,0,108.2,34.6,108.2,100.1c0,64.8-44.2,91.3-95.7,109l-119.3,41.2
-		v81c0,29.5,7.4,49.3,31.7,49.3c25.8,0,35.3-22.8,35.3-56.7c0-17.7-2.9-36.1-7.4-54.5l91.3-11.8c22.1,7.4,38.3,25.8,38.3,53.7
-		c0,69.9-72.2,100.1-164.2,100.1c-107.5,0-173.8-31.7-173.8-131.1V287.1z M382.2,282v136.2l29.5-11c23.6-8.8,39.8-20.6,39.8-64.1
-		c0-36.8-12.5-64.8-47.9-64.8C395.5,278.3,389.6,279.8,382.2,282z"/>
-</g>
+<rect id="back" display="none" fill="#FFFFFF" width="1000" height="1000"/>
+<path id="circle" fill="none" d="M500,103.4c-218.3,0-395.3,177-395.3,395.3S281.7,894,500,894s395.3-177,395.3-395.3
+	S718.3,103.4,500,103.4z M500,864C298.8,864,135.8,701,135.8,499.8S298.8,135.6,500,135.6s364.2,163.1,364.2,364.2
+	S701.2,864,500,864z"/>
+<path id="fill" fill="none" d="M500,103.4c-218.3,0-395.3,177-395.3,395.3S281.7,894,500,894s395.3-177,395.3-395.3
+	S718.3,103.4,500,103.4z"/>
+<path id="a" fill="none" d="M649.6,310.7l-57.7,145.6l-137.1,0l-59.8-145.6l-79.4,0l186.7,454.5l180.2-454.5L649.6,310.7z
+	 M524.4,626.5l-57.2-139.3h112.5L524.4,626.5z"/>
 </svg>
